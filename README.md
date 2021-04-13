@@ -119,8 +119,8 @@ successiva rimozione.
 ![Alt -> Microservices Software Stack](./img/micro_sw.svg)
 
 ------------------------------------------------------------------------------------------
-## ISTRUZIONI
-- Istruzioni per eseguire il progetto:
+## ISTRUZIONI PER ESEGUIRE IL PROGETTO
+- Comandi da eseguire:
 
     cd $HOME_REPO/docker
     
