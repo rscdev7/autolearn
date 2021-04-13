@@ -123,7 +123,9 @@ successiva rimozione.
 - Istruzioni per eseguire il progetto:
 
     cd $HOME_REPO/docker
+    
     ./build_img.sh
+    
     docker-compose up -d
 
     
@@ -132,7 +134,7 @@ successiva rimozione.
 
 ------------------------------------------------------------------------------------------
 ## STRATEGIA DI BRANCHING
-- **MASTER**, codice di produzione.
+- **MAIN**, codice di produzione.
 - **DEVELOP**, codice di sviluppo.
 - **EXPERIMENTAL**, codice sperimentale.
 
