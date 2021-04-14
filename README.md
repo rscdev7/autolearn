@@ -1,5 +1,5 @@
 # AutoLearn
-![Alt -> Software Architecture](./img/logo.svg)
+![Alt -> Software Architecture](./img/logo.png)
 
 AutoLearn è un Applicativo Distribuito che permette la gestione del ciclo di vita di un Modello di
 Machine Learning.
