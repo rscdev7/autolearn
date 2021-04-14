@@ -1,5 +1,5 @@
 # AutoLearn
-![Alt -> Software Architecture](./img/arch.svg)
+![Alt -> Software Architecture](./img/logo.svg)
 
 AutoLearn è un Applicativo Distribuito che permette la gestione del ciclo di vita di un Modello di
 Machine Learning.
@@ -104,6 +104,9 @@ successiva rimozione.
     
 
 ------------------------------------------------------------------------------------------
+## ARCHITETTURA DEL SOFTWARE
+![Alt -> Software Architecture](./img/arch.svg)
+
 ## DESIGN PATTERN
 - Session State                                     
 - Remote Proxy                                     
@@ -154,3 +157,7 @@ successiva rimozione.
 ------------------------------------------------------------------------------------------
 ## AUTORE
 - [@rscdev7](https://*.com/*) Rosario Scalia
+
+## RINGRAZIAMENTI 
+- [@e-tramontana](https://github.com/e-tramontana) Prof Emiliano Alessio Tramontana (UniCT)
+- [@fornaia](https://github.com/) Prof Andrea Francesco Fornaia (UniCT)    
