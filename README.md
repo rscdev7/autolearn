@@ -131,6 +131,9 @@ successiva rimozione.
     
     docker-compose up -d
 
+    cd $CLIENT_HOME_DIR
+    python3 autolearn_client.py
+
     
 ## DEMO
 ![Alt -> Demo](./demo/img_1.jpg)
@@ -160,4 +163,4 @@ successiva rimozione.
 
 ## RINGRAZIAMENTI 
 - [@e-tramontana](https://github.com/e-tramontana) Prof Emiliano Alessio Tramontana (UniCT)
-- [@fornaia](https://github.com/) Prof Andrea Francesco Fornaia (UniCT)    
+- [@afornaia](https://github.com/afornaia) Prof Andrea Francesco Fornaia (UniCT)    
