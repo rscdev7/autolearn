@@ -125,13 +125,13 @@ successiva rimozione.
 ## ISTRUZIONI PER ESEGUIRE IL PROGETTO
 - Comandi da eseguire:
 
-    cd $HOME_REPO/docker
+    cd $REPO_DIR/docker
     
     ./build_img.sh
     
     docker-compose up -d
 
-    cd $CLIENT_HOME_DIR
+    cd $CLIENT_APP_DIR
     
     python3 autolearn_client.py
 
