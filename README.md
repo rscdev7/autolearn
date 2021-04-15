@@ -132,6 +132,7 @@ successiva rimozione.
     docker-compose up -d
 
     cd $CLIENT_HOME_DIR
+    
     python3 autolearn_client.py
 
     
