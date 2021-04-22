@@ -105,7 +105,7 @@ successiva rimozione.
 
 ------------------------------------------------------------------------------------------
 ## ARCHITETTURA DEL SOFTWARE
-![Alt -> Software Architecture](./img/arch.svg)
+![Alt -> Software Architecture](./img/arch.png)
 
 ## DESIGN PATTERN
 - Session State                                     
@@ -123,14 +123,15 @@ successiva rimozione.
 
 ------------------------------------------------------------------------------------------
 ## ISTRUZIONI PER ESEGUIRE IL PROGETTO
-- Comandi da eseguire:
+- Imposta le Variabili d'Ambiente modificando opportunamente il file *$HOME_REPO/docker/.env*
+- Esegui i seguenti comandi:
 
     cd $REPO_DIR/docker
     
     ./build_img.sh
     
     docker-compose up -d
-
+           
     cd $CLIENT_APP_DIR
     
     python3 autolearn_client.py
