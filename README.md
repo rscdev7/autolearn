@@ -126,11 +126,11 @@ successiva rimozione.
 1. Imposta le Variabili d'Ambiente modificando opportunamente il file *$HOME_REPO/docker/.env*
 2. Avvia il backend:
 
-    cd $REPO_DIR/docker
+        cd $REPO_DIR/docker
     
-    ./build_img.sh
+        ./build_img.sh
     
-    docker-compose up -d
+        docker-compose up -d
 
 3. Da un browser, accedere al *Kafka Control Center* (*localhost:PORTA__OUT_TO_IN__CONTAINER*) e creare i seguenti Topic:
     - SessionRecord
