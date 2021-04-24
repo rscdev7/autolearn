@@ -123,20 +123,27 @@ successiva rimozione.
 
 ------------------------------------------------------------------------------------------
 ## ISTRUZIONI PER ESEGUIRE IL PROGETTO
-- Imposta le Variabili d'Ambiente modificando opportunamente il file *$HOME_REPO/docker/.env*
-- Esegui i seguenti comandi:
+1. Imposta le Variabili d'Ambiente modificando opportunamente il file *$HOME_REPO/docker/.env*
+2. Avvia il backend:
 
     cd $REPO_DIR/docker
     
     ./build_img.sh
     
     docker-compose up -d
-           
-    cd $CLIENT_APP_DIR
-    
-    python3 autolearn_client.py
 
-    
+3. Da un browser, accedere al *Kafka Control Center* (*localhost:PORTA__OUT_TO_IN__CONTAINER*) e creare i seguenti Topic:
+    - SessionRecord
+    - ExperimentRecord
+
+
+4. Avvia il frontend: 
+
+        cd $CLIENT_APP_DIR
+
+        python3 autolearn_client.py
+
+
 ## DEMO
 ![Alt -> Demo](./demo/img_1.jpg)
 
