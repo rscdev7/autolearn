@@ -112,7 +112,8 @@ successiva rimozione.
 - Remote Proxy                                     
 - Forward-Receiver                               
 - Remote Facade
-- Data Transfer Object                                     
+- Data Transfer Object    
+- Pipeline                                 
 - Event Sourcing                                    
 
 
