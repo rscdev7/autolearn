@@ -186,5 +186,5 @@ successiva rimozione.
 - [@rscdev7](https://*.com/*) Rosario Scalia
 
 ## RINGRAZIAMENTI 
-- [@e-tramontana](https://github.com/e-tramontana) Prof Emiliano Alessio Tramontana (UniCT)
-- [@afornaia](https://github.com/afornaia) Prof Andrea Francesco Fornaia (UniCT)    
+- [@e-tramontana](https://www.dmi.unict.it/tramonta/) Prof Emiliano Alessio Tramontana (UniCT)
+- [@a-fornaia](https://www.dmi.unict.it/fornaia/) Prof Andrea Francesco Fornaia (UniCT)    
