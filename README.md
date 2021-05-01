@@ -8,6 +8,7 @@ Machine Learning.
 ## BUSINESS-LOGIC
 
 ### *[ML-PIPELINE]*
+>- Visualizza Modelli e Dataset presenti nel Catalogo                                   
 >- Training impostando una serie di parametri:                                   
 >    - Dataset
 >    - Modello
