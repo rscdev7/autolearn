@@ -111,7 +111,8 @@ successiva rimozione.
 - Session State                                     
 - Remote Proxy                                     
 - Forward-Receiver                               
-- Remote Facade                                     
+- Remote Facade
+- Data Transfer Object                                     
 - Event Sourcing                                    
 
 
@@ -133,8 +134,11 @@ successiva rimozione.
         docker-compose up -d
 
 3. Da un browser, accedere al *Kafka Control Center* (*localhost:PORTA__OUT_TO_IN__CONTAINER*) e creare i seguenti Topic:
-    - SessionRecord
-    - ExperimentRecord
+    - Catalog
+    - Training
+    - Evaluation
+    - Session
+    - Storage
 
 
 4. Avvia il frontend: 
@@ -151,7 +155,6 @@ successiva rimozione.
 ## STRATEGIA DI BRANCHING
 - **MAIN**, codice di produzione.
 - **DEVELOP**, codice di sviluppo.
-- **EXPERIMENTAL**, codice sperimentale.
 
 ## STRUTTURA DEL REPOSITORY
 - **code**, contiene il codice del progetto.
