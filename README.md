@@ -23,6 +23,10 @@ Machine Learning.
 >- Visualizza Log Esperimenti di Sessione 
 >- Visualizzazione Log Esperimenti Passati 
 
+### *[ADMIN-PIPELINE]*
+>- Visualizza Log Comportamentale di un Singolo Microservizio in ordine cronologico
+>- Visualizza Log Comportamentale di tutto il Sistema in ordine cronologico
+
 
 ## PERSISTENZA
 - Tutti i dati degli Esperimenti Passati saranno archiviati in una base di dati opportuna
@@ -148,6 +152,12 @@ successiva rimozione.
         cd $CLIENT_APP_DIR
 
         python3 autolearn_client.py
+
+## ISTRUZIONI PER AVVIARE LA CONSOLE DI AMMINISTRAZIONE DEL SISTEMA
+1. Aprire una shell da un Host *interno* alla Network dei Container
+2. Eseguire il seguente comando:
+
+        docker attach admin
 
 
 ## DEMO
