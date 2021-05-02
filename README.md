@@ -140,11 +140,16 @@ successiva rimozione.
         docker-compose up -d
 
 3. Da un browser, accedere al *Kafka Control Center* (*localhost:PORTA__OUT_TO_IN__CONTAINER*) e creare i seguenti Topic:
-    - Catalog
-    - Training
-    - Evaluation
-    - Session
-    - Storage
+    - **Catalog** 
+        - *N Partizioni* = 1
+    - **Training**
+        - *N Partizioni* = 1
+    - **Evaluation**
+        - *N Partizioni* = 1
+    - **Session**
+        - *N Partizioni* = 1
+    - **Storage**
+        - *N Partizioni* = 1
 
 
 4. Avvia il frontend: 
