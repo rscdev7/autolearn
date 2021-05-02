@@ -183,7 +183,7 @@ successiva rimozione.
 
 ------------------------------------------------------------------------------------------
 ## AUTORE
-- [@rscdev7](https://*.com/*) Rosario Scalia
+- [@r-scalia](https://github.com/rscdev7) Rosario Scalia
 
 ## RINGRAZIAMENTI 
 - [@e-tramontana](https://www.dmi.unict.it/tramonta/) Prof Emiliano Alessio Tramontana (UniCT)
