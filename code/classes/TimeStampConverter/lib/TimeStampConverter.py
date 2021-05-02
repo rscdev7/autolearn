@@ -1,9 +1,10 @@
 """
 @author           	:  rscalia
-@date               :  Sun 02/05/2021
-@last_update  		:  Sun 02/05/2021
+@version  		    :  1.0.1
+@build-date         :  Sun 02/05/2021
+@last_update        :  Sun 02/05/2021
 
-Questo componente serve per convertire una data in timestamp e viceversa.
+Questo componente serve per convertire una data in un Timestamp UNIX e viceversa.
 
 """
 
@@ -21,8 +22,9 @@ class TimeStampConverter:
 			pDay 		(int)	: giorno
 			pMonth 		(int)	: mese
 			pYear 		(int)	: anno
-			pHour 		(int)	: ora
-			pMinutes 	(int)	: minuti
+			pHour 		(int | default=0)	: ora
+			pMinutes 	(int | default=0)	: minuti
+
 		Returns:
 			float				: timestamp UNIX
 		"""
@@ -41,7 +43,8 @@ class TimeStampConverter:
 
 		Args:
 			pTimeStamp 		(float)	: numero in virgola mobile rappresentante un timestamp
-			pStringOut		(bool) 	: Se impostato a vero, il metodo restituisce una data formattata come stringa, atrimenti restituisce la data incapsulata in un oggetto datetime.
+			pStringOut		(bool | default=true) 	: Se impostato a vero, il metodo restituisce una data formattata come stringa, atrimenti restituisce la data incapsulata in un oggetto datetime.
+
 		Returns:
 			(str | datetime)		: stringa o oggetto datetime rappresentante la data associata al timestamp
 		"""

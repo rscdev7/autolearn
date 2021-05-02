@@ -1,10 +1,11 @@
 # Module `test_timestamp_converter` {#test_timestamp_converter}
 
 @author                 :  rscalia
-@date               :  Sun 02/05/2021
-@last_update            :  Sun 02/05/2021
+@version                    :  1.0.1
+@build-date         :  Sun 02/05/2021
+@last_update        :  Sun 02/05/2021
 
-Questo componente serve per testare il Modulo TimeStampConverter
+Questo componente serve per testare la classe TimeStampConverter
 
 
 
@@ -51,7 +52,3 @@ Test Launcher
 
 
 Test metodo timestamp2Date
-
-
-
-

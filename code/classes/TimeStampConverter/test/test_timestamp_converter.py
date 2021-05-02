@@ -1,15 +1,16 @@
 """
 @author           	:  rscalia
-@date               :  Sun 02/05/2021
-@last_update  		:  Sun 02/05/2021
+@version  		    :  1.0.1
+@build-date         :  Sun 02/05/2021
+@last_update        :  Sun 02/05/2021
 
-Questo componente serve per testare il Modulo TimeStampConverter
+Questo componente serve per testare la classe TimeStampConverter
 
 """
-
-import sys
-sys.path.append('../lib')
-from TimeStampConverter import *
+#import sys
+#sys.path.append("../lib")
+#from TimeStampConverter import *
+from ..lib.TimeStampConverter import *
 
 
 def date_2_timestamp(pDay, pMonth, pYear) -> float:

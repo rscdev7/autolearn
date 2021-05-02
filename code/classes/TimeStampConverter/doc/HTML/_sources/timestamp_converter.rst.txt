@@ -5,7 +5,7 @@
 TimeStampConverter
 -------------------------
 
-.. automodule:: lib.TimeStampConverter
+.. automodule:: TimeStampConverter.lib.TimeStampConverter
    :members:
    :undoc-members:
    :show-inheritance:
