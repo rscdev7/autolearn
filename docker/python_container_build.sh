@@ -1,0 +1,1 @@
+docker image build -f DockerFile -t py:sw_eng .
