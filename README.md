@@ -134,7 +134,7 @@ successiva rimozione.
 1. Imposta le Variabili d'Ambiente modificando opportunamente il file *$HOME_REPO/docker/.env*
 2. Avvia il backend:
 
-        cd $REPO_DIR/docker
+        cd $REPO_DIR/docker/production_env
     
         ./build_img.sh
     
@@ -160,7 +160,7 @@ successiva rimozione.
         python3 autolearn_client.py
 
 ## ISTRUZIONI PER AVVIARE LA CONSOLE DI AMMINISTRAZIONE DEL SISTEMA
-1. Aprire una shell da un Host *interno* alla Network dei Container
+1. A Sistema Avviato, aprire una shell da un Host *interno* alla Network dei Container
 2. Eseguire il seguente comando:
 
         docker attach admin
