@@ -152,8 +152,7 @@ Comandi Installazione Ambiente, Interprete e Librerie:
 
         conda env create -f $REPO_DIR/client_requirements/conda_client_env.yaml
         
-        conda activate autolearn_client_env
-
+        
 ## ISTRUZIONI PER ESEGUIRE IL PROGETTO
 1. Installare *Docker* sul proprio sistema
 2. Imposta le Variabili d'Ambiente modificando opportunamente il file *$HOME_REPO/docker/production_env/.env*
