@@ -1,0 +1,18 @@
+name: autolearn_client_env
+channels:
+    - defaults
+    - conda-forge
+    - auto
+dependencies:
+    - python=3.7
+    - dataclasses
+    - typing
+    - pip
+    - requests
+    - pip:
+        - pytest
+        - sphinx
+        - sphinx_rtd_theme
+        - rinohtype
+        - pdoc3
+        - aiohttp[speedups]

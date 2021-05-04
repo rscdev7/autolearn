@@ -130,9 +130,34 @@ successiva rimozione.
 ![Alt -> Microservices Software Stack](./img/micro_sw.svg)
 
 ------------------------------------------------------------------------------------------
+## REQUISITI CLIENT
+
+Requisiti:
+
+1. [Anaconda](https://www.anaconda.com/products/individual)
+2. Python 3.7
+3. Librerie Python da installare:
+
+        pytest
+        sphinx
+        sphinx_rtd_theme
+        rinohtype
+        pdoc3
+        aiohttp[speedups]
+        requests
+        typing
+        dataclasses
+
+Comandi Installazione Ambiente, Interprete e Librerie:
+
+        conda env create -f $REPO_DIR/client_requirements/conda_client_env.yaml
+        
+        conda activate autolearn_client_env
+
 ## ISTRUZIONI PER ESEGUIRE IL PROGETTO
-1. Imposta le Variabili d'Ambiente modificando opportunamente il file *$HOME_REPO/docker/.env*
-2. Avvia il backend:
+1. Installare *Docker* sul proprio sistema
+2. Imposta le Variabili d'Ambiente modificando opportunamente il file *$HOME_REPO/docker/production_env/.env*
+3. Avvia il backend:
 
         cd $REPO_DIR/docker/production_env
     
@@ -140,7 +165,7 @@ successiva rimozione.
     
         docker-compose up -d
 
-3. Da un browser, accedere al *Kafka Control Center* (*localhost:PORTA__OUT_TO_IN__CONTAINER*) e creare i seguenti Topic:
+4. Da un browser interno alla network dei Container, accedere al *Kafka Control Center* (*localhost:PORTA__OUT_TO_IN__CONTAINER*) e creare i seguenti Topic:
     - **Catalog** 
         - *N Partizioni* = 1
     - **Training**
@@ -153,9 +178,11 @@ successiva rimozione.
         - *N Partizioni* = 1
 
 
-4. Avvia il frontend: 
+5. Avvia il frontend: 
 
         cd $CLIENT_APP_DIR
+
+        conda activate autolearn_client_env
 
         python3 autolearn_client.py
 
