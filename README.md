@@ -138,6 +138,7 @@ Requisiti:
 2. Python 3.7
 3. Librerie Python da installare:
 
+        aiofiles
         pytest
         sphinx
         sphinx_rtd_theme

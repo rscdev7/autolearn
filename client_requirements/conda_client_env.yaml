@@ -10,6 +10,7 @@ dependencies:
     - pip
     - requests
     - pip:
+        - aiofiles
         - pytest
         - sphinx
         - sphinx_rtd_theme
