@@ -1,0 +1,11 @@
+.. toctree::
+   :maxdepth: 4
+
+
+Test
+-------------------------
+
+.. automodule:: LoggerSetup.test.test_logger_setup
+   :members:
+   :undoc-members:
+   :show-inheritance:
