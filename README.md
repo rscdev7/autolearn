@@ -167,15 +167,15 @@ Comandi Installazione Ambiente, Interprete e Librerie:
         docker-compose up -d
 
 4. Da un browser interno alla network dei Container, accedere al *Kafka Control Center* (*localhost:PORTA__OUT_TO_IN__CONTAINER*) e creare i seguenti Topic:
-    - **Catalog** 
+    - **catalog** 
         - *N Partizioni* = 1
-    - **Training**
+    - **training**
         - *N Partizioni* = 1
-    - **Evaluation**
+    - **evaluation**
         - *N Partizioni* = 1
-    - **Session**
+    - **session**
         - *N Partizioni* = 1
-    - **Storage**
+    - **storage**
         - *N Partizioni* = 1
 
 
