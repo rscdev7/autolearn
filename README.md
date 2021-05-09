@@ -140,6 +140,7 @@ Requisiti:
 
         aiofiles
         pytest
+        pytest-asyncio
         sphinx
         sphinx_rtd_theme
         rinohtype
