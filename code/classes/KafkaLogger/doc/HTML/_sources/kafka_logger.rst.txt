@@ -1,0 +1,11 @@
+.. toctree::
+   :maxdepth: 4
+
+
+KafkaLogger
+-------------------------
+
+.. automodule:: KafkaLogger.lib.KafkaLogger
+   :members:
+   :undoc-members:
+   :show-inheritance:

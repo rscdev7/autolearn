@@ -1,0 +1,18 @@
+Benvenuto nella Documentazione di KafkaLogger
+======================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Moduli
+
+   kafka_logger
+   test
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

@@ -1,0 +1,11 @@
+.. toctree::
+   :maxdepth: 4
+
+
+Test
+-------------------------
+
+.. automodule:: KafkaLogger.test.test_kafka_logger
+   :members:
+   :undoc-members:
+   :show-inheritance:
