@@ -4,6 +4,7 @@ pytest-asyncio
 jupyter
 dataclasses
 typing
+cryptography
 numba
 sphinx
 sphinx_rtd_theme

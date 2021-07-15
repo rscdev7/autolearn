@@ -18,3 +18,4 @@ dependencies:
         - rinohtype
         - pdoc3
         - aiohttp[speedups]
+        - cryptography

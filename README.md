@@ -141,6 +141,7 @@ Requisiti:
         aiofiles
         pytest
         pytest-asyncio
+        cryptography
         sphinx
         sphinx_rtd_theme
         rinohtype
