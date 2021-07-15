@@ -1,0 +1,18 @@
+Benvenuto nella Documentazione di KafkaConsumer
+======================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Moduli
+
+
+   kafka_consumer
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
