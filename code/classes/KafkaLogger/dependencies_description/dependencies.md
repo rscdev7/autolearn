@@ -2,7 +2,8 @@
 
 
 #### **Code Dependencies:**
-> * N/D
+> * `$HOME_COMPONENT/lib/logger/Logger.py`
+> * `$HOME_COMPONENT/lib/network_serializer/NetworkSerializer.py`
 
 -----
 

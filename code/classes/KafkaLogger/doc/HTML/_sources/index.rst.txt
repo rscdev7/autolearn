@@ -5,8 +5,10 @@ Benvenuto nella Documentazione di KafkaLogger
    :maxdepth: 2
    :caption: Moduli
 
+
    kafka_logger
-   test
+   network_serializer
+   logger
 
 
 
