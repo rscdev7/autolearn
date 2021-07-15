@@ -1,0 +1,18 @@
+Benvenuto nella Documentazione di Logger
+======================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Moduli
+
+
+   logger
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
