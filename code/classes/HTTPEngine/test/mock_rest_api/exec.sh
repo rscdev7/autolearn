@@ -1,0 +1,1 @@
+uvicorn --host catalog --port $SERVER_PORT --workers 1 restapi:app
