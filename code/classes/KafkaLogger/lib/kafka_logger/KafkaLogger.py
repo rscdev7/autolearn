@@ -52,7 +52,7 @@ class KafkaLogger (object):
         """
 
         loop:asyncio                                    = asyncio.get_event_loop()
-        self._producer:AIOKafkaProducer                 = AIOKafkaProducer( loop=loop , bootstrap_servers=self._connectionToken)
+        self._producer:AIOKafkaProducer                 = AIOKafkaProducer( bootstrap_servers=self._connectionToken )
 
         try:
             await self._producer.start()
@@ -91,12 +91,12 @@ class KafkaLogger (object):
             return False
 
 
-    async def log (self, pKey:str , pRecord:dict, pTimestamp:int) -> bool:
+    async def log (self, pKey:bytes , pRecord:dict, pTimestamp:int) -> bool:
         """
         Questo metodo permette di inserire un record all'interno del Topic Kafka precedentemente configurato
 
         Args:
-            pKey            (str)           : chiave del record da inserire
+            pKey            (bytes)         : chiave del record da inserire
             pRecord         (dict)          : payload del record da inserire
             pTimestamp      (int)           : timestamp del record da inserire
 
@@ -104,7 +104,7 @@ class KafkaLogger (object):
             bool                            : restituisce VERO se il messaggio è stato inoltrato correttamente al broker, altrimenti FALSO
 
         Raises:
-            Excpetion           : eccezzione generica
+            Excpetion           : eccezione generica
         """
 
         try:

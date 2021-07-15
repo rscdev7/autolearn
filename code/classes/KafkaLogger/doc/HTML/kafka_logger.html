@@ -193,12 +193,12 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="KafkaLogger.lib.kafka_logger.KafkaLogger.KafkaLogger.log">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pKey</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pRecord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pTimestamp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#KafkaLogger.lib.kafka_logger.KafkaLogger.KafkaLogger.log" title="Link a questa definizione">¶</a></dt>
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pKey</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pRecord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pTimestamp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#KafkaLogger.lib.kafka_logger.KafkaLogger.KafkaLogger.log" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questo metodo permette di inserire un record all’interno del Topic Kafka precedentemente configurato</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>pKey</strong> (<em>str</em>) – chiave del record da inserire</p></li>
+<li><p><strong>pKey</strong> (<em>bytes</em>) – chiave del record da inserire</p></li>
 <li><p><strong>pRecord</strong> (<em>dict</em>) – payload del record da inserire</p></li>
 <li><p><strong>pTimestamp</strong> (<em>int</em>) – timestamp del record da inserire</p></li>
 </ul>
@@ -210,7 +210,7 @@
 <dd class="field-odd"><p>bool</p>
 </dd>
 <dt class="field-even">Solleva</dt>
-<dd class="field-even"><p><strong>Excpetion</strong> – eccezzione generica</p>
+<dd class="field-even"><p><strong>Excpetion</strong> – eccezione generica</p>
 </dd>
 </dl>
 </dd></dl>
