@@ -1,0 +1,18 @@
+Benvenuto nella Documentazione di NetworkSerializer
+======================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Moduli
+
+
+   network_serializer
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
