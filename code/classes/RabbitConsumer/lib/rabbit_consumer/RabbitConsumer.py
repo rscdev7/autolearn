@@ -13,6 +13,7 @@ import aio_pika
 from aio_pika                               import connect, IncomingMessage
 from aio_pika.channel                       import Channel
 from aio_pika.queue                         import Queue
+from aio_pika.exceptions                    import QueueEmpty
 from aio_pika.connection                    import Connection
 
 from ..network_serializer.NetworkSerializer import NetworkSerializer
@@ -32,7 +33,6 @@ class RabbitConsumer (object):
         self._connectionToken:str           = pLoginToken
         self._queueName:str                 = pQueueName
         self._serializer:NetworkSerializer  = NetworkSerializer()
-        self._lastMessage:dict              = None
 
 
     async def start (self) -> None:
@@ -71,15 +71,6 @@ class RabbitConsumer (object):
             return exp
 
 
-    def _on_message(self,pMessage:IncomingMessage) -> dict:
-        """
-        Chiamata di callback all'arrivo dei messaggi
-        """
-        decoded_msg:dict                    = self._serializer.decodeJson(pMessage.body)
-        self._lastMessage:dict              = decoded_msg
-        pMessage.ack()
-
-
     async def consume (self) -> dict:
         """ 
         Consuma un messaggio dalla coda
@@ -89,17 +80,18 @@ class RabbitConsumer (object):
 
         Raises:
             Exception   : eccezzione generica
+            QueueEmpty  : la coda è vuota
         """
         try:
-            res:str                 = await self._queue.consume(self._on_message)
+            incoming_message:IncomingMessage    = await self._queue.get()
+            incoming_message.ack()
 
-            if (self._lastMessage == None):
-                return None
-            else:
-                msg:dict            = self._lastMessage
-                self._lastMessage   = None
+            retrieved_msg:dict                  = self._serializer.decodeJson(incoming_message.body)
+
+            return retrieved_msg
+
+        except QueueEmpty as qe:
+            return qe
 
         except Exception as exp:
             return exp
-
-        return msg
