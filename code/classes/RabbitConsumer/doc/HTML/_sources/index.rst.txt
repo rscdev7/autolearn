@@ -1,0 +1,19 @@
+Benvenuto nella Documentazione di RabbitConsumer
+======================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Moduli
+
+
+   rabbit_consumer
+   network_serializer
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
