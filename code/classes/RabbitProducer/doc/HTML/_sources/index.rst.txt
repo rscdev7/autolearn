@@ -1,0 +1,19 @@
+Benvenuto nella Documentazione di RabbitProducer
+======================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Moduli
+
+
+   rabbit_producer
+   network_serializer
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

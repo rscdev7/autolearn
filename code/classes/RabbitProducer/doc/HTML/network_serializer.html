@@ -1,0 +1,318 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>NetworkSerializer &mdash; RabbitProducer 1.0.0 documentazione</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Cerca" href="search.html" />
+    <link rel="prev" title="RabbitProducer" href="rabbit_producer.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> RabbitProducer
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Moduli</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="rabbit_producer.html">RabbitProducer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">NetworkSerializer</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RabbitProducer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>NetworkSerializer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/network_serializer.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="module-RabbitProducer.lib.network_serializer.NetworkSerializer">
+<span id="networkserializer"></span><h1>NetworkSerializer<a class="headerlink" href="#module-RabbitProducer.lib.network_serializer.NetworkSerializer" title="Link a questa intestazione">¶</a></h1>
+<p>&#64;author                 :  rscalia
+&#64;build-date         :  Thu 15/07/2021
+&#64;last_update        :  Thu 15/07/2021</p>
+<p>Questa classe permette di serializzare e deserializzare i JSON.</p>
+<p>Inoltre, la classe aggiunge il supporto alla cifratura ai campi del JSON.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="RabbitProducer.lib.network_serializer.NetworkSerializer.NetworkSerializer">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">RabbitProducer.lib.network_serializer.NetworkSerializer.</span></span><span class="sig-name descname"><span class="pre">NetworkSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pSecretKeyPath</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'./data/'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RabbitProducer.lib.network_serializer.NetworkSerializer.NetworkSerializer" title="Link a questa definizione">¶</a></dt>
+<dd><blockquote>
+<div><p>Basi: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="RabbitProducer.lib.network_serializer.NetworkSerializer.NetworkSerializer.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pSecretKeyPath</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'./data/'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">object</span><a class="headerlink" href="#RabbitProducer.lib.network_serializer.NetworkSerializer.NetworkSerializer.__init__" title="Link a questa definizione">¶</a></dt>
+<dd><p>Costruttore</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pSecretKeyPath</strong> (<em>str</em>) – path contenente la chiave di cifratura/decifratura</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RabbitProducer.lib.network_serializer.NetworkSerializer.NetworkSerializer.buildNewKey">
+<span class="sig-name descname"><span class="pre">buildNewKey</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#RabbitProducer.lib.network_serializer.NetworkSerializer.NetworkSerializer.buildNewKey" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo genera una nuova chiave crittografica e la salve anche su Disco</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RabbitProducer.lib.network_serializer.NetworkSerializer.NetworkSerializer.decodeJson">
+<span class="sig-name descname"><span class="pre">decodeJson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pPayLoad</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#RabbitProducer.lib.network_serializer.NetworkSerializer.NetworkSerializer.decodeJson" title="Link a questa definizione">¶</a></dt>
+<dd><p>Decodifica di un JSON in un dizionario Python</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pPayLoad</strong> (<em>dict</em>) – byte rappresentano un JSON</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>dizionario Python che contiene i dati presenti nel JSON</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p>(dict)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RabbitProducer.lib.network_serializer.NetworkSerializer.NetworkSerializer.decryptField">
+<span class="sig-name descname"><span class="pre">decryptField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pField</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#RabbitProducer.lib.network_serializer.NetworkSerializer.NetworkSerializer.decryptField" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questa funzione permette di decifrare un crittotesto che era collegato alla cifratura di una stringa</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pField</strong> (<em>str</em>) – crittotesto</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>testo in chiaro</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p>(str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RabbitProducer.lib.network_serializer.NetworkSerializer.NetworkSerializer.encodeJson">
+<span class="sig-name descname"><span class="pre">encodeJson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDict</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bytes</span><a class="headerlink" href="#RabbitProducer.lib.network_serializer.NetworkSerializer.NetworkSerializer.encodeJson" title="Link a questa definizione">¶</a></dt>
+<dd><p>Codifica un dizionario in JSON</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pDict</strong> (<em>dict</em>) – dizionario da codificare</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>codifica JSON del dizionario</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p>(bytes)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RabbitProducer.lib.network_serializer.NetworkSerializer.NetworkSerializer.encryptField">
+<span class="sig-name descname"><span class="pre">encryptField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pField</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#RabbitProducer.lib.network_serializer.NetworkSerializer.NetworkSerializer.encryptField" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questa funzione permette di cifrare una stringa</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pField</strong> (<em>str</em>) – stringa da cifrare</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>crittotesto</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p>(str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="RabbitProducer.lib.network_serializer.NetworkSerializer.NetworkSerializer.readKeyFromFile">
+<span class="sig-name descname"><span class="pre">readKeyFromFile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#RabbitProducer.lib.network_serializer.NetworkSerializer.NetworkSerializer.readKeyFromFile" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo legge la chiave crittografica da disco</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="rabbit_producer.html" class="btn btn-neutral float-left" title="RabbitProducer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Rosario Scalia.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
