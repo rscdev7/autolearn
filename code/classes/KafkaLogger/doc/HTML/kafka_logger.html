@@ -165,19 +165,19 @@
 <div class="section" id="module-KafkaLogger.lib.kafka_logger.KafkaLogger">
 <span id="kafkalogger"></span><h1>KafkaLogger<a class="headerlink" href="#module-KafkaLogger.lib.kafka_logger.KafkaLogger" title="Link a questa intestazione">¶</a></h1>
 <p>&#64;author                 :  rscalia
-&#64;version                    :  1.0.1
+&#64;version                    :  1.0.2
 &#64;build-date         :  Sun 09/05/2021
-&#64;last_update        :  Thu 15/07/2021</p>
+&#64;last_update        :  Fri 16/07/2021</p>
 <p>Questo componente serve per scrivere record di log all’interno di uno Specifico Topic di Apache Kafka</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="KafkaLogger.lib.kafka_logger.KafkaLogger.KafkaLogger">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">KafkaLogger.lib.kafka_logger.KafkaLogger.</span></span><span class="sig-name descname"><span class="pre">KafkaLogger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pBrokerName</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pTopicName</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pPartition</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pLoggerName</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'logger'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#KafkaLogger.lib.kafka_logger.KafkaLogger.KafkaLogger" title="Link a questa definizione">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">KafkaLogger.lib.kafka_logger.KafkaLogger.</span></span><span class="sig-name descname"><span class="pre">KafkaLogger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pBrokerName</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pTopicName</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pPartition</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#KafkaLogger.lib.kafka_logger.KafkaLogger.KafkaLogger" title="Link a questa definizione">¶</a></dt>
 <dd><blockquote>
 <div><p>Basi: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 </div></blockquote>
 <dl class="py method">
 <dt class="sig sig-object py" id="KafkaLogger.lib.kafka_logger.KafkaLogger.KafkaLogger.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pBrokerName</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pTopicName</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pPartition</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pLoggerName</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'logger'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">object</span><a class="headerlink" href="#KafkaLogger.lib.kafka_logger.KafkaLogger.KafkaLogger.__init__" title="Link a questa definizione">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pBrokerName</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pTopicName</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pPartition</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">object</span><a class="headerlink" href="#KafkaLogger.lib.kafka_logger.KafkaLogger.KafkaLogger.__init__" title="Link a questa definizione">¶</a></dt>
 <dd><p>Costruttore</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
@@ -185,7 +185,6 @@
 <li><p><strong>pBrokerName</strong> (<em>str</em>) – Nome dell’host che esegue Kafka</p></li>
 <li><p><strong>pTopicName</strong> (<em>str</em>) – Nome del Topic Kafka su cui Scrivere</p></li>
 <li><p><strong>pPartition</strong> (<em>int</em>) – Partizione kafka su cui andare a scrivere i record</p></li>
-<li><p><strong>pLoggerName</strong> (<em>str</em><em>, </em><em>optional</em>) – Nome del logger interno al Software</p></li>
 </ul>
 </dd>
 </dl>
@@ -204,7 +203,7 @@
 </ul>
 </dd>
 <dt class="field-even">Ritorna</dt>
-<dd class="field-even"><p>restituisce VERO se il messaggio è stato inoltrato correttamente al broker, altrimenti FALSO</p>
+<dd class="field-even"><p>restituisce VERO se il messaggio è stato inoltrato correttamente al broker</p>
 </dd>
 <dt class="field-odd">Tipo di ritorno</dt>
 <dd class="field-odd"><p>bool</p>
@@ -216,12 +215,12 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="KafkaLogger.lib.kafka_logger.KafkaLogger.KafkaLogger.setUp">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#KafkaLogger.lib.kafka_logger.KafkaLogger.KafkaLogger.setUp" title="Link a questa definizione">¶</a></dt>
+<dt class="sig sig-object py" id="KafkaLogger.lib.kafka_logger.KafkaLogger.KafkaLogger.start">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#KafkaLogger.lib.kafka_logger.KafkaLogger.KafkaLogger.start" title="Link a questa definizione">¶</a></dt>
 <dd><p>Metodo che connette il componente KafkaLogger con il broker Kafka, una volta fatta tale connessione sarà possibile incominciare ad inviare record al broker</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
-<dd class="field-odd"><p>restituisce VERO se il setup è andato a buon fine, altrimenti FALSO</p>
+<dd class="field-odd"><p>restituisce VERO se il setup è andato a buon fine</p>
 </dd>
 <dt class="field-even">Tipo di ritorno</dt>
 <dd class="field-even"><p>bool</p>
@@ -233,12 +232,12 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="KafkaLogger.lib.kafka_logger.KafkaLogger.KafkaLogger.shutDown">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">shutDown</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#KafkaLogger.lib.kafka_logger.KafkaLogger.KafkaLogger.shutDown" title="Link a questa definizione">¶</a></dt>
+<dt class="sig sig-object py" id="KafkaLogger.lib.kafka_logger.KafkaLogger.KafkaLogger.stop">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#KafkaLogger.lib.kafka_logger.KafkaLogger.KafkaLogger.stop" title="Link a questa definizione">¶</a></dt>
 <dd><p>Metodo che chiude la connessione fra il KafkaLogger e Apache Kafka</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
-<dd class="field-odd"><p>restituisce VERO se lo shutdown è andato a buon fine, altrimenti FALSO</p>
+<dd class="field-odd"><p>restituisce VERO se lo shutdown è andato a buon fine</p>
 </dd>
 <dt class="field-even">Tipo di ritorno</dt>
 <dd class="field-even"><p>bool</p>
