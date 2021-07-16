@@ -180,7 +180,13 @@ Comandi Installazione Ambiente, Interprete e Librerie:
         - *N Partizioni* = 1
 
 
-5. Avvia il frontend: 
+5. Da un browser interno alla network dei Container, accedere a RabbitMQ (*localhost:PORTA__OUT_TO_IN__CONTAINER*) e creare le seguenti Code di tipo *Durable*:
+    - **eval_2_session**
+    - **session_2_storage**
+    - **training_2_session** 
+
+
+6. Avvia il frontend: 
 
         cd $CLIENT_APP_DIR
 
