@@ -157,9 +157,9 @@ Comandi Installazione Ambiente, Interprete e Librerie:
         
         
 ## ISTRUZIONI PER ESEGUIRE IL PROGETTO
-1. Installare *Docker* sul proprio sistema
-2. Imposta le Variabili d'Ambiente modificando opportunamente il file *$HOME_REPO/docker/production_env/.env*
-3. Avvia il backend:
+1. Installare *Docker* sul proprio Sistema
+2. Impostare le Variabili d'Ambiente modificando opportunamente il file *$HOME_REPO/docker/production_env/.env*
+3. Avviare il Backend:
 
         cd $REPO_DIR/docker/production_env
     
@@ -167,26 +167,8 @@ Comandi Installazione Ambiente, Interprete e Librerie:
     
         docker-compose up -d
 
-4. Da un browser interno alla network dei Container, accedere al *Kafka Control Center* (*localhost:PORTA__OUT_TO_IN__CONTAINER*) e creare i seguenti Topic:
-    - **catalog** 
-        - *N Partizioni* = 1
-    - **training**
-        - *N Partizioni* = 1
-    - **evaluation**
-        - *N Partizioni* = 1
-    - **session**
-        - *N Partizioni* = 1
-    - **storage**
-        - *N Partizioni* = 1
 
-
-5. Da un browser interno alla network dei Container, accedere a RabbitMQ (*localhost:PORTA__OUT_TO_IN__CONTAINER*) e creare le seguenti Code di tipo *Durable*:
-    - **eval_2_session**
-    - **session_2_storage**
-    - **training_2_session** 
-
-
-6. Avvia il frontend: 
+4. Avviare il Frontend: 
 
         cd $CLIENT_APP_DIR
 

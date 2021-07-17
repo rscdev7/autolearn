@@ -1,92 +1,20 @@
 version: '2'
 services:
 
-  broker:
-    image: confluentinc/cp-server:6.1.1
-    hostname: broker
-    container_name: broker
+  event_store:
+    image: mongo
+    container_name: event_store
+    hostname: event_store
     restart: always
-    depends_on:
-      - zookeeper
-    ports:
-      - "${KAFKA_PORT_1}:9092"
-      - "${KAFKA_PORT_2}:9101"
+    command: mongod --port ${EVENT_STORE_PORT}
     environment:
-      KAFKA_BROKER_ID: 1
-      KAFKA_HEAP_OPTS: '-Xms4g -Xmx4g'
-      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2182'
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://broker:29092,PLAINTEXT_HOST://localhost:9092
-      KAFKA_METRIC_REPORTERS: io.confluent.metrics.reporter.ConfluentMetricsReporter
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
-      KAFKA_CONFLUENT_LICENSE_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_CONFLUENT_BALANCER_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
-      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
-      KAFKA_JMX_PORT: 9101
-      KAFKA_LOG_RETENTION_HOURS: 768
-      KAFKA_DEFAULT_REPLICATION_FACTOR: 1
-      KAFKA_JMX_HOSTNAME: localhost
-      KAFKA_CONFLUENT_SCHEMA_REGISTRY_URL: http://schema-registry:8081
-      CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: broker:29092
-      CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS: 1
-      CONFLUENT_METRICS_ENABLE: 'true'
-      CONFLUENT_SUPPORT_CUSTOMER_ID: 'anonymous'
-
+      MONGO_INITDB_ROOT_USERNAME: ${EVENT_STORE_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${EVENT_STORE_PASSWORD}
     volumes:
-        - ${KAFKA_VOLUME}:/var/lib/kafka/data
-        - ${KAFKA_LOG}:/var/log/kafka
+      - ${EVENT_STORE_DATA}:/data/db
+      - ${EVENT_STORE_CONF}:/data/configdb
 
-  control-center:
-    image: confluentinc/cp-enterprise-control-center:6.1.1
-    hostname: control-center
-    container_name: control-center
-    restart: always
-    depends_on:
-      - broker
-      - schema-registry
-    ports:
-      - "${KAFKA_CONTROL_CENTER_PORT}:9021"
-    environment:
-      CONTROL_CENTER_BOOTSTRAP_SERVERS: 'broker:29092'
-      CONTROL_CENTER_SCHEMA_REGISTRY_URL: "http://schema-registry:8081"
-      CONTROL_CENTER_REPLICATION_FACTOR: 1
-      CONTROL_CENTER_INTERNAL_TOPICS_PARTITIONS: 1
-      CONTROL_CENTER_MONITORING_INTERCEPTOR_TOPIC_PARTITIONS: 1
-      CONFLUENT_METRICS_TOPIC_REPLICATION: 1
-      PORT: 9021
-
-  schema-registry:
-    image: confluentinc/cp-schema-registry:6.1.1
-    hostname: schema-registry
-    container_name: schema-registry
-    restart: always
-    depends_on:
-      - broker
-    ports:
-      - "${SCHEMA_REGISTRY_PORT}:8081"
-    environment:
-      SCHEMA_REGISTRY_HOST_NAME: schema-registry
-      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: 'broker:29092'
-      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
-
-  zookeeper:
-    image: confluentinc/cp-zookeeper:6.1.1
-    hostname: zookeeper
-    container_name: zookeeper
-    restart: always
-    ports:
-      - "${ZOOKEEPER_PORT}:2182"
-    environment:
-      ZOOKEEPER_CLIENT_PORT: 2182
-      ZOOKEEPER_TICK_TIME: 2000
-
-    volumes:
-        - ${ZOOKEPER_DATA}:/var/lib/zookeeper/data
-        - ${ZOOKEPER_LOG}:/var/lib/zookeeper/log
-    
-
+  
   rabbitmq:
     image: rabbitmq:3-management
     hostname: rabbitmq
@@ -98,6 +26,46 @@ services:
     volumes:
       - ${RABBIT_MQ_DB}:/var/lib/rabbitmq
       - ${RABBIT_MQ_LOGS}:/var/log/rabbitmq/log
+
+
+  database:
+    image: mongo
+    container_name: database
+    hostname: database
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ${DB_DATA}:/data/db
+      - ${DB_CONF}:/data/configdb
+
+
+  db_dashboard:
+    image: mongo-express
+    restart: always
+    container_name: db_dashboard
+    hostname: db_dashboard
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_MONGODB_SERVER: database
+    ports:
+      - "${DB_DASHBOARD_PORT}:8081"
+
+
+  event_store_dashboard:
+    image: mongo-express
+    restart: always
+    container_name: event_store_dashboard
+    hostname: event_store_dashboard
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_MONGODB_SERVER: event_store
+      ME_CONFIG_MONGODB_PORT: ${EVENT_STORE_PORT}
+    ports:
+      - "${EVENT_STORE_DASHBOARD_PORT}:8081"
 
 
   training:
@@ -112,11 +80,12 @@ services:
       SERVER_PORT: ${TRAINING_SERVICE_PORT}
       HOST_NAME: training
       WEB_SERVER_WORKERS: ${WEB_SERVER_WORKERS}
-      KAFKA_BROKER_PORT: 29092
       RABBIT_MQ_ADDRESS: ${RABBIT_MQ_TOKEN}
+      EVENT_STORE_PORT: ${EVENT_STORE_PORT}
+      EVENT_STORE_USERNAME: ${EVENT_STORE_USERNAME}
+      EVENT_STORE_PASSWORD: ${EVENT_STORE_PASSWORD}
     ports:
       - ${TRAINING_SERVICE_PORT}:${TRAINING_SERVICE_PORT}
-      - ${TRAINING_SERVICE_JUPYTER_OUT}:${TRAINING_SERVICE_JUPYTER_IN}
     volumes:
       - ${TRAINING_CODE_LAKE}:/workspace/code
       - ${TRAINING_DATA_LAKE}:/workspace/data
@@ -134,10 +103,11 @@ services:
       SERVER_PORT: ${EVALUATION_SERVICE_PORT}
       HOST_NAME: evaluation
       WEB_SERVER_WORKERS: ${WEB_SERVER_WORKERS}
-      KAFKA_BROKER_PORT: 29092
+      EVENT_STORE_PORT: ${EVENT_STORE_PORT}
+      EVENT_STORE_USERNAME: ${EVENT_STORE_USERNAME}
+      EVENT_STORE_PASSWORD: ${EVENT_STORE_PASSWORD}
     ports:
       - ${EVALUATION_SERVICE_PORT}:${EVALUATION_SERVICE_PORT}
-      - ${EVALUATION_SERVICE_JUPYTER_OUT}:${EVALUATION_SERVICE_JUPYTER_IN}
     volumes:
       - ${EVALUATION_CODE_LAKE}:/workspace/code
       - ${EVALUATION_DATA_LAKE}:/workspace/data
@@ -155,14 +125,15 @@ services:
       SERVER_PORT: ${SESSION_SERVICE_PORT}
       HOST_NAME: session
       WEB_SERVER_WORKERS: ${WEB_SERVER_WORKERS}
-      KAFKA_BROKER_PORT: 29092
-      MONGO_DB_PORT: 27017
-      MONGO_DB_USERNAME: ${MONGO_DB_USERNAME}
-      MONGO_DB_PASSWORD: ${MONGO_DB_PASSWORD}
+      DB_PORT: 27017
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
       RABBIT_MQ_ADDRESS: ${RABBIT_MQ_TOKEN}
+      EVENT_STORE_PORT: ${EVENT_STORE_PORT}
+      EVENT_STORE_USERNAME: ${EVENT_STORE_USERNAME}
+      EVENT_STORE_PASSWORD: ${EVENT_STORE_PASSWORD}
     ports:
       - ${SESSION_SERVICE_PORT}:${SESSION_SERVICE_PORT}
-      - ${SESSION_SERVICE_JUPYTER_OUT}:${SESSION_SERVICE_JUPYTER_IN}
     volumes:
       - ${SESSION_CODE_LAKE}:/workspace/code
       - ${SESSION_DATA_LAKE}:/workspace/data
@@ -180,14 +151,15 @@ services:
       SERVER_PORT: ${STORAGE_SERVICE_PORT}
       HOST_NAME: storage
       WEB_SERVER_WORKERS: ${WEB_SERVER_WORKERS}
-      KAFKA_BROKER_PORT: 29092
-      MONGO_DB_PORT: 27017
-      MONGO_DB_USERNAME: ${MONGO_DB_USERNAME}
-      MONGO_DB_PASSWORD: ${MONGO_DB_PASSWORD}
+      DB_PORT: 27017
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
       RABBIT_MQ_ADDRESS: ${RABBIT_MQ_TOKEN}
+      EVENT_STORE_PORT: ${EVENT_STORE_PORT}
+      EVENT_STORE_USERNAME: ${EVENT_STORE_USERNAME}
+      EVENT_STORE_PASSWORD: ${EVENT_STORE_PASSWORD}
     ports:
       - ${STORAGE_SERVICE_PORT}:${STORAGE_SERVICE_PORT}
-      - ${STORAGE_SERVICE_JUPYTER_OUT}:${STORAGE_SERVICE_JUPYTER_IN}
     volumes:
       - ${STORAGE_CODE_LAKE}:/workspace/code
       - ${STORAGE_DATA_LAKE}:/workspace/data
@@ -205,8 +177,9 @@ services:
       SERVER_PORT: ${CATALOG_SERVICE_PORT}
       HOST_NAME: catalog
       WEB_SERVER_WORKERS: ${WEB_SERVER_WORKERS}
-      KAFKA_BROKER_PORT: 29092
-    
+      EVENT_STORE_PORT: ${EVENT_STORE_PORT}
+      EVENT_STORE_USERNAME: ${EVENT_STORE_USERNAME}
+      EVENT_STORE_PASSWORD: ${EVENT_STORE_PASSWORD}
     ports:
       - ${CATALOG_SERVICE_PORT}:${CATALOG_SERVICE_PORT}
     volumes:
@@ -226,31 +199,6 @@ services:
       SERVER_PORT: ${ADMIN_SERVICE_PORT}
       HOST_NAME: admin
       WEB_SERVER_WORKERS: ${WEB_SERVER_WORKERS}
-    
     volumes:
       - ${ADMIN_CODE_LAKE}:/workspace/code
       - ${ADMIN_DATA_LAKE}:/workspace/data
-
-
-  mongo:
-    image: mongo
-    container_name: mongo
-    hostname: mongo
-    restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
-    volumes:
-      - ${MONGO_DB}:/data/db
-      - ${MONGO_DB_CONF}:/data/configdb
-
-  mongo-express:
-    image: mongo-express
-    restart: always
-    container_name: mongo_express
-    hostname: mongo_express
-    environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: example
-    ports:
-      - "${MONGO_EXPRESS_PORT}:8081"
