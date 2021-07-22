@@ -1,5 +1,8 @@
 # KafkaLogger
 
+> **v1.0.3**
+>	* Rimosso il prelievo della porta su cui gira Kafka attraverso le variabili d'ambiente.
+
 > **v1.0.2**
 >	* Rimosso il logger python dal componente KafkaLogger in modo tale da assegnare una singola responsabilità al componente.
 

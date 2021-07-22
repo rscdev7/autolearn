@@ -8,17 +8,19 @@ Questo componente serve per testare la classe KafkaLogger
 
 """
 
-from ..lib.kafka_logger.KafkaLogger import KafkaLogger
-from ..lib.logger.Logger import Logger
+from ..lib.kafka_logger.KafkaLogger             import KafkaLogger
+from .logger.Logger                             import Logger
+from .time_stamp_manager.TimeStampManager       import TimeStampManager
 import asyncio
 import pytest
 import logging
 
 
-NAME                    = "broker"
-TOPIC_NAME              = "catalog"
+HSOT_NAME:str           = "kafka"
+PORT:str                = "9092"
+TOPIC_NAME              = "test"
 PARTITION               = 0
-LOGGER_NAME             = "catalog_logger"
+LOGGER_NAME             = "test_logger"
 LOG_PATH:str            = "../log"
 
 
@@ -34,14 +36,18 @@ async def test_kafka_logger () -> None:
     logger.start()
 
 
+    #Setup TimeStampManager
+    tm:TimeStampManager             = TimeStampManager()
+
+
     #Dati da scrivere sull'Event Store
     key:bytes                       = b"client"
-    timestamp:int                   = 40000
+    timestamp:int                   = tm.currentTimeStampInMS()
     record:dict                     = { "source_service":"catalog" , "destination_service": "client", "message_type":"send" , "communication_type":"async" , "timestamp_action":timestamp , "payload": {"value": 800000, "ls":[4,5] }  }
 
 
     #Istanzio Oggeto KafkaLogger
-    kf_logger:KafkaLogger           = KafkaLogger(NAME, TOPIC_NAME, PARTITION)
+    kf_logger:KafkaLogger           = KafkaLogger(HSOT_NAME, PORT ,TOPIC_NAME, PARTITION)
 
 
     #Scrivo dati

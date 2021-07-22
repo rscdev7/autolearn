@@ -8,8 +8,6 @@ Benvenuto nella Documentazione di KafkaLogger
 
    kafka_logger
    network_serializer
-   logger
-
 
 
 Indices and tables

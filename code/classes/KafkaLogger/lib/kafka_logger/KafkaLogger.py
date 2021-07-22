@@ -1,8 +1,7 @@
 """
 @author           	:  rscalia
-@version  		    :  1.0.2
 @build-date         :  Sun 09/05/2021
-@last_update        :  Fri 16/07/2021
+@last_update        :  Thu 22/07/2021
 
 Questo componente serve per scrivere record di log all'interno di uno Specifico Topic di Apache Kafka
 """
@@ -17,17 +16,18 @@ from ..network_serializer.NetworkSerializer import NetworkSerializer
 
 class KafkaLogger (object):
 
-    def __init__ (self, pBrokerName:str, pTopicName:str, pPartition:int ) -> object:
+    def __init__ (self, pBrokerName:str, pBrokerPort:str , pTopicName:str, pPartition:int ) -> object:
         """
         Costruttore\n
 
         Args:\n
             pBrokerName    (str)                    : Nome dell'host che esegue Kafka
+            pBrokerPort    (str)                    : Porta dell'host su cui sta girando Kafka
             pTopicName     (str)                    : Nome del Topic Kafka su cui Scrivere
             pPartition     (int)                    : Partizione kafka su cui andare a scrivere i record
         """
 
-        self._connectionToken:str                               = pBrokerName + ":"+ os.environ['KAFKA_BROKER_PORT'] 
+        self._connectionToken:str                               = pBrokerName + ":"+ pBrokerPort
         self._topic:str                                         = pTopicName
         self._partition:int                                     = pPartition
         
