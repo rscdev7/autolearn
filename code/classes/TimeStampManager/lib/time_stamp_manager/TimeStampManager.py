@@ -1,22 +1,21 @@
 """
 @author           	:  rscalia
-@version  		    :  1.0.1
 @build-date         :  Sun 02/05/2021
-@last_update        :  Sun 02/05/2021
+@last_update        :  Thu 22/07/2021
 
-Questo componente serve per convertire una data in un Timestamp UNIX e viceversa.
-
+Questo componente serve per convertire una data in un Timestamp UNIX e viceversa oltre che a restituire il timestamp attuale in millisecondi.
 """
 
 from datetime import datetime 
+import time
 
 
-class TimeStampConverter:
+class TimeStampManager:
 
 	
 	def date2Timestamp (self, pDay:int, pMonth:int , pYear:int ,pHour=0 , pMinutes=0) -> float:
 		"""
-		Converte un timestamp UNIX in una Data.
+		Converte una data in un timestamp UNIX (in secondi).
 
 		Args:
 			pDay 		(int)	: giorno
@@ -39,7 +38,7 @@ class TimeStampConverter:
 	
 	def timestamp2Date (self, pTimeStamp:float , pStringOut=True) -> (str or datetime):
 		"""
-		Converte un timestamp UNIX in una Data.
+		Converte un timestamp UNIX (in secondi) in una Data.
 
 		Args:
 			pTimeStamp 		(float)	: numero in virgola mobile rappresentante un timestamp
@@ -56,3 +55,14 @@ class TimeStampConverter:
 			return strDate
 		else:
 			return dt	
+
+
+	def currentTimeStampInMS (self) -> int:
+		"""
+		Restituisce il timestamp Attuale in millisecondi.
+
+		Returns:
+			(int)					: timestamp in millisecondi
+		"""
+
+		return round(time.time() * 1000)

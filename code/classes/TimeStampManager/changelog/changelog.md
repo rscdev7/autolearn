@@ -1,5 +1,8 @@
 # TimeStampConverter
 
+> **v1.0.2**
+>	* Ora la classe può restituire il timestamp attuale in Millisecondi
+
 > **v1.0.1**
 >	* Aggiustate modalità import moduli
 

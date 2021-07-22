@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>TimeStampConverter &mdash; TimeStampConverter 1.0.1 documentazione</title>
+  <title>TimeStampManager &mdash; TimeStampManager 1.0.3 documentazione</title>
   
 
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -39,8 +42,7 @@
     
     <link rel="index" title="Indice" href="genindex.html" />
     <link rel="search" title="Cerca" href="search.html" />
-    <link rel="next" title="Test" href="test.html" />
-    <link rel="prev" title="Benvenuto nella Documentazione di TimeStampConverter" href="index.html" /> 
+    <link rel="prev" title="Benvenuto nella Documentazione di TimeStampManager" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -54,7 +56,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> TimeStampConverter
+            <a href="index.html" class="icon icon-home"> TimeStampManager
           
 
           
@@ -87,8 +89,7 @@
             
               <p class="caption"><span class="caption-text">Moduli</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">TimeStampConverter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="test.html">Test</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">TimeStampManager</a></li>
 </ul>
 
             
@@ -104,7 +105,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">TimeStampConverter</a>
+          <a href="index.html">TimeStampManager</a>
         
       </nav>
 
@@ -137,13 +138,13 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>TimeStampConverter</li>
+      <li>TimeStampManager</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/timestamp_converter.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/time_stamp_manager.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -158,23 +159,36 @@
             
   <div class="toctree-wrapper compound">
 </div>
-<div class="section" id="module-TimeStampConverter.lib.TimeStampConverter">
-<span id="timestampconverter"></span><h1>TimeStampConverter<a class="headerlink" href="#module-TimeStampConverter.lib.TimeStampConverter" title="Link a questa intestazione">¶</a></h1>
+<div class="section" id="module-TimeStampManager.lib.time_stamp_manager.TimeStampManager">
+<span id="timestampmanager"></span><h1>TimeStampManager<a class="headerlink" href="#module-TimeStampManager.lib.time_stamp_manager.TimeStampManager" title="Link a questa intestazione">¶</a></h1>
 <p>&#64;author                 :  rscalia
-&#64;version                    :  1.0.1
 &#64;build-date         :  Sun 02/05/2021
-&#64;last_update        :  Sun 02/05/2021</p>
-<p>Questo componente serve per convertire una data in un Timestamp UNIX e viceversa.</p>
+&#64;last_update        :  Thu 22/07/2021</p>
+<p>Questo componente serve per convertire una data in un Timestamp UNIX e viceversa oltre che a restituire il timestamp attuale in millisecondi.</p>
 <dl class="py class">
-<dt id="TimeStampConverter.lib.TimeStampConverter.TimeStampConverter">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">TimeStampConverter.lib.TimeStampConverter.</span></code><code class="sig-name descname"><span class="pre">TimeStampConverter</span></code><a class="headerlink" href="#TimeStampConverter.lib.TimeStampConverter.TimeStampConverter" title="Link a questa definizione">¶</a></dt>
+<dt class="sig sig-object py" id="TimeStampManager.lib.time_stamp_manager.TimeStampManager.TimeStampManager">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">TimeStampManager.lib.time_stamp_manager.TimeStampManager.</span></span><span class="sig-name descname"><span class="pre">TimeStampManager</span></span><a class="headerlink" href="#TimeStampManager.lib.time_stamp_manager.TimeStampManager.TimeStampManager" title="Link a questa definizione">¶</a></dt>
 <dd><blockquote>
 <div><p>Basi: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 </div></blockquote>
 <dl class="py method">
-<dt id="TimeStampConverter.lib.TimeStampConverter.TimeStampConverter.date2Timestamp">
-<code class="sig-name descname"><span class="pre">date2Timestamp</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDay</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pMonth</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pYear</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pHour</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pMinutes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">float</span><a class="headerlink" href="#TimeStampConverter.lib.TimeStampConverter.TimeStampConverter.date2Timestamp" title="Link a questa definizione">¶</a></dt>
-<dd><p>Converte un timestamp UNIX in una Data.</p>
+<dt class="sig sig-object py" id="TimeStampManager.lib.time_stamp_manager.TimeStampManager.TimeStampManager.currentTimeStampInMS">
+<span class="sig-name descname"><span class="pre">currentTimeStampInMS</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#TimeStampManager.lib.time_stamp_manager.TimeStampManager.TimeStampManager.currentTimeStampInMS" title="Link a questa definizione">¶</a></dt>
+<dd><p>Restituisce il timestamp Attuale in millisecondi.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>timestamp in millisecondi</p>
+</dd>
+<dt class="field-even">Tipo di ritorno</dt>
+<dd class="field-even"><p>(int)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="TimeStampManager.lib.time_stamp_manager.TimeStampManager.TimeStampManager.date2Timestamp">
+<span class="sig-name descname"><span class="pre">date2Timestamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDay</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pMonth</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pYear</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pHour</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pMinutes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">float</span><a class="headerlink" href="#TimeStampManager.lib.time_stamp_manager.TimeStampManager.TimeStampManager.date2Timestamp" title="Link a questa definizione">¶</a></dt>
+<dd><p>Converte una data in un timestamp UNIX (in secondi).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><ul class="simple">
@@ -195,9 +209,9 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="TimeStampConverter.lib.TimeStampConverter.TimeStampConverter.timestamp2Date">
-<code class="sig-name descname"><span class="pre">timestamp2Date</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pTimeStamp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pStringOut</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#TimeStampConverter.lib.TimeStampConverter.TimeStampConverter.timestamp2Date" title="Link a questa definizione">¶</a></dt>
-<dd><p>Converte un timestamp UNIX in una Data.</p>
+<dt class="sig sig-object py" id="TimeStampManager.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestamp2Date">
+<span class="sig-name descname"><span class="pre">timestamp2Date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pTimeStamp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pStringOut</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#TimeStampManager.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestamp2Date" title="Link a questa definizione">¶</a></dt>
+<dd><p>Converte un timestamp UNIX (in secondi) in una Data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><ul class="simple">
@@ -224,8 +238,7 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="test.html" class="btn btn-neutral float-right" title="Test" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="index.html" class="btn btn-neutral float-left" title="Benvenuto nella Documentazione di TimeStampConverter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Benvenuto nella Documentazione di TimeStampManager" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

@@ -1,12 +1,12 @@
-Benvenuto nella Documentazione di TimeStampConverter
+Benvenuto nella Documentazione di TimeStampManager
 ======================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Moduli
 
-   timestamp_converter
-   test
+
+   time_stamp_manager
 
 
 
