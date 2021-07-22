@@ -1,204 +1,201 @@
-version: '2'
+version: '3'
 services:
 
-  event_store:
-    image: mongo
-    container_name: event_store
-    hostname: event_store
-    restart: always
-    command: mongod --port ${EVENT_STORE_PORT}
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: ${EVENT_STORE_USERNAME}
-      MONGO_INITDB_ROOT_PASSWORD: ${EVENT_STORE_PASSWORD}
-    volumes:
-      - ${EVENT_STORE_DATA}:/data/db
-      - ${EVENT_STORE_CONF}:/data/configdb
-
-  
-  rabbitmq:
-    image: rabbitmq:3-management
-    hostname: rabbitmq
-    container_name: rabbitmq
-    restart: always
-    ports:
-      - ${RABBIT_MQ_PORT_1}:5672
-      - ${RABBIT_MQ_PORT_2}:15672
-    volumes:
-      - ${RABBIT_MQ_DB}:/var/lib/rabbitmq
-      - ${RABBIT_MQ_LOGS}:/var/log/rabbitmq/log
+    config_service:
+        image: 'bitnami/zookeeper:latest'
+        hostname: zookeeper
+        container_name: zookeeper
+        restart: always
+        environment:
+            - ALLOW_ANONYMOUS_LOGIN=yes
+        volumes:
+            - ${CONFIG_SERVICE_DATA_LAKE}:/bitnami/zookeeper
 
 
-  database:
-    image: mongo
-    container_name: database
-    hostname: database
-    restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: ${DB_USERNAME}
-      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
-    volumes:
-      - ${DB_DATA}:/data/db
-      - ${DB_CONF}:/data/configdb
+    event_store:
+        image: 'bitnami/kafka:latest'
+        hostname: kafka
+        container_name: kafka
+        restart: always
+        depends_on:
+            - config_service
+        environment:
+            - KAFKA_BROKER_ID=1
+            - KAFKA_INTER_BROKER_LISTENER_NAME=CLIENT
+            - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+            - ALLOW_PLAINTEXT_LISTENER=yes
+            - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CLIENT:PLAINTEXT
+            - KAFKA_CFG_LISTENERS=CLIENT://:9092
+            - KAFKA_CFG_ADVERTISED_LISTENERS=CLIENT://kafka:9092            
+        volumes:
+            - ${EVENT_STORE_DATA_LAKE}:/bitnami/kafka
 
 
-  db_dashboard:
-    image: mongo-express
-    restart: always
-    container_name: db_dashboard
-    hostname: db_dashboard
-    environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: example
-      ME_CONFIG_MONGODB_SERVER: database
-    ports:
-      - "${DB_DASHBOARD_PORT}:8081"
+    broker:
+        image: rabbitmq:3-management
+        hostname: rabbitmq
+        container_name: rabbitmq
+        restart: always
+        ports:
+            - ${BROKER_PORT_DASHBOARD}:15672
+        volumes:
+            - ${BROKER_DATA}:/var/lib/rabbitmq
+            - ${BROKER_LOGS}:/var/log/rabbitmq/log
 
 
-  event_store_dashboard:
-    image: mongo-express
-    restart: always
-    container_name: event_store_dashboard
-    hostname: event_store_dashboard
-    environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: example
-      ME_CONFIG_MONGODB_SERVER: event_store
-      ME_CONFIG_MONGODB_PORT: ${EVENT_STORE_PORT}
-    ports:
-      - "${EVENT_STORE_DASHBOARD_PORT}:8081"
+    database:
+        image: mongo
+        container_name: database
+        hostname: database
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: ${DB_USERNAME}
+            MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
+        volumes:
+            - ${DB_DATA}:/data/db
+            - ${DB_CONF}:/data/configdb
 
 
-  training:
-    image: py:sw_eng
-    container_name: training
-    hostname: training
-    restart: always
-    command: "bash"
-    tty: true
-    stdin_open: true
-    environment:
-      SERVER_PORT: ${TRAINING_SERVICE_PORT}
-      HOST_NAME: training
-      WEB_SERVER_WORKERS: ${WEB_SERVER_WORKERS}
-      RABBIT_MQ_ADDRESS: ${RABBIT_MQ_TOKEN}
-      EVENT_STORE_PORT: ${EVENT_STORE_PORT}
-      EVENT_STORE_USERNAME: ${EVENT_STORE_USERNAME}
-      EVENT_STORE_PASSWORD: ${EVENT_STORE_PASSWORD}
-    ports:
-      - ${TRAINING_SERVICE_PORT}:${TRAINING_SERVICE_PORT}
-    volumes:
-      - ${TRAINING_CODE_LAKE}:/workspace/code
-      - ${TRAINING_DATA_LAKE}:/workspace/data
+    db_dashboard:
+        image: mongo-express
+        restart: always
+        container_name: db_dashboard
+        hostname: db_dashboard
+        environment:
+            ME_CONFIG_MONGODB_ADMINUSERNAME: root
+            ME_CONFIG_MONGODB_ADMINPASSWORD: example
+            ME_CONFIG_MONGODB_SERVER: database
+        ports:
+            - "${DB_DASHBOARD_PORT}:8081"
+
+            
+    training:
+        image: py:sw_eng
+        container_name: training
+        hostname: training
+        restart: always
+        command: "bash"
+        tty: true
+        stdin_open: true
+        environment:
+            SERVER_PORT: ${TRAINING_SERVICE_PORT}
+            HOST_NAME: training
+            WEB_SERVER_WORKERS: ${WEB_SERVER_WORKERS}
+            BROKER_LOGIN_TOKEN: ${BROKER_LOGIN_TOKEN}
+            EVENT_STORE_HOST_NAME: ${EVENT_STORE_HOST_NAME}
+            EVENT_STORE_PORT: ${EVENT_STORE_PORT}
+        ports:
+            - ${TRAINING_SERVICE_PORT}:${TRAINING_SERVICE_PORT}
+        volumes:
+            - ${TRAINING_CODE_LAKE}:/workspace/code
+            - ${TRAINING_DATA_LAKE}:/workspace/data
 
 
-  evaluation:
-    image: py:sw_eng
-    container_name: evaluation
-    hostname: evaluation
-    restart: always
-    command: "bash"
-    tty: true
-    stdin_open: true
-    environment:
-      SERVER_PORT: ${EVALUATION_SERVICE_PORT}
-      HOST_NAME: evaluation
-      WEB_SERVER_WORKERS: ${WEB_SERVER_WORKERS}
-      EVENT_STORE_PORT: ${EVENT_STORE_PORT}
-      EVENT_STORE_USERNAME: ${EVENT_STORE_USERNAME}
-      EVENT_STORE_PASSWORD: ${EVENT_STORE_PASSWORD}
-    ports:
-      - ${EVALUATION_SERVICE_PORT}:${EVALUATION_SERVICE_PORT}
-    volumes:
-      - ${EVALUATION_CODE_LAKE}:/workspace/code
-      - ${EVALUATION_DATA_LAKE}:/workspace/data
+    evaluation:
+        image: py:sw_eng
+        container_name: evaluation
+        hostname: evaluation
+        restart: always
+        command: "bash"
+        tty: true
+        stdin_open: true
+        environment:
+            SERVER_PORT: ${EVALUATION_SERVICE_PORT}
+            HOST_NAME: evaluation
+            WEB_SERVER_WORKERS: ${WEB_SERVER_WORKERS}
+            EVENT_STORE_HOST_NAME: ${EVENT_STORE_HOST_NAME}
+            EVENT_STORE_PORT: ${EVENT_STORE_PORT}
+        ports:
+            - ${EVALUATION_SERVICE_PORT}:${EVALUATION_SERVICE_PORT}
+        volumes:
+            - ${EVALUATION_CODE_LAKE}:/workspace/code
+            - ${EVALUATION_DATA_LAKE}:/workspace/data
 
 
-  session:
-    image: py:sw_eng
-    container_name: session
-    hostname: session
-    restart: always
-    command: "bash"
-    tty: true
-    stdin_open: true
-    environment:
-      SERVER_PORT: ${SESSION_SERVICE_PORT}
-      HOST_NAME: session
-      WEB_SERVER_WORKERS: ${WEB_SERVER_WORKERS}
-      DB_PORT: 27017
-      DB_USERNAME: ${DB_USERNAME}
-      DB_PASSWORD: ${DB_PASSWORD}
-      RABBIT_MQ_ADDRESS: ${RABBIT_MQ_TOKEN}
-      EVENT_STORE_PORT: ${EVENT_STORE_PORT}
-      EVENT_STORE_USERNAME: ${EVENT_STORE_USERNAME}
-      EVENT_STORE_PASSWORD: ${EVENT_STORE_PASSWORD}
-    ports:
-      - ${SESSION_SERVICE_PORT}:${SESSION_SERVICE_PORT}
-    volumes:
-      - ${SESSION_CODE_LAKE}:/workspace/code
-      - ${SESSION_DATA_LAKE}:/workspace/data
+    session:
+        image: py:sw_eng
+        container_name: session
+        hostname: session
+        restart: always
+        command: "bash"
+        tty: true
+        stdin_open: true
+        environment:
+            SERVER_PORT: ${SESSION_SERVICE_PORT}
+            HOST_NAME: session
+            WEB_SERVER_WORKERS: ${WEB_SERVER_WORKERS}
+            DB_HOST_NAME: ${DB_HOST_NAME}
+            DB_PORT: ${DB_PORT}
+            DB_USERNAME: ${DB_USERNAME}
+            DB_PASSWORD: ${DB_PASSWORD}
+            BROKER_LOGIN_TOKEN: ${BROKER_LOGIN_TOKEN}
+            EVENT_STORE_HOST_NAME: ${EVENT_STORE_HOST_NAME}
+            EVENT_STORE_PORT: ${EVENT_STORE_PORT}
+        ports:
+            - ${SESSION_SERVICE_PORT}:${SESSION_SERVICE_PORT}
+        volumes:
+            - ${SESSION_CODE_LAKE}:/workspace/code
+            - ${SESSION_DATA_LAKE}:/workspace/data
 
 
-  storage:
-    image: py:sw_eng
-    container_name: storage
-    hostname: storage
-    restart: always
-    command: "bash"
-    tty: true
-    stdin_open: true
-    environment:
-      SERVER_PORT: ${STORAGE_SERVICE_PORT}
-      HOST_NAME: storage
-      WEB_SERVER_WORKERS: ${WEB_SERVER_WORKERS}
-      DB_PORT: 27017
-      DB_USERNAME: ${DB_USERNAME}
-      DB_PASSWORD: ${DB_PASSWORD}
-      RABBIT_MQ_ADDRESS: ${RABBIT_MQ_TOKEN}
-      EVENT_STORE_PORT: ${EVENT_STORE_PORT}
-      EVENT_STORE_USERNAME: ${EVENT_STORE_USERNAME}
-      EVENT_STORE_PASSWORD: ${EVENT_STORE_PASSWORD}
-    ports:
-      - ${STORAGE_SERVICE_PORT}:${STORAGE_SERVICE_PORT}
-    volumes:
-      - ${STORAGE_CODE_LAKE}:/workspace/code
-      - ${STORAGE_DATA_LAKE}:/workspace/data
+    storage:
+        image: py:sw_eng
+        container_name: storage
+        hostname: storage
+        restart: always
+        command: "bash"
+        tty: true
+        stdin_open: true
+        environment:
+            SERVER_PORT: ${STORAGE_SERVICE_PORT}
+            HOST_NAME: storage
+            WEB_SERVER_WORKERS: ${WEB_SERVER_WORKERS}
+            DB_HOST_NAME: ${DB_HOST_NAME}
+            DB_PORT: ${DB_PORT}
+            DB_USERNAME: ${DB_USERNAME}
+            DB_PASSWORD: ${DB_PASSWORD}
+            BROKER_LOGIN_TOKEN: ${BROKER_LOGIN_TOKEN}
+            EVENT_STORE_HOST_NAME: ${EVENT_STORE_HOST_NAME}
+            EVENT_STORE_PORT: ${EVENT_STORE_PORT}
+        ports:
+            - ${STORAGE_SERVICE_PORT}:${STORAGE_SERVICE_PORT}
+        volumes:
+            - ${STORAGE_CODE_LAKE}:/workspace/code
+            - ${STORAGE_DATA_LAKE}:/workspace/data
 
 
-  catalog:
-    image: py:sw_eng
-    container_name: catalog
-    hostname: catalog
-    restart: always
-    command: "bash"
-    tty: true
-    stdin_open: true
-    environment:
-      SERVER_PORT: ${CATALOG_SERVICE_PORT}
-      HOST_NAME: catalog
-      WEB_SERVER_WORKERS: ${WEB_SERVER_WORKERS}
-      EVENT_STORE_PORT: ${EVENT_STORE_PORT}
-      EVENT_STORE_USERNAME: ${EVENT_STORE_USERNAME}
-      EVENT_STORE_PASSWORD: ${EVENT_STORE_PASSWORD}
-    ports:
-      - ${CATALOG_SERVICE_PORT}:${CATALOG_SERVICE_PORT}
-    volumes:
-      - ${CATALOG_CODE_LAKE}:/workspace/code
-      - ${CATALOG_DATA_LAKE}:/workspace/data
+    catalog:
+        image: py:sw_eng
+        container_name: catalog
+        hostname: catalog
+        restart: always
+        command: "bash"
+        tty: true
+        stdin_open: true
+        environment:
+            SERVER_PORT: ${CATALOG_SERVICE_PORT}
+            HOST_NAME: catalog
+            WEB_SERVER_WORKERS: ${WEB_SERVER_WORKERS}
+            EVENT_STORE_HOST_NAME: ${EVENT_STORE_HOST_NAME}
+            EVENT_STORE_PORT: ${EVENT_STORE_PORT}
+        ports:
+            - ${CATALOG_SERVICE_PORT}:${CATALOG_SERVICE_PORT}
+        volumes:
+            - ${CATALOG_CODE_LAKE}:/workspace/code
+            - ${CATALOG_DATA_LAKE}:/workspace/data
 
       
-  admin:
-    image: py:sw_eng
-    container_name: admin
-    hostname: admin
-    restart: always
-    command: "bash"
-    tty: true
-    stdin_open: true
-    environment:
-      SERVER_PORT: ${ADMIN_SERVICE_PORT}
-      HOST_NAME: admin
-      WEB_SERVER_WORKERS: ${WEB_SERVER_WORKERS}
-    volumes:
-      - ${ADMIN_CODE_LAKE}:/workspace/code
-      - ${ADMIN_DATA_LAKE}:/workspace/data
+    admin:
+        image: py:sw_eng
+        container_name: admin
+        hostname: admin
+        restart: always
+        command: "bash"
+        tty: true
+        stdin_open: true
+        environment:
+            SERVER_PORT: ${ADMIN_SERVICE_PORT}
+            HOST_NAME: admin
+        volumes:
+            - ${ADMIN_CODE_LAKE}:/workspace/code
+            - ${ADMIN_DATA_LAKE}:/workspace/data

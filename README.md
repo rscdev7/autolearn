@@ -157,8 +157,19 @@ Comandi Installazione Ambiente, Interprete e Librerie:
         
         
 ## ISTRUZIONI PER ESEGUIRE IL PROGETTO
-1. Installare *Docker* sul proprio Sistema
-2. Impostare le Variabili d'Ambiente modificando opportunamente il file *$HOME_REPO/docker/production_env/.env*
+1. Installare *Docker* e *docker-compose* sul proprio Sistema
+2. Impostare le Variabili d'Ambiente modificando opportunamente il file 
+        
+        $REPO_DIR/docker/production_env/.env
+
+
+   **[OSSERVAZIONE]** 
+   Le carelle dell'Event-Store e del Config-Service devono essere assegnate ad un utente specifico; per fare ciò, eseguire i seguenti comandi:
+
+                sudo chown -R 1001:1001 $EVENT_STORE_DATA_LAKE
+                sudo chown -R 1001:1001 $CONFIG_SERVICE_DATA_LAKE
+
+
 3. Avviare il Backend:
 
         cd $REPO_DIR/docker/production_env
@@ -168,7 +179,23 @@ Comandi Installazione Ambiente, Interprete e Librerie:
         docker-compose up -d
 
 
-4. Avviare il Frontend: 
+4. Impostare i parametri dell'Event-Store all'interno del file:
+        
+        $REPO_DIR/docker/production_env/event_store_set_up.sh
+
+
+5. Concedere i permessi di esecuzione agli script necessari per inizializzare l'Event-Store:
+        
+        chmod u+x $REPO_DIR/docker/production_env/event_store_set_up.sh
+        chmod u+x $REPO_DIR/docker/production_env/init_event_store.sh
+
+
+6. Inizializzare l'Event-Store:
+        
+        ./$REPO_DIR/docker/production_env/init_event_store.sh
+
+
+7. Avviare il Frontend: 
 
         cd $CLIENT_APP_DIR
 
