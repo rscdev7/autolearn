@@ -1,53 +1,57 @@
 """
 @author           	:  rscalia
 @build-date         :  Sun 02/05/2021
-@last_update        :  Thu 22/07/2021
+@last_update        :  Fri 23/07/2021
 
 Questo componente serve per convertire una data in un Timestamp UNIX e viceversa oltre che a restituire il timestamp attuale in millisecondi.
 """
 
-from datetime import datetime 
+from datetime 		import datetime 
 import time
+from typing 		import Union
 
 
 class TimeStampManager:
 
-	
-	def date2Timestamp (self, pDay:int, pMonth:int , pYear:int ,pHour=0 , pMinutes=0) -> float:
+	@staticmethod
+	def date2Timestamp (pDay:int, pMonth:int , pYear:int , pHour=0 , pMinutes=0) -> Union [ int , Exception]:
 		"""
 		Converte una data in un timestamp UNIX (in secondi).
 
-		Args:
-			pDay 		(int)	: giorno
-			pMonth 		(int)	: mese
-			pYear 		(int)	: anno
-			pHour 		(int | default=0)	: ora
-			pMinutes 	(int | default=0)	: minuti
+		Args:\n
+			pDay 		(int)				: giorno
+			pMonth 		(int)				: mese
+			pYear 		(int)				: anno
+			pHour 		(int | DEF = 0)		: ora
+			pMinutes 	(int | DEF = 0)		: minuti
 
-		Returns:
-			float				: timestamp UNIX
+		Returns:\n
+			Union [ int , Exception ]		: timestamp UNIX in Secondi o eccezione
+
+		Raises:\n
+			Exception						: eccezione molto probabilmente scaturità da un formato dei parametri passati inammissibile.
 		"""
 		try:
 			dt:datetime				= datetime (day=pDay, month=pMonth, year=pYear, hour=pHour, minute=pMinutes)
 			timestamp:float		    = dt.timestamp()
-			return timestamp
+			return int(timestamp)
 
 		except Exception as msg:
-			print ("[!] Exception Occurred, msg => {} ".format(msg))
+			return msg
 
-	
-	def timestamp2Date (self, pTimeStamp:float , pStringOut=True) -> (str or datetime):
+
+	@staticmethod
+	def timestamp2Date (pTimeStamp:int , pStringOut=True) -> Union[ str , datetime]:
 		"""
 		Converte un timestamp UNIX (in secondi) in una Data.
 
-		Args:
-			pTimeStamp 		(float)	: numero in virgola mobile rappresentante un timestamp
-			pStringOut		(bool | default=true) 	: Se impostato a vero, il metodo restituisce una data formattata come stringa, atrimenti restituisce la data incapsulata in un oggetto datetime.
+		Args:\n
+			pTimeStamp 		(int)					: numero in virgola mobile rappresentante un timestamp in secondi
+			pStringOut		(bool | DEF = True) 	: Se impostato a vero, il metodo restituisce una data formattata come stringa, atrimenti restituisce la data incapsulata in un oggetto datetime.
 
-		Returns:
-			(str | datetime)		: stringa o oggetto datetime rappresentante la data associata al timestamp
+		Returns:\n
+			Union[ str , datetime]					: stringa o oggetto datetime rappresentante la data associata al timestamp passato alla funzione
 		"""
-
 		dt:datetime			= datetime.fromtimestamp(pTimeStamp)
 
 		if (pStringOut == True):
@@ -57,12 +61,23 @@ class TimeStampManager:
 			return dt	
 
 
-	def currentTimeStampInMS (self) -> int:
+	@staticmethod
+	def currentTimeStampInMS () -> int:
 		"""
 		Restituisce il timestamp Attuale in millisecondi.
 
-		Returns:
-			(int)					: timestamp in millisecondi
+		Returns:\n
+			int					: timestamp in millisecondi
 		"""
-
 		return round(time.time() * 1000)
+
+	
+	@staticmethod
+	def currentTimeStampInSec () -> int:
+		"""
+		Restituisce il timestamp Attuale in millisecondi.
+
+		Returns:\n
+			int					: timestamp in secondi
+		"""
+		return int( time.time() )
