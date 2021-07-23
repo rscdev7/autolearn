@@ -1,7 +1,7 @@
 """
 @author           	:  rscalia
 @build-date         :  Fri 16/07/2021
-@last-update        :  Fri 16/07/2021
+@last-update        :  Fri 23/07/2021
 
 Questo componente serve per consumare i messaggi in una coda RabbitMQ
 """
@@ -17,6 +17,8 @@ from aio_pika.exceptions                    import QueueEmpty
 from aio_pika.connection                    import Connection
 
 from ..network_serializer.NetworkSerializer import NetworkSerializer
+from typing                                 import Union
+
 
 class RabbitConsumer (object):
 
@@ -35,11 +37,14 @@ class RabbitConsumer (object):
         self._serializer:NetworkSerializer  = NetworkSerializer()
 
 
-    async def start (self) -> None:
+    async def start (self) -> Union[None , Exception]:
         """
         Questo metodo avvia il consumatore RabbitMQ
 
-        Raises:
+        Returns:\n
+            Union[None , Exception]
+
+        Raises:\n
             Exception   : eccezzione generica
         """
         loop:AbstractEventLoop                  = asyncio.get_event_loop()
@@ -58,11 +63,14 @@ class RabbitConsumer (object):
             return msg
 
 
-    async def stop (self) -> None:
+    async def stop (self) -> Union[None , Exception]:
         """
         Questo metodo stoppa il consumatore RabbitMQ
 
-        Raises:
+        Returns:\n
+            Union[None , Exception]
+
+        Raises:\n
             Exception   : eccezzione generica
         """
         try:
@@ -71,12 +79,12 @@ class RabbitConsumer (object):
             return exp
 
 
-    async def consume (self) -> dict:
+    async def consume (self) -> Union[ dict , QueueEmpty , Exception ]:
         """ 
         Consuma un messaggio dalla coda
 
         Returns:
-                        (dict)  : messaggio recuperato dalla coda
+            Union[ dict , QueueEmpty , Exception ]:  : messaggio recuperato dalla coda o Eccezione
 
         Raises:
             Exception   : eccezzione generica

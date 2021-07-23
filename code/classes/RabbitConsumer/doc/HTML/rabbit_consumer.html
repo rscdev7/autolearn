@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>RabbitConsumer &mdash; RabbitConsumer 1.0.1 documentazione</title>
+  <title>RabbitConsumer &mdash; RabbitConsumer 1.0.2 documentazione</title>
   
 
   
@@ -165,7 +165,7 @@
 <span id="rabbitconsumer"></span><h1>RabbitConsumer<a class="headerlink" href="#module-RabbitConsumer.lib.rabbit_consumer.RabbitConsumer" title="Link a questa intestazione">¶</a></h1>
 <p>&#64;author                 :  rscalia
 &#64;build-date         :  Fri 16/07/2021
-&#64;last-update        :  Fri 16/07/2021</p>
+&#64;last-update        :  Fri 23/07/2021</p>
 <p>Questo componente serve per consumare i messaggi in una coda RabbitMQ</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="RabbitConsumer.lib.rabbit_consumer.RabbitConsumer.RabbitConsumer">
@@ -189,14 +189,14 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="RabbitConsumer.lib.rabbit_consumer.RabbitConsumer.RabbitConsumer.consume">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">consume</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#RabbitConsumer.lib.rabbit_consumer.RabbitConsumer.RabbitConsumer.consume" title="Link a questa definizione">¶</a></dt>
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">consume</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">,</span> </span><span class="pre">aio_pika.exceptions.QueueEmpty</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#RabbitConsumer.lib.rabbit_consumer.RabbitConsumer.RabbitConsumer.consume" title="Link a questa definizione">¶</a></dt>
 <dd><p>Consuma un messaggio dalla coda</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
-<dd class="field-odd"><p>messaggio recuperato dalla coda</p>
+<dd class="field-odd"><p>: messaggio recuperato dalla coda o Eccezione</p>
 </dd>
 <dt class="field-even">Tipo di ritorno</dt>
-<dd class="field-even"><p>(dict)</p>
+<dd class="field-even"><p>Union[ dict , QueueEmpty , Exception ]</p>
 </dd>
 <dt class="field-odd">Solleva</dt>
 <dd class="field-odd"><ul class="simple">
@@ -209,22 +209,28 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="RabbitConsumer.lib.rabbit_consumer.RabbitConsumer.RabbitConsumer.start">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#RabbitConsumer.lib.rabbit_consumer.RabbitConsumer.RabbitConsumer.start" title="Link a questa definizione">¶</a></dt>
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#RabbitConsumer.lib.rabbit_consumer.RabbitConsumer.RabbitConsumer.start" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questo metodo avvia il consumatore RabbitMQ</p>
 <dl class="field-list simple">
-<dt class="field-odd">Solleva</dt>
-<dd class="field-odd"><p><strong>Exception</strong> – eccezzione generica</p>
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>Union[None , Exception]</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – eccezzione generica</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="RabbitConsumer.lib.rabbit_consumer.RabbitConsumer.RabbitConsumer.stop">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#RabbitConsumer.lib.rabbit_consumer.RabbitConsumer.RabbitConsumer.stop" title="Link a questa definizione">¶</a></dt>
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#RabbitConsumer.lib.rabbit_consumer.RabbitConsumer.RabbitConsumer.stop" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questo metodo stoppa il consumatore RabbitMQ</p>
 <dl class="field-list simple">
-<dt class="field-odd">Solleva</dt>
-<dd class="field-odd"><p><strong>Exception</strong> – eccezzione generica</p>
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>Union[None , Exception]</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – eccezzione generica</p>
 </dd>
 </dl>
 </dd></dl>
