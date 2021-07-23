@@ -45,8 +45,8 @@ services:
 
     database:
         image: mongo
-        container_name: database
-        hostname: database
+        container_name: mongo
+        hostname: mongo
         restart: always
         environment:
             MONGO_INITDB_ROOT_USERNAME: ${DB_USERNAME}
