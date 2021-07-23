@@ -1,14 +1,14 @@
 """
 @author           	:  rscalia
 @build-date         :  Thu 15/07/2021
-@last_update        :  Thu 15/07/2021
+@last_update        :  Fri 23/07/2021
 
 Questa classe serve per gestire le chiamate HTTP Sincrone e Asincrone
 """
 
 import asyncio
 import aiohttp
-from aiohttp    import ClientSession, ClientTimeout, ClientError, ClientPayloadError , InvalidURL, ClientResponseError, ClientResponseError
+from aiohttp                                import ClientSession, ClientTimeout, ClientError, ClientPayloadError , InvalidURL, ClientResponseError, ClientResponseError
 
 import json
 
@@ -17,9 +17,9 @@ from requests.adapters                      import HTTPAdapter
 from requests.packages.urllib3.util.retry   import Retry
 from requests.models                        import Response
 
-from typing import Dict
+from typing                                 import Dict, Union, Tuple
 
-from .HTTPError import HTTPError
+from .HTTPError                             import HTTPError
 
 
 class HTTPEngine (object):
@@ -43,23 +43,29 @@ class HTTPEngine (object):
         self._asyncSession:ClientSession            = ClientSession(timeout=timeout)
 
 
-    async def closeAsync (self) -> None:
+    async def closeAsync (self) -> Union[ None , Exception]:
         """
         Questo metodo chiude una sessione HTTP Asincrona
+
+        Raises:\n
+            "Exception"     : eccezione generica, molto probabilmente causata da una sessione già chiusa.
         """
-        await self._asyncSession.close()
+        try:
+            await self._asyncSession.close()
+        except Exception as exp:
+            return exp
 
 
-    def get (self, pURL:str , pParams:dict={}) -> Dict[int,dict]:
+    def get (self, pURL:str , pParams:dict={}) -> Union[ Dict[int,dict] , Exception, Tuple [Exception , int] ]:
         """
         Questo metodo effettua una get Sincrona.\n
 
         Args:\n
-                pURL            (str)                                                   : URL su cui fare la chiamata 
-                pParams         (dict, optional)                                        : eventuali parametri di query da aggiugere all'URL http
+                pURL            (str)                                                                       : URL su cui fare la chiamata 
+                pParams         (dict | DEF = {} )                                                          : eventuali parametri di query da aggiugere all'URL http
         
         Returns:\n
-                                (Dict[int,dict] | Exception | Tuple[Excpetion | Int])       : dizionario contenente status_code e payload restituiti dal server \n
+                                (Union[ Dict[int,dict] , Exception, Tuple [Exception , int] ])              : dizionario contenente status_code e payload restituiti dal server \n
                                 
                                 Formato Dizionario:\n
                                     - **status_code**, status code della chiamata HTTP \n
@@ -91,16 +97,16 @@ class HTTPEngine (object):
             return ex
 
 
-    async def getAsync(self, pURL:str, pParams:dict={}) -> Dict[int,dict]:
+    async def getAsync(self, pURL:str, pParams:dict={}) -> Union[ Dict[int,dict] , Exception, Tuple [Exception , int] ]:
         """
         Questo metodo effettua una get asincrona.\n
 
         Args:\n
-                pURL            (str)                                                       : URL su cui fare la chiamata 
-                pParams         (dict, optional)                                            : eventuali parametri di query da aggiugere all'URL http
+                pURL            (str)                                                                       : URL su cui fare la chiamata 
+                pParams         (dict | DEF = {})                                                           : eventuali parametri di query da aggiugere all'URL http
         
         Returns:\n
-                                (Dict[int,dict] | Exception | Tuple[Excpetion | Int])       : dizionario contenente status_code e payload restituiti dal server \n
+                                (Union[ Dict[int,dict] , Exception, Tuple [Exception , int] ])              : dizionario contenente status_code e payload restituiti dal server \n
                                 
                                 Formato Dizionario:\n
                                     - **status_code**, status code della chiamata HTTP \n
@@ -146,16 +152,16 @@ class HTTPEngine (object):
             return ex
 
 
-    def post (self, pUrl:str , pPayload:dict) -> Dict[int,dict]:
+    def post (self, pUrl:str , pPayload:dict) -> Union[ Dict[int,dict] , Exception, Tuple [Exception , int] ]:
         """
         Questo metodo effettua una post Sincrona.\n
 
         Args:\n
-                pURL            (str)                                                       : URL su cui fare la chiamata \n
-                pPayload        (dict)                                                      : payload da inoltrare al server\n
+                pURL            (str)                                                                   : URL su cui fare la chiamata \n
+                pPayload        (dict)                                                                  : payload da inoltrare al server\n
         
         Returns:\n
-                                (Dict[int,dict] | Exception | Tuple[Excpetion | Int])       : dizionario contenente status_code e payload restituiti dal server \n
+                                (Union[ Dict[int,dict] , Exception, Tuple [Exception , int] ])          : dizionario contenente status_code e payload restituiti dal server \n
                                 
                                 Formato Dizionario:\n
                                     - **status_code**, status code della chiamata HTTP \n
@@ -186,16 +192,16 @@ class HTTPEngine (object):
             return ex
 
 
-    async def postAsync(self, pUrl:str , pPayload:dict) -> Dict[int,dict]:
+    async def postAsync(self, pUrl:str , pPayload:dict) -> Union[ Dict[int,dict] , Exception, Tuple [Exception , int] ]:
         """
         Questo metodo effettua una post asincrona.\n
 
         Args:\n
-                pURL            (str)                                                       : URL su cui fare la chiamata \n
-                pPayload        (dict)                                                      : payload da inoltrare al server\n
+                pURL            (str)                                                                   : URL su cui fare la chiamata \n
+                pPayload        (dict)                                                                  : payload da inoltrare al server\n
         
         Returns:\n
-                                (Dict[int,dict] | Exception | Tuple[Excpetion | Int])       : dizionario contenente status_code e payload restituiti dal server \n
+                                (Union[ Dict[int,dict] , Exception, Tuple [Exception , int] ])          : dizionario contenente status_code e payload restituiti dal server \n
                                 
                                 Formato Dizionario:\n
                                     - **status_code**, status code della chiamata HTTP \n
