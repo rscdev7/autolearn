@@ -31,6 +31,6 @@ def test_e_mng():
     
     res:float           = wrong_fun()
     fun_outcome:bool    = ExceptionManager.checkFunCall(res)
-   
-    assert fun_outcome == False
-    lg.log(res)
+    assert fun_outcome == True
+    lg.error(res)
+    
