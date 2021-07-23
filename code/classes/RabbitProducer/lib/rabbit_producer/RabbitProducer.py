@@ -1,7 +1,7 @@
 """
 @author           	:  rscalia
 @build-date         :  Fri 16/07/2021
-@last-update        :  Fri 16/07/2021
+@last-update        :  Fri 23/07/2021
 
 Questo componente serve per scrivere messaggi in una coda di RabbitMQ
 """
@@ -15,7 +15,7 @@ from aio_pika.channel                       import Channel
 from aio_pika.connection                    import Connection
 
 from ..network_serializer.NetworkSerializer import NetworkSerializer
-
+from typing                                 import Union
 
 class RabbitProducer (object):
 
@@ -32,11 +32,14 @@ class RabbitProducer (object):
         self._serializer:NetworkSerializer  = NetworkSerializer()
 
     
-    async def start (self) -> None:
+    async def start (self) -> Union[ None , Exception]:
         """
         Questo metodo avvia un Produttore RabbitMQ
 
-        Raises:
+        Returns:\n
+            Union[ None , Exception]
+
+        Raises:\n
             Exception   : eccezzione generica
         """
         #Getting event loop
@@ -50,11 +53,14 @@ class RabbitProducer (object):
             return msg
 
 
-    async def stop (self) -> None:
+    async def stop (self) -> Union[ None , Exception]:
         """
         Questo metodo stoppa un Produttore RabbitMQ
 
-        Raises:
+        Returns:\n
+            Union[ None , Exception]
+
+        Raises:\n
             Exception   : eccezione generica
         """
         try:
@@ -63,7 +69,7 @@ class RabbitProducer (object):
             return msg
 
 
-    async def pubblish (self, pRecord:dict) -> DeliveredMessage:
+    async def pubblish (self, pRecord:dict) -> Union[ DeliveredMessage , Exception]:
         """
         Questo metodo pubblica un messaggio sulla coda configurata nell'oggetto corrente.\n
 
@@ -71,7 +77,7 @@ class RabbitProducer (object):
             pRecord         (dict)                  : record da inviare
 
         Returns:\n
-                            (DeliveredMessage)      : notifica messaggio inviato
+            Union[ DeliveredMessage , Exception]    : notifica messaggio inviato o Eccezione
 
         Raises:\n
             Exception                               : eccezione generica

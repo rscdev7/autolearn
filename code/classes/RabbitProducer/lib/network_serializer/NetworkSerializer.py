@@ -1,7 +1,7 @@
 """
 @author           	:  rscalia
 @build-date         :  Thu 15/07/2021
-@last_update        :  Thu 15/07/2021
+@last_update        :  Fri 23/07/2021
 
 Questa classe permette di serializzare e deserializzare i JSON.
 
@@ -13,7 +13,7 @@ import json
 import base64
 from os.path            import join
 from io                 import BufferedWriter
-
+from typing             import Union
 
 class NetworkSerializer (object):
 
@@ -22,7 +22,7 @@ class NetworkSerializer (object):
         Costruttore \n
 
         Args:
-            pSecretKeyPath          (str)       : path contenente la chiave di cifratura/decifratura
+            pSecretKeyPath          (str | DEF = "./data/")       : path contenente la chiave di cifratura/decifratura
 
         """
 
@@ -30,48 +30,73 @@ class NetworkSerializer (object):
         self._key:Fernet            = None
 
 
-    def buildNewKey (self) -> None:
+    def buildNewKey (self) -> Union[ None , Exception ]:
         """
         Questo metodo genera una nuova chiave crittografica e la salve anche su Disco
+
+        Returns:\n
+            Union[ None , Exception ]
+
+        Raises:\n
+            Exception       : eccezione da scrittura file da Disco
         """
         self._key:bytes                 = Fernet.generate_key()
         self._cryptEngine:Fernet        = Fernet(self._key)
 
         #Salvataggio Chiave su Disco
         file_path:str                   = join (self._secretKeyPath, "secret_key.txt")
-        f:BufferedWriter                = open(file_path, "wb")
 
-        f.write(self._key)
-        f.close()
+        try:
+            f:BufferedWriter            = open(file_path, "wb")
+            f.write(self._key)
+            f.close()
+        except Exception as exp:
+            return exp
 
 
-    def readKeyFromFile (self) -> None:
+    def readKeyFromFile (self) -> Union[ None , Exception ]:
         """ 
         Questo metodo legge la chiave crittografica da disco
+
+        Returns:\n
+            Union[ None , Exception ]
+        
+        Raises:\n
+            Exception       : eccezione da lettura file da Disco
         """
-        file_path:str                   = join (self._secretKeyPath, "secret_key.txt")
+        file_path:str                       = join (self._secretKeyPath, "secret_key.txt")
 
-        self._key:bytes                 = open(file_path, "rb").peek()
-        self._cryptEngine:Fernet        = Fernet(self._key)
+        try:
+            self._key:bytes                 = open(file_path, "rb").peek()
+        except Exception as exp:
+            return exp
+
+        self._cryptEngine:Fernet            = Fernet(self._key)
 
 
-    def encryptField (self, pField:str) -> str:
+    def encryptField (self, pField:str) -> Union [ str , Exception ]:
         """
         Questa funzione permette di cifrare una stringa
 
-        Args:
-            pField              (str)       : stringa da cifrare
+        Args:\n
+            pField              (str)                           : stringa da cifrare
 
-        Returns:
-                                (str)       : crittotesto
+        Returns:\n
+                                Union [ str , Exception ]       : crittotesto
+        
+        Raises:\n
+            Exception                                           : eccezione
         """
 
         #Serializo i dati
         ser_data:str                            = json.dumps(pField)
         encoded_ser_data:bytes                  = ser_data.encode('utf-8')
 
-        #Cifro Dati
-        crypt_text:bytes                        = self._cryptEngine.encrypt(encoded_ser_data)
+        try:
+            #Cifro Dati
+            crypt_text:bytes                    = self._cryptEngine.encrypt(encoded_ser_data)
+        except Exception as exp:
+            return exp
 
         #Transformo i dati cifrati in string
         recoded_data:bytes                      = base64.b64encode(crypt_text)  
@@ -80,26 +105,32 @@ class NetworkSerializer (object):
         return crypt_str_data
 
 
-    def decryptField (self, pField:str) -> str:
+    def decryptField (self, pField:str) -> Union [ str , Exception ]:
         """
         Questa funzione permette di decifrare un crittotesto che era collegato alla cifratura di una stringa
 
-        Args:
-            pField              (str)       : crittotesto
+        Args:\n
+            pField              (str)                           : crittotesto
 
-        Returns:
-                                (str)       : testo in chiaro
+        Returns:\n
+                                Union [ str , Exception]        : testo in chiaro
+
+        Raises:\n
+            Exception                                           : eccezione
         """
 
         #Trasformo la stringa in dati cifrati
-        crypto_text:bytes                       = base64.b64decode(pField)
+        crypto_text:bytes                           = base64.b64decode(pField)
 
-        #Decifro i dati
-        data:bytes                              = self._cryptEngine.decrypt(crypto_text)
-
-        #Deserialize Data
-        decrypt_data:str                        = json.loads(data)  
+        try:
+            #Decifro i dati
+            data:bytes                              = self._cryptEngine.decrypt(crypto_text)
+        except Exception as exp:
+            return exp
         
+        #Deserialize Data
+        decrypt_data:str                            = json.loads(data)  
+
         return decrypt_data  
 
 
@@ -107,10 +138,10 @@ class NetworkSerializer (object):
         """
         Codifica un dizionario in JSON
 
-        Args:
+        Args:\n
             pDict           (dict)      : dizionario da codificare 
         
-        Returns:
+        Returns:\n
                             (bytes)     : codifica JSON del dizionario
         """
         ser_data:str                = json.dumps(pDict, default=lambda o: o.__dict__, indent=2)
@@ -123,10 +154,10 @@ class NetworkSerializer (object):
         """
         Decodifica di un JSON in un dizionario Python
 
-        Args:
+        Args:\n
             pPayLoad        (dict)      : byte rappresentano un JSON
         
-        Returns:
+        Returns:\n
                             (dict)      : dizionario Python che contiene i dati presenti nel JSON
         """
         deser_data:dict      = json.loads(pPayLoad)
