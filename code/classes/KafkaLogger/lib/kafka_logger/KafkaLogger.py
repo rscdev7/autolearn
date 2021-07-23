@@ -1,7 +1,7 @@
 """
 @author           	:  rscalia
 @build-date         :  Sun 09/05/2021
-@last_update        :  Thu 22/07/2021
+@last_update        :  Fri 23/07/2021
 
 Questo componente serve per scrivere record di log all'interno di uno Specifico Topic di Apache Kafka
 """
@@ -12,7 +12,7 @@ from aiokafka                               import AIOKafkaProducer
 import logging
 import json
 from ..network_serializer.NetworkSerializer import NetworkSerializer
-
+from typing                                 import Union
 
 class KafkaLogger (object):
 
@@ -35,15 +35,15 @@ class KafkaLogger (object):
         self._serializer:NetworkSerializer                      = NetworkSerializer()
 
 
-    async def start (self) -> bool:
+    async def start (self) -> Union [ None , Exception ]:
         """
         Metodo che connette il componente KafkaLogger con il broker Kafka, una volta fatta tale connessione sarà possibile incominciare ad inviare record al broker
 
         Returns:\n
-            bool                                : restituisce VERO se il setup è andato a buon fine
+            Union[ None , Exception ]                              
 
         Raises:\n
-            Excpetion           : eccezzione generica
+            Excpetion           : eccezione generica
         """
         
         loop:asyncio                                    = asyncio.get_event_loop()
@@ -51,31 +51,27 @@ class KafkaLogger (object):
 
         try:
             await self._producer.start()
-
-            return True
         except Exception as msg:
             return msg
 
 
-    async def stop (self)  -> bool:
+    async def stop (self)  -> Union [ None , Exception ]:
         """
         Metodo che chiude la connessione fra il KafkaLogger e Apache Kafka
 
         Returns:\n
-            bool                                : restituisce VERO se lo shutdown è andato a buon fine
+            Union[ None , Exception ]                               
 
         Raises:\n
-            Excpetion                           : eccezzione generica
+            Excpetion                           : eccezione generica
         """
         try:
             await self._producer.stop()
-
-            return True
         except Exception as msg:
             return msg
 
 
-    async def log (self, pKey:bytes , pRecord:dict, pTimestamp:int) -> bool:
+    async def log (self, pKey:bytes , pRecord:dict, pTimestamp:int) -> Union[ None , Exception ]:
         """
         Questo metodo permette di inserire un record all'interno del Topic Kafka precedentemente configurato
 
@@ -85,7 +81,7 @@ class KafkaLogger (object):
             pTimestamp      (int)           : timestamp del record da inserire
 
         Returns:\n
-            bool                            : restituisce VERO se il messaggio è stato inoltrato correttamente al broker
+            Union[ None , Exception ]                            
 
         Raises:\n
             Excpetion                       : eccezione generica
@@ -98,6 +94,5 @@ class KafkaLogger (object):
             #Invio dati al Broker
             await self._producer.send_and_wait(topic=self._topic, key=pKey, value=encoded_ser_data, timestamp_ms=pTimestamp, partition=self._partition)
 
-            return True
         except Exception as msg:
             return msg

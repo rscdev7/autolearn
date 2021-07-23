@@ -1,5 +1,8 @@
 # KafkaLogger
 
+> **v1.0.4**
+>	* Potenziata documentazione, gestione eccezioni e unit test
+
 > **v1.0.3**
 >	* Rimosso il prelievo della porta su cui gira Kafka attraverso le variabili d'ambiente.
 
