@@ -20,4 +20,4 @@ class ExceptionManager (object):
         Returns:
                                     (bool)      : VERO se non si sono verificate eccezion, FALSO altrimenti.
         """
-        return True if issubclass(type(pResult), Exception) == True else False
+        return True if issubclass(type(pResult), Exception) else False
