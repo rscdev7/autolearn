@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Logger &mdash; Logger 1.0.0 documentazione</title>
+  <title>Logger &mdash; Logger 1.0.1 documentazione</title>
   
 
   
@@ -163,7 +163,7 @@
 <span id="logger"></span><h1>Logger<a class="headerlink" href="#module-Logger.lib.logger.Logger" title="Link a questa intestazione">¶</a></h1>
 <p>&#64;author                 :  rscalia
 &#64;build-date         :  Mon 15/07/2021
-&#64;last_update        :  Mon 15/07/2021</p>
+&#64;last-update        :  Fri 23/07/2021</p>
 <p>Questo componente serve per fare logging in merito alle attività dei microservizi</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="Logger.lib.logger.Logger.Logger">
@@ -181,6 +181,20 @@
 <li><p><strong>pName</strong> (<em>str</em>) – nome del logger</p></li>
 <li><p><strong>pLogPath</strong> (<em>str</em>) – path dove è presente il file di log</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Logger.lib.logger.Logger.Logger.error">
+<span class="sig-name descname"><span class="pre">error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pMsg</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#Logger.lib.logger.Logger.Logger.error" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo segnala il verificarsi di un Errore all’interno del Log.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pMsg</strong> (<em>Union</em><em>[ </em><em>str</em><em> , </em><em>Exception</em><em> ]</em>) – messaggio d’errore</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – eccezzione generica</p>
 </dd>
 </dl>
 </dd></dl>

@@ -17,3 +17,8 @@ def test_logger():
 
     lg.log("Test")
     lg.log("Test 2")
+
+    try:
+        a:float = 5.0/0.0
+    except ZeroDivisionError as zd:
+        lg.error(zd)

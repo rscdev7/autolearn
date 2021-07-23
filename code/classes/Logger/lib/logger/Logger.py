@@ -1,7 +1,7 @@
 """
 @author           	:  rscalia
 @build-date         :  Mon 15/07/2021
-@last_update        :  Mon 15/07/2021
+@last-update        :  Fri 23/07/2021
 
 Questo componente serve per fare logging in merito alle attività dei microservizi
 """
@@ -10,7 +10,7 @@ import logging
 from logging                    import Logger,StreamHandler,FileHandler, Formatter,getLogger
 from datetime                   import datetime
 from os.path                    import join
-
+from typing import Union
 
 class Logger(object):
 
@@ -72,6 +72,24 @@ class Logger(object):
             Exception   : eccezzione generica       
         """
         try:
-            self._logger.info(pMsg)
+            info_line:str = "INFO | "+pMsg
+            self._logger.info(info_line)
+        except Exception as exp:
+            return exp
+
+        
+    def error (self, pMsg:Union[ str , Exception] ) -> None:
+        """
+        Questo metodo segnala il verificarsi di un Errore all'interno del Log.
+
+        Args:\n
+            pMsg            ( Union[ str , Exception ] )         : messaggio d'errore
+
+        Raises:
+            Exception                                            : eccezzione generica       
+        """
+        try:
+            error_line:str = "ERROR | "+str(pMsg)
+            self._logger.error(error_line)
         except Exception as exp:
             return exp
