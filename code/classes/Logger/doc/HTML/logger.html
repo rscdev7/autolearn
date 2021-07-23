@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Logger &mdash; Logger 1.0.1 documentazione</title>
+  <title>Logger &mdash; Logger 1.0.2 documentazione</title>
   
 
   
@@ -187,28 +187,34 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Logger.lib.logger.Logger.Logger.error">
-<span class="sig-name descname"><span class="pre">error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pMsg</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#Logger.lib.logger.Logger.Logger.error" title="Link a questa definizione">¶</a></dt>
+<span class="sig-name descname"><span class="pre">error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pMsg</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#Logger.lib.logger.Logger.Logger.error" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questo metodo segnala il verificarsi di un Errore all’interno del Log.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><p><strong>pMsg</strong> (<em>Union</em><em>[ </em><em>str</em><em> , </em><em>Exception</em><em> ]</em>) – messaggio d’errore</p>
 </dd>
-<dt class="field-even">Solleva</dt>
-<dd class="field-even"><p><strong>Exception</strong> – eccezzione generica</p>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ None , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezzione generica</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Logger.lib.logger.Logger.Logger.log">
-<span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pMsg</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#Logger.lib.logger.Logger.Logger.log" title="Link a questa definizione">¶</a></dt>
+<span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pMsg</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#Logger.lib.logger.Logger.Logger.log" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questo metodo scrive una linea di log</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><p><strong>pMsg</strong> (<em>str</em>) – messaggio</p>
 </dd>
-<dt class="field-even">Solleva</dt>
-<dd class="field-even"><p><strong>Exception</strong> – eccezzione generica</p>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ None , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezzione generica</p>
 </dd>
 </dl>
 </dd></dl>

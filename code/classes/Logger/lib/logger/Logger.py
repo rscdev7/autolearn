@@ -10,7 +10,7 @@ import logging
 from logging                    import Logger,StreamHandler,FileHandler, Formatter,getLogger
 from datetime                   import datetime
 from os.path                    import join
-from typing import Union
+from typing                     import Union
 
 class Logger(object):
 
@@ -61,14 +61,17 @@ class Logger(object):
         self._logger.addHandler(file_handler)
 
 
-    def log (self, pMsg:str) -> None:
+    def log (self, pMsg:str) -> Union [ None , Exception ]:
         """
         Questo metodo scrive una linea di log 
 
         Args:\n
             pMsg            (str)       : messaggio
 
-        Raises:
+        Returns:\n
+            Union [ None , Exception ]
+
+        Raises:\n
             Exception   : eccezzione generica       
         """
         try:
@@ -78,14 +81,17 @@ class Logger(object):
             return exp
 
         
-    def error (self, pMsg:Union[ str , Exception] ) -> None:
+    def error (self, pMsg:Union[ str , Exception ] ) -> Union [ None , Exception ]:
         """
         Questo metodo segnala il verificarsi di un Errore all'interno del Log.
 
         Args:\n
             pMsg            ( Union[ str , Exception ] )         : messaggio d'errore
 
-        Raises:
+        Returns:\n
+            Union [ None , Exception ]
+
+        Raises:\n
             Exception                                            : eccezzione generica       
         """
         try:
