@@ -1,7 +1,7 @@
 """
 @author           	:  rscalia
 @build-date         :  Fri 16/07/2021
-@last-update        :  Fri 16/07/2021
+@last-update        :  Fri 23/07/2021
 
 Questo componente serve per leggere, scrivere su un DB Mongo
 """
@@ -13,7 +13,7 @@ import pprint
 from motor.motor_asyncio    import AsyncIOMotorDatabase
 from pymongo.results        import InsertManyResult,UpdateResult
 
-from typing                 import List
+from typing                 import List,Union
 import pickle
 from bson.binary            import Binary
 from bson.objectid          import ObjectId
@@ -46,9 +46,12 @@ class MongoEngine (object):
         self._connection                = None
 
 
-    def start (self) -> None:
+    def start (self) -> Union [None , Exception]:
         """
         Questo metodo avvia la connessione col DB
+
+        Returns:\n
+            Union [None , Exception]
 
         Raises:\n
             Exception   : eccezione generica
@@ -61,9 +64,12 @@ class MongoEngine (object):
             return msg
 
 
-    def stop (self) -> None:
+    def stop (self) -> Union [None , Exception]:
         """
         Questo metodo stoppa la connessione col DB
+
+        Returns:\n
+            Union [None , Exception]
 
         Raises:\n
             Exception   : eccezione _collectionNamegenerica
@@ -75,7 +81,7 @@ class MongoEngine (object):
             return msg  
 
 
-    async def push (self, pDocs:List[dict]) -> List[ObjectId]:
+    async def push (self, pDocs:List[dict]) -> Union [ List[ObjectId] , Exception ]:
         """
         Inserisce una lista di documenti nella collezione del DB selezionata
 
@@ -83,7 +89,7 @@ class MongoEngine (object):
             pDocs           (List[dict])                : lista di record da inserire
 
         Returns:\n       
-                            (List[ObjectId])            : token inserimento
+            Union [ List[ObjectId] , Exception ]        : token inserimento o eccezione
 
         Raises:\n
                 Exception                               : eccezione generica
@@ -97,7 +103,7 @@ class MongoEngine (object):
         return result.inserted_ids
 
 
-    async def pushBinary (self, pDocs:List[dict], pFieldsToBinary:List[list]) -> List[ObjectId]:
+    async def pushBinary (self, pDocs:List[dict], pFieldsToBinary:List[list]) -> Union [ List[ObjectId] , Exception ]:
         """
         Inserisce una lista di documenti nella collezione del DB selezionata.\n
 
@@ -108,7 +114,7 @@ class MongoEngine (object):
             pFieldsToBinary (List[list])                : per ogni record, indica i campi da trasformare in bianrio
 
         Returns:\n        
-                            (List[ObjectId])            : token inserimento
+            Union [ List[ObjectId] , Exception ]        : token inserimento o eccezione
 
         Raises:\n
                 Exception                               : eccezione generica
@@ -124,31 +130,31 @@ class MongoEngine (object):
 
         #Insert computed records on the DB
         try:
-            result:InsertManyResult          = await self._db[self._collectionName].insert_many( computed_data )
+            result:InsertManyResult         = await self._db[self._collectionName].insert_many( computed_data )
         except Exception as msg:
             return msg
         
         return result.inserted_ids
 
 
-    async def queryOnesBinary (self, pBinaryFields:List[list], pQuery:dict , pProjection:dict=None) -> dict:
+    async def queryOnesBinary (self, pBinaryFields:List[list], pQuery:dict , pProjection:dict=None) -> Union [ dict , Exception ]:
         """
         Questo metodo restituisce il primo documento che fa match con la query.
 
         Args:\n
             pFieldsToBinary (List[list])                : indica i campi da trasformare da binario al tipo originario del dato
             pQuery          (dict)                      : query
-            pProjection     (dict)                      : proiezione sulla query
+            pProjection     (dict | DEF = None)         : proiezione sulla query
 
         Returns:\n
-                            (dict | None)               : dizionario con i dati recuperati o None
+            Union [ dict , Exception  ]                 : dizionario con i dati recuperati o Eccezione
 
         Raises:\n
             Exception                                   : eccezione generica
 
         """
         try:
-            document:dict          = await self._db[self._collectionName].find_one( pQuery , pProjection )
+            document:dict           = await self._db[self._collectionName].find_one( pQuery , pProjection )
 
             #Trasformo i campi binari nel loro formato originario
             for ls_fields in pBinaryFields:
@@ -160,19 +166,19 @@ class MongoEngine (object):
             return msg
 
 
-    async def queryOnes (self, pQuery:dict , pProjection:dict=None) -> dict:
+    async def queryOnes (self, pQuery:dict , pProjection:dict=None) -> Union [ dict , Exception, None ]:
         """
         Questo metodo restituisce il primo documento che fa match con la query.
 
         Args:\n
-            pQuery          (dict)          : query
-            pProjection     (dict)          : proiezione sulla query
+            pQuery          (dict)                          : query
+            pProjection     (dict | DEF = None)             : proiezione sulla query
 
         Returns:\n
-                            (dict | None)   : dizionario con i dati recuperati o None
+            Union [ dict , Exception, None  ]               : dizionario con i dati recuperati o Eccezione
 
         Raises:\n
-            Exception                       : eccezione generica
+            Exception                                       : eccezione generica
 
         """
         try:
@@ -182,17 +188,17 @@ class MongoEngine (object):
             return msg
 
 
-    async def query (self, pQuery:dict, pProjection:dict=None) -> List[dict]:
+    async def query (self, pQuery:dict, pProjection:dict=None) -> Union [ List[dict] , Exception ]:
         """
         Questo metodo restituisce il primo documento che fa match con la query.
 
         Args:\n
             pQuery          (dict)                  : query
-            pProjection     (dict)                  : proiezione sulla query
+            pProjection     (dict | DEF = None)     : proiezione sulla query
 
         Returns:\n
-                            (List[dict])            :  Lista di dizionari con i dati recuperati. \n
-                                                 Restituisce "[]" quand la query non ha trovat risultati
+            Union [ List[dict] , Exception ]        : Lista di dizionari con i dati recuperati o eccezione. \n
+                                                      Restituisce "[]" quand la query non ha trovat risultati
 
         Raises:\n
             Exception                               : eccezione generica
@@ -210,18 +216,18 @@ class MongoEngine (object):
         return retrieved_data
 
 
-    async def count (self, pQuery:dict={}) -> int:
+    async def count (self, pQuery:dict={}) -> Union [ int, Exception ]:
         """
         Conta il numero di occorrenze che soddisfano una Query
 
         Args:\n
-            pQuery          (dict)      : query  
+            pQuery          (dict | DEF = {})       : query  
 
         Returns:\n
-                            (int)       : Numero record che fanno match con la query passata come parametro
+            Union [ int, Exception ]                : Numero record che fanno match con la query passata come parametro
 
         Raises:\n
-            Exception                   : eccezione generica
+            Exception                               : eccezione generica
         """
         try:
             n:int           = await self._db[self._collectionName].count_documents(pQuery)
@@ -231,20 +237,19 @@ class MongoEngine (object):
         return n
 
 
-    #Update Documents of the Collection based on a Query
-    async def update (self, pQuery:dict , pUpdate:dict) -> UpdateResult:
+    async def update (self, pQuery:dict , pUpdate:dict) -> Union [ UpdateResult , Exception ]:
         """
         Questo metodo aggiorna tutti i record del DB che fanno match con la query.
 
         Args:\n
-            pQuery          (dict)          : query di ricerca
-            pUpdate         (dict)          : aggiornamenti dizionario
+            pQuery          (dict)              : query di ricerca
+            pUpdate         (dict)              : aggiornamenti dizionario
 
         Returns:\n
-                            (UpdateResult)  : sommario aggiornamento record
+            Union [ UpdateResult , Exception ]  : sommario aggiornamento record
 
         Raises:\n
-            Exception                       : eccezione generica
+            Exception                           : eccezione generica
         """
         try:
             res:UpdateResult        = await self._db[self._collectionName].update_many( pQuery , pUpdate)

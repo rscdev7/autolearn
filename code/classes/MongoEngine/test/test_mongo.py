@@ -1,24 +1,24 @@
 """
 @author           	:  rscalia
 @build-date         :  Fri 16/07/2021
-@last-update        :  Fri 16/07/2021
+@last-update        :  Fri 23/07/2021
 
 Questo componente serve per testare MongoEngine
 """
 
 import pytest
 import asyncio
-from typing import List
+from typing                         import List, Union
 from bson.objectid                  import ObjectId
 
 from ..lib.mongo_engine.MongoEngine import MongoEngine
 
-from sklearn.linear_model import LogisticRegression
-from sklearn.datasets import load_iris
+from sklearn.linear_model           import LogisticRegression
+from sklearn.datasets               import load_iris
 
 
 HOST_NAME:str               = "mongo"
-PORT:int                    = 27017
+PORT:int                    =  27017
 USERNAME:str                = "root"
 PASSWORD:str                = "example"
 DB_NAME:str                 = "Test"
@@ -49,9 +49,9 @@ TO_BIN:list                 = [ ["obj"]  ]
 async def test_mongo():
 
     #Connessione a MongoDB
-    engine:MongoEngine              = MongoEngine(HOST_NAME,PORT, USERNAME , PASSWORD, DB_NAME , COLLECTION_NAME)
-    res:None                        = engine.start()
-    assert res == None
+    engine:MongoEngine                                          = MongoEngine(HOST_NAME, PORT, USERNAME , PASSWORD, DB_NAME , COLLECTION_NAME)
+    res:Union[ None, Exception ]                                = engine.start()
+    assert issubclass (type(res) , Exception) == False
 
 
     #A scopo di Test cancello tutti i doc della collezione
@@ -59,24 +59,24 @@ async def test_mongo():
 
 
     #Scrittura di un Record
-    insertion_ids:List[ObjectId]    = await engine.push(DOC_MANY)
-    assert insertion_ids != Exception
+    insertion_ids:Union[ List[ObjectId] , Exception ]           = await engine.push(DOC_MANY)
+    assert issubclass (type(insertion_ids) , Exception) == False
     print ("\n\n[!] Id Inserimenti: {}".format(insertion_ids))
 
 
     #Query FIFO
-    res:dict                        = await engine.queryOnes(QUERY,PROJECTION)
-    assert res != Exception
+    res:Union[dict, Exception, None]                            = await engine.queryOnes(QUERY,PROJECTION)
+    assert issubclass (type(res) , Exception) == False
+
     if (type(res) == None):
         print ("\n[!] La query non ha prodotto alcun risultato")
     else:
         print("\n[!] Query FIFO:\n\n {}\n".format(res))
 
 
-
     #Query
-    res:List[dict]  = await engine.query(QUERY_MUL,PROJECTION)
-    assert res != Exception
+    res:Union[List[dict], Exception]                            = await engine.query(QUERY_MUL,PROJECTION)
+    assert issubclass (type(res) , Exception) == False
 
     if (res == []):
         print ("[!] La query non ha prodotto alcun risultato")
@@ -85,38 +85,39 @@ async def test_mongo():
 
 
     #Count
-    res:int  = await engine.count(QUERY)
-    assert res != Exception
+    res:Union[int, Exception]                                   = await engine.count(QUERY)
+    assert issubclass (type(res) , Exception) == False
     print ("\n[!] Il numero di Documenti che soddifano la query è: {}".format(res))
 
 
     #Aggiornamento
-    res:int  = await engine.update(QUERY_UPDATE, UPDATE)
-    assert res != Exception
+    res:Union[UpdateResult, Exception]                          = await engine.update(QUERY_UPDATE, UPDATE)
+    assert issubclass (type(res) , Exception) == False
     print ("\n[!] Aggiornamento Effettuato con Successo : {}".format(res))
 
 
 
     #Test inserimento oggeto serializzato in binario sul DB
     clf.fit(X,Y)
-    score_prec                                      = clf.score(X, Y)
+    score_prec:float                                            = clf.score(X, Y)
     print ("\n<PRE> [OBJ] => {} - [SCORE] => {}".format(clf,score_prec))
     
     #Binary Insert
-    insertion_ids:List[ObjectId]                    = await engine.pushBinary(BIN_DOCS,TO_BIN)
-    assert insertion_ids != Exception
+    insertion_ids:Union[List[ObjectId], Exception]              = await engine.pushBinary(BIN_DOCS,TO_BIN)
+    assert issubclass (type(insertion_ids) , Exception) == False
     print ("\n[!] Id Inserimenti: {}".format(insertion_ids))
 
-    
+
     #Binary Retrieve
-    result:dict                                     = await engine.queryOnesBinary(TO_BIN,QUERY_BIN)
-    assert type(result) != Exception
+    result:Union[dict, Exception]                               = await engine.queryOnesBinary(TO_BIN,QUERY_BIN)
+    assert issubclass (type(result) , Exception) == False
     print ("\n[!] Oggetto Ripristinato: {}".format( result['obj'] ) )
 
-    score_current:float                             = result['obj'].score(X, Y)
+    score_current:float                                         = result['obj'].score(X, Y)
     assert score_prec == score_current
     print ("\n<PRE> [OBJ] => {} - [SCORE] => {}".format(score_prec,score_current))
 
 
     #Stop Connessione
-    engine.stop()
+    res:Union[None , Exception]                                 = engine.stop()
+    assert issubclass (type(res) , Exception) == False

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>MongoEngine &mdash; MongoEngine 1.0.0 documentazione</title>
+  <title>MongoEngine &mdash; MongoEngine 1.0.1 documentazione</title>
   
 
   
@@ -163,7 +163,7 @@
 <span id="mongoengine"></span><h1>MongoEngine<a class="headerlink" href="#module-MongoEngine.lib.mongo_engine.MongoEngine" title="Link a questa intestazione">¶</a></h1>
 <p>&#64;author                 :  rscalia
 &#64;build-date         :  Fri 16/07/2021
-&#64;last-update        :  Fri 16/07/2021</p>
+&#64;last-update        :  Fri 23/07/2021</p>
 <p>Questo componente serve per leggere, scrivere su un DB Mongo</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine">
@@ -191,17 +191,17 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.count">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pQuery</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.count" title="Link a questa definizione">¶</a></dt>
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">count</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pQuery</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.count" title="Link a questa definizione">¶</a></dt>
 <dd><p>Conta il numero di occorrenze che soddisfano una Query</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
-<dd class="field-odd"><p><strong>pQuery</strong> (<em>dict</em>) – query</p>
+<dd class="field-odd"><p><strong>pQuery</strong> (<em>dict | DEF = {}</em>) – query</p>
 </dd>
 <dt class="field-even">Ritorna</dt>
 <dd class="field-even"><p>Numero record che fanno match con la query passata come parametro</p>
 </dd>
 <dt class="field-odd">Tipo di ritorno</dt>
-<dd class="field-odd"><p>(int)</p>
+<dd class="field-odd"><p>Union [ int, Exception ]</p>
 </dd>
 <dt class="field-even">Solleva</dt>
 <dd class="field-even"><p><strong>Exception</strong> – eccezione generica</p>
@@ -211,17 +211,17 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.push">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">push</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDocs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">bson.objectid.ObjectId</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.push" title="Link a questa definizione">¶</a></dt>
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">push</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDocs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">bson.objectid.ObjectId</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.push" title="Link a questa definizione">¶</a></dt>
 <dd><p>Inserisce una lista di documenti nella collezione del DB selezionata</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><p><strong>pDocs</strong> (<em>List</em><em>[</em><em>dict</em><em>]</em>) – lista di record da inserire</p>
 </dd>
 <dt class="field-even">Ritorna</dt>
-<dd class="field-even"><p>token inserimento</p>
+<dd class="field-even"><p>token inserimento o eccezione</p>
 </dd>
 <dt class="field-odd">Tipo di ritorno</dt>
-<dd class="field-odd"><p>(List[ObjectId])</p>
+<dd class="field-odd"><p>Union [ List[ObjectId] , Exception ]</p>
 </dd>
 <dt class="field-even">Solleva</dt>
 <dd class="field-even"><p><strong>Exception</strong> – eccezione generica</p>
@@ -231,7 +231,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.pushBinary">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">pushBinary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDocs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pFieldsToBinary</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">bson.objectid.ObjectId</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.pushBinary" title="Link a questa definizione">¶</a></dt>
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">pushBinary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDocs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pFieldsToBinary</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">bson.objectid.ObjectId</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.pushBinary" title="Link a questa definizione">¶</a></dt>
 <dd><p>Inserisce una lista di documenti nella collezione del DB selezionata.</p>
 <p>Inoltre, converto in binario i campi dei record inseriti in pFieldsToBinary.</p>
 <dl class="field-list simple">
@@ -242,10 +242,10 @@
 </ul>
 </dd>
 <dt class="field-even">Ritorna</dt>
-<dd class="field-even"><p>token inserimento</p>
+<dd class="field-even"><p>token inserimento o eccezione</p>
 </dd>
 <dt class="field-odd">Tipo di ritorno</dt>
-<dd class="field-odd"><p>(List[ObjectId])</p>
+<dd class="field-odd"><p>Union [ List[ObjectId] , Exception ]</p>
 </dd>
 <dt class="field-even">Solleva</dt>
 <dd class="field-even"><p><strong>Exception</strong> – eccezione generica</p>
@@ -255,24 +255,24 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.query">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pQuery</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pProjection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.query" title="Link a questa definizione">¶</a></dt>
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pQuery</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pProjection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.query" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questo metodo restituisce il primo documento che fa match con la query.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pQuery</strong> (<em>dict</em>) – query</p></li>
-<li><p><strong>pProjection</strong> (<em>dict</em>) – proiezione sulla query</p></li>
+<li><p><strong>pProjection</strong> (<em>dict | DEF = None</em>) – proiezione sulla query</p></li>
 </ul>
 </dd>
 <dt class="field-even">Ritorna</dt>
-<dd class="field-even"><p><p>Lista di dizionari con i dati recuperati.</p>
+<dd class="field-even"><p><p>Lista di dizionari con i dati recuperati o eccezione.</p>
 <blockquote>
 <div><p>Restituisce «[]» quand la query non ha trovat risultati</p>
 </div></blockquote>
 </p>
 </dd>
 <dt class="field-odd">Tipo di ritorno</dt>
-<dd class="field-odd"><p>(List[dict])</p>
+<dd class="field-odd"><p>Union [ List[dict] , Exception ]</p>
 </dd>
 <dt class="field-even">Solleva</dt>
 <dd class="field-even"><p><strong>Exception</strong> – eccezione generica</p>
@@ -282,20 +282,20 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.queryOnes">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">queryOnes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pQuery</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pProjection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.queryOnes" title="Link a questa definizione">¶</a></dt>
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">queryOnes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pQuery</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pProjection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.queryOnes" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questo metodo restituisce il primo documento che fa match con la query.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pQuery</strong> (<em>dict</em>) – query</p></li>
-<li><p><strong>pProjection</strong> (<em>dict</em>) – proiezione sulla query</p></li>
+<li><p><strong>pProjection</strong> (<em>dict | DEF = None</em>) – proiezione sulla query</p></li>
 </ul>
 </dd>
 <dt class="field-even">Ritorna</dt>
-<dd class="field-even"><p>dizionario con i dati recuperati o None</p>
+<dd class="field-even"><p>dizionario con i dati recuperati o Eccezione</p>
 </dd>
 <dt class="field-odd">Tipo di ritorno</dt>
-<dd class="field-odd"><p>(dict | None)</p>
+<dd class="field-odd"><p>Union [ dict , Exception, None  ]</p>
 </dd>
 <dt class="field-even">Solleva</dt>
 <dd class="field-even"><p><strong>Exception</strong> – eccezione generica</p>
@@ -305,21 +305,21 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.queryOnesBinary">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">queryOnesBinary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pBinaryFields</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pQuery</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pProjection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.queryOnesBinary" title="Link a questa definizione">¶</a></dt>
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">queryOnesBinary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pBinaryFields</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pQuery</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pProjection</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.queryOnesBinary" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questo metodo restituisce il primo documento che fa match con la query.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pFieldsToBinary</strong> (<em>List</em><em>[</em><em>list</em><em>]</em>) – indica i campi da trasformare da binario al tipo originario del dato</p></li>
 <li><p><strong>pQuery</strong> (<em>dict</em>) – query</p></li>
-<li><p><strong>pProjection</strong> (<em>dict</em>) – proiezione sulla query</p></li>
+<li><p><strong>pProjection</strong> (<em>dict | DEF = None</em>) – proiezione sulla query</p></li>
 </ul>
 </dd>
 <dt class="field-even">Ritorna</dt>
-<dd class="field-even"><p>dizionario con i dati recuperati o None</p>
+<dd class="field-even"><p>dizionario con i dati recuperati o Eccezione</p>
 </dd>
 <dt class="field-odd">Tipo di ritorno</dt>
-<dd class="field-odd"><p>(dict | None)</p>
+<dd class="field-odd"><p>Union [ dict , Exception  ]</p>
 </dd>
 <dt class="field-even">Solleva</dt>
 <dd class="field-even"><p><strong>Exception</strong> – eccezione generica</p>
@@ -329,29 +329,35 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.start">
-<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.start" title="Link a questa definizione">¶</a></dt>
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.start" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questo metodo avvia la connessione col DB</p>
 <dl class="field-list simple">
-<dt class="field-odd">Solleva</dt>
-<dd class="field-odd"><p><strong>Exception</strong> – eccezione generica</p>
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>Union [None , Exception]</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – eccezione generica</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.stop">
-<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.stop" title="Link a questa definizione">¶</a></dt>
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.stop" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questo metodo stoppa la connessione col DB</p>
 <dl class="field-list simple">
-<dt class="field-odd">Solleva</dt>
-<dd class="field-odd"><p><strong>Exception</strong> – eccezione _collectionNamegenerica</p>
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>Union [None , Exception]</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – eccezione _collectionNamegenerica</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.update">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pQuery</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pUpdate</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">pymongo.results.UpdateResult</span><a class="headerlink" href="#MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.update" title="Link a questa definizione">¶</a></dt>
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pQuery</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pUpdate</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">pymongo.results.UpdateResult</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#MongoEngine.lib.mongo_engine.MongoEngine.MongoEngine.update" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questo metodo aggiorna tutti i record del DB che fanno match con la query.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
@@ -364,7 +370,7 @@
 <dd class="field-even"><p>sommario aggiornamento record</p>
 </dd>
 <dt class="field-odd">Tipo di ritorno</dt>
-<dd class="field-odd"><p>(UpdateResult)</p>
+<dd class="field-odd"><p>Union [ UpdateResult , Exception ]</p>
 </dd>
 <dt class="field-even">Solleva</dt>
 <dd class="field-even"><p><strong>Exception</strong> – eccezione generica</p>
