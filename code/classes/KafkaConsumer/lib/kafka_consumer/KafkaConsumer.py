@@ -1,37 +1,36 @@
 """
 @author           	:  rscalia
 @build-date         :  Thu 15/07/2021
-@last_update        :  Thu 15/07/2021
+@last_update        :  Fri 23/07/2021
 
 Questo componente serve per consumare i record scritti su Kafka
 """
 
 from confluent_kafka    import Consumer, KafkaException, TopicPartition
 from kafka.structs      import TopicPartition
-from typing             import List,Callable
+from typing             import List,Callable, Union
 import signal
 
 class KafkaConsumer (object):
 
 
-    def __init__ (self) -> object:
-        """
-        Costruttore
-        """
-        pass
-
-
-    def setUp (self,pServer:str, pGroupId:str, pOffsetReset:str, pTopic:str, pExitTimes:int=2, pInfineFetch:bool=False) -> object:
+    def start (self, pServer:str, pGroupId:str, pOffsetReset:str, pTopic:str, pExitTimes:int=2, pInfineFetch:bool=False) -> Union[ None , Exception ]:
         """
         Questo metodo configura il Consumatore Kafka
 
         Args:\n
-            pServer             (str)       : host e porta nel formato "host:port"
-            pGroupId            (str)       : nome del Consumer Group
-            pOffsetReset        (str)       : impostazione offset del Topic
-            pTopic              (str)       : topic del consumatore Kafka
-            pExitTimes          (int)       : numero di tentativi prima di chiudere il polling in ricerca di nuovi messaggi
-            pInfineFetch        (bool)      : se impostato a True accadrà che il componente cerca messaggi infinitcamente, sovrascrive il parametro pExitTimes
+            pServer             (str)                   : host e porta nel formato "host:port"
+            pGroupId            (str)                   : nome del Consumer Group
+            pOffsetReset        (str)                   : impostazione offset del Topic
+            pTopic              (str)                   : topic del consumatore Kafka
+            pExitTimes          (int | DEF = 2)         : numero di tentativi prima di chiudere il polling in ricerca di nuovi messaggi
+            pInfineFetch        (bool | DEF = False)    : se impostato a True accadrà che il componente cerca messaggi infinitcamente, sovrascrive il parametro pExitTimes
+
+        Returns: \n
+                                ( Union [ None , Exception ]  ) 
+
+        Raises: \n
+            Exception                       : Eccezione generica 
         """
         self._server:str                    = pServer
         self._groudId:str                   = pGroupId
@@ -39,21 +38,33 @@ class KafkaConsumer (object):
         self._topic:str                     = pTopic
         self._exitTimes:int                 = pExitTimes
         self._infiniteFetch:bool            = pInfineFetch
-        self._retrievedMsg:List[dict]       = {}
+        self._retrievedMsg:List[dict]       = []
         self._conf:dict                     = { 'bootstrap.servers':    self._server,
                                                 'group.id':             self._groudId,
                                                 'auto.offset.reset':    self._offsetSetup,
                                               }
 
-        self._consumer:Consumer             = Consumer(self._conf)
-        self._consumer.subscribe([self._topic] , on_assign=self._on_assign)
+        try:
+            self._consumer:Consumer             = Consumer(self._conf)
+            self._consumer.subscribe([self._topic] , on_assign=self._on_assign)
+        except Exception as exp:
+            return exp
 
 
-    def stop (self) -> None:
+    def stop (self) -> Union[ None , Exception ]:
         """
         Questa funzione permette di stoppare la connessione con Apache Kafka
+
+        Returns: \n
+            ( Union[ None , Exception ])  
+
+        Raises: \n
+            Exception       : eccezione generica, molto probabilmente scaturita da un doppio tentativo di chiusura di connessione
         """
-        self._consumer.close()
+        try:
+            self._consumer.close()
+        except Exception as exp:
+            return exp
     
 
     def _on_assign (self, pClient:Consumer, pPartitions:List[TopicPartition]) -> None:
@@ -81,15 +92,16 @@ class KafkaConsumer (object):
         raise KeyboardInterrupt
 
 
-    def consume (self, pVerbose:str=False) -> List[dict]:
+    def consume (self,  pVerbose:str=False) -> Union [ List[dict], KafkaException , Exception ]:
         """
         Questo metodo permette di consumare i record del Topic scelto\n
 
-        Args:
-            pVerbose        (bool)          : se vero vengono stampati a schermo i messaggi
+        Args:\n
+            pVerbose        (bool | DEF = False)                                        : se vero vengono stampati a schermo i messaggi
 
         Returns:\n
-                            (List[dict])    : lista di record restituiti\n
+                            Union [ List[dict], KafkaException , Exception ]            : lista di record restituiti\n
+
                             Formato Record:
                                 - **topic**: nome del topic\n
                                 - **partition**, partizione \n
@@ -99,23 +111,25 @@ class KafkaConsumer (object):
 
         Raises:\n
             KeyboardInterrupt   : interruzione dell'Utente
-            KafkaException      : eccezzione di kafka
-            Exception           : eccezzione generica
+            KafkaException      : eccezione di kafka
+            Exception           : eccezione generica
         """
 
+        #Impostazione della cattura dei tasti CTRL+C
         signal.signal(signal.SIGINT, self._signal_handler)
 
+        #Variabili che gestiscono la Logica del Ciclo
         fail_counter:int                = 0
+        to_fetch:bool                   = True
         self._retrievedMsg:List[dict]   = []
 
         try:
-
-            while fail_counter < self._exitTimes or self._infiniteFetch == True:
+            while ( fail_counter < self._exitTimes or self._infiniteFetch == True ) and to_fetch == True:
 
                 #Consumo un messaggio ogni 1 secondo
                 msg:object         = self._consumer.poll(timeout=1.0)
 
-                #Se non trovo nulla incremento il contatore dei fallimenti
+                #Se non trovo nulla, incremento il contatore dei fallimenti
                 if msg is None:
                     fail_counter +=1
                     continue
@@ -144,10 +158,9 @@ class KafkaConsumer (object):
 
 
                     self._retrievedMsg.append( record )
-
+                    
         except KeyboardInterrupt:
-            self.stop()
-            return self._retrievedMsg
+            to_fetch = False
 
         except KafkaException as kmsg:
             self.stop()

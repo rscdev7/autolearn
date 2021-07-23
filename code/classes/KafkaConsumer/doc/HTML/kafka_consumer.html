@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>KafkaConsumer &mdash; KafkaConsumer 1.0.0 documentazione</title>
+  <title>KafkaConsumer &mdash; KafkaConsumer 1.0.1 documentazione</title>
   
 
   
@@ -163,7 +163,7 @@
 <span id="kafkaconsumer"></span><h1>KafkaConsumer<a class="headerlink" href="#module-KafkaConsumer.lib.kafka_consumer.KafkaConsumer" title="Link a questa intestazione">¶</a></h1>
 <p>&#64;author                 :  rscalia
 &#64;build-date         :  Thu 15/07/2021
-&#64;last_update        :  Thu 15/07/2021</p>
+&#64;last_update        :  Fri 23/07/2021</p>
 <p>Questo componente serve per consumare i record scritti su Kafka</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer">
@@ -172,18 +172,12 @@
 <div><p>Basi: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 </div></blockquote>
 <dl class="py method">
-<dt class="sig sig-object py" id="KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">object</span><a class="headerlink" href="#KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer.__init__" title="Link a questa definizione">¶</a></dt>
-<dd><p>Costruttore</p>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer.consume">
-<span class="sig-name descname"><span class="pre">consume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pVerbose</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer.consume" title="Link a questa definizione">¶</a></dt>
+<span class="sig-name descname"><span class="pre">consume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pVerbose</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">cimpl.KafkaException</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer.consume" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questo metodo permette di consumare i record del Topic scelto</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
-<dd class="field-odd"><p><strong>pVerbose</strong> (<em>bool</em>) – se vero vengono stampati a schermo i messaggi</p>
+<dd class="field-odd"><p><strong>pVerbose</strong> (<em>bool | DEF = False</em>) – se vero vengono stampati a schermo i messaggi</p>
 </dd>
 <dt class="field-even">Ritorna</dt>
 <dd class="field-even"><p><p>lista di record restituiti</p>
@@ -200,21 +194,21 @@
 </p>
 </dd>
 <dt class="field-odd">Tipo di ritorno</dt>
-<dd class="field-odd"><p>(List[dict])</p>
+<dd class="field-odd"><p>Union [ List[dict], KafkaException , Exception ]</p>
 </dd>
 <dt class="field-even">Solleva</dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>KeyboardInterrupt</strong> – interruzione dell’Utente</p></li>
-<li><p><strong>KafkaException</strong> – eccezzione di kafka</p></li>
-<li><p><strong>Exception</strong> – eccezzione generica</p></li>
+<li><p><strong>KafkaException</strong> – eccezione di kafka</p></li>
+<li><p><strong>Exception</strong> – eccezione generica</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer.setUp">
-<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pServer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pGroupId</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pOffsetReset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pTopic</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pExitTimes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pInfineFetch</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">object</span><a class="headerlink" href="#KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer.setUp" title="Link a questa definizione">¶</a></dt>
+<dt class="sig sig-object py" id="KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pServer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pGroupId</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pOffsetReset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pTopic</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pExitTimes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pInfineFetch</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer.start" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questo metodo configura il Consumatore Kafka</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
@@ -223,17 +217,31 @@
 <li><p><strong>pGroupId</strong> (<em>str</em>) – nome del Consumer Group</p></li>
 <li><p><strong>pOffsetReset</strong> (<em>str</em>) – impostazione offset del Topic</p></li>
 <li><p><strong>pTopic</strong> (<em>str</em>) – topic del consumatore Kafka</p></li>
-<li><p><strong>pExitTimes</strong> (<em>int</em>) – numero di tentativi prima di chiudere il polling in ricerca di nuovi messaggi</p></li>
-<li><p><strong>pInfineFetch</strong> (<em>bool</em>) – se impostato a True accadrà che il componente cerca messaggi infinitcamente, sovrascrive il parametro pExitTimes</p></li>
+<li><p><strong>pExitTimes</strong> (<em>int | DEF = 2</em>) – numero di tentativi prima di chiudere il polling in ricerca di nuovi messaggi</p></li>
+<li><p><strong>pInfineFetch</strong> (<em>bool | DEF = False</em>) – se impostato a True accadrà che il componente cerca messaggi infinitcamente, sovrascrive il parametro pExitTimes</p></li>
 </ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>( Union [ None , Exception ]  )</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – Eccezione generica</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer.stop">
-<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer.stop" title="Link a questa definizione">¶</a></dt>
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer.stop" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questa funzione permette di stoppare la connessione con Apache Kafka</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>( Union[ None , Exception ])</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – eccezione generica, molto probabilmente scaturita da un doppio tentativo di chiusura di connessione</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
