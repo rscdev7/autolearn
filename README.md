@@ -120,7 +120,8 @@ successiva rimozione.
 - Data Transfer Object
 - Serialized LOB    
 - Pipeline                                 
-- Event Sourcing                                    
+- Event Sourcing  
+- Singleton                                  
 
 
 ## STACK SOFTWARE - GENERALE
