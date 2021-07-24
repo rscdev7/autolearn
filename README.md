@@ -221,9 +221,10 @@ Comandi Installazione Ambiente, Interprete e Librerie:
 ## STRUTTURA DEL REPOSITORY
 - **code**, contiene il codice del progetto.
     - **0.legacy**, contiene componenti *Software Deprecati* che restano significativi.
-    - **classes**, contiene le classi del progetto.
-    - **modules**, contiene i moduli (insieme di funzioni) del progetto.
-    - **packages**, contiene le architetture (serie di classi correlate) del progetto.
+    - **api**, librerie del progetto
+        - **classes**, contiene le classi del progetto.
+        - **modules**, contiene i moduli (insieme di funzioni) del progetto.
+    - **frameworks**, contiene i framework (serie di classi correlate) del progetto.
     - **solutions**, contiene il Software di Produzione del progetto.
 - **demo**, contiene immagini demo del Software in esecuzione.
 - **docker**, contiene le immagini docker utilizzate come ambiente di sviluppo/produzione.
