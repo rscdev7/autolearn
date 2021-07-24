@@ -43,30 +43,58 @@ services:
             - ${BROKER_LOGS}:/var/log/rabbitmq/log
 
 
-    database:
+    storage_db:
         image: mongo
-        container_name: mongo
-        hostname: mongo
+        container_name: storage_db
+        hostname: storage_db
         restart: always
         environment:
-            MONGO_INITDB_ROOT_USERNAME: ${DB_USERNAME}
-            MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
+            MONGO_INITDB_ROOT_USERNAME: ${STORAGE_DB_USERNAME}
+            MONGO_INITDB_ROOT_PASSWORD: ${STORAGE_DB_PASSWORD}
         volumes:
-            - ${DB_DATA}:/data/db
-            - ${DB_CONF}:/data/configdb
+            - ${STORAGE_DB_DATA}:/data/db
+            - ${STORAGE_DB_CONF}:/data/configdb
+
+    
+    session_db:
+        image: mongo
+        container_name: session_db
+        hostname: session_db
+        restart: always
+        command: mongod --port ${SESSION_DB_PORT}
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: ${SESSION_DB_USERNAME}
+            MONGO_INITDB_ROOT_PASSWORD: ${SESSION_DB_PASSWORD}
+        volumes:
+            - ${SESSION_DB_DATA}:/data/db
+            - ${SESSION_DB_CONF}:/data/configdb
 
 
-    db_dashboard:
+    storage_db_dashboard:
         image: mongo-express
         restart: always
-        container_name: db_dashboard
-        hostname: db_dashboard
+        container_name: storage_db_dashboard
+        hostname: storage_db_dashboard
         environment:
             ME_CONFIG_MONGODB_ADMINUSERNAME: root
             ME_CONFIG_MONGODB_ADMINPASSWORD: example
-            ME_CONFIG_MONGODB_SERVER: database
+            ME_CONFIG_MONGODB_SERVER: storage_db
         ports:
-            - "${DB_DASHBOARD_PORT}:8081"
+            - "${STORAGE_DB_DASHBOARD_PORT}:8081"
+
+
+    session_db_dashboard:
+        image: mongo-express
+        restart: always
+        container_name: session_db_dashboard
+        hostname: session_db_dashboard
+        environment:
+            ME_CONFIG_MONGODB_ADMINUSERNAME: root
+            ME_CONFIG_MONGODB_ADMINPASSWORD: example
+            ME_CONFIG_MONGODB_SERVER: session_db
+            ME_CONFIG_MONGODB_PORT: ${SESSION_DB_PORT}
+        ports:
+            - "${SESSION_DB_DASHBOARD_PORT}:8081"
 
             
     training:
@@ -124,10 +152,10 @@ services:
             SERVER_PORT: ${SESSION_SERVICE_PORT}
             HOST_NAME: session
             WEB_SERVER_WORKERS: ${WEB_SERVER_WORKERS}
-            DB_HOST_NAME: ${DB_HOST_NAME}
-            DB_PORT: ${DB_PORT}
-            DB_USERNAME: ${DB_USERNAME}
-            DB_PASSWORD: ${DB_PASSWORD}
+            SESSION_DB_HOST_NAME: ${SESSION_DB_HOST_NAME}
+            SESSION_DB_PORT: ${SESSION_DB_PORT}
+            SESSION_DB_USERNAME: ${SESSION_DB_USERNAME}
+            SESSION_DB_PASSWORD: ${SESSION_DB_PASSWORD}
             BROKER_LOGIN_TOKEN: ${BROKER_LOGIN_TOKEN}
             EVENT_STORE_HOST_NAME: ${EVENT_STORE_HOST_NAME}
             EVENT_STORE_PORT: ${EVENT_STORE_PORT}
@@ -150,10 +178,10 @@ services:
             SERVER_PORT: ${STORAGE_SERVICE_PORT}
             HOST_NAME: storage
             WEB_SERVER_WORKERS: ${WEB_SERVER_WORKERS}
-            DB_HOST_NAME: ${DB_HOST_NAME}
-            DB_PORT: ${DB_PORT}
-            DB_USERNAME: ${DB_USERNAME}
-            DB_PASSWORD: ${DB_PASSWORD}
+            STORAGE_DB_HOST_NAME: ${STORAGE_DB_HOST_NAME}
+            STORAGE_DB_PORT: ${STORAGE_DB_PORT}
+            STORAGE_DB_USERNAME: ${STORAGE_DB_USERNAME}
+            STORAGE_DB_PASSWORD: ${STORAGE_DB_PASSWORD}
             BROKER_LOGIN_TOKEN: ${BROKER_LOGIN_TOKEN}
             EVENT_STORE_HOST_NAME: ${EVENT_STORE_HOST_NAME}
             EVENT_STORE_PORT: ${EVENT_STORE_PORT}
