@@ -224,6 +224,8 @@ services:
         environment:
             SERVER_PORT: ${ADMIN_SERVICE_PORT}
             HOST_NAME: admin
+            EVENT_STORE_HOST_NAME: ${EVENT_STORE_HOST_NAME}
+            EVENT_STORE_PORT: ${EVENT_STORE_PORT}
         volumes:
             - ${ADMIN_CODE_LAKE}:/workspace/code
             - ${ADMIN_DATA_LAKE}:/workspace/data
