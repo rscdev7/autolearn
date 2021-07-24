@@ -1,0 +1,19 @@
+Benvenuto nella Documentazione di AsyncKafkaConsumer
+======================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Moduli
+
+
+   async_kafka_consumer
+   network_serializer
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
