@@ -1,5 +1,8 @@
 # TimeStampConverter
 
+> **v1.0.4**
+>	* Aggiunti ulteriori metodi per gestire i timestamp in millisecondi.
+
 > **v1.0.3**
 >	* Migliorata documentazione e unit test
 

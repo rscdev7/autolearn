@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>TimeStampManager &mdash; TimeStampManager 1.0.3 documentazione</title>
+  <title>TimeStampManager &mdash; TimeStampManager 1.0.4 documentazione</title>
   
 
   
@@ -163,7 +163,7 @@
 <span id="timestampmanager"></span><h1>TimeStampManager<a class="headerlink" href="#module-TimeStampManager.lib.time_stamp_manager.TimeStampManager" title="Link a questa intestazione">¶</a></h1>
 <p>&#64;author                 :  rscalia
 &#64;build-date         :  Sun 02/05/2021
-&#64;last_update        :  Fri 23/07/2021</p>
+&#64;last_update        :  Sat 24/07/2021</p>
 <p>Questo componente serve per convertire una data in un Timestamp UNIX e viceversa oltre che a restituire il timestamp attuale in millisecondi.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="TimeStampManager.lib.time_stamp_manager.TimeStampManager.TimeStampManager">
@@ -227,13 +227,14 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="TimeStampManager.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestamp2Date">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">timestamp2Date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pTimeStamp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pStringOut</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">datetime.datetime</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#TimeStampManager.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestamp2Date" title="Link a questa definizione">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">timestamp2Date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pTimeStamp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pStringOut</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pMsTimeStamp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">datetime.datetime</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#TimeStampManager.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestamp2Date" title="Link a questa definizione">¶</a></dt>
 <dd><p>Converte un timestamp UNIX (in secondi) in una Data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pTimeStamp</strong> (<em>int</em>) – numero in virgola mobile rappresentante un timestamp in secondi</p></li>
 <li><p><strong>pStringOut</strong> (<em>bool | DEF = True</em>) – Se impostato a vero, il metodo restituisce una data formattata come stringa, atrimenti restituisce la data incapsulata in un oggetto datetime.</p></li>
+<li><p><strong>pMsTimeStamp</strong> (<em>bool | DEF = False</em>) – indica se il timestamp passato è espresso in secondi o in millisecondi</p></li>
 </ul>
 </dd>
 <dt class="field-even">Ritorna</dt>
@@ -241,6 +242,40 @@
 </dd>
 <dt class="field-odd">Tipo di ritorno</dt>
 <dd class="field-odd"><p>Union[ str , datetime]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="TimeStampManager.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestampMs2Sec">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">timestampMs2Sec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pMsTimestamp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#TimeStampManager.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestampMs2Sec" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo converte un timestamp in millisecondi in secondi.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pMsTimestamp</strong> (<em>int</em>) – timestamp in millisecondi</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>timestamp espresso in secondi</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="TimeStampManager.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestampSec2Ms">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">timestampSec2Ms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pMsTimestamp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#TimeStampManager.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestampSec2Ms" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo converte un timestamp in secondi in millisecondi.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pMsTimestamp</strong> (<em>int</em>) – timestamp in secondi</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>timestamp espresso in millisecondi</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p>int</p>
 </dd>
 </dl>
 </dd></dl>
