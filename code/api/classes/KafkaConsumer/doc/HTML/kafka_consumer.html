@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>KafkaConsumer &mdash; KafkaConsumer 1.0.1 documentazione</title>
+  <title>KafkaConsumer &mdash; KafkaConsumer 1.0.2 documentazione</title>
   
 
   
@@ -42,6 +42,7 @@
     
     <link rel="index" title="Indice" href="genindex.html" />
     <link rel="search" title="Cerca" href="search.html" />
+    <link rel="next" title="NetworkSerializer" href="network_serializer.html" />
     <link rel="prev" title="Benvenuto nella Documentazione di KafkaConsumer" href="index.html" /> 
 </head>
 
@@ -90,6 +91,8 @@
               <p class="caption"><span class="caption-text">Moduli</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">KafkaConsumer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_serializer.html">NetworkSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="time_stamp_manager.html">TimeStampManager</a></li>
 </ul>
 
             
@@ -161,9 +164,9 @@
 </div>
 <div class="section" id="module-KafkaConsumer.lib.kafka_consumer.KafkaConsumer">
 <span id="kafkaconsumer"></span><h1>KafkaConsumer<a class="headerlink" href="#module-KafkaConsumer.lib.kafka_consumer.KafkaConsumer" title="Link a questa intestazione">¶</a></h1>
-<p>&#64;author                 :  rscalia
-&#64;build-date         :  Thu 15/07/2021
-&#64;last_update        :  Fri 23/07/2021</p>
+<p>&#64;author                 :  rscalia</p>
+<p>&#64;build-date         :  Thu 15/07/2021</p>
+<p>&#64;last-update        :  Sat 24/07/2021</p>
 <p>Questo componente serve per consumare i record scritti su Kafka</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer">
@@ -173,11 +176,15 @@
 </div></blockquote>
 <dl class="py method">
 <dt class="sig sig-object py" id="KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer.consume">
-<span class="sig-name descname"><span class="pre">consume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pVerbose</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">cimpl.KafkaException</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer.consume" title="Link a questa definizione">¶</a></dt>
+<span class="sig-name descname"><span class="pre">consume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pVerbose</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pLowDateInTimeStampSec</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pHighDateInTimeStampSec</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">cimpl.KafkaException</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer.consume" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questo metodo permette di consumare i record del Topic scelto</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
-<dd class="field-odd"><p><strong>pVerbose</strong> (<em>bool | DEF = False</em>) – se vero vengono stampati a schermo i messaggi</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pVerbose</strong> (<em>bool | DEF = False</em>) – se vero vengono stampati a schermo i messaggi</p></li>
+<li><p><strong>pLowDateInTimeStampSec</strong> (<em>int  | DEF = None</em>) – timestamp (in secondi) della data di inizio dei messaggi che si vogliono prelevare</p></li>
+<li><p><strong>pHighDateInTimeStampSec</strong> (<em>int  | DEF = None</em>) – timestamp (in secondi) della data di fine dei messaggi che si vogliono prelevare</p></li>
+</ul>
 </dd>
 <dt class="field-even">Ritorna</dt>
 <dd class="field-even"><p><p>lista di record restituiti</p>
@@ -207,8 +214,33 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer.dictPrettyPrint">
+<span class="sig-name descname"><span class="pre">dictPrettyPrint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDict</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pIndent</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer.dictPrettyPrint" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di stampare in maniera gradevole i dizionari</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pDict</strong> (<em>dict</em>) – dizionario da stampare</p></li>
+<li><p><strong>pIndent</strong> (<em>int | DEF = 1</em>) – indentazione</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer.prettyPrint">
+<span class="sig-name descname"><span class="pre">prettyPrint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pRecord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">None</span><a class="headerlink" href="#KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer.prettyPrint" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questa funzione stampa in maniera gradevole un record Kafka</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pRecord</strong> (<em>dict</em>) – record da stampare</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer.start">
-<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pServer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pGroupId</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pOffsetReset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pTopic</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pExitTimes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pInfineFetch</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer.start" title="Link a questa definizione">¶</a></dt>
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pServer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pGroupId</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pOffsetReset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pTopics</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pExitTimes</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pInfineFetch</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer.start" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questo metodo configura il Consumatore Kafka</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
@@ -216,7 +248,7 @@
 <li><p><strong>pServer</strong> (<em>str</em>) – host e porta nel formato «host:port»</p></li>
 <li><p><strong>pGroupId</strong> (<em>str</em>) – nome del Consumer Group</p></li>
 <li><p><strong>pOffsetReset</strong> (<em>str</em>) – impostazione offset del Topic</p></li>
-<li><p><strong>pTopic</strong> (<em>str</em>) – topic del consumatore Kafka</p></li>
+<li><p><strong>pTopics</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – lista di topic da consumare</p></li>
 <li><p><strong>pExitTimes</strong> (<em>int | DEF = 2</em>) – numero di tentativi prima di chiudere il polling in ricerca di nuovi messaggi</p></li>
 <li><p><strong>pInfineFetch</strong> (<em>bool | DEF = False</em>) – se impostato a True accadrà che il componente cerca messaggi infinitcamente, sovrascrive il parametro pExitTimes</p></li>
 </ul>
@@ -254,6 +286,7 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="network_serializer.html" class="btn btn-neutral float-right" title="NetworkSerializer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="index.html" class="btn btn-neutral float-left" title="Benvenuto nella Documentazione di KafkaConsumer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

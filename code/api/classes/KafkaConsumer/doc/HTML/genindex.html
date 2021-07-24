@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Indice &mdash; KafkaConsumer 1.0.1 documentazione</title>
+  <title>Indice &mdash; KafkaConsumer 1.0.2 documentazione</title>
   
 
   
@@ -89,6 +89,8 @@
               <p class="caption"><span class="caption-text">Moduli</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="kafka_consumer.html">KafkaConsumer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_serializer.html">NetworkSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="time_stamp_manager.html">TimeStampManager</a></li>
 </ul>
 
             
@@ -158,16 +160,74 @@
 <h1 id="index">Indice</h1>
 
 <div class="genindex-jumpbox">
- <a href="#C"><strong>C</strong></a>
+ <a href="#_"><strong>_</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
  | <a href="#K"><strong>K</strong></a>
  | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
  
 </div>
+<h2 id="_">_</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="network_serializer.html#KafkaConsumer.lib.network_serializer.NetworkSerializer.NetworkSerializer.__init__">__init__() (KafkaConsumer.lib.network_serializer.NetworkSerializer.NetworkSerializer metodo)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="network_serializer.html#KafkaConsumer.lib.network_serializer.NetworkSerializer.NetworkSerializer.buildNewKey">buildNewKey() (KafkaConsumer.lib.network_serializer.NetworkSerializer.NetworkSerializer metodo)</a>
+</li>
+  </ul></td>
+</tr></table>
+
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="kafka_consumer.html#KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer.consume">consume() (KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer metodo)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="time_stamp_manager.html#KafkaConsumer.lib.time_stamp_manager.TimeStampManager.TimeStampManager.currentTimeStampInMS">currentTimeStampInMS() (KafkaConsumer.lib.time_stamp_manager.TimeStampManager.TimeStampManager metodo statico)</a>
+</li>
+      <li><a href="time_stamp_manager.html#KafkaConsumer.lib.time_stamp_manager.TimeStampManager.TimeStampManager.currentTimeStampInSec">currentTimeStampInSec() (KafkaConsumer.lib.time_stamp_manager.TimeStampManager.TimeStampManager metodo statico)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="time_stamp_manager.html#KafkaConsumer.lib.time_stamp_manager.TimeStampManager.TimeStampManager.date2Timestamp">date2Timestamp() (KafkaConsumer.lib.time_stamp_manager.TimeStampManager.TimeStampManager metodo statico)</a>
+</li>
+      <li><a href="network_serializer.html#KafkaConsumer.lib.network_serializer.NetworkSerializer.NetworkSerializer.decodeJson">decodeJson() (KafkaConsumer.lib.network_serializer.NetworkSerializer.NetworkSerializer metodo)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="network_serializer.html#KafkaConsumer.lib.network_serializer.NetworkSerializer.NetworkSerializer.decryptField">decryptField() (KafkaConsumer.lib.network_serializer.NetworkSerializer.NetworkSerializer metodo)</a>
+</li>
+      <li><a href="kafka_consumer.html#KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer.dictPrettyPrint">dictPrettyPrint() (KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer metodo)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="network_serializer.html#KafkaConsumer.lib.network_serializer.NetworkSerializer.NetworkSerializer.encodeJson">encodeJson() (KafkaConsumer.lib.network_serializer.NetworkSerializer.NetworkSerializer metodo)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="network_serializer.html#KafkaConsumer.lib.network_serializer.NetworkSerializer.NetworkSerializer.encryptField">encryptField() (KafkaConsumer.lib.network_serializer.NetworkSerializer.NetworkSerializer metodo)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -177,13 +237,27 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="kafka_consumer.html#KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer">KafkaConsumer (classe in KafkaConsumer.lib.kafka_consumer.KafkaConsumer)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     KafkaConsumer.lib.kafka_consumer.KafkaConsumer
 
       <ul>
         <li><a href="kafka_consumer.html#module-KafkaConsumer.lib.kafka_consumer.KafkaConsumer">modulo</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    KafkaConsumer.lib.network_serializer.NetworkSerializer
+
+      <ul>
+        <li><a href="network_serializer.html#module-KafkaConsumer.lib.network_serializer.NetworkSerializer">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    KafkaConsumer.lib.time_stamp_manager.TimeStampManager
+
+      <ul>
+        <li><a href="time_stamp_manager.html#module-KafkaConsumer.lib.time_stamp_manager.TimeStampManager">modulo</a>
 </li>
       </ul></li>
   </ul></td>
@@ -198,7 +272,35 @@
       <ul>
         <li><a href="kafka_consumer.html#module-KafkaConsumer.lib.kafka_consumer.KafkaConsumer">KafkaConsumer.lib.kafka_consumer.KafkaConsumer</a>
 </li>
+        <li><a href="network_serializer.html#module-KafkaConsumer.lib.network_serializer.NetworkSerializer">KafkaConsumer.lib.network_serializer.NetworkSerializer</a>
+</li>
+        <li><a href="time_stamp_manager.html#module-KafkaConsumer.lib.time_stamp_manager.TimeStampManager">KafkaConsumer.lib.time_stamp_manager.TimeStampManager</a>
+</li>
       </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="network_serializer.html#KafkaConsumer.lib.network_serializer.NetworkSerializer.NetworkSerializer">NetworkSerializer (classe in KafkaConsumer.lib.network_serializer.NetworkSerializer)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="kafka_consumer.html#KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer.prettyPrint">prettyPrint() (KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer metodo)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="network_serializer.html#KafkaConsumer.lib.network_serializer.NetworkSerializer.NetworkSerializer.readKeyFromFile">readKeyFromFile() (KafkaConsumer.lib.network_serializer.NetworkSerializer.NetworkSerializer metodo)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -210,6 +312,22 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="kafka_consumer.html#KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer.stop">stop() (KafkaConsumer.lib.kafka_consumer.KafkaConsumer.KafkaConsumer metodo)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="time_stamp_manager.html#KafkaConsumer.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestamp2Date">timestamp2Date() (KafkaConsumer.lib.time_stamp_manager.TimeStampManager.TimeStampManager metodo statico)</a>
+</li>
+      <li><a href="time_stamp_manager.html#KafkaConsumer.lib.time_stamp_manager.TimeStampManager.TimeStampManager">TimeStampManager (classe in KafkaConsumer.lib.time_stamp_manager.TimeStampManager)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="time_stamp_manager.html#KafkaConsumer.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestampMs2Sec">timestampMs2Sec() (KafkaConsumer.lib.time_stamp_manager.TimeStampManager.TimeStampManager metodo statico)</a>
+</li>
+      <li><a href="time_stamp_manager.html#KafkaConsumer.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestampSec2Ms">timestampSec2Ms() (KafkaConsumer.lib.time_stamp_manager.TimeStampManager.TimeStampManager metodo statico)</a>
 </li>
   </ul></td>
 </tr></table>
