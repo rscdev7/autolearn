@@ -3,13 +3,16 @@
 @build-date             :  Sun 25/07/2021                       \n
 @last-update            :  Sun 25/07/2021                       \n
 
-Questo componente implementa il design pattern Singleton
+Questo componente implementa il design pattern Singleton ristretto al caso di un interfaccia Singleton.
+
+Per tanto, la classe che implementa l'interfaccia sarà di tipo Unica.
 """
 
 from typing         import List,Dict
+from abc            import ABC, ABCMeta, abstractmethod
 
 
-class Singleton(type):
+class Singleton(ABCMeta):
 
     def __init__(self, *args:List[object], **kwargs:Dict[str,str]) -> object:
         """

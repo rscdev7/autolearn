@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Singleton &mdash; Singleton 1.0.0 documentazione</title>
+  <title>Singleton &mdash; Singleton 1.0.1 documentazione</title>
   
 
   
@@ -164,12 +164,13 @@
 <p>&#64;author                     :  rscalia</p>
 <p>&#64;build-date             :  Sun 25/07/2021</p>
 <p>&#64;last-update            :  Sun 25/07/2021</p>
-<p>Questo componente implementa il design pattern Singleton</p>
+<p>Questo componente implementa il design pattern Singleton ristretto al caso di un interfaccia Singleton.</p>
+<p>Per tanto, la classe che implementa l’interfaccia sarà di tipo Unica.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="Singleton.lib.singleton.Singleton.Singleton">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">Singleton.lib.singleton.Singleton.</span></span><span class="sig-name descname"><span class="pre">Singleton</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Singleton.lib.singleton.Singleton.Singleton" title="Link a questa definizione">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">Singleton.lib.singleton.Singleton.</span></span><span class="sig-name descname"><span class="pre">Singleton</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bases</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">namespace</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Singleton.lib.singleton.Singleton.Singleton" title="Link a questa definizione">¶</a></dt>
 <dd><blockquote>
-<div><p>Basi: <code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></p>
+<div><p>Basi: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABCMeta</span></code></p>
 </div></blockquote>
 <dl class="py method">
 <dt class="sig sig-object py" id="Singleton.lib.singleton.Singleton.Singleton.__call__">

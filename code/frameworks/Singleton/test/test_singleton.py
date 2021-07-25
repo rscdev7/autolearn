@@ -10,7 +10,7 @@ Questo componente serve per testare il design pattern Singleton.
 from ..lib.singleton.Singleton import Singleton
 
 
-class SingletonClass (metaclass=Singleton):
+class SingletonClass (object , metaclass=Singleton):
 
     def __init__(self, pArg1:int , pArg2:str):
         self._arg1:int  = pArg1
