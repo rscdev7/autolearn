@@ -1,7 +1,7 @@
 """
 @author           	    :  rscalia                              \n
 @build-date             :  Sat 24/07/2021                       \n
-@last-update            :  Sat 24/07/2021                       \n
+@last-update            :  Sat 25/07/2021                       \n
 
 Questo componente serve per .........
 
@@ -16,7 +16,7 @@ import time
 
 HOST_NAME:str               = "kafka"
 PORT:str                    = "9092"
-TOPIC_NAME:str              = "test"
+TOPIC_NAME:str              = "testeventsourcing"
 PARTITION:int               = 0
 
 

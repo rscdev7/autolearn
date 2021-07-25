@@ -113,6 +113,9 @@ class AsyncKafkaConsumer (object):
             wrapped_n_record_of_topic:dict      = await self._consumer.end_offsets( [ self._topicObj ] )
             self._nRecordInTopicPart:int        = wrapped_n_record_of_topic[ self._topicObj ]
 
+            #Caso in cui non sono presenti record nel topic
+            if self._nRecordInTopicPart == 0: return []
+
             #Avvio Consumazione
             async for data in self._consumer:
                 
