@@ -1,7 +1,7 @@
 """
 @author           	:  rscalia
 @build-date         :  Fri 16/07/2021
-@last-update        :  Fri 23/07/2021
+@last-update        :  Sun 25/07/2021
 
 Questo componente serve per testare ExceptionManager
 """
@@ -22,7 +22,7 @@ def wrong_fun():
 
 def test_e_mng():
     res:float           = wrong_fun()
-    fun_outcome:bool    = ExceptionManager.checkFunCall(res)
+    fun_outcome:bool    = ExceptionManager.lookForExceptions(res)
     assert fun_outcome == True
 
     print("[!] Exception Type: {}".format(res))

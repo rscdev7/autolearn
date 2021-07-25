@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>ExceptionManager &mdash; ExceptionManager 1.0.1 documentazione</title>
+  <title>ExceptionManager &mdash; ExceptionManager 1.0.2 documentazione</title>
   
 
   
@@ -163,7 +163,7 @@
 <span id="exceptionmanager"></span><h1>ExceptionManager<a class="headerlink" href="#module-ExceptionManager.lib.exception_manager.ExceptionManager" title="Link a questa intestazione">¶</a></h1>
 <p>&#64;author                 :  rscalia
 &#64;build-date         :  Fri 16/07/2021
-&#64;last-update        :  Fri 23/07/2021</p>
+&#64;last-update        :  Sun 25/07/2021</p>
 <p>Questo componente serve per gestire opportunamente il verificarsi delle eccezioni</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="ExceptionManager.lib.exception_manager.ExceptionManager.ExceptionManager">
@@ -172,15 +172,15 @@
 <div><p>Basi: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 </div></blockquote>
 <dl class="py method">
-<dt class="sig sig-object py" id="ExceptionManager.lib.exception_manager.ExceptionManager.ExceptionManager.checkFunCall">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">checkFunCall</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pResult</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#ExceptionManager.lib.exception_manager.ExceptionManager.ExceptionManager.checkFunCall" title="Link a questa definizione">¶</a></dt>
+<dt class="sig sig-object py" id="ExceptionManager.lib.exception_manager.ExceptionManager.ExceptionManager.lookForExceptions">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">lookForExceptions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pResult</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#ExceptionManager.lib.exception_manager.ExceptionManager.ExceptionManager.lookForExceptions" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questo metodo permette di controllare se si sono verificate eccezioni a runtime.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><p><strong>pResult</strong> (<em>object</em>) – risultato su cui bisogna verificare se è accaduta una eccezione</p>
 </dd>
 <dt class="field-even">Ritorna</dt>
-<dd class="field-even"><p>VERO se non si sono verificate eccezion, FALSO altrimenti.</p>
+<dd class="field-even"><p>VERO se si sono verificate eccezioni, FALSO altrimenti.</p>
 </dd>
 <dt class="field-odd">Tipo di ritorno</dt>
 <dd class="field-odd"><p>(bool)</p>

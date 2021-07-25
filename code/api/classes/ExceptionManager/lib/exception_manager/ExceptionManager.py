@@ -1,7 +1,7 @@
 """
 @author           	:  rscalia
 @build-date         :  Fri 16/07/2021
-@last-update        :  Fri 23/07/2021
+@last-update        :  Sun 25/07/2021
 
 Questo componente serve per gestire opportunamente il verificarsi delle eccezioni
 """
@@ -10,7 +10,7 @@ Questo componente serve per gestire opportunamente il verificarsi delle eccezion
 class ExceptionManager (object):
 
     @staticmethod
-    def checkFunCall (pResult:object) -> bool:
+    def lookForExceptions (pResult:object) -> bool:
         """
         Questo metodo permette di controllare se si sono verificate eccezioni a runtime.
 
@@ -18,6 +18,6 @@ class ExceptionManager (object):
             pResult                 (object)    : risultato su cui bisogna verificare se è accaduta una eccezione
 
         Returns:
-                                    (bool)      : VERO se non si sono verificate eccezion, FALSO altrimenti.
+                                    (bool)      : VERO se si sono verificate eccezioni, FALSO altrimenti.
         """
         return True if issubclass(type(pResult), Exception) else False
