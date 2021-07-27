@@ -12,6 +12,7 @@ Benvenuto nella Documentazione di AutoLearnLogEntity
    kafka_logger
    network_serializer
    singleton
+   event_sourcing_utility
 
    
 

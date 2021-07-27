@@ -12,6 +12,7 @@
 > * `$HOME_COMPONENT/lib/kafka_logger/KafkaLogger.py`
 > * `$HOME_COMPONENT/lib/network_serializer/NetworkSerializer.py`
 > * `$HOME_COMPONENT/lib/singleton/Singleton.py`
+> * `$HOME_COMPONENT/lib/time_stamp_manager/TimeStampManager.py`
 
 -----
 
