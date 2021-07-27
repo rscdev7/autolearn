@@ -99,6 +99,7 @@
 <li class="toctree-l1"><a class="reference internal" href="network_serializer.html">NetworkSerializer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="singleton.html">Singleton</a></li>
 <li class="toctree-l1"><a class="reference internal" href="event_sourcing_utility.html">event_sourcing_utility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="time_stamp_manager.html">TimeStampManager</a></li>
 </ul>
 
             
@@ -183,6 +184,7 @@
  | <a href="#N"><strong>N</strong></a>
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
  | <a href="#W"><strong>W</strong></a>
  
 </div>
@@ -318,6 +320,13 @@
         <li><a href="singleton.html#module-AutoLearnLogEntity.lib.singleton.Singleton">modulo</a>
 </li>
       </ul></li>
+      <li>
+    AutoLearnLogEntity.lib.time_stamp_manager.TimeStampManager
+
+      <ul>
+        <li><a href="time_stamp_manager.html#module-AutoLearnLogEntity.lib.time_stamp_manager.TimeStampManager">modulo</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -335,17 +344,25 @@
       <li><a href="async_kafka_consumer.html#AutoLearnLogEntity.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer.consume">consume() (AutoLearnLogEntity.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer metodo)</a>
 </li>
   </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="time_stamp_manager.html#AutoLearnLogEntity.lib.time_stamp_manager.TimeStampManager.TimeStampManager.currentTimeStampInMS">currentTimeStampInMS() (AutoLearnLogEntity.lib.time_stamp_manager.TimeStampManager.TimeStampManager metodo statico)</a>
+</li>
+      <li><a href="time_stamp_manager.html#AutoLearnLogEntity.lib.time_stamp_manager.TimeStampManager.TimeStampManager.currentTimeStampInSec">currentTimeStampInSec() (AutoLearnLogEntity.lib.time_stamp_manager.TimeStampManager.TimeStampManager metodo statico)</a>
+</li>
+  </ul></td>
 </tr></table>
 
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="network_serializer.html#AutoLearnLogEntity.lib.network_serializer.NetworkSerializer.NetworkSerializer.decodeJson">decodeJson() (AutoLearnLogEntity.lib.network_serializer.NetworkSerializer.NetworkSerializer metodo)</a>
+      <li><a href="time_stamp_manager.html#AutoLearnLogEntity.lib.time_stamp_manager.TimeStampManager.TimeStampManager.date2Timestamp">date2Timestamp() (AutoLearnLogEntity.lib.time_stamp_manager.TimeStampManager.TimeStampManager metodo statico)</a>
 </li>
-      <li><a href="network_serializer.html#AutoLearnLogEntity.lib.network_serializer.NetworkSerializer.NetworkSerializer.decryptField">decryptField() (AutoLearnLogEntity.lib.network_serializer.NetworkSerializer.NetworkSerializer metodo)</a>
+      <li><a href="network_serializer.html#AutoLearnLogEntity.lib.network_serializer.NetworkSerializer.NetworkSerializer.decodeJson">decodeJson() (AutoLearnLogEntity.lib.network_serializer.NetworkSerializer.NetworkSerializer metodo)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="network_serializer.html#AutoLearnLogEntity.lib.network_serializer.NetworkSerializer.NetworkSerializer.decryptField">decryptField() (AutoLearnLogEntity.lib.network_serializer.NetworkSerializer.NetworkSerializer metodo)</a>
+</li>
       <li><a href="abstract_event_sourcing.html#AutoLearnLogEntity.lib.abstract_event_sourcing.DomainEntity.DomainEntity">DomainEntity (classe in AutoLearnLogEntity.lib.abstract_event_sourcing.DomainEntity)</a>
 </li>
       <li><a href="abstract_event_sourcing.html#AutoLearnLogEntity.lib.abstract_event_sourcing.DomainEvent.DomainEvent">DomainEvent (classe in AutoLearnLogEntity.lib.abstract_event_sourcing.DomainEvent)</a>
@@ -458,6 +475,8 @@
 </li>
         <li><a href="singleton.html#module-AutoLearnLogEntity.lib.singleton.Singleton">AutoLearnLogEntity.lib.singleton.Singleton</a>
 </li>
+        <li><a href="time_stamp_manager.html#module-AutoLearnLogEntity.lib.time_stamp_manager.TimeStampManager">AutoLearnLogEntity.lib.time_stamp_manager.TimeStampManager</a>
+</li>
       </ul></li>
   </ul></td>
 </tr></table>
@@ -527,6 +546,22 @@
         <li><a href="kafka_logger.html#AutoLearnLogEntity.lib.kafka_logger.KafkaLogger.KafkaLogger.stop">(AutoLearnLogEntity.lib.kafka_logger.KafkaLogger.KafkaLogger metodo)</a>
 </li>
       </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="time_stamp_manager.html#AutoLearnLogEntity.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestamp2Date">timestamp2Date() (AutoLearnLogEntity.lib.time_stamp_manager.TimeStampManager.TimeStampManager metodo statico)</a>
+</li>
+      <li><a href="time_stamp_manager.html#AutoLearnLogEntity.lib.time_stamp_manager.TimeStampManager.TimeStampManager">TimeStampManager (classe in AutoLearnLogEntity.lib.time_stamp_manager.TimeStampManager)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="time_stamp_manager.html#AutoLearnLogEntity.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestampMs2Sec">timestampMs2Sec() (AutoLearnLogEntity.lib.time_stamp_manager.TimeStampManager.TimeStampManager metodo statico)</a>
+</li>
+      <li><a href="time_stamp_manager.html#AutoLearnLogEntity.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestampSec2Ms">timestampSec2Ms() (AutoLearnLogEntity.lib.time_stamp_manager.TimeStampManager.TimeStampManager metodo statico)</a>
+</li>
   </ul></td>
 </tr></table>
 
