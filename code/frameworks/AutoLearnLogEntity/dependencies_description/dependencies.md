@@ -13,6 +13,7 @@
 > * `$HOME_COMPONENT/lib/network_serializer/NetworkSerializer.py`
 > * `$HOME_COMPONENT/lib/singleton/Singleton.py`
 > * `$HOME_COMPONENT/lib/time_stamp_manager/TimeStampManager.py`
+> * `$HOME_COMPONENT/lib/event_sourcing_utility/event_sourcing_utility.py`
 
 -----
 
