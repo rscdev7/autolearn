@@ -51,7 +51,7 @@ async def getCatalog(pIdClient:str, background_tasks: BackgroundTasks):
 
 
     #Scrittura record comportamentale associato all'azione richiesta dal Client
-    client_req:DomainEvent                         = make_behavioral_event(pIdClient.encode("ascii") , current_time , pIdClient , cfg.ENTITY_ID , "send" , "async" , "training_catalog_req")
+    client_req:DomainEvent                         = make_behavioral_event(pIdClient.encode("ascii") , current_time , pIdClient , cfg.ENTITY_ID , "receive" , "async" , "training_catalog_req")
     
     outcome:Union[ None , Exception]               = await network_logger.emit(client_req)
     if ExceptionManager.lookForExceptions(outcome):
