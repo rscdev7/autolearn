@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>CatalogConfig &mdash; catalog 1.0.0 documentazione</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Cerca" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> catalog
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Moduli</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html">DomainEntity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html#module-catalog.lib.abstract_event_sourcing.DomainEvent">DomainEvent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html#module-catalog.lib.abstract_event_sourcing.EventStore">EventStore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="async_kafka_consumer.html">AsyncKafkaConsumer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_event_sourcing.html">AutoLearnLogEntity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_event_sourcing.html#module-catalog.lib.concrete_event_sourcing.KafkaEventStore">KafkaEventStore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception_manager.html">ExceptionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kafka_logger.html">KafkaLogger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_serializer.html">NetworkSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singleton.html">Singleton</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_sourcing_utility.html">event_sourcing_utility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="time_stamp_manager.html">TimeStampManager</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">catalog</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>CatalogConfig</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/catalog_config.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="module-catalog.lib.catalog_config.CatalogConfig">
+<span id="catalogconfig"></span><h1>CatalogConfig<a class="headerlink" href="#module-catalog.lib.catalog_config.CatalogConfig" title="Link a questa intestazione">¶</a></h1>
+<p>&#64;author                 :  rscalia
+&#64;version                    :  1.0.0
+&#64;build-date         :  Sun 09/05/2021
+&#64;last_update        :  Sun 09/05/2021</p>
+<p>Questo componente serve per caricare in memoria la configurazione del Microservizio Catalog.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="catalog.lib.catalog_config.CatalogConfig.CatalogConfig">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">catalog.lib.catalog_config.CatalogConfig.</span></span><span class="sig-name descname"><span class="pre">CatalogConfig</span></span><a class="headerlink" href="#catalog.lib.catalog_config.CatalogConfig.CatalogConfig" title="Link a questa definizione">¶</a></dt>
+<dd><blockquote>
+<div><p>Basi: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catalog.lib.catalog_config.CatalogConfig.CatalogConfig.CATALOG_PATH">
+<span class="sig-name descname"><span class="pre">CATALOG_PATH</span></span><a class="headerlink" href="#catalog.lib.catalog_config.CatalogConfig.CatalogConfig.CATALOG_PATH" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catalog.lib.catalog_config.CatalogConfig.CatalogConfig.ENTITY_ID">
+<span class="sig-name descname"><span class="pre">ENTITY_ID</span></span><a class="headerlink" href="#catalog.lib.catalog_config.CatalogConfig.CatalogConfig.ENTITY_ID" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catalog.lib.catalog_config.CatalogConfig.CatalogConfig.EVENT_STORE_NAME">
+<span class="sig-name descname"><span class="pre">EVENT_STORE_NAME</span></span><a class="headerlink" href="#catalog.lib.catalog_config.CatalogConfig.CatalogConfig.EVENT_STORE_NAME" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catalog.lib.catalog_config.CatalogConfig.CatalogConfig.EVENT_STORE_PORT">
+<span class="sig-name descname"><span class="pre">EVENT_STORE_PORT</span></span><a class="headerlink" href="#catalog.lib.catalog_config.CatalogConfig.CatalogConfig.EVENT_STORE_PORT" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catalog.lib.catalog_config.CatalogConfig.CatalogConfig.PARTITON">
+<span class="sig-name descname"><span class="pre">PARTITON</span></span><a class="headerlink" href="#catalog.lib.catalog_config.CatalogConfig.CatalogConfig.PARTITON" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catalog.lib.catalog_config.CatalogConfig.CatalogConfig.TOPIC">
+<span class="sig-name descname"><span class="pre">TOPIC</span></span><a class="headerlink" href="#catalog.lib.catalog_config.CatalogConfig.CatalogConfig.TOPIC" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="catalog.lib.catalog_config.CatalogConfig.CatalogConfig.__slots__">
+<span class="sig-name descname"><span class="pre">__slots__</span></span><em class="property"> <span class="pre">=</span> <span class="pre">('_config',</span> <span class="pre">'ENTITY_ID',</span> <span class="pre">'EVENT_STORE_NAME',</span> <span class="pre">'EVENT_STORE_PORT',</span> <span class="pre">'TOPIC',</span> <span class="pre">'PARTITON',</span> <span class="pre">'CATALOG_PATH')</span></em><a class="headerlink" href="#catalog.lib.catalog_config.CatalogConfig.CatalogConfig.__slots__" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catalog.lib.catalog_config.CatalogConfig.CatalogConfig.inspect">
+<span class="sig-name descname"><span class="pre">inspect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#catalog.lib.catalog_config.CatalogConfig.CatalogConfig.inspect" title="Link a questa definizione">¶</a></dt>
+<dd><p>Legge il file di configurazione e memorizza il suo contenuto nell’oggetto corrente</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>Union [ None , Exception ]</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – eccezione da lettura file</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Rosario Scalia.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

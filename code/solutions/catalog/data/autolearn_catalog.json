@@ -1,0 +1,123 @@
+{
+    "data_lake": [ 
+                    { 
+                        "dataset_name":"Iris-Fisher",
+
+                        "dataset_task":"Classification",
+
+                        "dataset_description":"Il dataset Iris e' un dataset multivariato introdotto da Ronald Fisher nel 1936.\n Consiste in 150 istanze di Iris misurate da Edgar Anderson e classificate secondo tre specie: Iris setosa, Iris virginica e Iris versicolor.\n Le quattro variabili considerate sono la lunghezza e la larghezza del sepalo e del petalo",
+
+                        "features":["Sepal.Length" , "Sepal.Width" , "Petal.Length" , "Petal.Width"],
+
+                        "label":["Species"],
+
+                        "n_record":150,
+
+                        "pre_processing":   [
+                                                { "step": 1 , "computation" : "load_from_disk" } ,
+                                                { "step": 2 , "computation" : "train_test_split" }
+                                            ]
+                     },
+
+                     { 
+                        "dataset_name":"Height-Weight Dataset",
+
+                        "dataset_task":"Classification",
+
+                        "dataset_description":"Il dataset Height-Weight è un sottoinsieme dei dati estratti dalla 'National Health Interview Survey'.\n Il set di dati ha 3 feature (Indice di Massa Corporea (BMI), Altezza e Peso) e una label (Sesso dell'individuo).\n Il dataset contiene 4231 record.",
+
+                        "features":["BMI" , "height" , "weight"],
+
+                        "label":["sex"],
+
+                        "n_record":4231,
+
+                        "pre_processing":   [
+                                                { "step": 1 , "computation" : "load_from_disk" } ,
+                                                { "step": 2 , "computation" : "train_test_split" }
+                                            ]
+                     }
+
+     ],
+
+     
+     "models":[
+                    {
+                        "model_name": "SVM",
+                        "model_task": "Classification",
+                        "model_hyperparams":    [
+                                                    { "param_name":"kernel" , "param_type":"string" , "default":"rbf", "options": ["linear", "poly", "rbf", "sigmoid", "precomputed"] }
+                                                ]
+                    },
+
+                    {
+                        "model_name": "DecisionTree",
+                        "model_task": "Classification",
+                        "model_hyperparams":    [
+                                                    { "param_name":"max_depth" , "param_type":"int" , "default":"until_nodes_leaves", "range_l":1 , "range_u": "inf" }
+                                                ]
+                    },
+
+                    {
+                        "model_name": "RandomForest",
+                        "model_task": "Classification",
+                        "model_hyperparams":    [
+                                                    { "param_name":"max_depth" , "param_type":"int" , "default":"until_nodes_leaves", "range_l":1 , "range_u": "inf" } ,
+
+                                                    { "param_name":"n_estimator" , "param_type":"int" , "default":100, "range_l":1 , "range_u": "inf" } 
+                                                ]
+                    },
+
+                    {
+                        "model_name": "LogisticRegressor",
+                        "model_task": "Classification",
+                        "model_hyperparams":    [
+                                                    { "param_name":"random_state" , "param_type":"int" , "default":"None", "range_l":0 , "range_u": "inf" } 
+                                                ]
+                    },
+
+                    {
+                        "model_name": "Naive-Bayes",
+                        "model_task": "Classification",
+                        "model_hyperparams":    [
+                                                    { "param_name":"priors" , "param_type":"List[float]"}
+                                                ]
+                    }
+     ],
+
+
+     "metrics": [ { "metric_task":"Classification", "metric_name":"Precision" } , { "metric_task":"Classification", "metric_name":"Recall" } ],
+
+
+     "learning":    [
+                        {
+                            "model_reference": {"model_name":"SVM" , "model_task": "Classification"},
+                            "learning_hyperparams": [
+                                                        {
+                                                            "param_name": "regularization",
+                                                            "param_type": "float",
+                                                            "default": "1.0",
+                                                            "range_l":"1.0",
+                                                            "range_up": "inf"
+
+                                                        }
+                                                    ]
+                        },
+
+
+                        {
+                            "model_reference": {"model_name":"LogisticRegressor" , "model_task": "Classification"},
+                            "learning_hyperparams": [
+                                                        {
+                                                            "param_name": "max_iter",
+                                                            "param_type": "int",
+                                                            "default": 100,
+                                                            "range_l":1,
+                                                            "range_up": "inf"
+
+                                                        }
+                                                    ]
+                        }
+                    ]
+
+}

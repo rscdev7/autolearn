@@ -1,0 +1,14 @@
+.. toctree::
+   :maxdepth: 4
+
+
+CatalogConfig
+-------------------------
+
+.. automodule:: catalog.lib.catalog_config.CatalogConfig
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__
+

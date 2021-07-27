@@ -1,0 +1,13 @@
+.. toctree::
+   :maxdepth: 4
+
+
+event_sourcing_utility
+-------------------------
+
+.. automodule:: catalog.lib.event_sourcing_utility.event_sourcing_utility
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__

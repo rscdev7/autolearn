@@ -1,0 +1,13 @@
+.. toctree::
+   :maxdepth: 4
+
+
+AsyncKafkaConsumer
+-------------------------
+
+.. automodule:: catalog.lib.async_kafka_consumer.AsyncKafkaConsumer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__
