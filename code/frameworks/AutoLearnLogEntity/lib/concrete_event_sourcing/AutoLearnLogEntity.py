@@ -63,12 +63,12 @@ class AutoLearnLogEntity (DomainEntity):
         Raises:\n
             Exception                                       : eccezione derivata dall'applicazione dell'evento, molto probabilmente scaturità da un problema di scrittura sull'Event-Store
         """
+        self._status                            = pEvent._eventPayload["value"]["payload"]
+
         if (pRewindMode == False):
             outcome:Union [ None , Exception ]  = await self._eventStore.write(pEvent)
         else: 
             outcome                             = None
-
-        self._status                            = pEvent._eventPayload["value"]["payload"]
 
         return outcome
 
