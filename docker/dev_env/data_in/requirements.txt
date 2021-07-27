@@ -1,6 +1,7 @@
 aiofiles
 pytest
 pytest-asyncio
+httpx
 jupyter
 dataclasses
 typing
