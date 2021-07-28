@@ -12,4 +12,4 @@ from typing     import List,Optional,Dict
 
 
 class Notify (BaseModel):
-    payload:str                      = Field(...,title="Comunicazione",description="Notifica Problema Esecuzione Chiamata ad API-REST")
+    payload:str                      = Field(...,title="Comunicazione",description="Notifica Esito Richiesta")
