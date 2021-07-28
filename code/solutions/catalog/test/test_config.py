@@ -1,12 +1,12 @@
 """
 @author           	:  rscalia
 @build-date         :  Sun 09/05/2021
-@last_update        :  Sun 09/05/2021
+@last_update        :  Wed 28/07/2021
 
 Questo componente serve per testare la classe CatalogConfig
 """
 
-from ..lib.catalog_config.CatalogConfig     import CatalogConfig
+from ..lib.service_config.ServiceConfig     import ServiceConfig
 from typing                                 import Union
 
 def test_config_read ():
@@ -14,7 +14,7 @@ def test_config_read ():
     Questa funzione permette di testare il parsing del file di configurazione presente nel componente CatalogConfig
     """
 
-    cfg                                 = CatalogConfig()
+    cfg:ServiceConfig                   = ServiceConfig()
     outcome:Union[ None, Exception ]    = cfg.inspect()
     assert issubclass ( type(outcome) , Exception ) == False
 

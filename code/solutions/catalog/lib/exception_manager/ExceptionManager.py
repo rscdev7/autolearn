@@ -1,7 +1,7 @@
 """
-@author           	:  rscalia
-@build-date         :  Fri 16/07/2021
-@last-update        :  Sun 25/07/2021
+@author           	:  rscalia                      \n
+@build-date         :  Fri 16/07/2021               \n
+@last-update        :  Sun 25/07/2021               \n
 
 Questo componente serve per gestire opportunamente il verificarsi delle eccezioni
 """

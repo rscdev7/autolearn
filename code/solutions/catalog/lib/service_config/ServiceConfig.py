@@ -1,8 +1,7 @@
 """
-@author           	:  rscalia
-@version  		    :  1.0.0
-@build-date         :  Sun 09/05/2021
-@last_update        :  Sun 09/05/2021
+@author           	:  rscalia                      \n
+@build-date         :  Sun 09/05/2021               \n
+@last-update        :  Wed 28/07/2021               \n
 
 Questo componente serve per caricare in memoria la configurazione del Microservizio Catalog.
 """
@@ -13,7 +12,7 @@ import configparser
 from typing                 import Union
 
 
-class CatalogConfig (object):
+class ServiceConfig (object):
 
     __slots__ = ("_config","ENTITY_ID" , "EVENT_STORE_NAME" , "EVENT_STORE_PORT" , "TOPIC" , "PARTITON", "CATALOG_PATH")
     def inspect (self) -> Union [ None , Exception ]:
@@ -40,10 +39,10 @@ class CatalogConfig (object):
         #Locate file di configurazione e file Catalogo
         current_dir                                     = os.getcwd().split("/")[-1]
         if (current_dir == "test"):
-            cfg_path:str                                = os.path.join ( "..", "config" , "config.conf" )
+            cfg_path:str                                = os.path.join ( "..", "config" , "cfg.conf" )
             self.CATALOG_PATH:str                       = os.path.join ( "..", "data" , "autolearn_catalog.json" )
         else:
-            cfg_path:str                                = os.path.join ( "config" , "config.conf" )
+            cfg_path:str                                = os.path.join ( "config" , "cfg.conf" )
             self.CATALOG_PATH:str                       = os.path.join ( ".", "data" , "autolearn_catalog.json" )
 
 

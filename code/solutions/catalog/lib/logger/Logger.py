@@ -1,7 +1,7 @@
 """
-@author           	:  rscalia
-@build-date         :  Mon 15/07/2021
-@last-update        :  Fri 23/07/2021
+@author           	:  rscalia                          \n
+@build-date         :  Mon 15/07/2021                   \n
+@last-update        :  Fri 23/07/2021                   \n
 
 Questo componente serve per fare logging in merito alle attività dei microservizi
 """

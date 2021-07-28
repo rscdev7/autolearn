@@ -1,7 +1,7 @@
 """
 @author           	    :  rscalia                              \n
 @build-date             :  Sun 25/07/2021                       \n
-@last-update            :  Wed 27/07/2021                       \n
+@last-update            :  Wed 28/07/2021                       \n
 
 Questo modulo raccoglie una serie di utility necessarie all'Event Sourcing
 """
@@ -66,14 +66,14 @@ async def setUpEventSourcing (pServiceName:str, pEventStore:KafkaEventStore, pNe
 
 
     if ExceptionManager.lookForExceptions(event_store_conn):
-        logger.error("Impossibile connettersi con Kafka --> {} ".format(event_store_conn))
+        logger.error("ERROR | Impossibile connettersi con Kafka --> {} ".format(event_store_conn))
         
         return False
     else:
         #Tentativo di Rewind
         outcome:Union [ None , Exception ]              = await pNetworkLogger.rewind()
         if ExceptionManager.lookForExceptions(outcome):
-            logger.error("\nImpossibile fare rewind degli eventi :(\n-> Causa: {}".format(str(outcome)))
+            logger.error("ERROR | Impossibile fare rewind degli eventi :(\n-> Causa: {}".format(str(outcome)))
             return False
 
     return True
@@ -142,7 +142,7 @@ async def final_communication_log (pService:str, pDestId:str, pComType:str , pPa
     
     outcome:Union[ None , Exception]                    = await pNetworkLogger.emit(client_req_ans)
     if ExceptionManager.lookForExceptions(outcome):
-        logger.error("Impossibile scrivere evento di fine Comunicazione - Causa: {}".format( str( outcome ) ))
+        logger.error("ERROR | Impossibile scrivere evento di fine Comunicazione - Causa: {}".format( str( outcome ) ))
 
     #[3] Stop Connessione con EventStore
     await pNetworkLogger._eventStore.stop()

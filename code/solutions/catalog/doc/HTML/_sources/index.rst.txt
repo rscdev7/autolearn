@@ -14,8 +14,8 @@ Benvenuto nella Documentazione di catalog
    singleton
    event_sourcing_utility
    time_stamp_manager
-   catalog_config
-   catalog_set_up
+   service_config
+   service_set_up
    domain_work
    logger
 

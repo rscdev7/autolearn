@@ -100,8 +100,8 @@
 <li class="toctree-l1"><a class="reference internal" href="singleton.html">Singleton</a></li>
 <li class="toctree-l1"><a class="reference internal" href="event_sourcing_utility.html">event_sourcing_utility</a></li>
 <li class="toctree-l1"><a class="reference internal" href="time_stamp_manager.html">TimeStampManager</a></li>
-<li class="toctree-l1"><a class="reference internal" href="catalog_config.html">CatalogConfig</a></li>
-<li class="toctree-l1"><a class="reference internal" href="catalog_set_up.html">system_set_up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_config.html">ServiceConfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_set_up.html">system_set_up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="domain_work.html">worker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="logger.html">Logger</a></li>
 </ul>
@@ -229,9 +229,9 @@
       <ul>
         <li><a href="abstract_event_sourcing.html#catalog.lib.abstract_event_sourcing.EventStore.EventStore.__slots__">(catalog.lib.abstract_event_sourcing.EventStore.EventStore attributo)</a>
 </li>
-        <li><a href="catalog_config.html#catalog.lib.catalog_config.CatalogConfig.CatalogConfig.__slots__">(catalog.lib.catalog_config.CatalogConfig.CatalogConfig attributo)</a>
-</li>
         <li><a href="concrete_event_sourcing.html#catalog.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity.__slots__">(catalog.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity attributo)</a>
+</li>
+        <li><a href="service_config.html#catalog.lib.service_config.ServiceConfig.ServiceConfig.__slots__">(catalog.lib.service_config.ServiceConfig.ServiceConfig attributo)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -295,20 +295,6 @@
 </li>
       </ul></li>
       <li>
-    catalog.lib.catalog_config.CatalogConfig
-
-      <ul>
-        <li><a href="catalog_config.html#module-catalog.lib.catalog_config.CatalogConfig">modulo</a>
-</li>
-      </ul></li>
-      <li>
-    catalog.lib.catalog_set_up.system_set_up
-
-      <ul>
-        <li><a href="catalog_set_up.html#module-catalog.lib.catalog_set_up.system_set_up">modulo</a>
-</li>
-      </ul></li>
-      <li>
     catalog.lib.concrete_event_sourcing.AutoLearnLogEntity
 
       <ul>
@@ -329,8 +315,6 @@
         <li><a href="domain_work.html#module-catalog.lib.domain_work.worker">modulo</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     catalog.lib.event_sourcing_utility.event_sourcing_utility
 
@@ -345,6 +329,8 @@
         <li><a href="exception_manager.html#module-catalog.lib.exception_manager.ExceptionManager">modulo</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     catalog.lib.kafka_logger.KafkaLogger
 
@@ -367,6 +353,20 @@
 </li>
       </ul></li>
       <li>
+    catalog.lib.service_config.ServiceConfig
+
+      <ul>
+        <li><a href="service_config.html#module-catalog.lib.service_config.ServiceConfig">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    catalog.lib.service_set_up.system_set_up
+
+      <ul>
+        <li><a href="service_set_up.html#module-catalog.lib.service_set_up.system_set_up">modulo</a>
+</li>
+      </ul></li>
+      <li>
     catalog.lib.singleton.Singleton
 
       <ul>
@@ -380,9 +380,7 @@
         <li><a href="time_stamp_manager.html#module-catalog.lib.time_stamp_manager.TimeStampManager">modulo</a>
 </li>
       </ul></li>
-      <li><a href="catalog_config.html#catalog.lib.catalog_config.CatalogConfig.CatalogConfig.CATALOG_PATH">CATALOG_PATH (catalog.lib.catalog_config.CatalogConfig.CatalogConfig attributo)</a>
-</li>
-      <li><a href="catalog_config.html#catalog.lib.catalog_config.CatalogConfig.CatalogConfig">CatalogConfig (classe in catalog.lib.catalog_config.CatalogConfig)</a>
+      <li><a href="service_config.html#catalog.lib.service_config.ServiceConfig.ServiceConfig.CATALOG_PATH">CATALOG_PATH (catalog.lib.service_config.ServiceConfig.ServiceConfig attributo)</a>
 </li>
       <li><a href="async_kafka_consumer.html#catalog.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer.consume">consume() (catalog.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer metodo)</a>
 </li>
@@ -424,15 +422,15 @@
 </li>
       <li><a href="network_serializer.html#catalog.lib.network_serializer.NetworkSerializer.NetworkSerializer.encryptField">encryptField() (catalog.lib.network_serializer.NetworkSerializer.NetworkSerializer metodo)</a>
 </li>
-      <li><a href="catalog_config.html#catalog.lib.catalog_config.CatalogConfig.CatalogConfig.ENTITY_ID">ENTITY_ID (catalog.lib.catalog_config.CatalogConfig.CatalogConfig attributo)</a>
+      <li><a href="service_config.html#catalog.lib.service_config.ServiceConfig.ServiceConfig.ENTITY_ID">ENTITY_ID (catalog.lib.service_config.ServiceConfig.ServiceConfig attributo)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="logger.html#catalog.lib.logger.Logger.Logger.error">error() (catalog.lib.logger.Logger.Logger metodo)</a>
 </li>
-      <li><a href="catalog_config.html#catalog.lib.catalog_config.CatalogConfig.CatalogConfig.EVENT_STORE_NAME">EVENT_STORE_NAME (catalog.lib.catalog_config.CatalogConfig.CatalogConfig attributo)</a>
+      <li><a href="service_config.html#catalog.lib.service_config.ServiceConfig.ServiceConfig.EVENT_STORE_NAME">EVENT_STORE_NAME (catalog.lib.service_config.ServiceConfig.ServiceConfig attributo)</a>
 </li>
-      <li><a href="catalog_config.html#catalog.lib.catalog_config.CatalogConfig.CatalogConfig.EVENT_STORE_PORT">EVENT_STORE_PORT (catalog.lib.catalog_config.CatalogConfig.CatalogConfig attributo)</a>
+      <li><a href="service_config.html#catalog.lib.service_config.ServiceConfig.ServiceConfig.EVENT_STORE_PORT">EVENT_STORE_PORT (catalog.lib.service_config.ServiceConfig.ServiceConfig attributo)</a>
 </li>
       <li><a href="abstract_event_sourcing.html#catalog.lib.abstract_event_sourcing.EventStore.EventStore">EventStore (classe in catalog.lib.abstract_event_sourcing.EventStore)</a>
 </li>
@@ -472,7 +470,7 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="catalog_config.html#catalog.lib.catalog_config.CatalogConfig.CatalogConfig.inspect">inspect() (catalog.lib.catalog_config.CatalogConfig.CatalogConfig metodo)</a>
+      <li><a href="service_config.html#catalog.lib.service_config.ServiceConfig.ServiceConfig.inspect">inspect() (catalog.lib.service_config.ServiceConfig.ServiceConfig metodo)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -524,10 +522,6 @@
 </li>
         <li><a href="async_kafka_consumer.html#module-catalog.lib.async_kafka_consumer.AsyncKafkaConsumer">catalog.lib.async_kafka_consumer.AsyncKafkaConsumer</a>
 </li>
-        <li><a href="catalog_config.html#module-catalog.lib.catalog_config.CatalogConfig">catalog.lib.catalog_config.CatalogConfig</a>
-</li>
-        <li><a href="catalog_set_up.html#module-catalog.lib.catalog_set_up.system_set_up">catalog.lib.catalog_set_up.system_set_up</a>
-</li>
         <li><a href="concrete_event_sourcing.html#module-catalog.lib.concrete_event_sourcing.AutoLearnLogEntity">catalog.lib.concrete_event_sourcing.AutoLearnLogEntity</a>
 </li>
         <li><a href="concrete_event_sourcing.html#module-catalog.lib.concrete_event_sourcing.KafkaEventStore">catalog.lib.concrete_event_sourcing.KafkaEventStore</a>
@@ -543,6 +537,10 @@
         <li><a href="logger.html#module-catalog.lib.logger.Logger">catalog.lib.logger.Logger</a>
 </li>
         <li><a href="network_serializer.html#module-catalog.lib.network_serializer.NetworkSerializer">catalog.lib.network_serializer.NetworkSerializer</a>
+</li>
+        <li><a href="service_config.html#module-catalog.lib.service_config.ServiceConfig">catalog.lib.service_config.ServiceConfig</a>
+</li>
+        <li><a href="service_set_up.html#module-catalog.lib.service_set_up.system_set_up">catalog.lib.service_set_up.system_set_up</a>
 </li>
         <li><a href="singleton.html#module-catalog.lib.singleton.Singleton">catalog.lib.singleton.Singleton</a>
 </li>
@@ -563,7 +561,7 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="catalog_config.html#catalog.lib.catalog_config.CatalogConfig.CatalogConfig.PARTITON">PARTITON (catalog.lib.catalog_config.CatalogConfig.CatalogConfig attributo)</a>
+      <li><a href="service_config.html#catalog.lib.service_config.ServiceConfig.ServiceConfig.PARTITON">PARTITON (catalog.lib.service_config.ServiceConfig.ServiceConfig attributo)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -599,7 +597,9 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="catalog_set_up.html#catalog.lib.catalog_set_up.system_set_up.setUp">setUp() (nel modulo catalog.lib.catalog_set_up.system_set_up)</a>
+      <li><a href="service_config.html#catalog.lib.service_config.ServiceConfig.ServiceConfig">ServiceConfig (classe in catalog.lib.service_config.ServiceConfig)</a>
+</li>
+      <li><a href="service_set_up.html#catalog.lib.service_set_up.system_set_up.set_up">set_up() (nel modulo catalog.lib.service_set_up.system_set_up)</a>
 </li>
       <li><a href="event_sourcing_utility.html#catalog.lib.event_sourcing_utility.event_sourcing_utility.setUpEventSourcing">setUpEventSourcing() (nel modulo catalog.lib.event_sourcing_utility.event_sourcing_utility)</a>
 </li>
@@ -645,7 +645,7 @@
 </li>
       <li><a href="time_stamp_manager.html#catalog.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestampSec2Ms">timestampSec2Ms() (catalog.lib.time_stamp_manager.TimeStampManager.TimeStampManager metodo statico)</a>
 </li>
-      <li><a href="catalog_config.html#catalog.lib.catalog_config.CatalogConfig.CatalogConfig.TOPIC">TOPIC (catalog.lib.catalog_config.CatalogConfig.CatalogConfig attributo)</a>
+      <li><a href="service_config.html#catalog.lib.service_config.ServiceConfig.ServiceConfig.TOPIC">TOPIC (catalog.lib.service_config.ServiceConfig.ServiceConfig attributo)</a>
 </li>
   </ul></td>
 </tr></table>

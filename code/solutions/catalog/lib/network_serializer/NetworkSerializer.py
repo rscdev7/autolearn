@@ -1,7 +1,7 @@
 """
-@author           	:  rscalia
-@build-date         :  Thu 15/07/2021
-@last_update        :  Fri 23/07/2021
+@author           	:  rscalia                          \n
+@build-date         :  Thu 15/07/2021                   \n
+@last-update        :  Fri 23/07/2021                   \n
 
 Questa classe permette di serializzare e deserializzare i JSON.
 

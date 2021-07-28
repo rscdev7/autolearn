@@ -9,16 +9,16 @@ Questo componente permette di avviare il Microservizio Catalog.
 import os
 from fastapi                                        import APIRouter
 from ..logger.Logger                                import Logger
-from ..catalog_config.CatalogConfig                 import CatalogConfig
+from ..service_config.ServiceConfig                 import ServiceConfig
 from ..concrete_event_sourcing.KafkaEventStore      import KafkaEventStore
 from ..concrete_event_sourcing.AutoLearnLogEntity   import AutoLearnLogEntity
 from ..exception_manager.ExceptionManager           import ExceptionManager
 from typing                                         import Tuple
 
 
-def setUp () -> Tuple[ APIRouter ,CatalogConfig , AutoLearnLogEntity , KafkaEventStore , tuple , Logger ]:
+def set_up () -> Tuple[ APIRouter , ServiceConfig , AutoLearnLogEntity , KafkaEventStore , tuple , Logger ]:
     """
-    # **setUp**
+    # **set_up**
     
     Questa funzione permette di configurare il Microservizio Catalog
 
@@ -45,7 +45,7 @@ def setUp () -> Tuple[ APIRouter ,CatalogConfig , AutoLearnLogEntity , KafkaEven
 
 
     #[2] Lettura file di congifurazione del Microservizio
-    cfg:CatalogConfig                               = CatalogConfig()
+    cfg:CatalogConfig                               = ServiceConfig()
     outcome:Union [ None , Exception]               = cfg.inspect()
     if ExceptionManager.lookForExceptions(outcome):
         error_msg:str       =  "Impossibile leggere il file di configurazione :(\n-> Causa: {}".format(str(outcome))

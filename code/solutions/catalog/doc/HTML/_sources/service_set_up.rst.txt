@@ -2,10 +2,10 @@
    :maxdepth: 4
 
 
-CatalogConfig
+system_set_up
 -------------------------
 
-.. automodule:: catalog.lib.catalog_config.CatalogConfig
+.. automodule:: catalog.lib.service_set_up.system_set_up
    :members:
    :undoc-members:
    :show-inheritance:
