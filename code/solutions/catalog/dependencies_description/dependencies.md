@@ -5,7 +5,7 @@
 > * `$HOME_COMPONENT/lib/domain_work/worker.py`
 > * `$HOME_COMPONENT/lib/service_config/ServiceConfig.py`
 > * `$HOME_COMPONENT/lib/service_set_up/system_set_up.py`
-> * `$HOME_COMPONENT/lib/rest_api/catalog_rest_end_point.py`
+> * `$HOME_COMPONENT/lib/rest_api/rest_end_point.py`
 > * `$HOME_COMPONENT/lib/kafka_logger/KafkaLogger.py`
 > * `$HOME_COMPONENT/lib/pydantic_models/Catalog.py`
 > * `$HOME_COMPONENT/lib/pydantic_models/ParamSpec.py`
