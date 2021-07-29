@@ -102,6 +102,8 @@
 <li class="toctree-l1"><a class="reference internal" href="singleton.html">Singleton</a></li>
 <li class="toctree-l1"><a class="reference internal" href="event_sourcing_utility.html">event_sourcing_utility</a></li>
 <li class="toctree-l1"><a class="reference internal" href="time_stamp_manager.html">TimeStampManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_config.html">ServiceConfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_set_up.html">system_set_up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="domain_work.html">worker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="logger.html">Logger</a></li>
 </ul>
@@ -175,9 +177,9 @@
 </div>
 <div class="section" id="module-catalog.lib.network_serializer.NetworkSerializer">
 <span id="networkserializer"></span><h1>NetworkSerializer<a class="headerlink" href="#module-catalog.lib.network_serializer.NetworkSerializer" title="Link a questa intestazione">¶</a></h1>
-<p>&#64;author                 :  rscalia</p>
-<p>&#64;build-date         :  Thu 15/07/2021</p>
-<p>&#64;last-update        :  Fri 23/07/2021</p>
+<p>&#64;author                 :  rscalia
+&#64;build-date         :  Thu 15/07/2021
+&#64;last_update        :  Thu 29/07/2021</p>
 <p>Questa classe permette di serializzare e deserializzare i JSON.</p>
 <p>Inoltre, la classe aggiunge il supporto alla cifratura ai campi del JSON.</p>
 <dl class="py class">
@@ -207,6 +209,23 @@
 </dd>
 <dt class="field-even">Solleva</dt>
 <dd class="field-even"><p><strong>Exception</strong> – eccezione da scrittura file da Disco</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catalog.lib.network_serializer.NetworkSerializer.NetworkSerializer.decodeBinaryObj">
+<span class="sig-name descname"><span class="pre">decodeBinaryObj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pBinObject</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">object</span><a class="headerlink" href="#catalog.lib.network_serializer.NetworkSerializer.NetworkSerializer.decodeBinaryObj" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di deserializzare un oggetto Python serializzato in binario.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pBinObject</strong> (<em>bytes</em>) – oggetto serializzato in binario</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>oggetto deserializzato</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p>object</p>
 </dd>
 </dl>
 </dd></dl>
@@ -244,6 +263,23 @@
 </dd>
 <dt class="field-even">Solleva</dt>
 <dd class="field-even"><p><strong>Exception</strong> – eccezione</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="catalog.lib.network_serializer.NetworkSerializer.NetworkSerializer.encodeBinaryObj">
+<span class="sig-name descname"><span class="pre">encodeBinaryObj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pObject</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bytes</span><a class="headerlink" href="#catalog.lib.network_serializer.NetworkSerializer.NetworkSerializer.encodeBinaryObj" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di serializzare in binario un oggetto Python</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pObject</strong> (<em>object</em>) – oggetto da serializzare in binario</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>oggetto serializzato in binario</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p>bytes</p>
 </dd>
 </dl>
 </dd></dl>

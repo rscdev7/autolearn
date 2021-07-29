@@ -1,7 +1,7 @@
 """
 @author           	    :  rscalia                              \n
 @build-date             :  Sun 25/07/2021                       \n
-@last-update            :  Wed 27/07/2021                       \n
+@last-update            :  Thu 29/07/2021                       \n
 
 Questo componente permette di avviare il Microservizio Catalog.
 """
@@ -55,7 +55,7 @@ def set_up () -> Tuple[ APIRouter , ServiceConfig , AutoLearnLogEntity , KafkaEv
 
 
     #[3] Costruzione Logger per Computazioni che implicano la comunicazione con l'Esterno
-    EVENT_STORE_PARAMS:dict                         = { "host_name": cfg.EVENT_STORE_NAME , "port":cfg.EVENT_STORE_PORT , "topic":cfg.TOPIC , "partition":cfg.PARTITON }
+    EVENT_STORE_PARAMS:dict                         = { "host_name": cfg.EVENT_STORE_NAME , "port":cfg.EVENT_STORE_PORT , "topic":cfg.TOPIC , "partition":cfg.PARTITION }
     event_store:KafkaEventStore                     = KafkaEventStore()
     network_logger:AutoLearnLogEntity               = AutoLearnLogEntity()
 

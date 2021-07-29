@@ -1,7 +1,7 @@
 """
 @author           	:  rscalia                      \n
 @build-date         :  Sun 09/05/2021               \n
-@last-update        :  Wed 28/07/2021               \n
+@last-update        :  Thu 29/07/2021               \n
 
 Questo componente serve per caricare in memoria la configurazione del Microservizio Catalog.
 """
@@ -14,7 +14,7 @@ from typing                 import Union
 
 class ServiceConfig (object):
 
-    __slots__ = ("_config","ENTITY_ID" , "EVENT_STORE_NAME" , "EVENT_STORE_PORT" , "TOPIC" , "PARTITON", "CATALOG_PATH")
+    __slots__ = ("_config","ENTITY_ID" , "EVENT_STORE_NAME" , "EVENT_STORE_PORT" , "TOPIC" , "PARTITION", "CATALOG_PATH")
     def inspect (self) -> Union [ None , Exception ]:
         """
         Legge il file di configurazione e memorizza il suo contenuto nell'oggetto corrente
@@ -58,4 +58,4 @@ class ServiceConfig (object):
         #Recupero parametri cfg
         if 'General' in sections:
             s:str                                       = 'General'
-            self.PARTITON                               = int(self._config.get(s, 'PARTITON'))
+            self.PARTITION                              = int(self._config.get(s, 'PARTITION'))

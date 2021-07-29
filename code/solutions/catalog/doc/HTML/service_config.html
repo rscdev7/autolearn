@@ -41,7 +41,9 @@
 
     
     <link rel="index" title="Indice" href="genindex.html" />
-    <link rel="search" title="Cerca" href="search.html" /> 
+    <link rel="search" title="Cerca" href="search.html" />
+    <link rel="next" title="system_set_up" href="service_set_up.html" />
+    <link rel="prev" title="TimeStampManager" href="time_stamp_manager.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -87,7 +89,7 @@
             
             
               <p class="caption"><span class="caption-text">Moduli</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html">DomainEntity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html#module-catalog.lib.abstract_event_sourcing.DomainEvent">DomainEvent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html#module-catalog.lib.abstract_event_sourcing.EventStore">EventStore</a></li>
@@ -100,6 +102,8 @@
 <li class="toctree-l1"><a class="reference internal" href="singleton.html">Singleton</a></li>
 <li class="toctree-l1"><a class="reference internal" href="event_sourcing_utility.html">event_sourcing_utility</a></li>
 <li class="toctree-l1"><a class="reference internal" href="time_stamp_manager.html">TimeStampManager</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ServiceConfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_set_up.html">system_set_up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="domain_work.html">worker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="logger.html">Logger</a></li>
 </ul>
@@ -175,7 +179,7 @@
 <span id="serviceconfig"></span><h1>ServiceConfig<a class="headerlink" href="#module-catalog.lib.service_config.ServiceConfig" title="Link a questa intestazione">¶</a></h1>
 <p>&#64;author                 :  rscalia</p>
 <p>&#64;build-date         :  Sun 09/05/2021</p>
-<p>&#64;last-update        :  Wed 28/07/2021</p>
+<p>&#64;last-update        :  Thu 29/07/2021</p>
 <p>Questo componente serve per caricare in memoria la configurazione del Microservizio Catalog.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="catalog.lib.service_config.ServiceConfig.ServiceConfig">
@@ -204,8 +208,8 @@
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="catalog.lib.service_config.ServiceConfig.ServiceConfig.PARTITON">
-<span class="sig-name descname"><span class="pre">PARTITON</span></span><a class="headerlink" href="#catalog.lib.service_config.ServiceConfig.ServiceConfig.PARTITON" title="Link a questa definizione">¶</a></dt>
+<dt class="sig sig-object py" id="catalog.lib.service_config.ServiceConfig.ServiceConfig.PARTITION">
+<span class="sig-name descname"><span class="pre">PARTITION</span></span><a class="headerlink" href="#catalog.lib.service_config.ServiceConfig.ServiceConfig.PARTITION" title="Link a questa definizione">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -215,7 +219,7 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="catalog.lib.service_config.ServiceConfig.ServiceConfig.__slots__">
-<span class="sig-name descname"><span class="pre">__slots__</span></span><em class="property"> <span class="pre">=</span> <span class="pre">('_config',</span> <span class="pre">'ENTITY_ID',</span> <span class="pre">'EVENT_STORE_NAME',</span> <span class="pre">'EVENT_STORE_PORT',</span> <span class="pre">'TOPIC',</span> <span class="pre">'PARTITON',</span> <span class="pre">'CATALOG_PATH')</span></em><a class="headerlink" href="#catalog.lib.service_config.ServiceConfig.ServiceConfig.__slots__" title="Link a questa definizione">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__slots__</span></span><em class="property"> <span class="pre">=</span> <span class="pre">('_config',</span> <span class="pre">'ENTITY_ID',</span> <span class="pre">'EVENT_STORE_NAME',</span> <span class="pre">'EVENT_STORE_PORT',</span> <span class="pre">'TOPIC',</span> <span class="pre">'PARTITION',</span> <span class="pre">'CATALOG_PATH')</span></em><a class="headerlink" href="#catalog.lib.service_config.ServiceConfig.ServiceConfig.__slots__" title="Link a questa definizione">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -241,6 +245,10 @@
            
           </div>
           <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="service_set_up.html" class="btn btn-neutral float-right" title="system_set_up" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="time_stamp_manager.html" class="btn btn-neutral float-left" title="TimeStampManager" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 
