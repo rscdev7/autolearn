@@ -1,0 +1,35 @@
+.. toctree::
+   :maxdepth: 4
+
+
+DomainEntity
+-------------------------
+
+.. automodule:: storage.lib.abstract_event_sourcing.DomainEntity
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__
+
+
+DomainEvent
+-------------------------
+
+.. automodule:: storage.lib.abstract_event_sourcing.DomainEvent
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__
+
+
+EventStore
+-------------------------
+
+.. automodule:: storage.lib.abstract_event_sourcing.EventStore
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__
