@@ -1,7 +1,7 @@
 """
-@author           	:  rscalia                          \n
-@build-date         :  Thu 15/07/2021                   \n
-@last-update        :  Fri 23/07/2021                   \n
+@author           	:  rscalia
+@build-date         :  Thu 15/07/2021
+@last_update        :  Thu 29/07/2021
 
 Questa classe permette di serializzare e deserializzare i JSON.
 
@@ -14,6 +14,7 @@ import base64
 from os.path            import join
 from io                 import BufferedWriter
 from typing             import Union
+import pickle
 
 class NetworkSerializer (object):
 
@@ -163,5 +164,33 @@ class NetworkSerializer (object):
         deser_data:dict      = json.loads(pPayLoad)
 
         return deser_data
+
+
+    def encodeBinaryObj (self , pObject:object) -> bytes:
+        """
+        Questo metodo permette di serializzare in binario un oggetto Python
+
+        Args:\n
+            pObject         (object)        : oggetto da serializzare in binario
+
+        Returns:\n
+            bytes                           : oggetto serializzato in binario             
+        """
+        slob:bytes           = pickle.dumps(obj= pObject) 
+        return slob
+
+    
+    def decodeBinaryObj (self , pBinObject:bytes) -> object:
+        """
+        Questo metodo permette di deserializzare un oggetto Python serializzato in binario.
+
+        Args:\n
+            pBinObject         (bytes)              : oggetto serializzato in binario
+
+        Returns:\n
+            object                                  : oggetto deserializzato             
+        """
+        obj:object           = pickle.loads( pBinObject )
+        return obj
 
     

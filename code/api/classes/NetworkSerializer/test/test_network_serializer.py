@@ -1,7 +1,7 @@
 """
 @author           	:  rscalia
 @build-date         :  Thu 15/07/2021
-@last_update        :  Fri 23/07/2021
+@last_update        :  Thu 29/07/2021
 
 Questo componente permette di testare il componente NetworkSerializer
 """
@@ -13,6 +13,12 @@ KEY_PATH:str        = "../data/"
 READ_FROM_DISK:bool = True
 DATA_TO_CYPHER:str  = "Test di cifratura Sim"
 DATA:dict           = {"ciao":450 , "test":"test", "jhg":[4,5,8,7]}
+
+
+class Obj:
+    def __init__(self, pArg1:int , pArg2:str):
+        self._arg1:int  = pArg1
+        self._arg2:str  = pArg2
 
 
 def test_nt_ser():
@@ -45,5 +51,16 @@ def test_json_encoding ():
 
     assert decoded_data == DATA
     print ("\n[!] Dati Decodificati: {}".format(decoded_data))
+
+
+def test_object_encoding():
+
+    test_obj:Obj        = Obj ( 51 , "test" )
+
+    serializer:NetworkSerializer    = NetworkSerializer()
+    binary_obj:bytes                = serializer.encodeBinaryObj(test_obj)
+    decoded_obj:Obj                 = serializer.decodeBinaryObj( binary_obj )
+
+    assert decoded_obj._arg1 == test_obj._arg1 and decoded_obj._arg2 == test_obj._arg2
 
     
