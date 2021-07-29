@@ -10,7 +10,7 @@ from ..lib.network_serializer.NetworkSerializer import NetworkSerializer
 from typing                                     import Union
 
 KEY_PATH:str        = "../data/"
-READ_FROM_DISK:bool = True
+READ_FROM_DISK:bool = False
 DATA_TO_CYPHER:str  = "Test di cifratura Sim"
 DATA:dict           = {"ciao":450 , "test":"test", "jhg":[4,5,8,7]}
 
@@ -58,7 +58,7 @@ def test_object_encoding():
     test_obj:Obj        = Obj ( 51 , "test" )
 
     serializer:NetworkSerializer    = NetworkSerializer()
-    binary_obj:bytes                = serializer.encodeBinaryObj(test_obj)
+    binary_obj:str                  = serializer.encodeBinaryObj(test_obj)
     decoded_obj:Obj                 = serializer.decodeBinaryObj( binary_obj )
 
     assert decoded_obj._arg1 == test_obj._arg1 and decoded_obj._arg2 == test_obj._arg2

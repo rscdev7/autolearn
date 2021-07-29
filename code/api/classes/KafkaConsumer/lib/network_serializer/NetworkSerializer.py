@@ -166,23 +166,26 @@ class NetworkSerializer (object):
         return deser_data
 
 
-    def encodeBinaryObj (self , pObject:object) -> bytes:
+    def encodeBinaryObj (self , pObject:object) -> str:
         """
-        Questo metodo permette di serializzare in binario un oggetto Python
+        Questo metodo permette di serializzare in binario un oggetto Python in formato stringa
 
         Args:\n
             pObject         (object)        : oggetto da serializzare in binario
 
         Returns:\n
-            bytes                           : oggetto serializzato in binario             
+            str                             : oggetto serializzato in binario             
         """
-        slob:bytes           = pickle.dumps(obj= pObject) 
-        return slob
+        slob:bytes                  = pickle.dumps(obj= pObject) 
+
+        recoded_data:bytes          = base64.b64encode(slob)  
+        str_object:str              = recoded_data.decode('ascii')
+        return str_object
 
     
-    def decodeBinaryObj (self , pBinObject:bytes) -> object:
+    def decodeBinaryObj (self , pBinObject:str) -> object:
         """
-        Questo metodo permette di deserializzare un oggetto Python serializzato in binario.
+        Questo metodo permette di deserializzare un oggetto Python serializzato in binario in formato stringa.
 
         Args:\n
             pBinObject         (bytes)              : oggetto serializzato in binario
@@ -190,7 +193,8 @@ class NetworkSerializer (object):
         Returns:\n
             object                                  : oggetto deserializzato             
         """
-        obj:object           = pickle.loads( pBinObject )
+        encoded_data:bytes   = base64.b64decode(pBinObject)
+        obj:object           = pickle.loads( encoded_data )
         return obj
 
     

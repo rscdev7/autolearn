@@ -199,8 +199,8 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="NetworkSerializer.lib.network_serializer.NetworkSerializer.NetworkSerializer.decodeBinaryObj">
-<span class="sig-name descname"><span class="pre">decodeBinaryObj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pBinObject</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">object</span><a class="headerlink" href="#NetworkSerializer.lib.network_serializer.NetworkSerializer.NetworkSerializer.decodeBinaryObj" title="Link a questa definizione">¶</a></dt>
-<dd><p>Questo metodo permette di deserializzare un oggetto Python serializzato in binario.</p>
+<span class="sig-name descname"><span class="pre">decodeBinaryObj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pBinObject</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">object</span><a class="headerlink" href="#NetworkSerializer.lib.network_serializer.NetworkSerializer.NetworkSerializer.decodeBinaryObj" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di deserializzare un oggetto Python serializzato in binario in formato stringa.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><p><strong>pBinObject</strong> (<em>bytes</em>) – oggetto serializzato in binario</p>
@@ -253,8 +253,8 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="NetworkSerializer.lib.network_serializer.NetworkSerializer.NetworkSerializer.encodeBinaryObj">
-<span class="sig-name descname"><span class="pre">encodeBinaryObj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pObject</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bytes</span><a class="headerlink" href="#NetworkSerializer.lib.network_serializer.NetworkSerializer.NetworkSerializer.encodeBinaryObj" title="Link a questa definizione">¶</a></dt>
-<dd><p>Questo metodo permette di serializzare in binario un oggetto Python</p>
+<span class="sig-name descname"><span class="pre">encodeBinaryObj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pObject</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#NetworkSerializer.lib.network_serializer.NetworkSerializer.NetworkSerializer.encodeBinaryObj" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di serializzare in binario un oggetto Python in formato stringa</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><p><strong>pObject</strong> (<em>object</em>) – oggetto da serializzare in binario</p>
@@ -263,7 +263,7 @@
 <dd class="field-even"><p>oggetto serializzato in binario</p>
 </dd>
 <dt class="field-odd">Tipo di ritorno</dt>
-<dd class="field-odd"><p>bytes</p>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
