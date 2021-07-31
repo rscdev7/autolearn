@@ -1,7 +1,7 @@
 """
 @author           	    :  rscalia                              \n
 @build-date             :  Wed 28/07/2021                       \n
-@last-update            :  Thu 29/07/2021                       \n
+@last-update            :  Sat 31/07/2021                       \n
 
 Questo componente implementa un processo che sta in attesa in maniera asincrona su una coda RabbitMQ.
 
@@ -70,6 +70,8 @@ async def monitor (pParams:tuple, pRabbitConsumer:RabbitConsumer , pDBEngine:Mon
         pRabbitConsumer     (RabbitConsumer)    : consumatore RabbitMQ
 
         pDBEngine           (MongoEngine)       : componente che si interfaccia col DB
+
+        pQueue              (Queue)             : coda che permette di arrestare il guard
 
     Raises:\n
         Exception           : errore di connessione/scrittura dati con RabbitMQ o MongoDB o Kafka.
@@ -145,6 +147,8 @@ async def launcher (pParams:tuple , pQueue:Queue) -> None:
                                                     - **KafkaEventStore**
                                                     - **EVENT_STORE_PARAMS**    : dict
                                                     - **Logger**
+
+        pQueue          (Queue)             : coda che permette di arrestare il guard
 
     Raises:\n
         Exception           : errore di connessione/scrittura/lettura dati con RabbitMQ o MongoDB o Kafka.

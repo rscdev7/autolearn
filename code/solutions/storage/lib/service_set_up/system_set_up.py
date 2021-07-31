@@ -1,9 +1,9 @@
 """
 @author           	    :  rscalia                              \n
 @build-date             :  Sun 25/07/2021                       \n
-@last-update            :  Thu 29/07/2021                       \n
+@last-update            :  Sat 31/07/2021                       \n
 
-Questo componente permette di avviare il Microservizio Catalog.
+Questo componente permette di avviare il Microservizio Storage.
 """
 
 import os
@@ -70,7 +70,7 @@ def set_up_guard() -> Tuple[ ServiceConfig , AutoLearnLogEntity , KafkaEventStor
     """
     # **set_up_guard**
     
-    Questa funzione permette di configurare il Microservizio Storage lato REST.
+    Questa funzione permette di configurare il Microservizio Storage lato guard.
 
     Returns:\n
         Tuple[ ServiceConfig , AutoLearnLogEntity , KafkaEventStore , tuple , Logger ] :\n

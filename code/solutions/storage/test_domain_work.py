@@ -1,7 +1,7 @@
 """
 @author           	    :  rscalia                              \n
 @build-date             :  Wed 27/07/2021                       \n
-@last-update            :  Wed 27/07/2021                       \n
+@last-update            :  Sat 31/07/2021                       \n
 
 Questo modulo permette di testare il domain-work del microservizio Storage
 """
@@ -10,16 +10,15 @@ import signal
 import os
 import pytest
 import asyncio
+
 from .lib.domain_work.worker                            import guard
 from .lib.mongo_engine.MongoEngine                      import MongoEngine
 from multiprocessing                                    import Process
 from .test.rabbit_producer.RabbitProducer               import RabbitProducer
 from sklearn.svm                                        import SVC
 
-import time
 from .lib.network_serializer.NetworkSerializer          import NetworkSerializer
 from .lib.time_stamp_manager.TimeStampManager           import TimeStampManager
-import base64
 from .lib.async_kafka_consumer.AsyncKafkaConsumer       import AsyncKafkaConsumer
 
 
