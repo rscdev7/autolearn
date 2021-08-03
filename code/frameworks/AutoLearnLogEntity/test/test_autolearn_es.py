@@ -20,7 +20,7 @@ from logging                                                import Logger
 import os
 
 
-ENTITY_ID:str                               = "testeventsourcing"
+ENTITY_ID:str                               = "test"
 EVENT_STORE_PARAMS:dict                     = { "host_name":"kafka" , "port":"9092" , "topic":ENTITY_ID , "partition":0 }
 EVENT_TO_PRODUCE:int                        = 10
 DATA_TO_WRITE:dict                          = {"key":b"test", "value":{ "payload":"train_dat_req", "field":0 } ,  "timestamp":0}

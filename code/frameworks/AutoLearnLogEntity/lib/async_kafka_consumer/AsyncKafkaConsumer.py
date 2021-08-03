@@ -1,7 +1,7 @@
 """
 @author           	    :  rscalia                              \n
 @build-date             :  Sat 24/07/2021                       \n
-@last-update            :  Sun 24/07/2021                       \n
+@last-update            :  Thu 03/08/2021                       \n
 
 Questo componente implementa un consumatore Asincrono kafka
 
@@ -17,16 +17,16 @@ from ..network_serializer.NetworkSerializer         import NetworkSerializer
 
 class AsyncKafkaConsumer (object):
 
-    def __init__(self, pBrokerName:str, pBrokerPort:str , pTopic:str, pPartition:int , pGroupId:str="def_group") -> object:
+    def __init__(self, pBrokerName:str, pBrokerPort:str , pTopic:str, pPartition:int , pGroupId:str="None") -> object:
         """
         Costruttore
 
         Args:\n
-            pBrokerName         (str)       : host name del broker Kafka
-            pBrokerPort         (str)       : port number del broker Kafka
-            pTopic              (str)       : topic di interesse
-            pPartition          (int)       : partizione di interesse nel Topic
-            pGroupId            (str)       :
+            pBrokerName         (str)                       : host name del broker Kafka
+            pBrokerPort         (str)                       : port number del broker Kafka
+            pTopic              (str)                       : topic di interesse
+            pPartition          (int)                       : partizione di interesse nel Topic
+            pGroupId            (str | DEF = "None")        : groupId
         """
         self._topic:str                         = pTopic
         self._partition:int                     = pPartition
@@ -51,7 +51,12 @@ class AsyncKafkaConsumer (object):
         Raises: \n
             Exception   : eccezione scaturità da un errore durante la creazione del Kafka Consumer
         """
-        self._consumer                      = AIOKafkaConsumer(self._topic,  bootstrap_servers=self._connectionToken, group_id=self._groupId)
+
+        if self._groupId != "None":
+            self._consumer                      = AIOKafkaConsumer(self._topic,  bootstrap_servers=self._connectionToken, group_id=self._groupId)
+        else:
+            self._consumer                      = AIOKafkaConsumer(self._topic,  bootstrap_servers=self._connectionToken )
+
 
         try:
             await self._consumer.start()
