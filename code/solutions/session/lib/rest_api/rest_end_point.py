@@ -63,7 +63,6 @@ async def view__sessions(background_tasks: BackgroundTasks):
     #Svolgimento Domain Work
     experiments:Union[ dict , Exception]           = await view_sessions(cfg, logger)
     if ExceptionManager.lookForExceptions(experiments):
-        logger.error("[REST-API @ view_sessions] Impossibile Recuperare Dati dal DB Sessions - Causa: {}".format( str( experiments ) ))
         outcome:str                                = "unable_to_fetch_data"
     else:
         outcome:str                                = "session_summary"

@@ -51,7 +51,7 @@ class Evaluation (BaseModel):
 
 
 class Experiment (BaseModel):
-    timestamp:int                                   = Field(..., title="Timestamp Creazione Record",description="Timestamp Creazione Record in Secondi")
+    timestamp:Union[ int , str ]                    = Field(..., title="Timestamp Creazione Record",description="Timestamp Creazione Record in Secondi")
     train_data:Training                             = Field(..., title="Parametri del Training",description="Parametri del Training")
     eval_data:Evaluation                            = Field(None, title="Dati di Evaluation dell'Esperimento",description="Evaluation dell'Esperimento")
 

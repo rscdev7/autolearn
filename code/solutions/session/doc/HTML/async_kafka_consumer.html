@@ -88,7 +88,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Moduli</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Moduli</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html">DomainEntity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html#module-session.lib.abstract_event_sourcing.DomainEvent">DomainEvent</a></li>
@@ -182,17 +182,17 @@
 <span id="asynckafkaconsumer"></span><h1>AsyncKafkaConsumer<a class="headerlink" href="#module-session.lib.async_kafka_consumer.AsyncKafkaConsumer" title="Link a questa intestazione">¶</a></h1>
 <p>&#64;author                     :  rscalia</p>
 <p>&#64;build-date             :  Sat 24/07/2021</p>
-<p>&#64;last-update            :  Sun 24/07/2021</p>
+<p>&#64;last-update            :  Thu 03/08/2021</p>
 <p>Questo componente implementa un consumatore Asincrono kafka</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="session.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">session.lib.async_kafka_consumer.AsyncKafkaConsumer.</span></span><span class="sig-name descname"><span class="pre">AsyncKafkaConsumer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pBrokerName</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pBrokerPort</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pTopic</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pPartition</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pGroupId</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'def_group'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#session.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer" title="Link a questa definizione">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">session.lib.async_kafka_consumer.AsyncKafkaConsumer.</span></span><span class="sig-name descname"><span class="pre">AsyncKafkaConsumer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pBrokerName</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pBrokerPort</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pTopic</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pPartition</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pGroupId</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'None'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#session.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer" title="Link a questa definizione">¶</a></dt>
 <dd><blockquote>
 <div><p>Basi: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 </div></blockquote>
 <dl class="py method">
 <dt class="sig sig-object py" id="session.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pBrokerName</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pBrokerPort</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pTopic</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pPartition</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pGroupId</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'def_group'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">object</span><a class="headerlink" href="#session.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer.__init__" title="Link a questa definizione">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pBrokerName</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pBrokerPort</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pTopic</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pPartition</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pGroupId</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'None'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">object</span></span></span><a class="headerlink" href="#session.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer.__init__" title="Link a questa definizione">¶</a></dt>
 <dd><p>Costruttore</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
@@ -201,7 +201,7 @@
 <li><p><strong>pBrokerPort</strong> (<em>str</em>) – port number del broker Kafka</p></li>
 <li><p><strong>pTopic</strong> (<em>str</em>) – topic di interesse</p></li>
 <li><p><strong>pPartition</strong> (<em>int</em>) – partizione di interesse nel Topic</p></li>
-<li><p><strong>pGroupId</strong> (<em>str</em>) – </p></li>
+<li><p><strong>pGroupId</strong> (<em>str</em><em> | </em><em>DEF = &quot;None&quot;</em>) – groupId</p></li>
 </ul>
 </dd>
 </dl>
@@ -209,7 +209,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="session.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer.consume">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">consume</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#session.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer.consume" title="Link a questa definizione">¶</a></dt>
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">consume</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#session.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer.consume" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questo metodo consuma tutti i messaggi disponibili nella partizione del Topic scelto.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
@@ -223,7 +223,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="session.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer.start">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#session.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer.start" title="Link a questa definizione">¶</a></dt>
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#session.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer.start" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questo metodo avvia un consumatore Kafka Asincrono</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
@@ -237,7 +237,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="session.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer.stop">
-<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#session.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer.stop" title="Link a questa definizione">¶</a></dt>
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#session.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer.stop" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questo metodo stoppare un consumatore Kafka Asincrono</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>

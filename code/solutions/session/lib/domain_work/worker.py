@@ -357,8 +357,16 @@ async def view_sessions( pCfg:ServiceConfig , pLogger:Logger ) -> Union[ List[di
         Union[ List[dict] , Exception ]     : record prelevati dal DB o eccezione
 
     Raises:\n
-        Exception                           : eccezzione di connessione/disconnessione/lettura con MongoDB
+        Exception                           : eccezzione di connessione/disconnessione/lettura con MongoDB oppure di cifratura dati oppure di record corrotto presente nel DB
     """
+
+    # [0] Creazione Serializzatore per cifrare gli id di Sessione
+    serializer:NetworkSerializer                                = NetworkSerializer()
+    outcome:Union[ None , Exception]                            = serializer.readKeyFromFile()
+    if ExceptionManager.lookForExceptions(outcome):
+        pLogger.error("[ REST @ view_sessions ] Impossibile recuperare chivae crittografica da Disco :( \n-> Causa: {} ".format( str( outcome ) ))
+        return outcome
+
 
     # [1] Connessione con Mongo
     engine:MongoEngine                                          = MongoEngine(pCfg.DB_HOST_NAME, pCfg.DB_PORT, pCfg.DB_USER_NAME, pCfg.DB_PASSWORD , pCfg.DB_NAME, pCfg.DB_COLLECTION   )
@@ -366,29 +374,37 @@ async def view_sessions( pCfg:ServiceConfig , pLogger:Logger ) -> Union[ List[di
     outcome:Union[ None, Exception ]                            = engine.start()
     if ExceptionManager.lookForExceptions ( outcome  ):
         err_msg:str                                             = "[REST-API @ view_sessions] Impossibile connettersi con MongoDB :( \n-> Causa: {}".format( str( outcome ) )
-        pLogger.error ( str(err_msg) )
+        pLogger.error ( err_msg )
         
         return outcome
 
+
     # [2] Query
     experiments:Union[ List[dict] , Exception ]                 = await engine.query( pQuery={} )
+
     for experiment in experiments:
-        # Rendo esplicito il timestamp nel record
-        experiment['timestamp']                                 = experiment['_id']
+
+        # [1] Rendo esplicito il timestamp nel record e lo cifro per ragioni di sicurezzza
+        experiment['timestamp']                                 = serializer.encryptField( str( experiment['_id'] ) )
+        if ExceptionManager.lookForExceptions( experiment['timestamp'] ):
+            pLogger.error ("[REST-API @ view_sessions] Impossibile cifrare identificativo record \n-> Causa: {}".format( str( experiment['timestamp'] ) ))
+            return outcome
         del experiment['_id']
 
-        #Serializzo l'oggetto del checkpoint in un formato adatto a viaggiare in rete
+        # [2] Serializzo l'oggetto del checkpoint in un formato adatto a viaggiare in rete
         outcome:Union[ dict , Exception]                        = ser_model__db_2_net(experiment)
         if ExceptionManager.lookForExceptions(outcome):
             pLogger.error ("[REST-API @ view_sessions] Record prelevato dal DB avente un formato non riconosciuto dal sistema \n-> Record Mal Formato: {} \n-> Causa: {}".format( experiment , str( outcome ) ))
             return outcome
+        
             
 
     # [3] Stop Connessione con MongoDB
     outcome:Union[None , Exception]                              = engine.stop()
     if ExceptionManager.lookForExceptions (outcome):
         err_msg:str                                              = "[REST-API @ view_sessions] Impossibile chiudere connessione con MongoDB \n-> Causa: {}".format( str( outcome ) )
-        pLogger.error ( str(err_msg) )
+        pLogger.error ( err_msg )
+
 
     return { "experiments": experiments }
 

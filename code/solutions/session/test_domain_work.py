@@ -13,7 +13,7 @@ import asyncio
 from .lib.domain_work.worker                            import guard , save_session
 from .lib.mongo_engine.MongoEngine                      import MongoEngine
 from multiprocessing                                    import Process
-from .test.rabbit_producer.RabbitProducer               import RabbitProducer
+from .lib.rabbit_producer.RabbitProducer                import RabbitProducer
 from sklearn.svm                                        import SVC
 
 import time
@@ -43,8 +43,8 @@ COLLECTION_NAME:str                                 = "Sessions"
 
 RECORD_GUARD_TYPE:str                               = "session_record_guard"
 UPDATE_GUARD_TYPE:str                               = "session_update_guard"
-UPDATE_RECORD_ID:int                                = 1627747733
-WAIT_TIME:int                                       = 5
+UPDATE_RECORD_ID:int                                = 1627977121
+WAIT_TIME:int                                       = 1
 
 
 # Lancio Processo che preleva dalla coda i messaggi

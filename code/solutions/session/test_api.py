@@ -16,6 +16,7 @@ from main                                               import app
 from pprint                                             import pprint
 from lib.async_kafka_consumer.AsyncKafkaConsumer        import AsyncKafkaConsumer
 from lib.network_serializer.NetworkSerializer           import NetworkSerializer
+from pprint                                             import pprint
 
 #Cfg
 URL:str                     = "http://localhost:9097/session/api"
@@ -23,8 +24,8 @@ HOST_NAME:str               = "kafka"
 PORT:str                    = "9092"
 TOPIC_NAME:str              = "session"
 PARTITION:int               = 0
-ARCHIVE_RECORD:int          = 1627748181
-QUERY_RECORD:int            = 1627748181
+ARCHIVE_RECORD:int          = 1627977121
+QUERY_RECORD:int            = 1627977121
 
 
 @pytest.mark.asyncio
@@ -39,8 +40,8 @@ async def test_view_sessions():
 
 
     assert status_code == 202
-    assert payload['experiments'] == [] or ( type( payload['experiments'][0]['timestamp'] ) == int and type( payload['experiments'][0]['train_data']['dataset']['split_test'] ) == float )
-
+    assert payload['experiments'] == [] or ( type( payload['experiments'][0]['timestamp'] ) == str and type( payload['experiments'][0]['train_data']['dataset']['split_test'] ) == float )
+    pprint ( payload )
 
     #Controllo in merito alla buona riuscita dell'Event-Sourcing
     consumer:AsyncKafkaConsumer                 = AsyncKafkaConsumer(HOST_NAME , PORT, TOPIC_NAME , PARTITION)
@@ -127,7 +128,8 @@ async def test_query_record():
 
 
     assert status_code == 202 
-
+    assert type(payload['timestamp']) == int
+    
     if "timestamp" in payload.keys():
         assert  payload['timestamp']    == QUERY_RECORD
     else:
