@@ -1,5 +1,8 @@
 # catalog
 
+> **v1.0.4**
+>	* Aggiornata Versione AsyncKafkaConsumer con le ultime migliorie (groupId rimosso di default)
+
 > **v1.0.3**
 >	* Aggiustata nomenclatura parametri di configurazione microservizio
 
