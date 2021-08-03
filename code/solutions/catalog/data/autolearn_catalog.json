@@ -98,7 +98,7 @@
                                                             "param_type": "float",
                                                             "default": "1.0",
                                                             "range_l":"1.0",
-                                                            "range_up": "inf"
+                                                            "range_u": "inf"
 
                                                         }
                                                     ]
@@ -113,7 +113,7 @@
                                                             "param_type": "int",
                                                             "default": 100,
                                                             "range_l":1,
-                                                            "range_up": "inf"
+                                                            "range_u": "inf"
 
                                                         }
                                                     ]
