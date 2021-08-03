@@ -1,10 +1,9 @@
 """
 @author           	    :  rscalia                              \n
 @build-date             :  Sat 24/07/2021                       \n
-@last-update            :  Sat 25/07/2021                       \n
+@last-update            :  Thu 03/08/2021                       \n
 
-Questo componente serve per .........
-
+Questo componente serve per testare AsyncKafkaConsumer
 """
 
 
@@ -16,7 +15,7 @@ import time
 
 HOST_NAME:str               = "kafka"
 PORT:str                    = "9092"
-TOPIC_NAME:str              = "testeventsourcing"
+TOPIC_NAME:str              = "test"
 PARTITION:int               = 0
 
 
