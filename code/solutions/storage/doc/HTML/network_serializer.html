@@ -88,7 +88,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Moduli</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Moduli</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html">DomainEntity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html#module-storage.lib.abstract_event_sourcing.DomainEvent">DomainEvent</a></li>
@@ -192,18 +192,18 @@
 </div></blockquote>
 <dl class="py method">
 <dt class="sig sig-object py" id="storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pSecretKeyPath</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'./data/'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">object</span><a class="headerlink" href="#storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.__init__" title="Link a questa definizione">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pSecretKeyPath</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'./data/'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">object</span></span></span><a class="headerlink" href="#storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.__init__" title="Link a questa definizione">¶</a></dt>
 <dd><p>Costruttore</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
-<dd class="field-odd"><p><strong>pSecretKeyPath</strong> (<em>str | DEF = &quot;./data/&quot;</em>) – path contenente la chiave di cifratura/decifratura</p>
+<dd class="field-odd"><p><strong>pSecretKeyPath</strong> (<em>str</em><em> | </em><em>DEF = &quot;./data/&quot;</em>) – path contenente la chiave di cifratura/decifratura</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.buildNewKey">
-<span class="sig-name descname"><span class="pre">buildNewKey</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.buildNewKey" title="Link a questa definizione">¶</a></dt>
+<span class="sig-name descname"><span class="pre">buildNewKey</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.buildNewKey" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questo metodo genera una nuova chiave crittografica e la salve anche su Disco</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
@@ -217,7 +217,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.decodeBinaryObj">
-<span class="sig-name descname"><span class="pre">decodeBinaryObj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pBinObject</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">object</span><a class="headerlink" href="#storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.decodeBinaryObj" title="Link a questa definizione">¶</a></dt>
+<span class="sig-name descname"><span class="pre">decodeBinaryObj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pBinObject</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">object</span></span></span><a class="headerlink" href="#storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.decodeBinaryObj" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questo metodo permette di deserializzare un oggetto Python serializzato in binario in formato stringa.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
@@ -234,7 +234,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.decodeJson">
-<span class="sig-name descname"><span class="pre">decodeJson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pPayLoad</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">dict</span><a class="headerlink" href="#storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.decodeJson" title="Link a questa definizione">¶</a></dt>
+<span class="sig-name descname"><span class="pre">decodeJson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pPayLoad</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.decodeJson" title="Link a questa definizione">¶</a></dt>
 <dd><p>Decodifica di un JSON in un dizionario Python</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
@@ -251,7 +251,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.decryptField">
-<span class="sig-name descname"><span class="pre">decryptField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pField</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.decryptField" title="Link a questa definizione">¶</a></dt>
+<span class="sig-name descname"><span class="pre">decryptField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pField</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.decryptField" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questa funzione permette di decifrare un crittotesto che era collegato alla cifratura di una stringa</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
@@ -271,7 +271,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.encodeBinaryObj">
-<span class="sig-name descname"><span class="pre">encodeBinaryObj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pObject</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="headerlink" href="#storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.encodeBinaryObj" title="Link a questa definizione">¶</a></dt>
+<span class="sig-name descname"><span class="pre">encodeBinaryObj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pObject</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.encodeBinaryObj" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questo metodo permette di serializzare in binario un oggetto Python in formato stringa</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
@@ -288,7 +288,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.encodeJson">
-<span class="sig-name descname"><span class="pre">encodeJson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDict</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">bytes</span><a class="headerlink" href="#storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.encodeJson" title="Link a questa definizione">¶</a></dt>
+<span class="sig-name descname"><span class="pre">encodeJson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDict</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="headerlink" href="#storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.encodeJson" title="Link a questa definizione">¶</a></dt>
 <dd><p>Codifica un dizionario in JSON</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
@@ -305,7 +305,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.encryptField">
-<span class="sig-name descname"><span class="pre">encryptField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pField</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.encryptField" title="Link a questa definizione">¶</a></dt>
+<span class="sig-name descname"><span class="pre">encryptField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pField</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.encryptField" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questa funzione permette di cifrare una stringa</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
@@ -325,7 +325,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.readKeyFromFile">
-<span class="sig-name descname"><span class="pre">readKeyFromFile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.readKeyFromFile" title="Link a questa definizione">¶</a></dt>
+<span class="sig-name descname"><span class="pre">readKeyFromFile</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#storage.lib.network_serializer.NetworkSerializer.NetworkSerializer.readKeyFromFile" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questo metodo legge la chiave crittografica da disco</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>

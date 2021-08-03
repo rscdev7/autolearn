@@ -88,7 +88,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Moduli</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Moduli</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html">DomainEntity</a></li>
 <li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html#module-storage.lib.abstract_event_sourcing.DomainEvent">DomainEvent</a></li>
@@ -191,7 +191,7 @@
 </div></blockquote>
 <dl class="py method">
 <dt class="sig sig-object py" id="storage.lib.time_stamp_manager.TimeStampManager.TimeStampManager.currentTimeStampInMS">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">currentTimeStampInMS</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#storage.lib.time_stamp_manager.TimeStampManager.TimeStampManager.currentTimeStampInMS" title="Link a questa definizione">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">currentTimeStampInMS</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#storage.lib.time_stamp_manager.TimeStampManager.TimeStampManager.currentTimeStampInMS" title="Link a questa definizione">¶</a></dt>
 <dd><p>Restituisce il timestamp Attuale in millisecondi.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
@@ -205,7 +205,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="storage.lib.time_stamp_manager.TimeStampManager.TimeStampManager.currentTimeStampInSec">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">currentTimeStampInSec</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#storage.lib.time_stamp_manager.TimeStampManager.TimeStampManager.currentTimeStampInSec" title="Link a questa definizione">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">currentTimeStampInSec</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#storage.lib.time_stamp_manager.TimeStampManager.TimeStampManager.currentTimeStampInSec" title="Link a questa definizione">¶</a></dt>
 <dd><p>Restituisce il timestamp Attuale in millisecondi.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
@@ -219,7 +219,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="storage.lib.time_stamp_manager.TimeStampManager.TimeStampManager.date2Timestamp">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">date2Timestamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDay</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pMonth</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pYear</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pHour</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pMinutes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#storage.lib.time_stamp_manager.TimeStampManager.TimeStampManager.date2Timestamp" title="Link a questa definizione">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">date2Timestamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDay</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pMonth</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pYear</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pHour</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pMinutes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#storage.lib.time_stamp_manager.TimeStampManager.TimeStampManager.date2Timestamp" title="Link a questa definizione">¶</a></dt>
 <dd><p>Converte una data in un timestamp UNIX (in secondi).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
@@ -227,8 +227,8 @@
 <li><p><strong>pDay</strong> (<em>int</em>) – giorno</p></li>
 <li><p><strong>pMonth</strong> (<em>int</em>) – mese</p></li>
 <li><p><strong>pYear</strong> (<em>int</em>) – anno</p></li>
-<li><p><strong>pHour</strong> (<em>int | DEF = 0</em>) – ora</p></li>
-<li><p><strong>pMinutes</strong> (<em>int | DEF = 0</em>) – minuti</p></li>
+<li><p><strong>pHour</strong> (<em>int</em><em> | </em><em>DEF = 0</em>) – ora</p></li>
+<li><p><strong>pMinutes</strong> (<em>int</em><em> | </em><em>DEF = 0</em>) – minuti</p></li>
 </ul>
 </dd>
 <dt class="field-even">Ritorna</dt>
@@ -245,14 +245,14 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="storage.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestamp2Date">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">timestamp2Date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pTimeStamp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pStringOut</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pMsTimeStamp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">datetime.datetime</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#storage.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestamp2Date" title="Link a questa definizione">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">timestamp2Date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pTimeStamp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pStringOut</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pMsTimeStamp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">datetime.datetime</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#storage.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestamp2Date" title="Link a questa definizione">¶</a></dt>
 <dd><p>Converte un timestamp UNIX (in secondi) in una Data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pTimeStamp</strong> (<em>int</em>) – numero in virgola mobile rappresentante un timestamp in secondi</p></li>
-<li><p><strong>pStringOut</strong> (<em>bool | DEF = True</em>) – Se impostato a vero, il metodo restituisce una data formattata come stringa, atrimenti restituisce la data incapsulata in un oggetto datetime.</p></li>
-<li><p><strong>pMsTimeStamp</strong> (<em>bool | DEF = False</em>) – indica se il timestamp passato è espresso in secondi o in millisecondi</p></li>
+<li><p><strong>pStringOut</strong> (<em>bool</em><em> | </em><em>DEF = True</em>) – Se impostato a vero, il metodo restituisce una data formattata come stringa, atrimenti restituisce la data incapsulata in un oggetto datetime.</p></li>
+<li><p><strong>pMsTimeStamp</strong> (<em>bool</em><em> | </em><em>DEF = False</em>) – indica se il timestamp passato è espresso in secondi o in millisecondi</p></li>
 </ul>
 </dd>
 <dt class="field-even">Ritorna</dt>
@@ -266,7 +266,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="storage.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestampMs2Sec">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">timestampMs2Sec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pMsTimestamp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#storage.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestampMs2Sec" title="Link a questa definizione">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">timestampMs2Sec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pMsTimestamp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#storage.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestampMs2Sec" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questo metodo converte un timestamp in millisecondi in secondi.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
@@ -283,7 +283,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="storage.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestampSec2Ms">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">timestampSec2Ms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pMsTimestamp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">int</span><a class="headerlink" href="#storage.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestampSec2Ms" title="Link a questa definizione">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">timestampSec2Ms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pMsTimestamp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#storage.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestampSec2Ms" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questo metodo converte un timestamp in secondi in millisecondi.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
