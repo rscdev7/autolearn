@@ -119,7 +119,7 @@ successiva rimozione.
 - Remote Facade
 - Data Transfer Object
 - Serialized LOB    
-- Pipeline                                 
+- Streaming Pipeline                                 
 - Event Sourcing  
 - Singleton                                  
 

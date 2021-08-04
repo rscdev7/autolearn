@@ -1,0 +1,18 @@
+Benvenuto nella Documentazione di StreamingPipeline
+======================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Moduli
+
+
+   abstract_streaming_pipeline
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

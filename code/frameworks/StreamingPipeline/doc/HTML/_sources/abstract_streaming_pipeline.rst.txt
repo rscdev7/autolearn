@@ -1,0 +1,13 @@
+.. toctree::
+   :maxdepth: 4
+
+
+StreamingPipe
+-------------------------
+
+.. automodule:: StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__
