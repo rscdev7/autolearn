@@ -1,0 +1,24 @@
+.. toctree::
+   :maxdepth: 4
+
+
+AutoLearnLogEntity
+-------------------------
+
+.. automodule:: EventSourcing.lib.concrete_event_sourcing.AutoLearnLogEntity
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__
+
+
+KafkaEventStore
+-------------------------
+
+.. automodule:: EventSourcing.lib.concrete_event_sourcing.KafkaEventStore
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__

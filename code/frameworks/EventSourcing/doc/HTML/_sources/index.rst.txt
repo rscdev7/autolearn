@@ -1,0 +1,27 @@
+Benvenuto nella Documentazione di AutoLearnEventSourcing
+======================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Moduli
+
+   abstract_event_sourcing
+   async_kafka_consumer
+   concrete_event_sourcing
+   exception_manager
+   kafka_logger
+   network_serializer
+   singleton
+   event_sourcing_utility
+   time_stamp_manager
+
+   
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
