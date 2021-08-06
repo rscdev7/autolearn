@@ -11,3 +11,14 @@ StreamingPipe
    :show-inheritance:
    :special-members:
    :exclude-members: __parameters__, __module__, __dict__, __weakref__
+
+
+GeneralStreamingPipe
+-------------------------
+
+.. automodule:: StreamingPipeline.lib.abstract_streaming_pipeline.GeneralStreamingPipe
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__

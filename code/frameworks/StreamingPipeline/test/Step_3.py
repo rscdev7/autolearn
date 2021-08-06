@@ -1,25 +1,16 @@
 """
 @author           	    :  rscalia                              \n
 @build-date             :  Wed 03/08/2021                       \n
-@last-update            :  Wed 03/08/2021                       \n
+@last-update            :  Fri 06/08/2021                       \n
 
 Questo componente serve per testare la classe StreamingPipeline.
 """
 
-from ..lib.abstract_streaming_pipeline.StreamingPipe        import StreamingPipe
+from ..lib.abstract_streaming_pipeline.GeneralStreamingPipe         import GeneralStreamingPipe
+from typing                                                         import  Iterator
 
 
-class Step_3 (StreamingPipe):
-
-    def __init__(self, pPayload:list=None) -> object:
-        """
-        Costruttore
-
-        Args:\n
-            pSource             (object)        : input della pipeline
-        """
-        self._stop:bool                 = False
-        super().__init__(pPayload)
+class Step_3 (GeneralStreamingPipe):
 
 
     def filter(self, pData:object) -> bool:

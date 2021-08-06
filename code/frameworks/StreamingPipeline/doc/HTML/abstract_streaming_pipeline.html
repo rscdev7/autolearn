@@ -90,6 +90,7 @@
               <p class="caption"><span class="caption-text">Moduli</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">StreamingPipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-StreamingPipeline.lib.abstract_streaming_pipeline.GeneralStreamingPipe">GeneralStreamingPipe</a></li>
 </ul>
 
             
@@ -163,7 +164,7 @@
 <span id="streamingpipe"></span><h1>StreamingPipe<a class="headerlink" href="#module-StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe" title="Link a questa intestazione">¶</a></h1>
 <p>&#64;author                 :  rscalia</p>
 <p>&#64;build-date         :  Wed 04/08/2021</p>
-<p>&#64;last-update        :  Wed 04/08/2021</p>
+<p>&#64;last-update        :  Fri 06/08/2021</p>
 <p>Questa classe implementa l’astrazione della StreamingPipe presente nel DP StreamingPipeline</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe">
@@ -173,12 +174,12 @@
 </div></blockquote>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__abstractmethods__">
-<span class="sig-name descname"><span class="pre">__abstractmethods__</span></span><em class="property"> <span class="pre">=</span> <span class="pre">frozenset({'filter',</span> <span class="pre">'map'})</span></em><a class="headerlink" href="#StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__abstractmethods__" title="Link a questa definizione">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__abstractmethods__</span></span><em class="property"> <span class="pre">=</span> <span class="pre">frozenset({'__init__',</span> <span class="pre">'__iter__',</span> <span class="pre">'__next__',</span> <span class="pre">'__or__',</span> <span class="pre">'filter',</span> <span class="pre">'getFromStream',</span> <span class="pre">'hasNext',</span> <span class="pre">'make',</span> <span class="pre">'map'})</span></em><a class="headerlink" href="#StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__abstractmethods__" title="Link a questa definizione">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pInputStream</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Iterator</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">object</span><a class="headerlink" href="#StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__init__" title="Link a questa definizione">¶</a></dt>
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pInputStream</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Iterator</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">object</span><a class="headerlink" href="#StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__init__" title="Link a questa definizione">¶</a></dt>
 <dd><p>Costruttore</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
@@ -189,22 +190,22 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__iter__">
-<span class="sig-name descname"><span class="pre">__iter__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Generator</span><a class="headerlink" href="#StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__iter__" title="Link a questa definizione">¶</a></dt>
-<dd><p>Metodo che restituisce l’oggetto necessario al prelievo dei dati dallo stream</p>
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">__iter__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Iterator</span><a class="headerlink" href="#StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__iter__" title="Link a questa definizione">¶</a></dt>
+<dd><p>Metodo che restituisce l’oggetto necessario al prelievo dei dati elaborati dalla pipe</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
-<dd class="field-odd"><p>Generatore</p>
+<dd class="field-odd"><p>Iteratore sui dati elaborati dalla Pipe</p>
 </dd>
 <dt class="field-even">Tipo di ritorno</dt>
-<dd class="field-even"><p>Generator</p>
+<dd class="field-even"><p>Iterator</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__next__">
-<span class="sig-name descname"><span class="pre">__next__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">object</span><a class="headerlink" href="#StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__next__" title="Link a questa definizione">¶</a></dt>
-<dd><p>Questo metodo permette di elaborare il prossimo elemento presente nello stream di input</p>
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">__next__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">object</span><a class="headerlink" href="#StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__next__" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di elaborare il prossimo elemento proveniente dallo stream di input</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
 <dd class="field-odd"><p>dato proveniente dallo stream elaborato dalla Pipe</p>
@@ -217,8 +218,8 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__or__">
-<span class="sig-name descname"><span class="pre">__or__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pNextPipe</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">object</span><a class="headerlink" href="#StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__or__" title="Link a questa definizione">¶</a></dt>
-<dd><p>Permette di connettere più Task tra di loro attraverso l’operatore OR (» | «)</p>
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">__or__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pNextPipe</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">object</span><a class="headerlink" href="#StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__or__" title="Link a questa definizione">¶</a></dt>
+<dd><p>Permette di connettere più Task tra di loro attraverso l’operatore Pipe (OR).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parametri</dt>
 <dd class="field-odd"><p><strong>pNextPipe</strong> (<a class="reference internal" href="#StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe" title="StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe"><em>StreamingPipe</em></a>) – Prossimo task della Pipeline</p>
@@ -260,7 +261,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.getFromStream">
-<span class="sig-name descname"><span class="pre">getFromStream</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">object</span><a class="headerlink" href="#StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.getFromStream" title="Link a questa definizione">¶</a></dt>
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">getFromStream</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">object</span><a class="headerlink" href="#StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.getFromStream" title="Link a questa definizione">¶</a></dt>
 <dd><p>Questo metodo preleva un elemento dallo stream di dati in input alla Pipe</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
@@ -276,8 +277,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.has_next">
-<span class="sig-name descname"><span class="pre">has_next</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.has_next" title="Link a questa definizione">¶</a></dt>
+<dt class="sig sig-object py" id="StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.hasNext">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">hasNext</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.hasNext" title="Link a questa definizione">¶</a></dt>
 <dd><p>Metodo che indica se è possibile prelevare ancora elementi dallo Stream</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
@@ -291,14 +292,14 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.make">
-<span class="sig-name descname"><span class="pre">make</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Generator</span><a class="headerlink" href="#StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.make" title="Link a questa definizione">¶</a></dt>
-<dd><p>Restituisce un generatore che permette di prelevare sequenzialmente i dati elaborati dalla pipe</p>
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">make</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Iterator</span><a class="headerlink" href="#StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.make" title="Link a questa definizione">¶</a></dt>
+<dd><p>Restituisce un iteratore che permette di prelevare sequenzialmente i dati elaborati dalla pipe</p>
 <dl class="field-list simple">
 <dt class="field-odd">Ritorna</dt>
-<dd class="field-odd"><p>generatore che permette di prelevare i dati dalla pipe</p>
+<dd class="field-odd"><p>iteratore che permette di prelevare i dati dalla pipe</p>
 </dd>
 <dt class="field-even">Tipo di ritorno</dt>
-<dd class="field-even"><p>Generator</p>
+<dd class="field-even"><p>Iterator</p>
 </dd>
 <dt class="field-odd">Solleva</dt>
 <dd class="field-odd"><ul class="simple">
@@ -325,6 +326,139 @@
 </dd>
 <dt class="field-even">Solleva</dt>
 <dd class="field-even"><p><strong>Exception</strong> – eventuale eccezione accaduta durante l’elaborazione</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-StreamingPipeline.lib.abstract_streaming_pipeline.GeneralStreamingPipe">
+<span id="generalstreamingpipe"></span><h1>GeneralStreamingPipe<a class="headerlink" href="#module-StreamingPipeline.lib.abstract_streaming_pipeline.GeneralStreamingPipe" title="Link a questa intestazione">¶</a></h1>
+<p>&#64;author                 :  rscalia</p>
+<p>&#64;build-date         :  Fri 06/08/2021</p>
+<p>&#64;last-update        :  Fri 06/08/2021</p>
+<p>Questa classe implementa una serie di metodi di base dell’interfaccia StreamingPipe.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="StreamingPipeline.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">StreamingPipeline.lib.abstract_streaming_pipeline.GeneralStreamingPipe.</span></span><span class="sig-name descname"><span class="pre">GeneralStreamingPipe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pInputStream</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Iterator</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#StreamingPipeline.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe" title="Link a questa definizione">¶</a></dt>
+<dd><blockquote>
+<div><p>Basi: <a class="reference internal" href="#StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe" title="StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe"><code class="xref py py-class docutils literal notranslate"><span class="pre">StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe</span></code></a></p>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="StreamingPipeline.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__abstractmethods__">
+<span class="sig-name descname"><span class="pre">__abstractmethods__</span></span><em class="property"> <span class="pre">=</span> <span class="pre">frozenset({'filter',</span> <span class="pre">'map'})</span></em><a class="headerlink" href="#StreamingPipeline.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__abstractmethods__" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StreamingPipeline.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pInputStream</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Iterator</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">object</span><a class="headerlink" href="#StreamingPipeline.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__init__" title="Link a questa definizione">¶</a></dt>
+<dd><p>Costruttore</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pInputStream</strong> (<em>Iterator | DEF = None</em>) – eventuale stream di input alla Pipe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StreamingPipeline.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__iter__">
+<span class="sig-name descname"><span class="pre">__iter__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Iterator</span><a class="headerlink" href="#StreamingPipeline.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__iter__" title="Link a questa definizione">¶</a></dt>
+<dd><p>Metodo che restituisce l’oggetto necessario al prelievo dei dati elaborati dalla pipe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>Iteratore sui dati elaborati dalla Pipe</p>
+</dd>
+<dt class="field-even">Tipo di ritorno</dt>
+<dd class="field-even"><p>Iterator</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StreamingPipeline.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__next__">
+<span class="sig-name descname"><span class="pre">__next__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">object</span><a class="headerlink" href="#StreamingPipeline.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__next__" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di elaborare il prossimo elemento presente nello stream di input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>dato proveniente dallo stream elaborato dalla Pipe</p>
+</dd>
+<dt class="field-even">Tipo di ritorno</dt>
+<dd class="field-even"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StreamingPipeline.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__or__">
+<span class="sig-name descname"><span class="pre">__or__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pNextPipe</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">object</span><a class="headerlink" href="#StreamingPipeline.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__or__" title="Link a questa definizione">¶</a></dt>
+<dd><p>Permette di connettere più Task tra di loro attraverso l’operatore Pipe (OR).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pNextPipe</strong> (<a class="reference internal" href="#StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe" title="StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe"><em>StreamingPipe</em></a>) – Prossimo task della Pipeline</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>prossima Task da eseguire nella Pipeline con dato di input caricato</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe" title="StreamingPipeline.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe">StreamingPipe</a></p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>StopIteration</strong> – stop dello stream verso la pipe</p></li>
+<li><p><strong>Exception</strong> – eccezione derivata dal prelievo dei dati dallo stream oppure dalla filter oppure dalla map oppure dall’assenza dell’oggetto per accedere allo Stream</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StreamingPipeline.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.getFromStream">
+<span class="sig-name descname"><span class="pre">getFromStream</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">object</span><a class="headerlink" href="#StreamingPipeline.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.getFromStream" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo preleva un elemento dallo stream di dati in input alla Pipe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>elemento prelevato dallo stream</p>
+</dd>
+<dt class="field-even">Tipo di ritorno</dt>
+<dd class="field-even"><p>object</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – errore nella get del dato dallo stream</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StreamingPipeline.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.hasNext">
+<span class="sig-name descname"><span class="pre">hasNext</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#StreamingPipeline.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.hasNext" title="Link a questa definizione">¶</a></dt>
+<dd><p>Metodo che indica se è possibile prelevare ancora elementi dallo Stream</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>VERO se è presente ancora un elemento da elaborare, FALSO altrimenti</p>
+</dd>
+<dt class="field-even">Tipo di ritorno</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="StreamingPipeline.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.make">
+<span class="sig-name descname"><span class="pre">make</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Iterator</span><a class="headerlink" href="#StreamingPipeline.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.make" title="Link a questa definizione">¶</a></dt>
+<dd><p>Restituisce un iteratore che permette di prelevare sequenzialmente i dati elaborati dalla pipe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>iteratore che permette di prelevare i dati dalla pipe</p>
+</dd>
+<dt class="field-even">Tipo di ritorno</dt>
+<dd class="field-even"><p>Iterator</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>StopIteration</strong> – stop dello stream verso la pipe</p></li>
+<li><p><strong>Exception</strong> – eccezione derivata dal prelievo dei dati dallo stream oppure dalla filter oppure dalla map oppure dall’assenza dell’oggetto per accedere allo Stream</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>

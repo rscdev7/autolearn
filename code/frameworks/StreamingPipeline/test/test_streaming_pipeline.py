@@ -30,8 +30,8 @@ def test_streaming_pipeline_positive():
             print(out)
 
     except Exception as exp:
+        print(exp)
         exception = True
-    
     
     assert exception == False
 
