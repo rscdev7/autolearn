@@ -30,20 +30,23 @@ Machine Learning.
 
 ## PERSISTENZA
 - Tutti i dati degli Esperimenti Passati saranno archiviati in una base di dati opportuna
+- **Formato**
 
      - *TIMESTAMP_COMMIT_SESSIONE*
      - *DATI_ESPERIMENTI*
-          - Train
-          - Eval
+          - *Train*
+          - *Eval*
 
 - Tutti i dati di Sessione saranno archiviati in una base di dati opportuna
+- **Formato**
 
     - *TIMESTAMP_SESSION_BUILD*
     - *DATI_ESPERIMENTI*
-      - Train
-      - Eval
+      - *Train*
+      - *Eval*
 
-- Tutti i log del Comportamento del Sistema saranno archiviati in una apposito Event Store:
+- Tutti i log del Comportamento del Sistema saranno archiviati in un apposito Event Store:
+- **Formato**
 
     - *ID_SOURCE_SERVICE*
     - *ID_DESTINATION_SERVICE* 
