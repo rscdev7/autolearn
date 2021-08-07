@@ -30,13 +30,13 @@ Machine Learning.
 
 ## PERSISTENZA
 - Tutti i dati degli Esperimenti Passati saranno archiviati in una base di dati opportuna
-        **ES TUPLA-ESPERIMENTO:** { {TIMESTAMP_COMMIT_SESSIONE} , DATI_ESPERIMENTI: {Addestr, Eval}}
+        **ES TUPLA-ESPERIMENTO:** { {TIMESTAMP_COMMIT_SESSIONE} , DATI_ESPERIMENTI: { Train, Eval } }
 
 - Tutti i dati di Sessione saranno archiviati in una base di dati opportuna
-        **ES TUPLA-SESSIONE:**  { {TIMESTAMP_SESSION_BUILD} , DATI_ESPERIMENTI: {Addestr, Eval}}
+        **ES TUPLA-SESSIONE:**  { {TIMESTAMP_SESSION_BUILD} , DATI_ESPERIMENTI: { Train, Eval } }
 
 - Tutti i log del Comportamento del Sistema saranno archiviati in una apposito Event Store:
-        **ES-TUPLA EVENTO:**  { {ID_SOURCE_SERVICE , ID_DESTINATION_SERVICE , MESSAGE_TYPE , TIMESTAMP} , PAYLOAD}
+        **ES-TUPLA EVENTO:**  { {ID_SOURCE_SERVICE , ID_DESTINATION_SERVICE , MESSAGE_TYPE , COMMUNICATION_TYPE ,TIMESTAMP} , PAYLOAD}
 
     
 ## PRESENTAZIONE
@@ -58,7 +58,6 @@ Machine Learning.
 >    - Naive Bayes
 >
 >- Metriche di Valutazione
->    - Accuracy
 >    - Precision
 >    - Recall
 
