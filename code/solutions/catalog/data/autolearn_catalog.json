@@ -46,7 +46,9 @@
                         "model_name": "SVM",
                         "model_task": "Classification",
                         "model_hyperparams":    [
-                                                    { "param_name":"kernel" , "param_type":"str" , "default":"rbf", "options": ["linear", "poly", "rbf", "sigmoid", "precomputed"] }
+                                                    { "param_name":"kernel" , "param_type":"str" , "default":"rbf", "options": ["linear", "poly", "rbf", "sigmoid", "precomputed"] } ,
+
+                                                    { "param_name":"max_iter" , "param_type":"int" , "default":100, "range_l":1 , "range_u": "inf" } 
                                                 ]
                     },
 
