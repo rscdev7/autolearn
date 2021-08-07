@@ -1,0 +1,798 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Indice &mdash; MLEngine 1.0.0 documentazione</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indice" href="#" />
+    <link rel="search" title="Cerca" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> MLEngine
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Moduli</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html">Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-MLEngine.lib.abstract_ml_engine.Model">Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-MLEngine.lib.abstract_ml_engine.Loss">Loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-MLEngine.lib.abstract_ml_engine.Optimizer">Optimizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_streaming_pipeline.html">StreamingPipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_streaming_pipeline.html#module-MLEngine.lib.abstract_streaming_pipeline.GeneralStreamingPipe">GeneralStreamingPipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html">DecisionTreePandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#logisticregressorpandasdataset">LogisticRegressorPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-MLEngine.lib.concrete_ml_engine.NaiveBayesPandasDataset">NaiveBayesPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-MLEngine.lib.concrete_ml_engine.RandomForestPandasDataset">RandomForestPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-MLEngine.lib.concrete_ml_engine.SVMPandasDataset">SVMPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-MLEngine.lib.concrete_ml_engine.IrisFisherDataset">IrisFisherDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-MLEngine.lib.concrete_ml_engine.HeightWeightDataset">HeightWeightDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html">datasets_load_pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-MLEngine.lib.dataset_pipelines.PandasCSVDatasetLoader">PandasCSVDatasetLoader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-MLEngine.lib.dataset_pipelines.StatsModelsDatasetLoader">StatsModelsDatasetLoader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-MLEngine.lib.dataset_pipelines.PandasDatasetSplit">PandasDatasetSplit</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MLEngine</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Indice</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+<h1 id="index">Indice</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#_"><strong>_</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ 
+</div>
+<h2 id="_">_</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Dataset.Dataset.__abstractmethods__">__abstractmethods__ (MLEngine.lib.abstract_ml_engine.Dataset.Dataset attributo)</a>
+
+      <ul>
+        <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Loss.Loss.__abstractmethods__">(MLEngine.lib.abstract_ml_engine.Loss.Loss attributo)</a>
+</li>
+        <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Model.Model.__abstractmethods__">(MLEngine.lib.abstract_ml_engine.Model.Model attributo)</a>
+</li>
+        <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Optimizer.Optimizer.__abstractmethods__">(MLEngine.lib.abstract_ml_engine.Optimizer.Optimizer attributo)</a>
+</li>
+        <li><a href="abstract_streaming_pipeline.html#MLEngine.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__abstractmethods__">(MLEngine.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe attributo)</a>
+</li>
+        <li><a href="abstract_streaming_pipeline.html#MLEngine.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__abstractmethods__">(MLEngine.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe attributo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.__abstractmethods__">(MLEngine.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset attributo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.HeightWeightDataset.HeightWeightDataset.__abstractmethods__">(MLEngine.lib.concrete_ml_engine.HeightWeightDataset.HeightWeightDataset attributo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.IrisFisherDataset.IrisFisher.__abstractmethods__">(MLEngine.lib.concrete_ml_engine.IrisFisherDataset.IrisFisher attributo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.__abstractmethods__">(MLEngine.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset attributo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.__abstractmethods__">(MLEngine.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset attributo)</a>
+</li>
+        <li><a href="dataset_pipelines.html#MLEngine.lib.dataset_pipelines.PandasCSVDatasetLoader.PandasCSVDatasetLoader.__abstractmethods__">(MLEngine.lib.dataset_pipelines.PandasCSVDatasetLoader.PandasCSVDatasetLoader attributo)</a>
+</li>
+        <li><a href="dataset_pipelines.html#MLEngine.lib.dataset_pipelines.PandasDatasetSplit.PandasDatasetSplit.__abstractmethods__">(MLEngine.lib.dataset_pipelines.PandasDatasetSplit.PandasDatasetSplit attributo)</a>
+</li>
+        <li><a href="dataset_pipelines.html#MLEngine.lib.dataset_pipelines.StatsModelsDatasetLoader.StatsModelsDatasetLoader.__abstractmethods__">(MLEngine.lib.dataset_pipelines.StatsModelsDatasetLoader.StatsModelsDatasetLoader attributo)</a>
+</li>
+      </ul></li>
+      <li><a href="abstract_streaming_pipeline.html#MLEngine.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__init__">__init__() (MLEngine.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe metodo)</a>
+
+      <ul>
+        <li><a href="abstract_streaming_pipeline.html#MLEngine.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__init__">(MLEngine.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe metodo)</a>
+</li>
+        <li><a href="dataset_pipelines.html#MLEngine.lib.dataset_pipelines.PandasCSVDatasetLoader.PandasCSVDatasetLoader.__init__">(MLEngine.lib.dataset_pipelines.PandasCSVDatasetLoader.PandasCSVDatasetLoader metodo)</a>
+</li>
+        <li><a href="dataset_pipelines.html#MLEngine.lib.dataset_pipelines.PandasDatasetSplit.PandasDatasetSplit.__init__">(MLEngine.lib.dataset_pipelines.PandasDatasetSplit.PandasDatasetSplit metodo)</a>
+</li>
+        <li><a href="dataset_pipelines.html#MLEngine.lib.dataset_pipelines.StatsModelsDatasetLoader.StatsModelsDatasetLoader.__init__">(MLEngine.lib.dataset_pipelines.StatsModelsDatasetLoader.StatsModelsDatasetLoader metodo)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_streaming_pipeline.html#MLEngine.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__iter__">__iter__() (MLEngine.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe metodo)</a>
+
+      <ul>
+        <li><a href="abstract_streaming_pipeline.html#MLEngine.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__iter__">(MLEngine.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe metodo)</a>
+</li>
+      </ul></li>
+      <li><a href="abstract_streaming_pipeline.html#MLEngine.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__next__">__next__() (MLEngine.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe metodo)</a>
+
+      <ul>
+        <li><a href="abstract_streaming_pipeline.html#MLEngine.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__next__">(MLEngine.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe metodo)</a>
+</li>
+      </ul></li>
+      <li><a href="abstract_streaming_pipeline.html#MLEngine.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__or__">__or__() (MLEngine.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe metodo)</a>
+
+      <ul>
+        <li><a href="abstract_streaming_pipeline.html#MLEngine.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__or__">(MLEngine.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe metodo)</a>
+</li>
+      </ul></li>
+      <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Dataset.Dataset.__slots__">__slots__ (MLEngine.lib.abstract_ml_engine.Dataset.Dataset attributo)</a>
+
+      <ul>
+        <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Loss.Loss.__slots__">(MLEngine.lib.abstract_ml_engine.Loss.Loss attributo)</a>
+</li>
+        <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Model.Model.__slots__">(MLEngine.lib.abstract_ml_engine.Model.Model attributo)</a>
+</li>
+        <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Optimizer.Optimizer.__slots__">(MLEngine.lib.abstract_ml_engine.Optimizer.Optimizer attributo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.__slots__">(MLEngine.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset attributo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.__slots__">(MLEngine.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset attributo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.__slots__">(MLEngine.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset attributo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.__slots__">(MLEngine.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset attributo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.__slots__">(MLEngine.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset attributo)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="dataset_pipelines.html#MLEngine.lib.dataset_pipelines.datasets_load_pipelines.build_height_weight_dataset_load_pipeline">build_height_weight_dataset_load_pipeline() (nel modulo MLEngine.lib.dataset_pipelines.datasets_load_pipelines)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="dataset_pipelines.html#MLEngine.lib.dataset_pipelines.datasets_load_pipelines.build_iris_dataset_load_pipeline">build_iris_dataset_load_pipeline() (nel modulo MLEngine.lib.dataset_pipelines.datasets_load_pipelines)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Loss.Loss.changeComputeDevice">changeComputeDevice() (MLEngine.lib.abstract_ml_engine.Loss.Loss metodo)</a>
+
+      <ul>
+        <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Model.Model.changeComputeDevice">(MLEngine.lib.abstract_ml_engine.Model.Model metodo)</a>
+</li>
+        <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Optimizer.Optimizer.changeComputeDevice">(MLEngine.lib.abstract_ml_engine.Optimizer.Optimizer metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.changeComputeDevice">(MLEngine.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.changeComputeDevice">(MLEngine.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.changeComputeDevice">(MLEngine.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.changeComputeDevice">(MLEngine.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.changeComputeDevice">(MLEngine.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset metodo)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Dataset.Dataset">Dataset (classe in MLEngine.lib.abstract_ml_engine.Dataset)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset">DecisionTreePandasDataset (classe in MLEngine.lib.concrete_ml_engine.DecisionTreePandasDataset)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Loss.Loss.eval">eval() (MLEngine.lib.abstract_ml_engine.Loss.Loss metodo)</a>
+</li>
+      <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Model.Model.evaluate">evaluate() (MLEngine.lib.abstract_ml_engine.Model.Model metodo)</a>
+
+      <ul>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.evaluate">(MLEngine.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.evaluate">(MLEngine.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.evaluate">(MLEngine.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.evaluate">(MLEngine.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.evaluate">(MLEngine.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset metodo)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_streaming_pipeline.html#MLEngine.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.filter">filter() (MLEngine.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe metodo)</a>
+
+      <ul>
+        <li><a href="dataset_pipelines.html#MLEngine.lib.dataset_pipelines.PandasCSVDatasetLoader.PandasCSVDatasetLoader.filter">(MLEngine.lib.dataset_pipelines.PandasCSVDatasetLoader.PandasCSVDatasetLoader metodo)</a>
+</li>
+        <li><a href="dataset_pipelines.html#MLEngine.lib.dataset_pipelines.PandasDatasetSplit.PandasDatasetSplit.filter">(MLEngine.lib.dataset_pipelines.PandasDatasetSplit.PandasDatasetSplit metodo)</a>
+</li>
+        <li><a href="dataset_pipelines.html#MLEngine.lib.dataset_pipelines.StatsModelsDatasetLoader.StatsModelsDatasetLoader.filter">(MLEngine.lib.dataset_pipelines.StatsModelsDatasetLoader.StatsModelsDatasetLoader metodo)</a>
+</li>
+      </ul></li>
+      <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Model.Model.fit">fit() (MLEngine.lib.abstract_ml_engine.Model.Model metodo)</a>
+
+      <ul>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.fit">(MLEngine.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.fit">(MLEngine.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.fit">(MLEngine.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.fit">(MLEngine.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.fit">(MLEngine.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset metodo)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_streaming_pipeline.html#MLEngine.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe">GeneralStreamingPipe (classe in MLEngine.lib.abstract_streaming_pipeline.GeneralStreamingPipe)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_streaming_pipeline.html#MLEngine.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.getFromStream">getFromStream() (MLEngine.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe metodo)</a>
+
+      <ul>
+        <li><a href="abstract_streaming_pipeline.html#MLEngine.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.getFromStream">(MLEngine.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe metodo)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_streaming_pipeline.html#MLEngine.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.hasNext">hasNext() (MLEngine.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe metodo)</a>
+
+      <ul>
+        <li><a href="abstract_streaming_pipeline.html#MLEngine.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.hasNext">(MLEngine.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe metodo)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.HeightWeightDataset.HeightWeightDataset">HeightWeightDataset (classe in MLEngine.lib.concrete_ml_engine.HeightWeightDataset)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Model.Model.inference">inference() (MLEngine.lib.abstract_ml_engine.Model.Model metodo)</a>
+
+      <ul>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.inference">(MLEngine.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.inference">(MLEngine.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.inference">(MLEngine.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.inference">(MLEngine.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.inference">(MLEngine.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset metodo)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.IrisFisherDataset.IrisFisher">IrisFisher (classe in MLEngine.lib.concrete_ml_engine.IrisFisherDataset)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Dataset.Dataset.load">load() (MLEngine.lib.abstract_ml_engine.Dataset.Dataset metodo)</a>
+
+      <ul>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.HeightWeightDataset.HeightWeightDataset.load">(MLEngine.lib.concrete_ml_engine.HeightWeightDataset.HeightWeightDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.IrisFisherDataset.IrisFisher.load">(MLEngine.lib.concrete_ml_engine.IrisFisherDataset.IrisFisher metodo)</a>
+</li>
+      </ul></li>
+      <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Model.Model.loadCheckPoint">loadCheckPoint() (MLEngine.lib.abstract_ml_engine.Model.Model metodo)</a>
+
+      <ul>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.loadCheckPoint">(MLEngine.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.loadCheckPoint">(MLEngine.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.loadCheckPoint">(MLEngine.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.loadCheckPoint">(MLEngine.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.loadCheckPoint">(MLEngine.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset metodo)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset">LogisticRegressorPandasDataset (classe in MLEngine.lib.concrete_ml_engine.LogisticRegressorPandasDataset)</a>
+</li>
+      <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Loss.Loss">Loss (classe in MLEngine.lib.abstract_ml_engine.Loss)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_streaming_pipeline.html#MLEngine.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.make">make() (MLEngine.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe metodo)</a>
+
+      <ul>
+        <li><a href="abstract_streaming_pipeline.html#MLEngine.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.make">(MLEngine.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe metodo)</a>
+</li>
+        <li><a href="dataset_pipelines.html#MLEngine.lib.dataset_pipelines.PandasCSVDatasetLoader.PandasCSVDatasetLoader.make">(MLEngine.lib.dataset_pipelines.PandasCSVDatasetLoader.PandasCSVDatasetLoader metodo)</a>
+</li>
+        <li><a href="dataset_pipelines.html#MLEngine.lib.dataset_pipelines.PandasDatasetSplit.PandasDatasetSplit.make">(MLEngine.lib.dataset_pipelines.PandasDatasetSplit.PandasDatasetSplit metodo)</a>
+</li>
+        <li><a href="dataset_pipelines.html#MLEngine.lib.dataset_pipelines.StatsModelsDatasetLoader.StatsModelsDatasetLoader.make">(MLEngine.lib.dataset_pipelines.StatsModelsDatasetLoader.StatsModelsDatasetLoader metodo)</a>
+</li>
+      </ul></li>
+      <li><a href="abstract_streaming_pipeline.html#MLEngine.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.map">map() (MLEngine.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe metodo)</a>
+
+      <ul>
+        <li><a href="dataset_pipelines.html#MLEngine.lib.dataset_pipelines.PandasCSVDatasetLoader.PandasCSVDatasetLoader.map">(MLEngine.lib.dataset_pipelines.PandasCSVDatasetLoader.PandasCSVDatasetLoader metodo)</a>
+</li>
+        <li><a href="dataset_pipelines.html#MLEngine.lib.dataset_pipelines.PandasDatasetSplit.PandasDatasetSplit.map">(MLEngine.lib.dataset_pipelines.PandasDatasetSplit.PandasDatasetSplit metodo)</a>
+</li>
+        <li><a href="dataset_pipelines.html#MLEngine.lib.dataset_pipelines.StatsModelsDatasetLoader.StatsModelsDatasetLoader.map">(MLEngine.lib.dataset_pipelines.StatsModelsDatasetLoader.StatsModelsDatasetLoader metodo)</a>
+</li>
+      </ul></li>
+      <li>
+    MLEngine.lib.abstract_ml_engine.Dataset
+
+      <ul>
+        <li><a href="abstract_ml_engine.html#module-MLEngine.lib.abstract_ml_engine.Dataset">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    MLEngine.lib.abstract_ml_engine.Loss
+
+      <ul>
+        <li><a href="abstract_ml_engine.html#module-MLEngine.lib.abstract_ml_engine.Loss">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    MLEngine.lib.abstract_ml_engine.Model
+
+      <ul>
+        <li><a href="abstract_ml_engine.html#module-MLEngine.lib.abstract_ml_engine.Model">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    MLEngine.lib.abstract_ml_engine.Optimizer
+
+      <ul>
+        <li><a href="abstract_ml_engine.html#module-MLEngine.lib.abstract_ml_engine.Optimizer">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    MLEngine.lib.abstract_streaming_pipeline.GeneralStreamingPipe
+
+      <ul>
+        <li><a href="abstract_streaming_pipeline.html#module-MLEngine.lib.abstract_streaming_pipeline.GeneralStreamingPipe">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    MLEngine.lib.abstract_streaming_pipeline.StreamingPipe
+
+      <ul>
+        <li><a href="abstract_streaming_pipeline.html#module-MLEngine.lib.abstract_streaming_pipeline.StreamingPipe">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    MLEngine.lib.concrete_ml_engine.DecisionTreePandasDataset
+
+      <ul>
+        <li><a href="concrete_ml_engine.html#module-MLEngine.lib.concrete_ml_engine.DecisionTreePandasDataset">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    MLEngine.lib.concrete_ml_engine.HeightWeightDataset
+
+      <ul>
+        <li><a href="concrete_ml_engine.html#module-MLEngine.lib.concrete_ml_engine.HeightWeightDataset">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    MLEngine.lib.concrete_ml_engine.IrisFisherDataset
+
+      <ul>
+        <li><a href="concrete_ml_engine.html#module-MLEngine.lib.concrete_ml_engine.IrisFisherDataset">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    MLEngine.lib.concrete_ml_engine.LogisticRegressorPandasDataset
+
+      <ul>
+        <li><a href="concrete_ml_engine.html#module-MLEngine.lib.concrete_ml_engine.LogisticRegressorPandasDataset">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    MLEngine.lib.concrete_ml_engine.NaiveBayesPandasDataset
+
+      <ul>
+        <li><a href="concrete_ml_engine.html#module-MLEngine.lib.concrete_ml_engine.NaiveBayesPandasDataset">modulo</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    MLEngine.lib.concrete_ml_engine.RandomForestPandasDataset
+
+      <ul>
+        <li><a href="concrete_ml_engine.html#module-MLEngine.lib.concrete_ml_engine.RandomForestPandasDataset">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    MLEngine.lib.concrete_ml_engine.SVMPandasDataset
+
+      <ul>
+        <li><a href="concrete_ml_engine.html#module-MLEngine.lib.concrete_ml_engine.SVMPandasDataset">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    MLEngine.lib.dataset_pipelines.datasets_load_pipelines
+
+      <ul>
+        <li><a href="dataset_pipelines.html#module-MLEngine.lib.dataset_pipelines.datasets_load_pipelines">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    MLEngine.lib.dataset_pipelines.PandasCSVDatasetLoader
+
+      <ul>
+        <li><a href="dataset_pipelines.html#module-MLEngine.lib.dataset_pipelines.PandasCSVDatasetLoader">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    MLEngine.lib.dataset_pipelines.PandasDatasetSplit
+
+      <ul>
+        <li><a href="dataset_pipelines.html#module-MLEngine.lib.dataset_pipelines.PandasDatasetSplit">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    MLEngine.lib.dataset_pipelines.StatsModelsDatasetLoader
+
+      <ul>
+        <li><a href="dataset_pipelines.html#module-MLEngine.lib.dataset_pipelines.StatsModelsDatasetLoader">modulo</a>
+</li>
+      </ul></li>
+      <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Model.Model">Model (classe in MLEngine.lib.abstract_ml_engine.Model)</a>
+</li>
+      <li>
+    modulo
+
+      <ul>
+        <li><a href="abstract_ml_engine.html#module-MLEngine.lib.abstract_ml_engine.Dataset">MLEngine.lib.abstract_ml_engine.Dataset</a>
+</li>
+        <li><a href="abstract_ml_engine.html#module-MLEngine.lib.abstract_ml_engine.Loss">MLEngine.lib.abstract_ml_engine.Loss</a>
+</li>
+        <li><a href="abstract_ml_engine.html#module-MLEngine.lib.abstract_ml_engine.Model">MLEngine.lib.abstract_ml_engine.Model</a>
+</li>
+        <li><a href="abstract_ml_engine.html#module-MLEngine.lib.abstract_ml_engine.Optimizer">MLEngine.lib.abstract_ml_engine.Optimizer</a>
+</li>
+        <li><a href="abstract_streaming_pipeline.html#module-MLEngine.lib.abstract_streaming_pipeline.GeneralStreamingPipe">MLEngine.lib.abstract_streaming_pipeline.GeneralStreamingPipe</a>
+</li>
+        <li><a href="abstract_streaming_pipeline.html#module-MLEngine.lib.abstract_streaming_pipeline.StreamingPipe">MLEngine.lib.abstract_streaming_pipeline.StreamingPipe</a>
+</li>
+        <li><a href="concrete_ml_engine.html#module-MLEngine.lib.concrete_ml_engine.DecisionTreePandasDataset">MLEngine.lib.concrete_ml_engine.DecisionTreePandasDataset</a>
+</li>
+        <li><a href="concrete_ml_engine.html#module-MLEngine.lib.concrete_ml_engine.HeightWeightDataset">MLEngine.lib.concrete_ml_engine.HeightWeightDataset</a>
+</li>
+        <li><a href="concrete_ml_engine.html#module-MLEngine.lib.concrete_ml_engine.IrisFisherDataset">MLEngine.lib.concrete_ml_engine.IrisFisherDataset</a>
+</li>
+        <li><a href="concrete_ml_engine.html#module-MLEngine.lib.concrete_ml_engine.LogisticRegressorPandasDataset">MLEngine.lib.concrete_ml_engine.LogisticRegressorPandasDataset</a>
+</li>
+        <li><a href="concrete_ml_engine.html#module-MLEngine.lib.concrete_ml_engine.NaiveBayesPandasDataset">MLEngine.lib.concrete_ml_engine.NaiveBayesPandasDataset</a>
+</li>
+        <li><a href="concrete_ml_engine.html#module-MLEngine.lib.concrete_ml_engine.RandomForestPandasDataset">MLEngine.lib.concrete_ml_engine.RandomForestPandasDataset</a>
+</li>
+        <li><a href="concrete_ml_engine.html#module-MLEngine.lib.concrete_ml_engine.SVMPandasDataset">MLEngine.lib.concrete_ml_engine.SVMPandasDataset</a>
+</li>
+        <li><a href="dataset_pipelines.html#module-MLEngine.lib.dataset_pipelines.datasets_load_pipelines">MLEngine.lib.dataset_pipelines.datasets_load_pipelines</a>
+</li>
+        <li><a href="dataset_pipelines.html#module-MLEngine.lib.dataset_pipelines.PandasCSVDatasetLoader">MLEngine.lib.dataset_pipelines.PandasCSVDatasetLoader</a>
+</li>
+        <li><a href="dataset_pipelines.html#module-MLEngine.lib.dataset_pipelines.PandasDatasetSplit">MLEngine.lib.dataset_pipelines.PandasDatasetSplit</a>
+</li>
+        <li><a href="dataset_pipelines.html#module-MLEngine.lib.dataset_pipelines.StatsModelsDatasetLoader">MLEngine.lib.dataset_pipelines.StatsModelsDatasetLoader</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset">NaiveBayesPandasDataset (classe in MLEngine.lib.concrete_ml_engine.NaiveBayesPandasDataset)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Optimizer.Optimizer">Optimizer (classe in MLEngine.lib.abstract_ml_engine.Optimizer)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="dataset_pipelines.html#MLEngine.lib.dataset_pipelines.PandasCSVDatasetLoader.PandasCSVDatasetLoader">PandasCSVDatasetLoader (classe in MLEngine.lib.dataset_pipelines.PandasCSVDatasetLoader)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="dataset_pipelines.html#MLEngine.lib.dataset_pipelines.PandasDatasetSplit.PandasDatasetSplit">PandasDatasetSplit (classe in MLEngine.lib.dataset_pipelines.PandasDatasetSplit)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset">RandomForestPandasDataset (classe in MLEngine.lib.concrete_ml_engine.RandomForestPandasDataset)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Model.Model.saveCheckPoint">saveCheckPoint() (MLEngine.lib.abstract_ml_engine.Model.Model metodo)</a>
+
+      <ul>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.saveCheckPoint">(MLEngine.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.saveCheckPoint">(MLEngine.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.saveCheckPoint">(MLEngine.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.saveCheckPoint">(MLEngine.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.saveCheckPoint">(MLEngine.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset metodo)</a>
+</li>
+      </ul></li>
+      <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Dataset.Dataset.setUp">setUp() (MLEngine.lib.abstract_ml_engine.Dataset.Dataset metodo)</a>
+
+      <ul>
+        <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Loss.Loss.setUp">(MLEngine.lib.abstract_ml_engine.Loss.Loss metodo)</a>
+</li>
+        <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Model.Model.setUp">(MLEngine.lib.abstract_ml_engine.Model.Model metodo)</a>
+</li>
+        <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Optimizer.Optimizer.setUp">(MLEngine.lib.abstract_ml_engine.Optimizer.Optimizer metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.setUp">(MLEngine.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.HeightWeightDataset.HeightWeightDataset.setUp">(MLEngine.lib.concrete_ml_engine.HeightWeightDataset.HeightWeightDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.IrisFisherDataset.IrisFisher.setUp">(MLEngine.lib.concrete_ml_engine.IrisFisherDataset.IrisFisher metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.setUp">(MLEngine.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.setUp">(MLEngine.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.setUp">(MLEngine.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.setUp">(MLEngine.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset metodo)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="dataset_pipelines.html#MLEngine.lib.dataset_pipelines.StatsModelsDatasetLoader.StatsModelsDatasetLoader">StatsModelsDatasetLoader (classe in MLEngine.lib.dataset_pipelines.StatsModelsDatasetLoader)</a>
+</li>
+      <li><a href="abstract_ml_engine.html#MLEngine.lib.abstract_ml_engine.Optimizer.Optimizer.step">step() (MLEngine.lib.abstract_ml_engine.Optimizer.Optimizer metodo)</a>
+</li>
+      <li><a href="abstract_streaming_pipeline.html#MLEngine.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe">StreamingPipe (classe in MLEngine.lib.abstract_streaming_pipeline.StreamingPipe)</a>
+</li>
+      <li><a href="concrete_ml_engine.html#MLEngine.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset">SVMPandasDataset (classe in MLEngine.lib.concrete_ml_engine.SVMPandasDataset)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Rosario Scalia.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
