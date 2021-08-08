@@ -207,7 +207,7 @@ class SVMPandasDataset (object):
         self._modelImpl                     = pParams["model"]
 
 
-    def saveCheckPoint(self, pParams:dict=None ) -> Union [ None , Exception ]:
+    def saveCheckPoint(self, pParams:dict=None ) -> Union [ object , Exception ]:
         """
         Questo metodo permette di salvare un checkpoint di un Modello di ML
 
@@ -215,7 +215,7 @@ class SVMPandasDataset (object):
             pParams             (dict | DEF = None)     : eventuali parametri di salvataggio del checkpoint
 
         Returns:\n
-            Union [ None , Exception ]
+            Union [ object , Exception ]
 
         Raises:\n
             Exception                                   : eccezione durante il salvataggio del Modello

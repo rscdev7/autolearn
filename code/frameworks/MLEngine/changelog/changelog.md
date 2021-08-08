@@ -1,5 +1,8 @@
 # MLEngine
 
+> **v1.0.3**
+>	* Migliorata firma funzioni Modelli ML implementati
+
 > **v1.0.2**
 >	* Migliorata gestione casi di default nel framework
 
