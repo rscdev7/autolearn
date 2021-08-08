@@ -41,10 +41,10 @@ def test_iris():
     # [2] SetUp Model
     tree:DecisionTreePandasDataset      = DecisionTreePandasDataset()
     params:List[dict]                   = { "max_depth" : MAX_DEPTH }
-    outccome:Union[ None , Exception]   = tree.setUp(params)
+    outcome:Union[ None , Exception]   = tree.setUp(params)
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]   = tree.setUp({})
+    outcome:Union[ None , Exception]   = tree.setUp({})
     assert issubclass( type(outcome) , Exception ) == False
 
 
@@ -76,10 +76,10 @@ def test_height_weight():
     # [2] SetUp Model
     tree:DecisionTreePandasDataset      = DecisionTreePandasDataset()
     params:List[dict]                   = { "max_depth" : MAX_DEPTH }
-    outccome:Union[ None , Exception]   = tree.setUp(params)
+    outcome:Union[ None , Exception]   = tree.setUp(params)
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]   = tree.setUp({})
+    outcome:Union[ None , Exception]   = tree.setUp({})
     assert issubclass( type(outcome) , Exception ) == False
 
 

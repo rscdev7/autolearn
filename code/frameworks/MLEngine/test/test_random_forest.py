@@ -41,16 +41,16 @@ def test_iris():
     # [2] SetUp Model
     forest:RandomForestPandasDataset    = RandomForestPandasDataset()
     params:List[dict]                   = { "n_estimators" : N_ESTIMATORS , "max_depth" : MAX_DEPTH }
-    outccome:Union[ None , Exception]   = forest.setUp(params)
+    outcome:Union[ None , Exception]   = forest.setUp(params)
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]   = forest.setUp( {"n_estimators" : N_ESTIMATORS } )
+    outcome:Union[ None , Exception]   = forest.setUp( {"n_estimators" : N_ESTIMATORS } )
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]   = forest.setUp( {"max_depth" : MAX_DEPTH } )
+    outcome:Union[ None , Exception]   = forest.setUp( {"max_depth" : MAX_DEPTH } )
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]   = forest.setUp( {} )
+    outcome:Union[ None , Exception]   = forest.setUp( {} )
     assert issubclass( type(outcome) , Exception ) == False
 
 
@@ -82,16 +82,16 @@ def test_height_weight():
     # [2] SetUp Model
     forest:RandomForestPandasDataset    = RandomForestPandasDataset()
     params:List[dict]                   = { "n_estimators" : N_ESTIMATORS , "max_depth" : MAX_DEPTH }
-    outccome:Union[ None , Exception]   = forest.setUp(params)
+    outcome:Union[ None , Exception]   = forest.setUp(params)
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]   = forest.setUp( {"n_estimators" : N_ESTIMATORS } )
+    outcome:Union[ None , Exception]   = forest.setUp( {"n_estimators" : N_ESTIMATORS } )
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]   = forest.setUp( {"max_depth" : MAX_DEPTH } )
+    outcome:Union[ None , Exception]   = forest.setUp( {"max_depth" : MAX_DEPTH } )
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]   = forest.setUp( {} )
+    outcome:Union[ None , Exception]   = forest.setUp( {} )
     assert issubclass( type(outcome) , Exception ) == False
 
 

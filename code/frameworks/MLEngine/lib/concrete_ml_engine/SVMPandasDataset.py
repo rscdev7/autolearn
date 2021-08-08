@@ -79,6 +79,8 @@ class SVMPandasDataset (object):
                 self._kernel:str                = pHyperParams['kernel']
                 self._regularization:float      = pHyperParams['regularization']
                 self._modelImpl:SVC             = SVC(kernel= self._kernel , C=self._regularization )
+            else:
+                self._modelImpl:SVC             = SVC( )
                 
         except Exception as exp:
             return exp

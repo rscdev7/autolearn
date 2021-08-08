@@ -39,28 +39,28 @@ def test_iris():
     # [2] SetUp Model
     svm:SVMPandasDataset                = SVMPandasDataset()
     params:List[dict]                   = { "kernel" : KERNEL , "max_iter" : MAX_ITER , "regularization" : 0.5 }
-    outccome:Union[ None , Exception]   = svm.setUp(params)
+    outcome:Union[ None , Exception]   = svm.setUp(params)
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]   = svm.setUp({ "kernel" : KERNEL  })
+    outcome:Union[ None , Exception]   = svm.setUp({ "kernel" : KERNEL  })
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]   = svm.setUp({ "max_iter" : MAX_ITER })
+    outcome:Union[ None , Exception]   = svm.setUp({ "max_iter" : MAX_ITER })
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]   = svm.setUp({ "regularization" : 0.5 })
+    outcome:Union[ None , Exception]   = svm.setUp({ "regularization" : 0.5 })
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]   = svm.setUp({ "kernel" : KERNEL , "max_iter" : MAX_ITER })
+    outcome:Union[ None , Exception]   = svm.setUp({ "kernel" : KERNEL , "max_iter" : MAX_ITER })
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]   = svm.setUp({  "max_iter" : MAX_ITER , "regularization" : 0.5 })
+    outcome:Union[ None , Exception]   = svm.setUp({  "max_iter" : MAX_ITER , "regularization" : 0.5 })
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]   = svm.setUp({  "kernel" : KERNEL , "regularization" : 0.5 })
+    outcome:Union[ None , Exception]   = svm.setUp({  "kernel" : KERNEL , "regularization" : 0.5 })
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]   = svm.setUp()
+    outcome:Union[ None , Exception]   = svm.setUp()
     assert issubclass( type(outcome) , Exception ) == False
 
 
@@ -92,28 +92,28 @@ def test_height_weight():
     # [2] SetUp Model
     svm:SVMPandasDataset                = SVMPandasDataset()
     params:List[dict]                   = { "kernel" : KERNEL , "max_iter" : MAX_ITER , "regularization" : 0.5 }
-    outccome:Union[ None , Exception]   = svm.setUp(params)
+    outcome:Union[ None , Exception]   = svm.setUp(params)
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]   = svm.setUp({ "kernel" : KERNEL  })
+    outcome:Union[ None , Exception]   = svm.setUp({ "kernel" : KERNEL  })
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]   = svm.setUp({ "max_iter" : MAX_ITER })
+    outcome:Union[ None , Exception]   = svm.setUp({ "max_iter" : MAX_ITER })
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]   = svm.setUp({ "regularization" : 0.5 })
+    outcome:Union[ None , Exception]   = svm.setUp({ "regularization" : 0.5 })
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]   = svm.setUp({ "kernel" : KERNEL , "max_iter" : MAX_ITER })
+    outcome:Union[ None , Exception]   = svm.setUp({ "kernel" : KERNEL , "max_iter" : MAX_ITER })
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]   = svm.setUp({  "max_iter" : MAX_ITER , "regularization" : 0.5 })
+    outcome:Union[ None , Exception]   = svm.setUp({  "max_iter" : MAX_ITER , "regularization" : 0.5 })
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]   = svm.setUp({  "kernel" : KERNEL , "regularization" : 0.5 })
+    outcome:Union[ None , Exception]   = svm.setUp({  "kernel" : KERNEL , "regularization" : 0.5 })
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]   = svm.setUp()
+    outcome:Union[ None , Exception]   = svm.setUp()
     assert issubclass( type(outcome) , Exception ) == False
 
 

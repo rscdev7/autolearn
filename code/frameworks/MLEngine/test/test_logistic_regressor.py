@@ -40,16 +40,16 @@ def test_iris():
     # [2] SetUp Model
     logit:LogisticRegressorPandasDataset    = LogisticRegressorPandasDataset()
     params:List[dict]                       = { "random_state" : RANDOM_STATE , "max_iter": 5}
-    outccome:Union[ None , Exception]       = logit.setUp(params)
+    outcome:Union[ None , Exception]       = logit.setUp(params)
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]       = logit.setUp( { "random_state":RANDOM_STATE } )
+    outcome:Union[ None , Exception]       = logit.setUp( { "random_state":RANDOM_STATE } )
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]       = logit.setUp( { "max_iter":5 } )
+    outcome:Union[ None , Exception]       = logit.setUp( { "max_iter":5 } )
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]       = logit.setUp( {} )
+    outcome:Union[ None , Exception]       = logit.setUp( {} )
     assert issubclass( type(outcome) , Exception ) == False
 
 
@@ -81,16 +81,16 @@ def test_height_weight():
     # [2] SetUp Model
     logit:LogisticRegressorPandasDataset    = LogisticRegressorPandasDataset()
     params:List[dict]                       = { "random_state" : RANDOM_STATE , "max_iter": 5 }
-    outccome:Union[ None , Exception]       = logit.setUp(params)
+    outcome:Union[ None , Exception]       = logit.setUp(params)
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]       = logit.setUp( { "random_state":RANDOM_STATE } )
+    outcome:Union[ None , Exception]       = logit.setUp( { "random_state":RANDOM_STATE } )
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]       = logit.setUp( { "max_iter":5 } )
+    outcome:Union[ None , Exception]       = logit.setUp( { "max_iter":5 } )
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]       = logit.setUp( {} )
+    outcome:Union[ None , Exception]       = logit.setUp( {} )
     assert issubclass( type(outcome) , Exception ) == False
 
 

@@ -42,10 +42,10 @@ def test_iris():
     # [2] SetUp Model
     bayes:NaiveBayesPandasDataset       = NaiveBayesPandasDataset()
     params:List[dict]                   = { "priors" : PRIORS_IRIS }
-    outccome:Union[ None , Exception]   = bayes.setUp(params)
+    outcome:Union[ None , Exception]   = bayes.setUp(params)
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]   = bayes.setUp( {} )
+    outcome:Union[ None , Exception]   = bayes.setUp( {} )
     assert issubclass( type(outcome) , Exception ) == False
 
 
@@ -77,10 +77,10 @@ def test_height_weight():
     # [2] SetUp Model
     bayes:NaiveBayesPandasDataset       = NaiveBayesPandasDataset()
     params:List[dict]                   = { "priors" : PRIORS_HW }
-    outccome:Union[ None , Exception]   = bayes.setUp(params)
+    outcome:Union[ None , Exception]   = bayes.setUp(params)
     assert issubclass( type(outcome) , Exception ) == False
 
-    outccome:Union[ None , Exception]   = bayes.setUp( {} )
+    outcome:Union[ None , Exception]   = bayes.setUp( {} )
     assert issubclass( type(outcome) , Exception ) == False
 
 
