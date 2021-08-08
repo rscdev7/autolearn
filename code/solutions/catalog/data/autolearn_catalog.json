@@ -82,7 +82,8 @@
                         "model_name": "Naive-Bayes",
                         "model_task": "Classification",
                         "model_hyperparams":    [
-                                                    { "param_name":"priors" , "param_type":"List[float]"}
+                                                    { "param_name":"priors" , "param_type":"List[float]" , 
+                                                       "range_l":"0.0" , "range_u": "1.0"}
                                                 ]
                     }
      ],
