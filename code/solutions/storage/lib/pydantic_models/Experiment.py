@@ -12,8 +12,8 @@ from typing                 import List, Optional, Dict, Union
 
 
 class HyperParam (BaseModel):
-    hyper_param_name:str                                    = Field(..., title="Nome Iperparametro",description="Nome dell' Iperparametro") 
-    hyper_param_value:Union[ int , float , bool , str ]     = Field(..., title="Valore Iperparametro",description="Valore Iperparametro") 
+    hyper_param_name:str                                                                            = Field(..., title="Nome Iperparametro",description="Nome dell' Iperparametro") 
+    hyper_param_value:Union[ int , float , bool , str , List[float] , List[int] , List[str] ]       = Field(..., title="Valore Iperparametro",description="Valore Iperparametro") 
 
 class MetricOutcome (BaseModel):
     metric_name:str                                         = Field(..., title="Nome Metrica",description="Nome Metrica di Valutazione presente nel catalogo e supportata dal Modello scelto")
