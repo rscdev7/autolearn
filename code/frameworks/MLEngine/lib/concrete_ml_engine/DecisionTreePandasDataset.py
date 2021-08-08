@@ -1,7 +1,7 @@
 """
 @author           	    :  rscalia                              \n
 @build-date             :  Sat 07/08/2021                       \n
-@last-update            :  Sat 07/08/2021                       \n
+@last-update            :  Sun 08/08/2021                       \n
 
 Questo componente implementa un wrapper ad un'implementazione dell'algoritmo DecisionTree
 """
@@ -17,33 +17,39 @@ from typing                                 import List, Union
 class DecisionTreePandasDataset (Model):
 
     __slots__ = ("_modelImpl" , "_computeDevice" , "_max_depth")
-    def setUp (self, pHyperParams:List[dict] , pComputeDevice:str="cpu") -> Union[ None , Exception ]:
+    def setUp (self, pHyperParams:dict = {} , pComputeDevice:str="cpu") -> Union[ None , Exception ]:
         """
         Questo metodo inizializza opportunamente un Modello di Machine Learning
 
         Args:\n
-            pHyperParams            (List[dict])    : iperparametri da applicare al Modello
-                                                      Opzioni:\n
-                                                        - **max_depth**
-                                                        - **n_estimators**
+            pHyperParams            (dict| DEF = {})            :    iperparametri da applicare al Modello
+                                                                     Opzioni:\n
+                                                                        - **max_depth**
                                                         
-            pComputeDevice          (str)           : device di calcolo su cui eseguire il Modello \n
-                                                      Opzioni:\n
-                                                        - **CPU**
-                                                        - **GPU**
-                                                        - **TPU**
-                                                        - **FPGA**
-                                                        - **ASIC**
+            pComputeDevice          (str)                       :     device di calcolo su cui eseguire il Modello \n
+                                                                      Opzioni:\n
+                                                                        - **CPU**
+                                                                        - **GPU**
+                                                                        - **TPU**
+                                                                        - **FPGA**
+                                                                        - **ASIC**
         Returns:\n
             Union [ None , Exception ]
 
         Raises:\n
             Exception                               : eccezzione derivata da un errore di istanziazione dell'oggetto rappresentante il Modello di ML oppure scelta erronea degli Iperparametri
         """
-        self._max_depth:str                             = pHyperParams['max_depth']
-        self._computeDevice:str                         = pComputeDevice
-        self._modelImpl:DecisionTreeClassifier          = DecisionTreeClassifier( max_depth=self._max_depth )
-
+        try:
+            if "max_depth" in pHyperParams.keys():
+                self._max_depth:str                             = pHyperParams['max_depth']
+                self._modelImpl:DecisionTreeClassifier          = DecisionTreeClassifier( max_depth=self._max_depth )
+            else:
+                self._modelImpl:DecisionTreeClassifier          = DecisionTreeClassifier(  )
+                
+            self._computeDevice:str                             = pComputeDevice
+        except Exception as exp:
+            return exp
+        
 
     def changeComputeDevice(self, pDevice:str) -> Union[ None , Exception ]:
         """
@@ -67,13 +73,13 @@ class DecisionTreePandasDataset (Model):
         pass
 
 
-    def fit (self, pDataset:Dataset , pTrainingHyperParams:List[dict] = None , pLoss:Loss = None , pOptimizer:Optimizer = None , pLogger:object = None ) -> Union [ None , Exception ]:
+    def fit (self, pDataset:Dataset , pTrainingHyperParams:dict = None , pLoss:Loss = None , pOptimizer:Optimizer = None , pLogger:object = None ) -> Union [ None , Exception ]:
         """
         Questo metodo addestra il Modello di Machine Learning su un apposito dataset utilizzando eventualmente un'implementazione custom di Loss e Optimizer.
 
         Args:\n
             pDataset                (Dataset)                  : dataset su cui addestrare il Modello di Machine Learning
-            pTrainingHyperParams    (List[dict] | DEF = None)  : iperparametri di training
+            pTrainingHyperParams    (dict       | DEF = None)  : iperparametri di training
             pLoss                   (Loss       | DEF = None)  : eventuale funzione Custom da ottimizzare
             pOptimizer              (Optimizer  | DEF = None)  : eventuale Optimizer Custom che permette di ottimizzare la Loss
 

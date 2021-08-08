@@ -1,7 +1,7 @@
 """
 @author           	    :  rscalia                              \n
 @build-date             :  Sat 07/08/2021                       \n
-@last-update            :  Sat 07/08/2021                       \n
+@last-update            :  Sun 08/08/2021                       \n
 
 Questo componente implementa un wrapper ad un'implementazione di una Loss per un algoritmo di ML
 """
@@ -12,20 +12,20 @@ class Loss (ABC, metaclass=ABCMeta):
 
     __slots__ = ("_lossImpl" , "_computeDevice")
     @abstractmethod
-    def setUp(self, pHyperParams:List[dict] , pComputeDevice:str="cpu") -> Union [ None , Exception ]:
+    def setUp(self, pHyperParams:dict = {} , pComputeDevice:str="cpu") -> Union [ None , Exception ]:
         """
         Questo metodo permette di effettuare il setup di un'opportuna Loss Function utilizzando degli appositi Iperparametri.
 
         Args:\n
-            pHyperParams                (List[dict])        : lista di coppia chiave-valore rappresentanti gli iperparametri della Loss
+            pHyperParams                (dict | DEF = {})              : lista di coppia chiave-valore rappresentanti gli iperparametri della Loss
 
-            pComputeDevice              (str)               : device di calcolo su cui valutare la loss.
-                                                              Opzioni:\n
-                                                                - **CPU**
-                                                                - **GPU**
-                                                                - **TPU**
-                                                                - **FPGA**
-                                                                - **ASIC**
+            pComputeDevice              (str)                          : device di calcolo su cui valutare la loss.
+                                                                         Opzioni:\n
+                                                                            - **CPU**
+                                                                            - **GPU**
+                                                                            - **TPU**
+                                                                            - **FPGA**
+                                                                            - **ASIC**
         
         Returns:\n
             Union [ None , Exception ]

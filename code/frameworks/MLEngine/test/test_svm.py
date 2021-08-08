@@ -1,7 +1,7 @@
 """
 @author           	    :  rscalia                              \n
 @build-date             :  Sat 07/08/2021                       \n
-@last-update            :  Sat 07/08/2021                       \n
+@last-update            :  Sun 08/08/2021                       \n
 
 Questo componente serve per testare il Modello SVM
 """
@@ -26,7 +26,7 @@ MAX_ITER:int                            = 100
 IRIS_RECORD:List[float]                 = [ [0.5, 0.7, 0.5,0.8] ]
 HW_RECORD:List[float]                   = [ [33.0,187.0,180.0] ]
 
-def test_svm_iris():
+def test_iris():
     load_pipeline:StreamingPipe         = build_iris_dataset_load_pipeline(SPLIT , SEED)
     iris_dataset:IrisFisher             = IrisFisher()
     iris_dataset.setUp(load_pipeline)
@@ -35,11 +35,34 @@ def test_svm_iris():
     outcome:Union[ None , Exception]    = iris_dataset.load()
     assert issubclass( type(outcome) , Exception ) == False
 
+
     # [2] SetUp Model
     svm:SVMPandasDataset                = SVMPandasDataset()
-    params:List[dict]                   = { "kernel" : KERNEL , "max_iter" : MAX_ITER }
+    params:List[dict]                   = { "kernel" : KERNEL , "max_iter" : MAX_ITER , "regularization" : 0.5 }
     outccome:Union[ None , Exception]   = svm.setUp(params)
     assert issubclass( type(outcome) , Exception ) == False
+
+    outccome:Union[ None , Exception]   = svm.setUp({ "kernel" : KERNEL  })
+    assert issubclass( type(outcome) , Exception ) == False
+
+    outccome:Union[ None , Exception]   = svm.setUp({ "max_iter" : MAX_ITER })
+    assert issubclass( type(outcome) , Exception ) == False
+
+    outccome:Union[ None , Exception]   = svm.setUp({ "regularization" : 0.5 })
+    assert issubclass( type(outcome) , Exception ) == False
+
+    outccome:Union[ None , Exception]   = svm.setUp({ "kernel" : KERNEL , "max_iter" : MAX_ITER })
+    assert issubclass( type(outcome) , Exception ) == False
+
+    outccome:Union[ None , Exception]   = svm.setUp({  "max_iter" : MAX_ITER , "regularization" : 0.5 })
+    assert issubclass( type(outcome) , Exception ) == False
+
+    outccome:Union[ None , Exception]   = svm.setUp({  "kernel" : KERNEL , "regularization" : 0.5 })
+    assert issubclass( type(outcome) , Exception ) == False
+
+    outccome:Union[ None , Exception]   = svm.setUp()
+    assert issubclass( type(outcome) , Exception ) == False
+
 
     # [3] Fitting Modello
     outcome:Union[ None , Exception]    = svm.fit(iris_dataset)
@@ -56,7 +79,7 @@ def test_svm_iris():
     print ("\n[!] Evaluation SVM su Iris: {}".format(outcome))
 
 
-def test_svm_height_weight():
+def test_height_weight():
     load_pipeline:StreamingPipe         = build_height_weight_dataset_load_pipeline(DATA_PATH, SPLIT , SEED)
     hw_dataset:HeightWeightDataset      = HeightWeightDataset()
     hw_dataset.setUp(load_pipeline)
@@ -65,11 +88,35 @@ def test_svm_height_weight():
     outcome:Union[ None , Exception]    = hw_dataset.load()
     assert issubclass( type(outcome) , Exception ) == False
 
+
     # [2] SetUp Model
     svm:SVMPandasDataset                = SVMPandasDataset()
-    params:List[dict]                   = { "kernel" : KERNEL , "max_iter" : MAX_ITER }
+    params:List[dict]                   = { "kernel" : KERNEL , "max_iter" : MAX_ITER , "regularization" : 0.5 }
     outccome:Union[ None , Exception]   = svm.setUp(params)
     assert issubclass( type(outcome) , Exception ) == False
+
+    outccome:Union[ None , Exception]   = svm.setUp({ "kernel" : KERNEL  })
+    assert issubclass( type(outcome) , Exception ) == False
+
+    outccome:Union[ None , Exception]   = svm.setUp({ "max_iter" : MAX_ITER })
+    assert issubclass( type(outcome) , Exception ) == False
+
+    outccome:Union[ None , Exception]   = svm.setUp({ "regularization" : 0.5 })
+    assert issubclass( type(outcome) , Exception ) == False
+
+    outccome:Union[ None , Exception]   = svm.setUp({ "kernel" : KERNEL , "max_iter" : MAX_ITER })
+    assert issubclass( type(outcome) , Exception ) == False
+
+    outccome:Union[ None , Exception]   = svm.setUp({  "max_iter" : MAX_ITER , "regularization" : 0.5 })
+    assert issubclass( type(outcome) , Exception ) == False
+
+    outccome:Union[ None , Exception]   = svm.setUp({  "kernel" : KERNEL , "regularization" : 0.5 })
+    assert issubclass( type(outcome) , Exception ) == False
+
+    outccome:Union[ None , Exception]   = svm.setUp()
+    assert issubclass( type(outcome) , Exception ) == False
+
+
 
     # [3] Fitting Modello
     outcome:Union[ None , Exception]    = svm.fit(hw_dataset)

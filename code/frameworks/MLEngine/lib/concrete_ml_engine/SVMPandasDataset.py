@@ -1,7 +1,7 @@
 """
 @author           	    :  rscalia                              \n
 @build-date             :  Sat 07/08/2021                       \n
-@last-update            :  Sat 07/08/2021                       \n
+@last-update            :  Sun 08/08/2021                       \n
 
 Questo componente implementa un wrapper ad un'implementazione dell'algoritmo SVM
 """
@@ -16,40 +16,75 @@ from typing                                 import List, Union
 
 class SVMPandasDataset (object):
 
-    __slots__ = ("_modelImpl" , "_computeDevice" , "_kernel" , "_max_iter")
-    def setUp (self, pHyperParams:List[dict] , pComputeDevice:str="cpu") -> Union[ None , Exception ]:
+    __slots__ = ("_modelImpl" , "_computeDevice" , "_kernel" , "_max_iter" , "_regularization")
+    def setUp (self, pHyperParams:dict = {} , pComputeDevice:str="cpu") -> Union[ None , Exception ]:
         """
         Questo metodo inizializza opportunamente un Modello di Machine Learning
 
         Args:\n
-            pHyperParams            (List[dict])    : iperparametri da applicare al Modello
-                                                      Opzioni:\n
-                                                        - **kernel**
-                                                            - **linear**
-                                                            - **poly**
-                                                            - **rbf**
-                                                            - **sigmond**
-                                                            - **precomputed**
-                                                        - **max_iter**
+            pHyperParams            (dict | DEF = {})           :    iperparametri da applicare al Modello
+                                                                    Opzioni:\n
+                                                                        - **kernel**
+                                                                            - **linear**
+                                                                            - **poly**
+                                                                            - **rbf**
+                                                                            - **sigmond**
+                                                                            - **precomputed**
+                                                                        - **max_iter**
+                                                                        - **"regularization**
                                                         
-            pComputeDevice          (str)           : device di calcolo su cui eseguire il Modello \n
-                                                      Opzioni:\n
-                                                        - **CPU**
-                                                        - **GPU**
-                                                        - **TPU**
-                                                        - **FPGA**
-                                                        - **ASIC**
+            pComputeDevice          (str)                       :   device di calcolo su cui eseguire il Modello \n
+                                                                    Opzioni:\n
+                                                                        - **CPU**
+                                                                        - **GPU**
+                                                                        - **TPU**
+                                                                        - **FPGA**
+                                                                        - **ASIC**
         Returns:\n
             Union [ None , Exception ]
 
         Raises:\n
             Exception                               : eccezzione derivata da un errore di istanziazione dell'oggetto rappresentante il Modello di ML oppure scelta erronea degli Iperparametri
         """
-        self._kernel:str                = pHyperParams['kernel']
-        self._max_iter:int              = pHyperParams['max_iter']
-        self._computeDevice:str         = pComputeDevice
-        self._modelImpl:SVC             = SVC(kernel= self._kernel , C=self._max_iter)
+        try:
+            if "kernel" in pHyperParams.keys() and "max_iter" in pHyperParams.keys() and "regularization" in pHyperParams.keys():
+                self._kernel:str                = pHyperParams['kernel']
+                self._max_iter:int              = pHyperParams['max_iter']
+                self._regularization:float      = pHyperParams['regularization']
+                self._modelImpl:SVC             = SVC(kernel= self._kernel , C=self._regularization , max_iter=self._max_iter)
 
+            elif "kernel" in pHyperParams.keys():
+                self._kernel:str                = pHyperParams['kernel']
+                self._modelImpl:SVC             = SVC(kernel= self._kernel )
+
+            elif "max_iter" in pHyperParams.keys():
+                self._max_iter:int              = pHyperParams['max_iter']
+                self._modelImpl:SVC             = SVC(max_iter=self._max_iter)
+
+            elif "regularization" in pHyperParams.keys():
+                self._regularization:float      = pHyperParams['regularization']
+                self._modelImpl:SVC             = SVC(C=self._regularization)
+
+            elif "kernel" in pHyperParams.keys() and "max_iter" in pHyperParams.keys():
+                self._kernel:str                = pHyperParams['kernel']
+                self._max_iter:int              = pHyperParams['max_iter']
+                self._modelImpl:SVC             = SVC(kernel= self._kernel , max_iter=self._max_iter)
+
+            elif "max_iter" in pHyperParams.keys() and "regularization" in pHyperParams.keys():
+                self._max_iter:int              = pHyperParams['max_iter']
+                self._regularization:float      = pHyperParams['regularization']
+                self._modelImpl:SVC             = SVC(C=self._regularization , max_iter=self._max_iter)
+
+            elif "kernel" in pHyperParams.keys() and "regularization" in pHyperParams.keys():
+                self._kernel:str                = pHyperParams['kernel']
+                self._regularization:float      = pHyperParams['regularization']
+                self._modelImpl:SVC             = SVC(kernel= self._kernel , C=self._regularization )
+                
+        except Exception as exp:
+            return exp
+
+        self._computeDevice:str             = pComputeDevice
+        
 
     def changeComputeDevice(self, pDevice:str) -> Union[ None , Exception ]:
         """
@@ -73,13 +108,13 @@ class SVMPandasDataset (object):
         pass
 
 
-    def fit (self, pDataset:Dataset , pTrainingHyperParams:List[dict] = None , pLoss:Loss = None , pOptimizer:Optimizer = None , pLogger:object = None ) -> Union [ None , Exception ]:
+    def fit (self, pDataset:Dataset , pTrainingHyperParams:dict = None , pLoss:Loss = None , pOptimizer:Optimizer = None , pLogger:object = None ) -> Union [ None , Exception ]:
         """
         Questo metodo addestra il Modello di Machine Learning su un apposito dataset utilizzando eventualmente un'implementazione custom di Loss e Optimizer.
 
         Args:\n
             pDataset                (Dataset)                  : dataset su cui addestrare il Modello di Machine Learning
-            pTrainingHyperParams    (List[dict] | DEF = None)  : iperparametri di training
+            pTrainingHyperParams    (dict       | DEF = None)  : iperparametri di training
             pLoss                   (Loss       | DEF = None)  : eventuale funzione Custom da ottimizzare
             pOptimizer              (Optimizer  | DEF = None)  : eventuale Optimizer Custom che permette di ottimizzare la Loss
 

@@ -1,7 +1,7 @@
 """
 @author           	    :  rscalia                              \n
 @build-date             :  Sat 07/08/2021                       \n
-@last-update            :  Sat 07/08/2021                       \n
+@last-update            :  Sun 08/08/2021                        \n
 
 Questo componente serve per testare il Modello SVM
 """
@@ -28,7 +28,7 @@ N_ESTIMATORS:int                        = 20
 IRIS_RECORD:List[float]                 = [ [0.5, 0.7, 0.5,0.8] ]
 HW_RECORD:List[float]                   = [ [33.0,187.0,180.0] ]
 
-def test_svm_iris():
+def test_iris():
     load_pipeline:StreamingPipe         = build_iris_dataset_load_pipeline(SPLIT , SEED)
     iris_dataset:IrisFisher             = IrisFisher()
     iris_dataset.setUp(load_pipeline)
@@ -37,11 +37,22 @@ def test_svm_iris():
     outcome:Union[ None , Exception]    = iris_dataset.load()
     assert issubclass( type(outcome) , Exception ) == False
 
+
     # [2] SetUp Model
     forest:RandomForestPandasDataset    = RandomForestPandasDataset()
     params:List[dict]                   = { "n_estimators" : N_ESTIMATORS , "max_depth" : MAX_DEPTH }
     outccome:Union[ None , Exception]   = forest.setUp(params)
     assert issubclass( type(outcome) , Exception ) == False
+
+    outccome:Union[ None , Exception]   = forest.setUp( {"n_estimators" : N_ESTIMATORS } )
+    assert issubclass( type(outcome) , Exception ) == False
+
+    outccome:Union[ None , Exception]   = forest.setUp( {"max_depth" : MAX_DEPTH } )
+    assert issubclass( type(outcome) , Exception ) == False
+
+    outccome:Union[ None , Exception]   = forest.setUp( {} )
+    assert issubclass( type(outcome) , Exception ) == False
+
 
     # [3] Fitting Modello
     outcome:Union[ None , Exception]    = forest.fit(iris_dataset)
@@ -58,7 +69,7 @@ def test_svm_iris():
     print ("\n[!] Evaluation RandomForest su Iris: {}".format(outcome))
 
 
-def test_svm_height_weight():
+def test_height_weight():
     load_pipeline:StreamingPipe         = build_height_weight_dataset_load_pipeline(DATA_PATH, SPLIT , SEED)
     hw_dataset:HeightWeightDataset      = HeightWeightDataset()
     hw_dataset.setUp(load_pipeline)
@@ -67,11 +78,22 @@ def test_svm_height_weight():
     outcome:Union[ None , Exception]    = hw_dataset.load()
     assert issubclass( type(outcome) , Exception ) == False
 
+
     # [2] SetUp Model
     forest:RandomForestPandasDataset    = RandomForestPandasDataset()
     params:List[dict]                   = { "n_estimators" : N_ESTIMATORS , "max_depth" : MAX_DEPTH }
     outccome:Union[ None , Exception]   = forest.setUp(params)
     assert issubclass( type(outcome) , Exception ) == False
+
+    outccome:Union[ None , Exception]   = forest.setUp( {"n_estimators" : N_ESTIMATORS } )
+    assert issubclass( type(outcome) , Exception ) == False
+
+    outccome:Union[ None , Exception]   = forest.setUp( {"max_depth" : MAX_DEPTH } )
+    assert issubclass( type(outcome) , Exception ) == False
+
+    outccome:Union[ None , Exception]   = forest.setUp( {} )
+    assert issubclass( type(outcome) , Exception ) == False
+
 
     # [3] Fitting Modello
     outcome:Union[ None , Exception]    = forest.fit(hw_dataset)

@@ -1,7 +1,7 @@
 """
 @author           	    :  rscalia                              \n
 @build-date             :  Sat 07/08/2021                       \n
-@last-update            :  Sat 07/08/2021                       \n
+@last-update            :  Sun 08/08/2021                        \n
 
 Questo componente serve per testare il Modello LogisticRegressor
 """
@@ -27,7 +27,7 @@ RANDOM_STATE:int                            = 5
 IRIS_RECORD:List[float]                     = [ [0.5, 0.7, 0.5,0.8] ]
 HW_RECORD:List[float]                       = [ [33.0,187.0,180.0] ]
 
-def test_svm_iris():
+def test_iris():
     load_pipeline:StreamingPipe             = build_iris_dataset_load_pipeline(SPLIT , SEED)
     iris_dataset:IrisFisher                 = IrisFisher()
     iris_dataset.setUp(load_pipeline)
@@ -36,11 +36,22 @@ def test_svm_iris():
     outcome:Union[ None , Exception]        = iris_dataset.load()
     assert issubclass( type(outcome) , Exception ) == False
 
+
     # [2] SetUp Model
     logit:LogisticRegressorPandasDataset    = LogisticRegressorPandasDataset()
-    params:List[dict]                       = { "random_state" : RANDOM_STATE}
+    params:List[dict]                       = { "random_state" : RANDOM_STATE , "max_iter": 5}
     outccome:Union[ None , Exception]       = logit.setUp(params)
     assert issubclass( type(outcome) , Exception ) == False
+
+    outccome:Union[ None , Exception]       = logit.setUp( { "random_state":RANDOM_STATE } )
+    assert issubclass( type(outcome) , Exception ) == False
+
+    outccome:Union[ None , Exception]       = logit.setUp( { "max_iter":5 } )
+    assert issubclass( type(outcome) , Exception ) == False
+
+    outccome:Union[ None , Exception]       = logit.setUp( {} )
+    assert issubclass( type(outcome) , Exception ) == False
+
 
     # [3] Fitting Modello
     outcome:Union[ None , Exception]        = logit.fit(iris_dataset)
@@ -57,7 +68,7 @@ def test_svm_iris():
     print ("\n[!] Evaluation LogisticRegressor su Iris: {}".format(outcome))
 
 
-def test_svm_height_weight():
+def test_height_weight():
     load_pipeline:StreamingPipe             = build_height_weight_dataset_load_pipeline(DATA_PATH, SPLIT , SEED)
     hw_dataset:HeightWeightDataset          = HeightWeightDataset()
     hw_dataset.setUp(load_pipeline)
@@ -66,11 +77,22 @@ def test_svm_height_weight():
     outcome:Union[ None , Exception]        = hw_dataset.load()
     assert issubclass( type(outcome) , Exception ) == False
 
+
     # [2] SetUp Model
     logit:LogisticRegressorPandasDataset    = LogisticRegressorPandasDataset()
-    params:List[dict]                       = { "random_state" : RANDOM_STATE}
+    params:List[dict]                       = { "random_state" : RANDOM_STATE , "max_iter": 5 }
     outccome:Union[ None , Exception]       = logit.setUp(params)
     assert issubclass( type(outcome) , Exception ) == False
+
+    outccome:Union[ None , Exception]       = logit.setUp( { "random_state":RANDOM_STATE } )
+    assert issubclass( type(outcome) , Exception ) == False
+
+    outccome:Union[ None , Exception]       = logit.setUp( { "max_iter":5 } )
+    assert issubclass( type(outcome) , Exception ) == False
+
+    outccome:Union[ None , Exception]       = logit.setUp( {} )
+    assert issubclass( type(outcome) , Exception ) == False
+
 
     # [3] Fitting Modello
     outcome:Union[ None , Exception]        = logit.fit(hw_dataset)

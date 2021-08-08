@@ -1,7 +1,7 @@
 """
 @author           	    :  rscalia                              \n
 @build-date             :  Sat 07/08/2021                       \n
-@last-update            :  Sat 07/08/2021                       \n
+@last-update            :  Sun 08/08/2021                       \n
 
 Questo componente implementa un wrapper ad un'implementazione dell'algoritmo LogisticRegressor
 """
@@ -16,33 +16,52 @@ from typing                                 import List, Union
 
 class LogisticRegressorPandasDataset (Model):
 
-    __slots__ = ("_modelImpl" , "_computeDevice" , "_randomState")
-    def setUp (self, pHyperParams:List[dict] , pComputeDevice:str="cpu") -> Union[ None , Exception ]:
+    __slots__ = ("_modelImpl" , "_computeDevice" , "_randomState" , "_maxIter")
+    def setUp (self, pHyperParams:dict = {} , pComputeDevice:str="cpu") -> Union[ None , Exception ]:
         """
         Questo metodo inizializza opportunamente un Modello di Machine Learning
 
         Args:\n
-            pHyperParams            (List[dict])    : iperparametri da applicare al Modello
-                                                      Opzioni:\n
-                                                        - **random_state**
+            pHyperParams            (dict | DEF = {})           :    iperparametri da applicare al Modello
+                                                                     Opzioni:\n
+                                                                        - **random_state**
+                                                                        - **max_iter**
                                                         
-            pComputeDevice          (str)           : device di calcolo su cui eseguire il Modello \n
-                                                      Opzioni:\n
-                                                        - **CPU**
-                                                        - **GPU**
-                                                        - **TPU**
-                                                        - **FPGA**
-                                                        - **ASIC**
+            pComputeDevice          (str)                       :     device di calcolo su cui eseguire il Modello \n
+                                                                      Opzioni:\n
+                                                                        - **CPU**
+                                                                        - **GPU**
+                                                                        - **TPU**
+                                                                        - **FPGA**
+                                                                        - **ASIC**
         Returns:\n
             Union [ None , Exception ]
 
         Raises:\n
             Exception                               : eccezzione derivata da un errore di istanziazione dell'oggetto rappresentante il Modello di ML oppure scelta erronea degli Iperparametri
         """
-        self._randomState:int                           = pHyperParams['random_state']
-        self._computeDevice:str                         = pComputeDevice
-        self._modelImpl:LogisticRegression              = LogisticRegression( random_state=self._randomState )
+        try:
+            if "random_state" in pHyperParams.keys() and "max_iter" in pHyperParams.keys():
+                self._randomState:int                       = pHyperParams['random_state']
+                self._maxIter:int                           = pHyperParams['max_iter']
+                self._modelImpl:LogisticRegression          = LogisticRegression( random_state=self._randomState , max_iter=self._maxIter )
 
+            elif "random_state" in pHyperParams.keys():
+                self._randomState:int                       = pHyperParams['random_state']
+                self._modelImpl:LogisticRegression          = LogisticRegression( random_state=self._randomState)
+
+            elif "max_iter" in pHyperParams.keys():
+                self._maxIter:int                           = pHyperParams['max_iter']
+                self._modelImpl:LogisticRegression          = LogisticRegression( max_iter=self._maxIter )
+
+            else:
+                self._modelImpl:LogisticRegression          = LogisticRegression( )
+                
+        except Exception as exp:
+            return exp
+
+        self._computeDevice:str                         = pComputeDevice
+        
 
     def changeComputeDevice(self, pDevice:str) -> Union[ None , Exception ]:
         """
@@ -66,13 +85,13 @@ class LogisticRegressorPandasDataset (Model):
         pass
 
 
-    def fit (self, pDataset:Dataset , pTrainingHyperParams:List[dict] = None , pLoss:Loss = None , pOptimizer:Optimizer = None , pLogger:object = None ) -> Union [ None , Exception ]:
+    def fit (self, pDataset:Dataset , pTrainingHyperParams:dict = None , pLoss:Loss = None , pOptimizer:Optimizer = None , pLogger:object = None ) -> Union [ None , Exception ]:
         """
         Questo metodo addestra il Modello di Machine Learning su un apposito dataset utilizzando eventualmente un'implementazione custom di Loss e Optimizer.
 
         Args:\n
             pDataset                (Dataset)                  : dataset su cui addestrare il Modello di Machine Learning
-            pTrainingHyperParams    (List[dict] | DEF = None)  : iperparametri di training
+            pTrainingHyperParams    (dict       | DEF = None)  : iperparametri di training
             pLoss                   (Loss       | DEF = None)  : eventuale funzione Custom da ottimizzare
             pOptimizer              (Optimizer  | DEF = None)  : eventuale Optimizer Custom che permette di ottimizzare la Loss
 
