@@ -68,14 +68,17 @@ class RandomForestPandasDataset (Model):
         pass
 
 
-    def fit (self, pDataset:Dataset , pLoss:Loss = None , pOptimizer:Optimizer = None ) -> Union [ None , Exception ]:
+    def fit (self, pDataset:Dataset , pTrainingHyperParams:List[dict] = None , pLoss:Loss = None , pOptimizer:Optimizer = None , pLogger:object = None ) -> Union [ None , Exception ]:
         """
         Questo metodo addestra il Modello di Machine Learning su un apposito dataset utilizzando eventualmente un'implementazione custom di Loss e Optimizer.
 
         Args:\n
-            pDataset                (Dataset)                   : dataset su cui addestrare il Modello di Machine Learning.
-            pLoss                   (Loss | DEF = None)         : eventuale funzione Custom da ottimizzare
-            pOptimizer              (Optimizer | DEF = None)    : eventuale Optimizer Custom che permette di ottimizzare la Loss
+            pDataset                (Dataset)                  : dataset su cui addestrare il Modello di Machine Learning
+            pTrainingHyperParams    (List[dict] | DEF = None)  : iperparametri di training
+            pLoss                   (Loss       | DEF = None)  : eventuale funzione Custom da ottimizzare
+            pOptimizer              (Optimizer  | DEF = None)  : eventuale Optimizer Custom che permette di ottimizzare la Loss
+
+            pLogger                 (object     | DEF = None)  : oggetto che permette di fare logging dell'andamento del training               
 
         Returns:\n
             Union [ None , Exception ]      
