@@ -1,0 +1,13 @@
+.. toctree::
+   :maxdepth: 4
+
+
+RabbitProducer
+-------------------------
+
+.. automodule:: evaluation.lib.rabbit_producer.RabbitProducer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__

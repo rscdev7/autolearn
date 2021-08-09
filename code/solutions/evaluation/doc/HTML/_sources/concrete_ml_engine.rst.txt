@@ -1,0 +1,79 @@
+.. toctree::
+   :maxdepth: 4
+
+
+DecisionTreePandasDataset
+-------------------------
+
+.. automodule:: evaluation.lib.concrete_ml_engine.DecisionTreePandasDataset
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__
+
+
+LogisticRegressorPandasDataset
+-------------------------
+
+.. automodule:: evaluation.lib.concrete_ml_engine.LogisticRegressorPandasDataset
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__
+
+
+NaiveBayesPandasDataset
+-------------------------
+
+.. automodule:: evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__
+
+
+RandomForestPandasDataset
+-------------------------
+
+.. automodule:: evaluation.lib.concrete_ml_engine.RandomForestPandasDataset
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__
+
+
+SVMPandasDataset
+-------------------------
+
+.. automodule:: evaluation.lib.concrete_ml_engine.SVMPandasDataset
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__
+
+
+IrisFisherDataset
+-------------------------
+
+.. automodule:: evaluation.lib.concrete_ml_engine.IrisFisherDataset
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__
+
+
+HeightWeightDataset
+-------------------------
+
+.. automodule:: evaluation.lib.concrete_ml_engine.HeightWeightDataset
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__

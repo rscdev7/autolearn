@@ -1,0 +1,436 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Indice del modulo Python &mdash; evaluation 1.0.0 documentazione</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Cerca" href="search.html" />
+ 
+
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> evaluation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Moduli</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html">DomainEntity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html#module-evaluation.lib.abstract_event_sourcing.DomainEvent">DomainEvent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html#module-evaluation.lib.abstract_event_sourcing.EventStore">EventStore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html">Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-evaluation.lib.abstract_ml_engine.Model">Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-evaluation.lib.abstract_ml_engine.Loss">Loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-evaluation.lib.abstract_ml_engine.Optimizer">Optimizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_streaming_pipeline.html">StreamingPipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_streaming_pipeline.html#module-evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe">GeneralStreamingPipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="async_kafka_consumer.html">AsyncKafkaConsumer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_event_sourcing.html">AutoLearnLogEntity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_event_sourcing.html#module-evaluation.lib.concrete_event_sourcing.KafkaEventStore">KafkaEventStore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html">DecisionTreePandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#logisticregressorpandasdataset">LogisticRegressorPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset">NaiveBayesPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.RandomForestPandasDataset">RandomForestPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.SVMPandasDataset">SVMPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.IrisFisherDataset">IrisFisherDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.HeightWeightDataset">HeightWeightDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html">datasets_load_pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-evaluation.lib.dataset_pipelines.PandasCSVDatasetLoader">PandasCSVDatasetLoader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-evaluation.lib.dataset_pipelines.StatsModelsDatasetLoader">StatsModelsDatasetLoader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-evaluation.lib.dataset_pipelines.PandasDatasetSplit">PandasDatasetSplit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="domain_work.html">worker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_sourcing_utility.html">event_sourcing_utility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception_manager.html">ExceptionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_engine.html">HTTPEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_engine.html#module-evaluation.lib.http_engine.HTTPError">HTTPError</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kafka_logger.html">KafkaLogger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logger.html">Logger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_serializer.html">NetworkSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rabbit_producer.html">RabbitProducer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_config.html">ServiceConfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_set_up.html">system_set_up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singleton.html">Singleton</a></li>
+<li class="toctree-l1"><a class="reference internal" href="time_stamp_manager.html">TimeStampManager</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">evaluation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Indice del modulo Python</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+   <h1>Indice del modulo Python</h1>
+
+   <div class="modindex-jumpbox">
+   <a href="#cap-e"><strong>e</strong></a>
+   </div>
+
+   <table class="indextable modindextable">
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-e"><td></td><td>
+       <strong>e</strong></td><td></td></tr>
+     <tr>
+       <td><img src="_static/minus.png" class="toggler"
+              id="toggle-1" style="display: none" alt="-" /></td>
+       <td>
+       <code class="xref">evaluation</code></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="abstract_event_sourcing.html#module-evaluation.lib.abstract_event_sourcing.DomainEntity"><code class="xref">evaluation.lib.abstract_event_sourcing.DomainEntity</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="abstract_event_sourcing.html#module-evaluation.lib.abstract_event_sourcing.DomainEvent"><code class="xref">evaluation.lib.abstract_event_sourcing.DomainEvent</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="abstract_event_sourcing.html#module-evaluation.lib.abstract_event_sourcing.EventStore"><code class="xref">evaluation.lib.abstract_event_sourcing.EventStore</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="abstract_ml_engine.html#module-evaluation.lib.abstract_ml_engine.Dataset"><code class="xref">evaluation.lib.abstract_ml_engine.Dataset</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="abstract_ml_engine.html#module-evaluation.lib.abstract_ml_engine.Loss"><code class="xref">evaluation.lib.abstract_ml_engine.Loss</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="abstract_ml_engine.html#module-evaluation.lib.abstract_ml_engine.Model"><code class="xref">evaluation.lib.abstract_ml_engine.Model</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="abstract_ml_engine.html#module-evaluation.lib.abstract_ml_engine.Optimizer"><code class="xref">evaluation.lib.abstract_ml_engine.Optimizer</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="abstract_streaming_pipeline.html#module-evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe"><code class="xref">evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="abstract_streaming_pipeline.html#module-evaluation.lib.abstract_streaming_pipeline.StreamingPipe"><code class="xref">evaluation.lib.abstract_streaming_pipeline.StreamingPipe</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="async_kafka_consumer.html#module-evaluation.lib.async_kafka_consumer.AsyncKafkaConsumer"><code class="xref">evaluation.lib.async_kafka_consumer.AsyncKafkaConsumer</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="concrete_event_sourcing.html#module-evaluation.lib.concrete_event_sourcing.AutoLearnLogEntity"><code class="xref">evaluation.lib.concrete_event_sourcing.AutoLearnLogEntity</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="concrete_event_sourcing.html#module-evaluation.lib.concrete_event_sourcing.KafkaEventStore"><code class="xref">evaluation.lib.concrete_event_sourcing.KafkaEventStore</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.DecisionTreePandasDataset"><code class="xref">evaluation.lib.concrete_ml_engine.DecisionTreePandasDataset</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.HeightWeightDataset"><code class="xref">evaluation.lib.concrete_ml_engine.HeightWeightDataset</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.IrisFisherDataset"><code class="xref">evaluation.lib.concrete_ml_engine.IrisFisherDataset</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.LogisticRegressorPandasDataset"><code class="xref">evaluation.lib.concrete_ml_engine.LogisticRegressorPandasDataset</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset"><code class="xref">evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.RandomForestPandasDataset"><code class="xref">evaluation.lib.concrete_ml_engine.RandomForestPandasDataset</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.SVMPandasDataset"><code class="xref">evaluation.lib.concrete_ml_engine.SVMPandasDataset</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="dataset_pipelines.html#module-evaluation.lib.dataset_pipelines.datasets_load_pipelines"><code class="xref">evaluation.lib.dataset_pipelines.datasets_load_pipelines</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="dataset_pipelines.html#module-evaluation.lib.dataset_pipelines.PandasCSVDatasetLoader"><code class="xref">evaluation.lib.dataset_pipelines.PandasCSVDatasetLoader</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="dataset_pipelines.html#module-evaluation.lib.dataset_pipelines.PandasDatasetSplit"><code class="xref">evaluation.lib.dataset_pipelines.PandasDatasetSplit</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="dataset_pipelines.html#module-evaluation.lib.dataset_pipelines.StatsModelsDatasetLoader"><code class="xref">evaluation.lib.dataset_pipelines.StatsModelsDatasetLoader</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="domain_work.html#module-evaluation.lib.domain_work.worker"><code class="xref">evaluation.lib.domain_work.worker</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="event_sourcing_utility.html#module-evaluation.lib.event_sourcing_utility.event_sourcing_utility"><code class="xref">evaluation.lib.event_sourcing_utility.event_sourcing_utility</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="exception_manager.html#module-evaluation.lib.exception_manager.ExceptionManager"><code class="xref">evaluation.lib.exception_manager.ExceptionManager</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="http_engine.html#module-evaluation.lib.http_engine.HTTPEngine"><code class="xref">evaluation.lib.http_engine.HTTPEngine</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="http_engine.html#module-evaluation.lib.http_engine.HTTPError"><code class="xref">evaluation.lib.http_engine.HTTPError</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="kafka_logger.html#module-evaluation.lib.kafka_logger.KafkaLogger"><code class="xref">evaluation.lib.kafka_logger.KafkaLogger</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="logger.html#module-evaluation.lib.logger.Logger"><code class="xref">evaluation.lib.logger.Logger</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="network_serializer.html#module-evaluation.lib.network_serializer.NetworkSerializer"><code class="xref">evaluation.lib.network_serializer.NetworkSerializer</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="rabbit_producer.html#module-evaluation.lib.rabbit_producer.RabbitProducer"><code class="xref">evaluation.lib.rabbit_producer.RabbitProducer</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="service_config.html#module-evaluation.lib.service_config.ServiceConfig"><code class="xref">evaluation.lib.service_config.ServiceConfig</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="service_set_up.html#module-evaluation.lib.service_set_up.system_set_up"><code class="xref">evaluation.lib.service_set_up.system_set_up</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="singleton.html#module-evaluation.lib.singleton.Singleton"><code class="xref">evaluation.lib.singleton.Singleton</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="time_stamp_manager.html#module-evaluation.lib.time_stamp_manager.TimeStampManager"><code class="xref">evaluation.lib.time_stamp_manager.TimeStampManager</code></a></td><td>
+       <em></em></td></tr>
+   </table>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Rosario Scalia.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+.. toctree::
+   :maxdepth: 4
+
+
+ExceptionManager
+-------------------------
+
+.. automodule:: evaluation.lib.exception_manager.ExceptionManager
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__

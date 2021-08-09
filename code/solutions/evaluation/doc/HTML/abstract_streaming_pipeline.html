@@ -1,0 +1,553 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>StreamingPipe &mdash; evaluation 1.0.0 documentazione</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Cerca" href="search.html" />
+    <link rel="next" title="AsyncKafkaConsumer" href="async_kafka_consumer.html" />
+    <link rel="prev" title="Dataset" href="abstract_ml_engine.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> evaluation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Moduli</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html">DomainEntity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html#module-evaluation.lib.abstract_event_sourcing.DomainEvent">DomainEvent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html#module-evaluation.lib.abstract_event_sourcing.EventStore">EventStore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html">Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-evaluation.lib.abstract_ml_engine.Model">Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-evaluation.lib.abstract_ml_engine.Loss">Loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-evaluation.lib.abstract_ml_engine.Optimizer">Optimizer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">StreamingPipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe">GeneralStreamingPipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="async_kafka_consumer.html">AsyncKafkaConsumer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_event_sourcing.html">AutoLearnLogEntity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_event_sourcing.html#module-evaluation.lib.concrete_event_sourcing.KafkaEventStore">KafkaEventStore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html">DecisionTreePandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#logisticregressorpandasdataset">LogisticRegressorPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset">NaiveBayesPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.RandomForestPandasDataset">RandomForestPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.SVMPandasDataset">SVMPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.IrisFisherDataset">IrisFisherDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.HeightWeightDataset">HeightWeightDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html">datasets_load_pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-evaluation.lib.dataset_pipelines.PandasCSVDatasetLoader">PandasCSVDatasetLoader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-evaluation.lib.dataset_pipelines.StatsModelsDatasetLoader">StatsModelsDatasetLoader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-evaluation.lib.dataset_pipelines.PandasDatasetSplit">PandasDatasetSplit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="domain_work.html">worker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_sourcing_utility.html">event_sourcing_utility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception_manager.html">ExceptionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_engine.html">HTTPEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_engine.html#module-evaluation.lib.http_engine.HTTPError">HTTPError</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kafka_logger.html">KafkaLogger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logger.html">Logger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_serializer.html">NetworkSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rabbit_producer.html">RabbitProducer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_config.html">ServiceConfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_set_up.html">system_set_up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singleton.html">Singleton</a></li>
+<li class="toctree-l1"><a class="reference internal" href="time_stamp_manager.html">TimeStampManager</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">evaluation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>StreamingPipe</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/abstract_streaming_pipeline.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="module-evaluation.lib.abstract_streaming_pipeline.StreamingPipe">
+<span id="streamingpipe"></span><h1>StreamingPipe<a class="headerlink" href="#module-evaluation.lib.abstract_streaming_pipeline.StreamingPipe" title="Link a questa intestazione">¶</a></h1>
+<p>&#64;author                 :  rscalia</p>
+<p>&#64;build-date         :  Wed 04/08/2021</p>
+<p>&#64;last-update        :  Fri 06/08/2021</p>
+<p>Questa classe implementa l’astrazione della StreamingPipe presente nel DP StreamingPipeline</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">evaluation.lib.abstract_streaming_pipeline.StreamingPipe.</span></span><span class="sig-name descname"><span class="pre">StreamingPipe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pInputStream</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Iterator</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe" title="Link a questa definizione">¶</a></dt>
+<dd><blockquote>
+<div><p>Basi: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__abstractmethods__">
+<span class="sig-name descname"><span class="pre">__abstractmethods__</span></span><em class="property"> <span class="pre">=</span> <span class="pre">frozenset({'__init__',</span> <span class="pre">'__iter__',</span> <span class="pre">'__next__',</span> <span class="pre">'__or__',</span> <span class="pre">'filter',</span> <span class="pre">'getFromStream',</span> <span class="pre">'hasNext',</span> <span class="pre">'make',</span> <span class="pre">'map'})</span></em><a class="headerlink" href="#evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__abstractmethods__" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__init__">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pInputStream</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Iterator</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">object</span></span></span><a class="headerlink" href="#evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__init__" title="Link a questa definizione">¶</a></dt>
+<dd><p>Costruttore</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pInputStream</strong> (<em>Iterator</em><em> | </em><em>DEF = None</em>) – eventuale stream di input alla Pipe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__iter__">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">__iter__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span></span></span><a class="headerlink" href="#evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__iter__" title="Link a questa definizione">¶</a></dt>
+<dd><p>Metodo che restituisce l’oggetto necessario al prelievo dei dati elaborati dalla pipe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>Iteratore sui dati elaborati dalla Pipe</p>
+</dd>
+<dt class="field-even">Tipo di ritorno</dt>
+<dd class="field-even"><p>Iterator</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__next__">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">__next__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">object</span></span></span><a class="headerlink" href="#evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__next__" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di elaborare il prossimo elemento proveniente dallo stream di input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>dato proveniente dallo stream elaborato dalla Pipe</p>
+</dd>
+<dt class="field-even">Tipo di ritorno</dt>
+<dd class="field-even"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__or__">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">__or__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pNextPipe</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">object</span></span></span><a class="headerlink" href="#evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__or__" title="Link a questa definizione">¶</a></dt>
+<dd><p>Permette di connettere più Task tra di loro attraverso l’operatore Pipe (OR).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pNextPipe</strong> (<a class="reference internal" href="#evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe" title="evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe"><em>StreamingPipe</em></a>) – Prossimo task della Pipeline</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>prossima Task da eseguire nella Pipeline con dato di input caricato</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe" title="evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe">StreamingPipe</a></p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>StopIteration</strong> – stop dello stream verso la pipe</p></li>
+<li><p><strong>Exception</strong> – eccezione derivata dal prelievo dei dati dallo stream oppure dalla filter oppure dalla map oppure dall’assenza dell’oggetto per accedere allo Stream</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.filter">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pData</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.filter" title="Link a questa definizione">¶</a></dt>
+<dd><p>Filtra il dato attuale secondo un criterio opportuno</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pData</strong> (<em>object</em>) – dato da filtrare</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>booleano in merito alla logica del filtro oppure eccezione</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – eventuale eccezione accaduta durante il filtraggio</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.getFromStream">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">getFromStream</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">object</span></span></span><a class="headerlink" href="#evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.getFromStream" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo preleva un elemento dallo stream di dati in input alla Pipe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>elemento prelevato dallo stream</p>
+</dd>
+<dt class="field-even">Tipo di ritorno</dt>
+<dd class="field-even"><p>object</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – errore nella get del dato dallo stream</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.hasNext">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">hasNext</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.hasNext" title="Link a questa definizione">¶</a></dt>
+<dd><p>Metodo che indica se è possibile prelevare ancora elementi dallo Stream</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>VERO se è presente ancora un elemento da elaborare, FALSO altrimenti</p>
+</dd>
+<dt class="field-even">Tipo di ritorno</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.make">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">make</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span></span></span><a class="headerlink" href="#evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.make" title="Link a questa definizione">¶</a></dt>
+<dd><p>Restituisce un iteratore che permette di prelevare sequenzialmente i dati elaborati dalla pipe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>iteratore che permette di prelevare i dati dalla pipe</p>
+</dd>
+<dt class="field-even">Tipo di ritorno</dt>
+<dd class="field-even"><p>Iterator</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>StopIteration</strong> – stop dello stream verso la pipe</p></li>
+<li><p><strong>Exception</strong> – eccezione derivata dal prelievo dei dati dallo stream oppure dalla filter oppure dalla map oppure dall’assenza dell’oggetto per accedere allo Stream</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.map">
+<em class="property"><span class="pre">abstract</span> </em><span class="sig-name descname"><span class="pre">map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pData</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">object</span></span></span><a class="headerlink" href="#evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.map" title="Link a questa definizione">¶</a></dt>
+<dd><p>Elabora il dato in input alla pipe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pData</strong> (<em>object</em>) – dato da elaborare</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>dato elaborato o eccezzione</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – eventuale eccezione accaduta durante l’elaborazione</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe">
+<span id="generalstreamingpipe"></span><h1>GeneralStreamingPipe<a class="headerlink" href="#module-evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe" title="Link a questa intestazione">¶</a></h1>
+<p>&#64;author                 :  rscalia</p>
+<p>&#64;build-date         :  Fri 06/08/2021</p>
+<p>&#64;last-update        :  Fri 06/08/2021</p>
+<p>Questa classe implementa una serie di metodi di base dell’interfaccia StreamingPipe.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe.</span></span><span class="sig-name descname"><span class="pre">GeneralStreamingPipe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pInputStream</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Iterator</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe" title="Link a questa definizione">¶</a></dt>
+<dd><blockquote>
+<div><p>Basi: <a class="reference internal" href="#evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe" title="evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe"><code class="xref py py-class docutils literal notranslate"><span class="pre">evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe</span></code></a></p>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__abstractmethods__">
+<span class="sig-name descname"><span class="pre">__abstractmethods__</span></span><em class="property"> <span class="pre">=</span> <span class="pre">frozenset({'filter',</span> <span class="pre">'map'})</span></em><a class="headerlink" href="#evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__abstractmethods__" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pInputStream</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Iterator</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">object</span></span></span><a class="headerlink" href="#evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__init__" title="Link a questa definizione">¶</a></dt>
+<dd><p>Costruttore</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pInputStream</strong> (<em>Iterator</em><em> | </em><em>DEF = None</em>) – eventuale stream di input alla Pipe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__iter__">
+<span class="sig-name descname"><span class="pre">__iter__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span></span></span><a class="headerlink" href="#evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__iter__" title="Link a questa definizione">¶</a></dt>
+<dd><p>Metodo che restituisce l’oggetto necessario al prelievo dei dati elaborati dalla pipe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>Iteratore sui dati elaborati dalla Pipe</p>
+</dd>
+<dt class="field-even">Tipo di ritorno</dt>
+<dd class="field-even"><p>Iterator</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__next__">
+<span class="sig-name descname"><span class="pre">__next__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">object</span></span></span><a class="headerlink" href="#evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__next__" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di elaborare il prossimo elemento presente nello stream di input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>dato proveniente dallo stream elaborato dalla Pipe</p>
+</dd>
+<dt class="field-even">Tipo di ritorno</dt>
+<dd class="field-even"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__or__">
+<span class="sig-name descname"><span class="pre">__or__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pNextPipe</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">object</span></span></span><a class="headerlink" href="#evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__or__" title="Link a questa definizione">¶</a></dt>
+<dd><p>Permette di connettere più Task tra di loro attraverso l’operatore Pipe (OR).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pNextPipe</strong> (<a class="reference internal" href="#evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe" title="evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe"><em>StreamingPipe</em></a>) – Prossimo task della Pipeline</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>prossima Task da eseguire nella Pipeline con dato di input caricato</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe" title="evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe">StreamingPipe</a></p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>StopIteration</strong> – stop dello stream verso la pipe</p></li>
+<li><p><strong>Exception</strong> – eccezione derivata dal prelievo dei dati dallo stream oppure dalla filter oppure dalla map oppure dall’assenza dell’oggetto per accedere allo Stream</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.getFromStream">
+<span class="sig-name descname"><span class="pre">getFromStream</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">object</span></span></span><a class="headerlink" href="#evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.getFromStream" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo preleva un elemento dallo stream di dati in input alla Pipe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>elemento prelevato dallo stream</p>
+</dd>
+<dt class="field-even">Tipo di ritorno</dt>
+<dd class="field-even"><p>object</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – errore nella get del dato dallo stream</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.hasNext">
+<span class="sig-name descname"><span class="pre">hasNext</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.hasNext" title="Link a questa definizione">¶</a></dt>
+<dd><p>Metodo che indica se è possibile prelevare ancora elementi dallo Stream</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>VERO se è presente ancora un elemento da elaborare, FALSO altrimenti</p>
+</dd>
+<dt class="field-even">Tipo di ritorno</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.make">
+<span class="sig-name descname"><span class="pre">make</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span></span></span><a class="headerlink" href="#evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.make" title="Link a questa definizione">¶</a></dt>
+<dd><p>Restituisce un iteratore che permette di prelevare sequenzialmente i dati elaborati dalla pipe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>iteratore che permette di prelevare i dati dalla pipe</p>
+</dd>
+<dt class="field-even">Tipo di ritorno</dt>
+<dd class="field-even"><p>Iterator</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>StopIteration</strong> – stop dello stream verso la pipe</p></li>
+<li><p><strong>Exception</strong> – eccezione derivata dal prelievo dei dati dallo stream oppure dalla filter oppure dalla map oppure dall’assenza dell’oggetto per accedere allo Stream</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="async_kafka_consumer.html" class="btn btn-neutral float-right" title="AsyncKafkaConsumer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="abstract_ml_engine.html" class="btn btn-neutral float-left" title="Dataset" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Rosario Scalia.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

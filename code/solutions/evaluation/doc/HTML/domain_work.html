@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>worker &mdash; evaluation 1.0.0 documentazione</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Cerca" href="search.html" />
+    <link rel="next" title="event_sourcing_utility" href="event_sourcing_utility.html" />
+    <link rel="prev" title="datasets_load_pipelines" href="dataset_pipelines.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> evaluation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Moduli</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html">DomainEntity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html#module-evaluation.lib.abstract_event_sourcing.DomainEvent">DomainEvent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html#module-evaluation.lib.abstract_event_sourcing.EventStore">EventStore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html">Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-evaluation.lib.abstract_ml_engine.Model">Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-evaluation.lib.abstract_ml_engine.Loss">Loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-evaluation.lib.abstract_ml_engine.Optimizer">Optimizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_streaming_pipeline.html">StreamingPipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_streaming_pipeline.html#module-evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe">GeneralStreamingPipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="async_kafka_consumer.html">AsyncKafkaConsumer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_event_sourcing.html">AutoLearnLogEntity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_event_sourcing.html#module-evaluation.lib.concrete_event_sourcing.KafkaEventStore">KafkaEventStore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html">DecisionTreePandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#logisticregressorpandasdataset">LogisticRegressorPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset">NaiveBayesPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.RandomForestPandasDataset">RandomForestPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.SVMPandasDataset">SVMPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.IrisFisherDataset">IrisFisherDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.HeightWeightDataset">HeightWeightDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html">datasets_load_pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-evaluation.lib.dataset_pipelines.PandasCSVDatasetLoader">PandasCSVDatasetLoader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-evaluation.lib.dataset_pipelines.StatsModelsDatasetLoader">StatsModelsDatasetLoader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-evaluation.lib.dataset_pipelines.PandasDatasetSplit">PandasDatasetSplit</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">worker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_sourcing_utility.html">event_sourcing_utility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception_manager.html">ExceptionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_engine.html">HTTPEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_engine.html#module-evaluation.lib.http_engine.HTTPError">HTTPError</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kafka_logger.html">KafkaLogger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logger.html">Logger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_serializer.html">NetworkSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rabbit_producer.html">RabbitProducer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_config.html">ServiceConfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_set_up.html">system_set_up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singleton.html">Singleton</a></li>
+<li class="toctree-l1"><a class="reference internal" href="time_stamp_manager.html">TimeStampManager</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">evaluation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>worker</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/domain_work.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="module-evaluation.lib.domain_work.worker">
+<span id="worker"></span><h1>worker<a class="headerlink" href="#module-evaluation.lib.domain_work.worker" title="Link a questa intestazione">¶</a></h1>
+<p>&#64;author                     :  rscalia</p>
+<p>&#64;build-date             :  Mon 09/08/2021</p>
+<p>&#64;last-update            :  Mon 09/08/2021</p>
+<p>Questo modulo permette di svolgere il domain work del microservizio Evaluation</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="evaluation.lib.domain_work.worker.checkTrainingExist">
+<em class="property"><span class="pre">async</span> </em><span class="sig-prename descclassname"><span class="pre">evaluation.lib.domain_work.worker.</span></span><span class="sig-name descname"><span class="pre">checkTrainingExist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pIdSession</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pCfg</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="service_config.html#evaluation.lib.service_config.ServiceConfig.ServiceConfig" title="evaluation.lib.service_config.ServiceConfig.ServiceConfig"><span class="pre">evaluation.lib.service_config.ServiceConfig.ServiceConfig</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">pNetLogger</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="concrete_event_sourcing.html#evaluation.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity" title="evaluation.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity"><span class="pre">evaluation.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">pLogger</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="logger.html#evaluation.lib.logger.Logger.Logger" title="evaluation.lib.logger.Logger.Logger"><span class="pre">evaluation.lib.logger.Logger.Logger</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">,</span> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Exception</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.domain_work.worker.checkTrainingExist" title="Link a questa definizione">¶</a></dt>
+<dd><p># <strong>checkTrainingExist</strong></p>
+<p>Questa funzione permette di verificare se un determinato training è presente nel DB di Sessione</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pIdSession</strong> (<em>int</em>) – id sessione del training che si vuole ricercare</p></li>
+<li><p><strong>pCfg</strong> (<a class="reference internal" href="service_config.html#evaluation.lib.service_config.ServiceConfig.ServiceConfig" title="evaluation.lib.service_config.ServiceConfig.ServiceConfig"><em>ServiceConfig</em></a>) – configurazione dell’applicativo</p></li>
+<li><p><strong>pNetLogger</strong> (<a class="reference internal" href="concrete_event_sourcing.html#evaluation.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity" title="evaluation.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity"><em>AutoLearnLogEntity</em></a>) – logger comportamentale del microservizio</p></li>
+<li><p><strong>pLogger</strong> (<a class="reference internal" href="logger.html#evaluation.lib.logger.Logger.Logger" title="evaluation.lib.logger.Logger.Logger"><em>Logger</em></a>) – logger locale</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union[ dict , Exception, Tuple[ Exception , int]]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione nella comunicazione col microservizio Session</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="evaluation.lib.domain_work.worker.decryptSessId">
+<span class="sig-prename descclassname"><span class="pre">evaluation.lib.domain_work.worker.</span></span><span class="sig-name descname"><span class="pre">decryptSessId</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pCryptSessId</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pLogger</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="logger.html#evaluation.lib.logger.Logger.Logger" title="evaluation.lib.logger.Logger.Logger"><span class="pre">evaluation.lib.logger.Logger.Logger</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.domain_work.worker.decryptSessId" title="Link a questa definizione">¶</a></dt>
+<dd><p># <strong>decryptSessId</strong></p>
+<p>Questa funzione permette di decifrare l’id sessione passato dal client</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pCryptSessId</strong> (<em>str</em>) – id di sessione cifrato</p></li>
+<li><p><strong>pLogger</strong> (<a class="reference internal" href="logger.html#evaluation.lib.logger.Logger.Logger" title="evaluation.lib.logger.Logger.Logger"><em>Logger</em></a>) – logger locale dell’applicativo</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ int , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante la decifratura della chiave</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="evaluation.lib.domain_work.worker.ev_model">
+<span class="sig-prename descclassname"><span class="pre">evaluation.lib.domain_work.worker.</span></span><span class="sig-name descname"><span class="pre">ev_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pModelType</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pModelImpl</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pDatasetInfo</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pDataPath</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.domain_work.worker.ev_model" title="Link a questa definizione">¶</a></dt>
+<dd><p># <strong>ev_model</strong></p>
+<p>Questa funzione permette di valutare un Modello di ML</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pModelType</strong> (<em>str</em>) – nome del Modello</p></li>
+<li><p><strong>pModelImpl</strong> (<em>object</em>) – oggetto rappresentante l’implementazione del Modello da valutare</p></li>
+<li><p><strong>pDatasetInfo</strong> (<em>dict</em>) – informazioni sul dataset su cui valutare il Modello</p></li>
+<li><p><strong>pDataPath</strong> (<em>dict</em>) – <p>path al dataset
+Formato:</p>
+<blockquote>
+<div><ul>
+<li><p><strong>height_weight_dataset</strong> : str</p></li>
+</ul>
+</div></blockquote>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>metriche di valutazione oppure eccezione sotto forma di messaggio d’errore testuale</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p>Union [ List[dict] , str  ]</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – errore nella valutazione del modello di ML</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="evaluation.lib.domain_work.worker.evaluate_model">
+<em class="property"><span class="pre">async</span> </em><span class="sig-prename descclassname"><span class="pre">evaluation.lib.domain_work.worker.</span></span><span class="sig-name descname"><span class="pre">evaluate_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pRecord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pCfg</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="service_config.html#evaluation.lib.service_config.ServiceConfig.ServiceConfig" title="evaluation.lib.service_config.ServiceConfig.ServiceConfig"><span class="pre">evaluation.lib.service_config.ServiceConfig.ServiceConfig</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">pNetLogger</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="concrete_event_sourcing.html#evaluation.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity" title="evaluation.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity"><span class="pre">evaluation.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">pLogger</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="logger.html#evaluation.lib.logger.Logger.Logger" title="evaluation.lib.logger.Logger.Logger"><span class="pre">evaluation.lib.logger.Logger.Logger</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">pEventStore</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="concrete_event_sourcing.html#evaluation.lib.concrete_event_sourcing.KafkaEventStore.KafkaEventStore" title="evaluation.lib.concrete_event_sourcing.KafkaEventStore.KafkaEventStore"><span class="pre">evaluation.lib.concrete_event_sourcing.KafkaEventStore.KafkaEventStore</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#evaluation.lib.domain_work.worker.evaluate_model" title="Link a questa definizione">¶</a></dt>
+<dd><p># <strong>evaluate_model</strong></p>
+<p>Questa funzione permette di valutare un Modello di ML precedentemente addestrato e di archiviarne il risultato nell’apposito record di sessione</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pRecord</strong> (<em>dict</em>) – record di sessione contenente il modello di ML da valutare</p></li>
+<li><p><strong>pCfg</strong> (<a class="reference internal" href="service_config.html#evaluation.lib.service_config.ServiceConfig.ServiceConfig" title="evaluation.lib.service_config.ServiceConfig.ServiceConfig"><em>ServiceConfig</em></a>) – configurazione dell’applicativo</p></li>
+<li><p><strong>pNetLogger</strong> (<a class="reference internal" href="concrete_event_sourcing.html#evaluation.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity" title="evaluation.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity"><em>AutoLearnLogEntity</em></a>) – logger comportamental applicativo</p></li>
+<li><p><strong>pLogger</strong> (<a class="reference internal" href="logger.html#evaluation.lib.logger.Logger.Logger" title="evaluation.lib.logger.Logger.Logger"><em>Logger</em></a>) – logger locale applicativo</p></li>
+<li><p><strong>pEventStore</strong> (<a class="reference internal" href="concrete_event_sourcing.html#evaluation.lib.concrete_event_sourcing.KafkaEventStore.KafkaEventStore" title="evaluation.lib.concrete_event_sourcing.KafkaEventStore.KafkaEventStore"><em>KafkaEventStore</em></a>) – oggetto che si interfaccia con l’event-store</p></li>
+</ul>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – eccezione scaturita da errori nella fase di evaluation del modello oppure dall’assenza del dataset su disco oppuew da problemi con la connessione col Message Broker</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="evaluation.lib.domain_work.worker.load_height_weight">
+<span class="sig-prename descclassname"><span class="pre">evaluation.lib.domain_work.worker.</span></span><span class="sig-name descname"><span class="pre">load_height_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDataPath</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pSeed</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pSplit</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pLogger</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="logger.html#evaluation.lib.logger.Logger.Logger" title="evaluation.lib.logger.Logger.Logger"><span class="pre">evaluation.lib.logger.Logger.Logger</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.domain_work.worker.load_height_weight" title="Link a questa definizione">¶</a></dt>
+<dd><p># <strong>load_height_weight</strong></p>
+<p>Questa funzione permette di caricare in memoria il dataset HeightWeight</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pDataPath</strong> (<em>str</em>) – path del dataset</p></li>
+<li><p><strong>pSeed</strong> (<em>int</em>) – seme per gli algoritmi random</p></li>
+<li><p><strong>pSplit</strong> (<em>float</em>) – percentuale dati test-set</p></li>
+<li><p><strong>pLogger</strong> (<a class="reference internal" href="logger.html#evaluation.lib.logger.Logger.Logger" title="evaluation.lib.logger.Logger.Logger"><em>Logger</em></a>) – logger locale</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ object , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante il caricamento del dataset</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="evaluation.lib.domain_work.worker.load_iris">
+<span class="sig-prename descclassname"><span class="pre">evaluation.lib.domain_work.worker.</span></span><span class="sig-name descname"><span class="pre">load_iris</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pSeed</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pSplit</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pLogger</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="logger.html#evaluation.lib.logger.Logger.Logger" title="evaluation.lib.logger.Logger.Logger"><span class="pre">evaluation.lib.logger.Logger.Logger</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.domain_work.worker.load_iris" title="Link a questa definizione">¶</a></dt>
+<dd><p># <strong>load_iris</strong></p>
+<p>Questa funzione permette di caricare in memoria il dataset Iris</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pSeed</strong> (<em>int</em>) – seme per gli algoritmi random</p></li>
+<li><p><strong>pSplit</strong> (<em>float</em>) – percentuale dati test-set</p></li>
+<li><p><strong>pLogger</strong> (<a class="reference internal" href="logger.html#evaluation.lib.logger.Logger.Logger" title="evaluation.lib.logger.Logger.Logger"><em>Logger</em></a>) – logger locale</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ object , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante il caricamento del dataset</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="event_sourcing_utility.html" class="btn btn-neutral float-right" title="event_sourcing_utility" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="dataset_pipelines.html" class="btn btn-neutral float-left" title="datasets_load_pipelines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Rosario Scalia.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

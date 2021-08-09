@@ -1,0 +1,369 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>TimeStampManager &mdash; evaluation 1.0.0 documentazione</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Cerca" href="search.html" />
+    <link rel="prev" title="Singleton" href="singleton.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> evaluation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Moduli</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html">DomainEntity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html#module-evaluation.lib.abstract_event_sourcing.DomainEvent">DomainEvent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html#module-evaluation.lib.abstract_event_sourcing.EventStore">EventStore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html">Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-evaluation.lib.abstract_ml_engine.Model">Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-evaluation.lib.abstract_ml_engine.Loss">Loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-evaluation.lib.abstract_ml_engine.Optimizer">Optimizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_streaming_pipeline.html">StreamingPipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_streaming_pipeline.html#module-evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe">GeneralStreamingPipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="async_kafka_consumer.html">AsyncKafkaConsumer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_event_sourcing.html">AutoLearnLogEntity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_event_sourcing.html#module-evaluation.lib.concrete_event_sourcing.KafkaEventStore">KafkaEventStore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html">DecisionTreePandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#logisticregressorpandasdataset">LogisticRegressorPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset">NaiveBayesPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.RandomForestPandasDataset">RandomForestPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.SVMPandasDataset">SVMPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.IrisFisherDataset">IrisFisherDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-evaluation.lib.concrete_ml_engine.HeightWeightDataset">HeightWeightDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html">datasets_load_pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-evaluation.lib.dataset_pipelines.PandasCSVDatasetLoader">PandasCSVDatasetLoader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-evaluation.lib.dataset_pipelines.StatsModelsDatasetLoader">StatsModelsDatasetLoader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-evaluation.lib.dataset_pipelines.PandasDatasetSplit">PandasDatasetSplit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="domain_work.html">worker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_sourcing_utility.html">event_sourcing_utility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception_manager.html">ExceptionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_engine.html">HTTPEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_engine.html#module-evaluation.lib.http_engine.HTTPError">HTTPError</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kafka_logger.html">KafkaLogger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logger.html">Logger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_serializer.html">NetworkSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rabbit_producer.html">RabbitProducer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_config.html">ServiceConfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_set_up.html">system_set_up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singleton.html">Singleton</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">TimeStampManager</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">evaluation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>TimeStampManager</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/time_stamp_manager.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="module-evaluation.lib.time_stamp_manager.TimeStampManager">
+<span id="timestampmanager"></span><h1>TimeStampManager<a class="headerlink" href="#module-evaluation.lib.time_stamp_manager.TimeStampManager" title="Link a questa intestazione">¶</a></h1>
+<p>&#64;author                 :  rscalia
+&#64;build-date         :  Sun 02/05/2021
+&#64;last_update        :  Sat 24/07/2021</p>
+<p>Questo componente serve per convertire una data in un Timestamp UNIX e viceversa oltre che a restituire il timestamp attuale in millisecondi.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="evaluation.lib.time_stamp_manager.TimeStampManager.TimeStampManager">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">evaluation.lib.time_stamp_manager.TimeStampManager.</span></span><span class="sig-name descname"><span class="pre">TimeStampManager</span></span><a class="headerlink" href="#evaluation.lib.time_stamp_manager.TimeStampManager.TimeStampManager" title="Link a questa definizione">¶</a></dt>
+<dd><blockquote>
+<div><p>Basi: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.time_stamp_manager.TimeStampManager.TimeStampManager.currentTimeStampInMS">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">currentTimeStampInMS</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#evaluation.lib.time_stamp_manager.TimeStampManager.TimeStampManager.currentTimeStampInMS" title="Link a questa definizione">¶</a></dt>
+<dd><p>Restituisce il timestamp Attuale in millisecondi.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>timestamp in millisecondi</p>
+</dd>
+<dt class="field-even">Tipo di ritorno</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.time_stamp_manager.TimeStampManager.TimeStampManager.currentTimeStampInSec">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">currentTimeStampInSec</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#evaluation.lib.time_stamp_manager.TimeStampManager.TimeStampManager.currentTimeStampInSec" title="Link a questa definizione">¶</a></dt>
+<dd><p>Restituisce il timestamp Attuale in millisecondi.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>timestamp in secondi</p>
+</dd>
+<dt class="field-even">Tipo di ritorno</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.time_stamp_manager.TimeStampManager.TimeStampManager.date2Timestamp">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">date2Timestamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDay</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pMonth</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pYear</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pHour</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pMinutes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.time_stamp_manager.TimeStampManager.TimeStampManager.date2Timestamp" title="Link a questa definizione">¶</a></dt>
+<dd><p>Converte una data in un timestamp UNIX (in secondi).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pDay</strong> (<em>int</em>) – giorno</p></li>
+<li><p><strong>pMonth</strong> (<em>int</em>) – mese</p></li>
+<li><p><strong>pYear</strong> (<em>int</em>) – anno</p></li>
+<li><p><strong>pHour</strong> (<em>int</em><em> | </em><em>DEF = 0</em>) – ora</p></li>
+<li><p><strong>pMinutes</strong> (<em>int</em><em> | </em><em>DEF = 0</em>) – minuti</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>timestamp UNIX in Secondi o eccezione</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p>Union [ int , Exception ]</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – eccezione molto probabilmente scaturità da un formato dei parametri passati inammissibile.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestamp2Date">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">timestamp2Date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pTimeStamp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pStringOut</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pMsTimeStamp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">datetime.datetime</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestamp2Date" title="Link a questa definizione">¶</a></dt>
+<dd><p>Converte un timestamp UNIX (in secondi) in una Data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pTimeStamp</strong> (<em>int</em>) – numero in virgola mobile rappresentante un timestamp in secondi</p></li>
+<li><p><strong>pStringOut</strong> (<em>bool</em><em> | </em><em>DEF = True</em>) – Se impostato a vero, il metodo restituisce una data formattata come stringa, atrimenti restituisce la data incapsulata in un oggetto datetime.</p></li>
+<li><p><strong>pMsTimeStamp</strong> (<em>bool</em><em> | </em><em>DEF = False</em>) – indica se il timestamp passato è espresso in secondi o in millisecondi</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>stringa o oggetto datetime rappresentante la data associata al timestamp passato alla funzione</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p>Union[ str , datetime]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestampMs2Sec">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">timestampMs2Sec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pMsTimestamp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#evaluation.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestampMs2Sec" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo converte un timestamp in millisecondi in secondi.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pMsTimestamp</strong> (<em>int</em>) – timestamp in millisecondi</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>timestamp espresso in secondi</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestampSec2Ms">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">timestampSec2Ms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pMsTimestamp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#evaluation.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestampSec2Ms" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo converte un timestamp in secondi in millisecondi.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pMsTimestamp</strong> (<em>int</em>) – timestamp in secondi</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>timestamp espresso in millisecondi</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="singleton.html" class="btn btn-neutral float-left" title="Singleton" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Rosario Scalia.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

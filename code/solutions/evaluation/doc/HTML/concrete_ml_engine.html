@@ -1,0 +1,1301 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>DecisionTreePandasDataset &mdash; evaluation 1.0.0 documentazione</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Cerca" href="search.html" />
+    <link rel="next" title="datasets_load_pipelines" href="dataset_pipelines.html" />
+    <link rel="prev" title="AutoLearnLogEntity" href="concrete_event_sourcing.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> evaluation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Moduli</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html">DomainEntity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html#module-evaluation.lib.abstract_event_sourcing.DomainEvent">DomainEvent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html#module-evaluation.lib.abstract_event_sourcing.EventStore">EventStore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html">Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-evaluation.lib.abstract_ml_engine.Model">Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-evaluation.lib.abstract_ml_engine.Loss">Loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-evaluation.lib.abstract_ml_engine.Optimizer">Optimizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_streaming_pipeline.html">StreamingPipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_streaming_pipeline.html#module-evaluation.lib.abstract_streaming_pipeline.GeneralStreamingPipe">GeneralStreamingPipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="async_kafka_consumer.html">AsyncKafkaConsumer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_event_sourcing.html">AutoLearnLogEntity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_event_sourcing.html#module-evaluation.lib.concrete_event_sourcing.KafkaEventStore">KafkaEventStore</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DecisionTreePandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#logisticregressorpandasdataset">LogisticRegressorPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset">NaiveBayesPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-evaluation.lib.concrete_ml_engine.RandomForestPandasDataset">RandomForestPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-evaluation.lib.concrete_ml_engine.SVMPandasDataset">SVMPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-evaluation.lib.concrete_ml_engine.IrisFisherDataset">IrisFisherDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-evaluation.lib.concrete_ml_engine.HeightWeightDataset">HeightWeightDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html">datasets_load_pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-evaluation.lib.dataset_pipelines.PandasCSVDatasetLoader">PandasCSVDatasetLoader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-evaluation.lib.dataset_pipelines.StatsModelsDatasetLoader">StatsModelsDatasetLoader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-evaluation.lib.dataset_pipelines.PandasDatasetSplit">PandasDatasetSplit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="domain_work.html">worker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_sourcing_utility.html">event_sourcing_utility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception_manager.html">ExceptionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_engine.html">HTTPEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_engine.html#module-evaluation.lib.http_engine.HTTPError">HTTPError</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kafka_logger.html">KafkaLogger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logger.html">Logger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_serializer.html">NetworkSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rabbit_producer.html">RabbitProducer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_config.html">ServiceConfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_set_up.html">system_set_up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singleton.html">Singleton</a></li>
+<li class="toctree-l1"><a class="reference internal" href="time_stamp_manager.html">TimeStampManager</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">evaluation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>DecisionTreePandasDataset</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/concrete_ml_engine.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="module-evaluation.lib.concrete_ml_engine.DecisionTreePandasDataset">
+<span id="decisiontreepandasdataset"></span><h1>DecisionTreePandasDataset<a class="headerlink" href="#module-evaluation.lib.concrete_ml_engine.DecisionTreePandasDataset" title="Link a questa intestazione">¶</a></h1>
+<p>&#64;author                     :  rscalia</p>
+<p>&#64;build-date             :  Sat 07/08/2021</p>
+<p>&#64;last-update            :  Sun 08/08/2021</p>
+<p>Questo componente implementa un wrapper ad un’implementazione dell’algoritmo DecisionTree</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">evaluation.lib.concrete_ml_engine.DecisionTreePandasDataset.</span></span><span class="sig-name descname"><span class="pre">DecisionTreePandasDataset</span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset" title="Link a questa definizione">¶</a></dt>
+<dd><blockquote>
+<div><p>Basi: <a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Model.Model" title="evaluation.lib.abstract_ml_engine.Model.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">evaluation.lib.abstract_ml_engine.Model.Model</span></code></a></p>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.__abstractmethods__">
+<span class="sig-name descname"><span class="pre">__abstractmethods__</span></span><em class="property"> <span class="pre">=</span> <span class="pre">frozenset({})</span></em><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.__abstractmethods__" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.__slots__">
+<span class="sig-name descname"><span class="pre">__slots__</span></span><em class="property"> <span class="pre">=</span> <span class="pre">('_modelImpl',</span> <span class="pre">'_computeDevice',</span> <span class="pre">'_max_depth')</span></em><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.__slots__" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.changeComputeDevice">
+<span class="sig-name descname"><span class="pre">changeComputeDevice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDevice</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.changeComputeDevice" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo cambia il device di calcolo su cui viene eseguito il Modello</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pDevice</strong> (<em>str</em>) – <p>device di calcolo da utilizzare</p>
+<p>Opzioni:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>CPU</strong></p></li>
+<li><p><strong>GPU</strong></p></li>
+<li><p><strong>TPU</strong></p></li>
+<li><p><strong>FPGA</strong></p></li>
+<li><p><strong>ASIC</strong></p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union[ None , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione nella scelta del device di calcolo</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDataset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Dataset.Dataset" title="evaluation.lib.abstract_ml_engine.Dataset.Dataset"><span class="pre">evaluation.lib.abstract_ml_engine.Dataset.Dataset</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.evaluate" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di valutare il Modello di ML sul Test-Set usando un opportuno set di metriche.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pDataset</strong> (<a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Dataset.Dataset" title="evaluation.lib.abstract_ml_engine.Dataset.Dataset"><em>Dataset</em></a>) – dataset su cui valutare il Modello</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p><p>Formato Dizionari:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>metric_name</strong>     : str</p></li>
+<li><p><strong>metric_value</strong>    : float</p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p>Union [ List[dict] , Exception ]</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – eccezione durante la valutazione del Modello</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDataset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Dataset.Dataset" title="evaluation.lib.abstract_ml_engine.Dataset.Dataset"><span class="pre">evaluation.lib.abstract_ml_engine.Dataset.Dataset</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">pTrainingHyperParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pLoss</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Loss.Loss" title="evaluation.lib.abstract_ml_engine.Loss.Loss"><span class="pre">evaluation.lib.abstract_ml_engine.Loss.Loss</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pOptimizer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Optimizer.Optimizer" title="evaluation.lib.abstract_ml_engine.Optimizer.Optimizer"><span class="pre">evaluation.lib.abstract_ml_engine.Optimizer.Optimizer</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pLogger</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.fit" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo addestra il Modello di Machine Learning su un apposito dataset utilizzando eventualmente un’implementazione custom di Loss e Optimizer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pDataset</strong> (<a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Dataset.Dataset" title="evaluation.lib.abstract_ml_engine.Dataset.Dataset"><em>Dataset</em></a>) – dataset su cui addestrare il Modello di Machine Learning</p></li>
+<li><p><strong>pTrainingHyperParams</strong> (<em>dict</em><em>       | </em><em>DEF = None</em>) – iperparametri di training</p></li>
+<li><p><strong>pLoss</strong> (<a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Loss.Loss" title="evaluation.lib.abstract_ml_engine.Loss.Loss"><em>Loss</em></a><em>       | </em><em>DEF = None</em>) – eventuale funzione Custom da ottimizzare</p></li>
+<li><p><strong>pOptimizer</strong> (<a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Optimizer.Optimizer" title="evaluation.lib.abstract_ml_engine.Optimizer.Optimizer"><em>Optimizer</em></a><em>  | </em><em>DEF = None</em>) – eventuale Optimizer Custom che permette di ottimizzare la Loss</p></li>
+<li><p><strong>pLogger</strong> (<em>object</em><em>     | </em><em>DEF = None</em>) – oggetto che permette di fare logging dell’andamento del training</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ None , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante il training, molto probabilmente proveniente dall’esecuzione del Modello o nella computazione attuata dall’Optimizer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.inference">
+<span class="sig-name descname"><span class="pre">inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pSample</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.inference" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di fare inferenza su un apposito sample.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pSample</strong> (<em>object</em>) – input del Modello di ML</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ object , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante l’inferenza del Modello</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.loadCheckPoint">
+<span class="sig-name descname"><span class="pre">loadCheckPoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.loadCheckPoint" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di caricare un checkpoint di un Modello di ML</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pParams</strong> (<em>dict</em><em> | </em><em>DEF = None</em>) – eventuali parametri di caricamento del Modello</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ None , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante il caricamento del Modello, magari per l’assenza del salvataggio su Disco</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.saveCheckPoint">
+<span class="sig-name descname"><span class="pre">saveCheckPoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.saveCheckPoint" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di salvare un checkpoint di un Modello di ML</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pParams</strong> (<em>dict</em><em> | </em><em>DEF = None</em>) – eventuali parametri di salvataggio del checkpoint</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ object , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante il salvataggio del Modello</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pHyperParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pComputeDevice</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.setUp" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo inizializza opportunamente un Modello di Machine Learning</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pHyperParams</strong> (<em>dict</em><em>| </em><em>DEF = {}</em>) – <p>iperparametri da applicare al Modello
+Opzioni:</p>
+<blockquote>
+<div><ul>
+<li><p><strong>max_depth</strong></p></li>
+</ul>
+</div></blockquote>
+</p></li>
+<li><p><strong>pComputeDevice</strong> (<em>str</em>) – <p>device di calcolo su cui eseguire il Modello</p>
+<p>Opzioni:</p>
+<blockquote>
+<div><ul>
+<li><p><strong>CPU</strong></p></li>
+<li><p><strong>GPU</strong></p></li>
+<li><p><strong>TPU</strong></p></li>
+<li><p><strong>FPGA</strong></p></li>
+<li><p><strong>ASIC</strong></p></li>
+</ul>
+</div></blockquote>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ None , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezzione derivata da un errore di istanziazione dell’oggetto rappresentante il Modello di ML oppure scelta erronea degli Iperparametri</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="logisticregressorpandasdataset">
+<h1>LogisticRegressorPandasDataset<a class="headerlink" href="#logisticregressorpandasdataset" title="Link a questa intestazione">¶</a></h1>
+<span class="target" id="module-evaluation.lib.concrete_ml_engine.LogisticRegressorPandasDataset"></span><p>&#64;author                     :  rscalia</p>
+<p>&#64;build-date             :  Sat 07/08/2021</p>
+<p>&#64;last-update            :  Sun 08/08/2021</p>
+<p>Questo componente implementa un wrapper ad un’implementazione dell’algoritmo LogisticRegressor</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">evaluation.lib.concrete_ml_engine.LogisticRegressorPandasDataset.</span></span><span class="sig-name descname"><span class="pre">LogisticRegressorPandasDataset</span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset" title="Link a questa definizione">¶</a></dt>
+<dd><blockquote>
+<div><p>Basi: <a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Model.Model" title="evaluation.lib.abstract_ml_engine.Model.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">evaluation.lib.abstract_ml_engine.Model.Model</span></code></a></p>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.__abstractmethods__">
+<span class="sig-name descname"><span class="pre">__abstractmethods__</span></span><em class="property"> <span class="pre">=</span> <span class="pre">frozenset({})</span></em><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.__abstractmethods__" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.__slots__">
+<span class="sig-name descname"><span class="pre">__slots__</span></span><em class="property"> <span class="pre">=</span> <span class="pre">('_modelImpl',</span> <span class="pre">'_computeDevice',</span> <span class="pre">'_randomState',</span> <span class="pre">'_maxIter')</span></em><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.__slots__" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.changeComputeDevice">
+<span class="sig-name descname"><span class="pre">changeComputeDevice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDevice</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.changeComputeDevice" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo cambia il device di calcolo su cui viene eseguito il Modello</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pDevice</strong> (<em>str</em>) – <p>device di calcolo da utilizzare</p>
+<p>Opzioni:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>CPU</strong></p></li>
+<li><p><strong>GPU</strong></p></li>
+<li><p><strong>TPU</strong></p></li>
+<li><p><strong>FPGA</strong></p></li>
+<li><p><strong>ASIC</strong></p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union[ None , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione nella scelta del device di calcolo</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDataset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Dataset.Dataset" title="evaluation.lib.abstract_ml_engine.Dataset.Dataset"><span class="pre">evaluation.lib.abstract_ml_engine.Dataset.Dataset</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.evaluate" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di valutare il Modello di ML sul Test-Set usando un opportuno set di metriche.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pDataset</strong> (<a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Dataset.Dataset" title="evaluation.lib.abstract_ml_engine.Dataset.Dataset"><em>Dataset</em></a>) – dataset su cui valutare il Modello</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p><p>Formato Dizionari:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>metric_name</strong>     : str</p></li>
+<li><p><strong>metric_value</strong>    : float</p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p>Union [ List[dict] , Exception ]</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – eccezione durante la valutazione del Modello</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDataset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Dataset.Dataset" title="evaluation.lib.abstract_ml_engine.Dataset.Dataset"><span class="pre">evaluation.lib.abstract_ml_engine.Dataset.Dataset</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">pTrainingHyperParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pLoss</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Loss.Loss" title="evaluation.lib.abstract_ml_engine.Loss.Loss"><span class="pre">evaluation.lib.abstract_ml_engine.Loss.Loss</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pOptimizer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Optimizer.Optimizer" title="evaluation.lib.abstract_ml_engine.Optimizer.Optimizer"><span class="pre">evaluation.lib.abstract_ml_engine.Optimizer.Optimizer</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pLogger</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.fit" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo addestra il Modello di Machine Learning su un apposito dataset utilizzando eventualmente un’implementazione custom di Loss e Optimizer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pDataset</strong> (<a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Dataset.Dataset" title="evaluation.lib.abstract_ml_engine.Dataset.Dataset"><em>Dataset</em></a>) – dataset su cui addestrare il Modello di Machine Learning</p></li>
+<li><p><strong>pTrainingHyperParams</strong> (<em>dict</em><em>       | </em><em>DEF = None</em>) – iperparametri di training</p></li>
+<li><p><strong>pLoss</strong> (<a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Loss.Loss" title="evaluation.lib.abstract_ml_engine.Loss.Loss"><em>Loss</em></a><em>       | </em><em>DEF = None</em>) – eventuale funzione Custom da ottimizzare</p></li>
+<li><p><strong>pOptimizer</strong> (<a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Optimizer.Optimizer" title="evaluation.lib.abstract_ml_engine.Optimizer.Optimizer"><em>Optimizer</em></a><em>  | </em><em>DEF = None</em>) – eventuale Optimizer Custom che permette di ottimizzare la Loss</p></li>
+<li><p><strong>pLogger</strong> (<em>object</em><em>     | </em><em>DEF = None</em>) – oggetto che permette di fare logging dell’andamento del training</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ None , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante il training, molto probabilmente proveniente dall’esecuzione del Modello o nella computazione attuata dall’Optimizer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.inference">
+<span class="sig-name descname"><span class="pre">inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pSample</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.inference" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di fare inferenza su un apposito sample.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pSample</strong> (<em>object</em>) – input del Modello di ML</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ object , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante l’inferenza del Modello</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.loadCheckPoint">
+<span class="sig-name descname"><span class="pre">loadCheckPoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.loadCheckPoint" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di caricare un checkpoint di un Modello di ML</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pParams</strong> (<em>dict</em><em> | </em><em>DEF = None</em>) – eventuali parametri di caricamento del Modello</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ None , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante il caricamento del Modello, magari per l’assenza del salvataggio su Disco</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.saveCheckPoint">
+<span class="sig-name descname"><span class="pre">saveCheckPoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.saveCheckPoint" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di salvare un checkpoint di un Modello di ML</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pParams</strong> (<em>dict</em><em> | </em><em>DEF = None</em>) – eventuali parametri di salvataggio del checkpoint</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ object , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante il salvataggio del Modello</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pHyperParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pComputeDevice</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.setUp" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo inizializza opportunamente un Modello di Machine Learning</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pHyperParams</strong> (<em>dict</em><em> | </em><em>DEF = {}</em>) – <p>iperparametri da applicare al Modello
+Opzioni:</p>
+<blockquote>
+<div><ul>
+<li><p><strong>random_state</strong></p></li>
+<li><p><strong>max_iter</strong></p></li>
+</ul>
+</div></blockquote>
+</p></li>
+<li><p><strong>pComputeDevice</strong> (<em>str</em>) – <p>device di calcolo su cui eseguire il Modello</p>
+<p>Opzioni:</p>
+<blockquote>
+<div><ul>
+<li><p><strong>CPU</strong></p></li>
+<li><p><strong>GPU</strong></p></li>
+<li><p><strong>TPU</strong></p></li>
+<li><p><strong>FPGA</strong></p></li>
+<li><p><strong>ASIC</strong></p></li>
+</ul>
+</div></blockquote>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ None , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezzione derivata da un errore di istanziazione dell’oggetto rappresentante il Modello di ML oppure scelta erronea degli Iperparametri</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset">
+<span id="naivebayespandasdataset"></span><h1>NaiveBayesPandasDataset<a class="headerlink" href="#module-evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset" title="Link a questa intestazione">¶</a></h1>
+<p>&#64;author                     :  rscalia</p>
+<p>&#64;build-date             :  Sat 07/08/2021</p>
+<p>&#64;last-update            :  Sun 08/08/2021</p>
+<p>Questo componente implementa un wrapper ad un’implementazione dell’algoritmo NaiveBayes</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset.</span></span><span class="sig-name descname"><span class="pre">NaiveBayesPandasDataset</span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset" title="Link a questa definizione">¶</a></dt>
+<dd><blockquote>
+<div><p>Basi: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.__slots__">
+<span class="sig-name descname"><span class="pre">__slots__</span></span><em class="property"> <span class="pre">=</span> <span class="pre">('_modelImpl',</span> <span class="pre">'_computeDevice',</span> <span class="pre">'_priors')</span></em><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.__slots__" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.changeComputeDevice">
+<span class="sig-name descname"><span class="pre">changeComputeDevice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDevice</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.changeComputeDevice" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo cambia il device di calcolo su cui viene eseguito il Modello</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pDevice</strong> (<em>str</em>) – <p>device di calcolo da utilizzare</p>
+<p>Opzioni:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>CPU</strong></p></li>
+<li><p><strong>GPU</strong></p></li>
+<li><p><strong>TPU</strong></p></li>
+<li><p><strong>FPGA</strong></p></li>
+<li><p><strong>ASIC</strong></p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union[ None , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione nella scelta del device di calcolo</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDataset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Dataset.Dataset" title="evaluation.lib.abstract_ml_engine.Dataset.Dataset"><span class="pre">evaluation.lib.abstract_ml_engine.Dataset.Dataset</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.evaluate" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di valutare il Modello di ML sul Test-Set usando un opportuno set di metriche.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pDataset</strong> (<a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Dataset.Dataset" title="evaluation.lib.abstract_ml_engine.Dataset.Dataset"><em>Dataset</em></a>) – dataset su cui valutare il Modello</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p><p>Formato Dizionari:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>metric_name</strong>     : str</p></li>
+<li><p><strong>metric_value</strong>    : float</p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p>Union [ List[dict] , Exception ]</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – eccezione durante la valutazione del Modello</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDataset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Dataset.Dataset" title="evaluation.lib.abstract_ml_engine.Dataset.Dataset"><span class="pre">evaluation.lib.abstract_ml_engine.Dataset.Dataset</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">pTrainingHyperParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pLoss</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Loss.Loss" title="evaluation.lib.abstract_ml_engine.Loss.Loss"><span class="pre">evaluation.lib.abstract_ml_engine.Loss.Loss</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pOptimizer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Optimizer.Optimizer" title="evaluation.lib.abstract_ml_engine.Optimizer.Optimizer"><span class="pre">evaluation.lib.abstract_ml_engine.Optimizer.Optimizer</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pLogger</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.fit" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo addestra il Modello di Machine Learning su un apposito dataset utilizzando eventualmente un’implementazione custom di Loss e Optimizer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pDataset</strong> (<a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Dataset.Dataset" title="evaluation.lib.abstract_ml_engine.Dataset.Dataset"><em>Dataset</em></a>) – dataset su cui addestrare il Modello di Machine Learning</p></li>
+<li><p><strong>pTrainingHyperParams</strong> (<em>dict</em><em>       | </em><em>DEF = None</em>) – iperparametri di training</p></li>
+<li><p><strong>pLoss</strong> (<a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Loss.Loss" title="evaluation.lib.abstract_ml_engine.Loss.Loss"><em>Loss</em></a><em>       | </em><em>DEF = None</em>) – eventuale funzione Custom da ottimizzare</p></li>
+<li><p><strong>pOptimizer</strong> (<a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Optimizer.Optimizer" title="evaluation.lib.abstract_ml_engine.Optimizer.Optimizer"><em>Optimizer</em></a><em>  | </em><em>DEF = None</em>) – eventuale Optimizer Custom che permette di ottimizzare la Loss</p></li>
+<li><p><strong>pLogger</strong> (<em>object</em><em>     | </em><em>DEF = None</em>) – oggetto che permette di fare logging dell’andamento del training</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ None , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante il training, molto probabilmente proveniente dall’esecuzione del Modello o nella computazione attuata dall’Optimizer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.inference">
+<span class="sig-name descname"><span class="pre">inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pSample</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.inference" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di fare inferenza su un apposito sample.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pSample</strong> (<em>object</em>) – input del Modello di ML</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ object , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante l’inferenza del Modello</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.loadCheckPoint">
+<span class="sig-name descname"><span class="pre">loadCheckPoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.loadCheckPoint" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di caricare un checkpoint di un Modello di ML</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pParams</strong> (<em>dict</em><em> | </em><em>DEF = None</em>) – eventuali parametri di caricamento del Modello</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ None , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante il caricamento del Modello, magari per l’assenza del salvataggio su Disco</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.saveCheckPoint">
+<span class="sig-name descname"><span class="pre">saveCheckPoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.saveCheckPoint" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di salvare un checkpoint di un Modello di ML</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pParams</strong> (<em>dict</em><em> | </em><em>DEF = None</em>) – eventuali parametri di salvataggio del checkpoint</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ object , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante il salvataggio del Modello</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pHyperParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pComputeDevice</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.setUp" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo inizializza opportunamente un Modello di Machine Learning</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pHyperParams</strong> (<em>dict</em><em> | </em><em>DEF = {}</em>) – <p>iperparametri da applicare al Modello
+Opzioni:</p>
+<blockquote>
+<div><ul>
+<li><p><strong>priors</strong></p></li>
+</ul>
+</div></blockquote>
+</p></li>
+<li><p><strong>pComputeDevice</strong> (<em>str</em>) – <p>device di calcolo su cui eseguire il Modello</p>
+<p>Opzioni:</p>
+<blockquote>
+<div><ul>
+<li><p><strong>CPU</strong></p></li>
+<li><p><strong>GPU</strong></p></li>
+<li><p><strong>TPU</strong></p></li>
+<li><p><strong>FPGA</strong></p></li>
+<li><p><strong>ASIC</strong></p></li>
+</ul>
+</div></blockquote>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ None , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezzione derivata da un errore di istanziazione dell’oggetto rappresentante il Modello di ML oppure scelta erronea degli Iperparametri</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-evaluation.lib.concrete_ml_engine.RandomForestPandasDataset">
+<span id="randomforestpandasdataset"></span><h1>RandomForestPandasDataset<a class="headerlink" href="#module-evaluation.lib.concrete_ml_engine.RandomForestPandasDataset" title="Link a questa intestazione">¶</a></h1>
+<p>&#64;author                     :  rscalia</p>
+<p>&#64;build-date             :  Sat 07/08/2021</p>
+<p>&#64;last-update            :  Sun 08/08/2021</p>
+<p>Questo componente implementa un wrapper ad un’implementazione dell’algoritmo RandomForest</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">evaluation.lib.concrete_ml_engine.RandomForestPandasDataset.</span></span><span class="sig-name descname"><span class="pre">RandomForestPandasDataset</span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset" title="Link a questa definizione">¶</a></dt>
+<dd><blockquote>
+<div><p>Basi: <a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Model.Model" title="evaluation.lib.abstract_ml_engine.Model.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">evaluation.lib.abstract_ml_engine.Model.Model</span></code></a></p>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.__abstractmethods__">
+<span class="sig-name descname"><span class="pre">__abstractmethods__</span></span><em class="property"> <span class="pre">=</span> <span class="pre">frozenset({})</span></em><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.__abstractmethods__" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.__slots__">
+<span class="sig-name descname"><span class="pre">__slots__</span></span><em class="property"> <span class="pre">=</span> <span class="pre">('_modelImpl',</span> <span class="pre">'_computeDevice',</span> <span class="pre">'_max_depth',</span> <span class="pre">'_n_estimators')</span></em><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.__slots__" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.changeComputeDevice">
+<span class="sig-name descname"><span class="pre">changeComputeDevice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDevice</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.changeComputeDevice" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo cambia il device di calcolo su cui viene eseguito il Modello</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pDevice</strong> (<em>str</em>) – <p>device di calcolo da utilizzare</p>
+<p>Opzioni:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>CPU</strong></p></li>
+<li><p><strong>GPU</strong></p></li>
+<li><p><strong>TPU</strong></p></li>
+<li><p><strong>FPGA</strong></p></li>
+<li><p><strong>ASIC</strong></p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union[ None , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione nella scelta del device di calcolo</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDataset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Dataset.Dataset" title="evaluation.lib.abstract_ml_engine.Dataset.Dataset"><span class="pre">evaluation.lib.abstract_ml_engine.Dataset.Dataset</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.evaluate" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di valutare il Modello di ML sul Test-Set usando un opportuno set di metriche.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pDataset</strong> (<a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Dataset.Dataset" title="evaluation.lib.abstract_ml_engine.Dataset.Dataset"><em>Dataset</em></a>) – dataset su cui valutare il Modello</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p><p>Formato Dizionari:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>metric_name</strong>     : str</p></li>
+<li><p><strong>metric_value</strong>    : float</p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p>Union [ List[dict] , Exception ]</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – eccezione durante la valutazione del Modello</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDataset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Dataset.Dataset" title="evaluation.lib.abstract_ml_engine.Dataset.Dataset"><span class="pre">evaluation.lib.abstract_ml_engine.Dataset.Dataset</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">pTrainingHyperParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pLoss</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Loss.Loss" title="evaluation.lib.abstract_ml_engine.Loss.Loss"><span class="pre">evaluation.lib.abstract_ml_engine.Loss.Loss</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pOptimizer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Optimizer.Optimizer" title="evaluation.lib.abstract_ml_engine.Optimizer.Optimizer"><span class="pre">evaluation.lib.abstract_ml_engine.Optimizer.Optimizer</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pLogger</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.fit" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo addestra il Modello di Machine Learning su un apposito dataset utilizzando eventualmente un’implementazione custom di Loss e Optimizer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pDataset</strong> (<a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Dataset.Dataset" title="evaluation.lib.abstract_ml_engine.Dataset.Dataset"><em>Dataset</em></a>) – dataset su cui addestrare il Modello di Machine Learning</p></li>
+<li><p><strong>pTrainingHyperParams</strong> (<em>dict</em><em>       | </em><em>DEF = None</em>) – iperparametri di training</p></li>
+<li><p><strong>pLoss</strong> (<a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Loss.Loss" title="evaluation.lib.abstract_ml_engine.Loss.Loss"><em>Loss</em></a><em>       | </em><em>DEF = None</em>) – eventuale funzione Custom da ottimizzare</p></li>
+<li><p><strong>pOptimizer</strong> (<a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Optimizer.Optimizer" title="evaluation.lib.abstract_ml_engine.Optimizer.Optimizer"><em>Optimizer</em></a><em>  | </em><em>DEF = None</em>) – eventuale Optimizer Custom che permette di ottimizzare la Loss</p></li>
+<li><p><strong>pLogger</strong> (<em>object</em><em>     | </em><em>DEF = None</em>) – oggetto che permette di fare logging dell’andamento del training</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ None , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante il training, molto probabilmente proveniente dall’esecuzione del Modello o nella computazione attuata dall’Optimizer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.inference">
+<span class="sig-name descname"><span class="pre">inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pSample</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.inference" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di fare inferenza su un apposito sample.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pSample</strong> (<em>object</em>) – input del Modello di ML</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ object , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante l’inferenza del Modello</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.loadCheckPoint">
+<span class="sig-name descname"><span class="pre">loadCheckPoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.loadCheckPoint" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di caricare un checkpoint di un Modello di ML</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pParams</strong> (<em>dict</em><em> | </em><em>DEF = None</em>) – eventuali parametri di caricamento del Modello</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ None , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante il caricamento del Modello, magari per l’assenza del salvataggio su Disco</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.saveCheckPoint">
+<span class="sig-name descname"><span class="pre">saveCheckPoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.saveCheckPoint" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di salvare un checkpoint di un Modello di ML</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pParams</strong> (<em>dict</em><em> | </em><em>DEF = None</em>) – eventuali parametri di salvataggio del checkpoint</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ object , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante il salvataggio del Modello</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pHyperParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pComputeDevice</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.setUp" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo inizializza opportunamente un Modello di Machine Learning</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pHyperParams</strong> (<em>dict</em><em> | </em><em>DEF = {}</em>) – <p>iperparametri da applicare al Modello
+Opzioni:</p>
+<blockquote>
+<div><ul>
+<li><p><strong>max_depth</strong></p></li>
+<li><p><strong>n_estimators</strong></p></li>
+</ul>
+</div></blockquote>
+</p></li>
+<li><p><strong>pComputeDevice</strong> (<em>str</em>) – <p>device di calcolo su cui eseguire il Modello</p>
+<p>Opzioni:</p>
+<blockquote>
+<div><ul>
+<li><p><strong>CPU</strong></p></li>
+<li><p><strong>GPU</strong></p></li>
+<li><p><strong>TPU</strong></p></li>
+<li><p><strong>FPGA</strong></p></li>
+<li><p><strong>ASIC</strong></p></li>
+</ul>
+</div></blockquote>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ None , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezzione derivata da un errore di istanziazione dell’oggetto rappresentante il Modello di ML oppure scelta erronea degli Iperparametri</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-evaluation.lib.concrete_ml_engine.SVMPandasDataset">
+<span id="svmpandasdataset"></span><h1>SVMPandasDataset<a class="headerlink" href="#module-evaluation.lib.concrete_ml_engine.SVMPandasDataset" title="Link a questa intestazione">¶</a></h1>
+<p>&#64;author                     :  rscalia</p>
+<p>&#64;build-date             :  Sat 07/08/2021</p>
+<p>&#64;last-update            :  Sun 08/08/2021</p>
+<p>Questo componente implementa un wrapper ad un’implementazione dell’algoritmo SVM</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">evaluation.lib.concrete_ml_engine.SVMPandasDataset.</span></span><span class="sig-name descname"><span class="pre">SVMPandasDataset</span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset" title="Link a questa definizione">¶</a></dt>
+<dd><blockquote>
+<div><p>Basi: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.__slots__">
+<span class="sig-name descname"><span class="pre">__slots__</span></span><em class="property"> <span class="pre">=</span> <span class="pre">('_modelImpl',</span> <span class="pre">'_computeDevice',</span> <span class="pre">'_kernel',</span> <span class="pre">'_max_iter',</span> <span class="pre">'_regularization')</span></em><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.__slots__" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.changeComputeDevice">
+<span class="sig-name descname"><span class="pre">changeComputeDevice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDevice</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.changeComputeDevice" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo cambia il device di calcolo su cui viene eseguito il Modello</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pDevice</strong> (<em>str</em>) – <p>device di calcolo da utilizzare</p>
+<p>Opzioni:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>CPU</strong></p></li>
+<li><p><strong>GPU</strong></p></li>
+<li><p><strong>TPU</strong></p></li>
+<li><p><strong>FPGA</strong></p></li>
+<li><p><strong>ASIC</strong></p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union[ None , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione nella scelta del device di calcolo</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDataset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Dataset.Dataset" title="evaluation.lib.abstract_ml_engine.Dataset.Dataset"><span class="pre">evaluation.lib.abstract_ml_engine.Dataset.Dataset</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.evaluate" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di valutare il Modello di ML sul Test-Set usando un opportuno set di metriche.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pDataset</strong> (<a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Dataset.Dataset" title="evaluation.lib.abstract_ml_engine.Dataset.Dataset"><em>Dataset</em></a>) – dataset su cui valutare il Modello</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p><p>Formato Dizionari:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>metric_name</strong>     : str</p></li>
+<li><p><strong>metric_value</strong>    : float</p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p>Union [ List[dict] , Exception ]</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – eccezione durante la valutazione del Modello</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.fit">
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDataset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Dataset.Dataset" title="evaluation.lib.abstract_ml_engine.Dataset.Dataset"><span class="pre">evaluation.lib.abstract_ml_engine.Dataset.Dataset</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">pTrainingHyperParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pLoss</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Loss.Loss" title="evaluation.lib.abstract_ml_engine.Loss.Loss"><span class="pre">evaluation.lib.abstract_ml_engine.Loss.Loss</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pOptimizer</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Optimizer.Optimizer" title="evaluation.lib.abstract_ml_engine.Optimizer.Optimizer"><span class="pre">evaluation.lib.abstract_ml_engine.Optimizer.Optimizer</span></a><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pLogger</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.fit" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo addestra il Modello di Machine Learning su un apposito dataset utilizzando eventualmente un’implementazione custom di Loss e Optimizer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pDataset</strong> (<a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Dataset.Dataset" title="evaluation.lib.abstract_ml_engine.Dataset.Dataset"><em>Dataset</em></a>) – dataset su cui addestrare il Modello di Machine Learning</p></li>
+<li><p><strong>pTrainingHyperParams</strong> (<em>dict</em><em>       | </em><em>DEF = None</em>) – iperparametri di training</p></li>
+<li><p><strong>pLoss</strong> (<a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Loss.Loss" title="evaluation.lib.abstract_ml_engine.Loss.Loss"><em>Loss</em></a><em>       | </em><em>DEF = None</em>) – eventuale funzione Custom da ottimizzare</p></li>
+<li><p><strong>pOptimizer</strong> (<a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Optimizer.Optimizer" title="evaluation.lib.abstract_ml_engine.Optimizer.Optimizer"><em>Optimizer</em></a><em>  | </em><em>DEF = None</em>) – eventuale Optimizer Custom che permette di ottimizzare la Loss</p></li>
+<li><p><strong>pLogger</strong> (<em>object</em><em>     | </em><em>DEF = None</em>) – oggetto che permette di fare logging dell’andamento del training</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ None , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante il training, molto probabilmente proveniente dall’esecuzione del Modello o nella computazione attuata dall’Optimizer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.inference">
+<span class="sig-name descname"><span class="pre">inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pSample</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.inference" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di fare inferenza su un apposito sample.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pSample</strong> (<em>object</em>) – input del Modello di ML</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ object , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante l’inferenza del Modello</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.loadCheckPoint">
+<span class="sig-name descname"><span class="pre">loadCheckPoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.loadCheckPoint" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di caricare un checkpoint di un Modello di ML</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pParams</strong> (<em>dict</em><em> | </em><em>DEF = None</em>) – eventuali parametri di caricamento del Modello</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ None , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante il caricamento del Modello, magari per l’assenza del salvataggio su Disco</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.saveCheckPoint">
+<span class="sig-name descname"><span class="pre">saveCheckPoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.saveCheckPoint" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di salvare un checkpoint di un Modello di ML</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pParams</strong> (<em>dict</em><em> | </em><em>DEF = None</em>) – eventuali parametri di salvataggio del checkpoint</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ object , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante il salvataggio del Modello</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pHyperParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pComputeDevice</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.setUp" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo inizializza opportunamente un Modello di Machine Learning</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pHyperParams</strong> (<em>dict</em><em> | </em><em>DEF = {}</em>) – <p>iperparametri da applicare al Modello
+Opzioni:</p>
+<blockquote>
+<div><ul>
+<li><dl class="simple">
+<dt><strong>kernel</strong></dt><dd><ul>
+<li><p><strong>linear</strong></p></li>
+<li><p><strong>poly</strong></p></li>
+<li><p><strong>rbf</strong></p></li>
+<li><p><strong>sigmond</strong></p></li>
+<li><p><strong>precomputed</strong></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>max_iter</strong></p></li>
+<li><p><strong>»regularization</strong></p></li>
+</ul>
+</div></blockquote>
+</p></li>
+<li><p><strong>pComputeDevice</strong> (<em>str</em>) – <p>device di calcolo su cui eseguire il Modello</p>
+<p>Opzioni:</p>
+<blockquote>
+<div><ul>
+<li><p><strong>CPU</strong></p></li>
+<li><p><strong>GPU</strong></p></li>
+<li><p><strong>TPU</strong></p></li>
+<li><p><strong>FPGA</strong></p></li>
+<li><p><strong>ASIC</strong></p></li>
+</ul>
+</div></blockquote>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ None , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezzione derivata da un errore di istanziazione dell’oggetto rappresentante il Modello di ML oppure scelta erronea degli Iperparametri</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-evaluation.lib.concrete_ml_engine.IrisFisherDataset">
+<span id="irisfisherdataset"></span><h1>IrisFisherDataset<a class="headerlink" href="#module-evaluation.lib.concrete_ml_engine.IrisFisherDataset" title="Link a questa intestazione">¶</a></h1>
+<p>&#64;author                     :  rscalia</p>
+<p>&#64;build-date             :  Sat 07/08/2021</p>
+<p>&#64;last-update            :  Sat 07/05/2021</p>
+<p>Questo componente implementa un modulo che carica in memoria il dataset Iris e contestualmente lo suddivide in training, validation e test-set.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.IrisFisherDataset.IrisFisher">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">evaluation.lib.concrete_ml_engine.IrisFisherDataset.</span></span><span class="sig-name descname"><span class="pre">IrisFisher</span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.IrisFisherDataset.IrisFisher" title="Link a questa definizione">¶</a></dt>
+<dd><blockquote>
+<div><p>Basi: <a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Dataset.Dataset" title="evaluation.lib.abstract_ml_engine.Dataset.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">evaluation.lib.abstract_ml_engine.Dataset.Dataset</span></code></a></p>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.IrisFisherDataset.IrisFisher.__abstractmethods__">
+<span class="sig-name descname"><span class="pre">__abstractmethods__</span></span><em class="property"> <span class="pre">=</span> <span class="pre">frozenset({})</span></em><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.IrisFisherDataset.IrisFisher.__abstractmethods__" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.IrisFisherDataset.IrisFisher.load">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.IrisFisherDataset.IrisFisher.load" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di caricare un dataset in memoria.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>Union [ None , Exception ]</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – errore nell’esecuzione della pipeline di caricamento del dataset</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.IrisFisherDataset.IrisFisher.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pLoadPipeline</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="abstract_streaming_pipeline.html#evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe" title="evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe"><span class="pre">evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.IrisFisherDataset.IrisFisher.setUp" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di acquisire la pipeline di caricamento del dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pLoadPipeline</strong> (<a class="reference internal" href="abstract_streaming_pipeline.html#evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe" title="evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe"><em>StreamingPipe</em></a>) – pipeline di caricamento del dataset in memoria</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-evaluation.lib.concrete_ml_engine.HeightWeightDataset">
+<span id="heightweightdataset"></span><h1>HeightWeightDataset<a class="headerlink" href="#module-evaluation.lib.concrete_ml_engine.HeightWeightDataset" title="Link a questa intestazione">¶</a></h1>
+<p>&#64;author                     :  rscalia</p>
+<p>&#64;build-date             :  Sat 07/08/2021</p>
+<p>&#64;last-update            :  Sat 07/05/2021</p>
+<p>Questo componente implementa un modulo che carica in memoria il dataset Height-Weight e contestualmente lo suddivide in training, validation e test-set.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.HeightWeightDataset.HeightWeightDataset">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">evaluation.lib.concrete_ml_engine.HeightWeightDataset.</span></span><span class="sig-name descname"><span class="pre">HeightWeightDataset</span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.HeightWeightDataset.HeightWeightDataset" title="Link a questa definizione">¶</a></dt>
+<dd><blockquote>
+<div><p>Basi: <a class="reference internal" href="abstract_ml_engine.html#evaluation.lib.abstract_ml_engine.Dataset.Dataset" title="evaluation.lib.abstract_ml_engine.Dataset.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">evaluation.lib.abstract_ml_engine.Dataset.Dataset</span></code></a></p>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.HeightWeightDataset.HeightWeightDataset.__abstractmethods__">
+<span class="sig-name descname"><span class="pre">__abstractmethods__</span></span><em class="property"> <span class="pre">=</span> <span class="pre">frozenset({})</span></em><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.HeightWeightDataset.HeightWeightDataset.__abstractmethods__" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.HeightWeightDataset.HeightWeightDataset.load">
+<span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.HeightWeightDataset.HeightWeightDataset.load" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di caricare un dataset in memoria.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>Union [ None , Exception ]</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – errore nell’esecuzione della pipeline di caricamento del dataset</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evaluation.lib.concrete_ml_engine.HeightWeightDataset.HeightWeightDataset.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pLoadPipeline</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="abstract_streaming_pipeline.html#evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe" title="evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe"><span class="pre">evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#evaluation.lib.concrete_ml_engine.HeightWeightDataset.HeightWeightDataset.setUp" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di acquisire la pipeline di caricamento del dataset</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pLoadPipeline</strong> (<a class="reference internal" href="abstract_streaming_pipeline.html#evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe" title="evaluation.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe"><em>StreamingPipe</em></a>) – pipeline di caricamento del dataset in memoria</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="dataset_pipelines.html" class="btn btn-neutral float-right" title="datasets_load_pipelines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="concrete_event_sourcing.html" class="btn btn-neutral float-left" title="AutoLearnLogEntity" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Rosario Scalia.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
