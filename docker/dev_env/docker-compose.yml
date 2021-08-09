@@ -131,6 +131,7 @@ services:
             SERVER_PORT: ${EVALUATION_SERVICE_PORT}
             HOST_NAME: evaluation
             WEB_SERVER_WORKERS: ${WEB_SERVER_WORKERS}
+            BROKER_LOGIN_TOKEN: ${BROKER_LOGIN_TOKEN}
             EVENT_STORE_HOST_NAME: ${EVENT_STORE_HOST_NAME}
             EVENT_STORE_PORT: ${EVENT_STORE_PORT}
         ports:
