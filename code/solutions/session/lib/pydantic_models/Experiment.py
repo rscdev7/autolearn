@@ -34,9 +34,9 @@ class Model (BaseModel):
     model_hyperparams:List[HyperParam]                      = Field(None, title="Iperparametri Modello",description="Iperparametri Scelti per il Modello")
 
 class Learning (BaseModel):
-    loss:str                                                = Field(..., title="Loss",description="Funzione Errore da minimizzare")
-    learning_algorithm:str                                  = Field(..., title="Algoritmo di Ottimizzazione",description="Algoritmo di Ottimizzazione scelto")
-    learning_hyperparams:List[HyperParam]                   = Field(None, title="Iperparametri Algoritmo di Learning",description="Iperparametri Algoritmo di Learning")
+    loss:str                                                = Field(None, title="Loss",description="Funzione Errore da minimizzare")
+    learning_algorithm:str                                  = Field(None, title="Algoritmo di Ottimizzazione",description="Algoritmo di Ottimizzazione scelto")
+    learning_hyperparams:List[HyperParam]                   = Field(..., title="Iperparametri Algoritmo di Learning",description="Iperparametri Algoritmo di Learning")
 
 
 
