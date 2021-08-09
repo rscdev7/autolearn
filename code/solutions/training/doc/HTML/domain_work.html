@@ -1,0 +1,509 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>worker &mdash; training 1.0.0 documentazione</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Cerca" href="search.html" />
+    <link rel="next" title="event_sourcing_utility" href="event_sourcing_utility.html" />
+    <link rel="prev" title="TrainRequestValidator" href="data_validator.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> training
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Moduli</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html">DomainEntity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html#module-training.lib.abstract_event_sourcing.DomainEvent">DomainEvent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html#module-training.lib.abstract_event_sourcing.EventStore">EventStore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html">Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-training.lib.abstract_ml_engine.Model">Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-training.lib.abstract_ml_engine.Loss">Loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-training.lib.abstract_ml_engine.Optimizer">Optimizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_streaming_pipeline.html">StreamingPipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_streaming_pipeline.html#module-training.lib.abstract_streaming_pipeline.GeneralStreamingPipe">GeneralStreamingPipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="async_kafka_consumer.html">AsyncKafkaConsumer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_event_sourcing.html">AutoLearnLogEntity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_event_sourcing.html#module-training.lib.concrete_event_sourcing.KafkaEventStore">KafkaEventStore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html">DecisionTreePandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#logisticregressorpandasdataset">LogisticRegressorPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.NaiveBayesPandasDataset">NaiveBayesPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.RandomForestPandasDataset">RandomForestPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.SVMPandasDataset">SVMPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.IrisFisherDataset">IrisFisherDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.HeightWeightDataset">HeightWeightDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html">datasets_load_pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-training.lib.dataset_pipelines.PandasCSVDatasetLoader">PandasCSVDatasetLoader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-training.lib.dataset_pipelines.StatsModelsDatasetLoader">StatsModelsDatasetLoader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-training.lib.dataset_pipelines.PandasDatasetSplit">PandasDatasetSplit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_validator.html">TrainRequestValidator</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">worker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_sourcing_utility.html">event_sourcing_utility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception_manager.html">ExceptionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_engine.html">HTTPEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_engine.html#module-training.lib.http_engine.HTTPError">HTTPError</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kafka_logger.html">KafkaLogger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logger.html">Logger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_serializer.html">NetworkSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rabbit_producer.html">RabbitProducer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_config.html">ServiceConfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_set_up.html">system_set_up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singleton.html">Singleton</a></li>
+<li class="toctree-l1"><a class="reference internal" href="time_stamp_manager.html">TimeStampManager</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">training</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>worker</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/domain_work.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="module-training.lib.domain_work.worker">
+<span id="worker"></span><h1>worker<a class="headerlink" href="#module-training.lib.domain_work.worker" title="Link a questa intestazione">¶</a></h1>
+<p>&#64;author                     :  rscalia</p>
+<p>&#64;build-date             :  Sun 08/08/2021</p>
+<p>&#64;last-update            :  Sun 08/08/2021</p>
+<p>Questo modulo permette di svolgere il domain work del microservizio Training</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="training.lib.domain_work.worker.download_catalog">
+<em class="property"><span class="pre">async</span> </em><span class="sig-prename descclassname"><span class="pre">training.lib.domain_work.worker.</span></span><span class="sig-name descname"><span class="pre">download_catalog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pUrl</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">,</span> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Exception</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#training.lib.domain_work.worker.download_catalog" title="Link a questa definizione">¶</a></dt>
+<dd><p># <strong>download_catalog</strong></p>
+<p>Questa funzione permette di scaricare il catalogo dei Modelli di ML</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pUrl</strong> (<em>str</em>) – url da cui scaricare i dati</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union[ Dict[int,dict] , Exception, Tuple [Exception , int] ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione nel download del catalogo</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="training.lib.domain_work.worker.launch_training">
+<span class="sig-prename descclassname"><span class="pre">training.lib.domain_work.worker.</span></span><span class="sig-name descname"><span class="pre">launch_training</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDirectives</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pDataPath</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#training.lib.domain_work.worker.launch_training" title="Link a questa definizione">¶</a></dt>
+<dd><p># <strong>launch_training</strong></p>
+<p>Questa funzione permette di lanciare il training di un Modello di ML</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pDirectives</strong> (<em>dict</em>) – settaggi del training</p></li>
+<li><p><strong>pDataPath</strong> (<em>dict</em>) – data path dei dataset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ object , str ]</p>
+</dd>
+</dl>
+<p>Exception                               : eccezione durante il caricamento del dataset/training o durante il salvataggio del Modello</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="training.lib.domain_work.worker.load_height_weight">
+<span class="sig-prename descclassname"><span class="pre">training.lib.domain_work.worker.</span></span><span class="sig-name descname"><span class="pre">load_height_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDataPath</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pSeed</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pSplit</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pLogger</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="logger.html#training.lib.logger.Logger.Logger" title="training.lib.logger.Logger.Logger"><span class="pre">training.lib.logger.Logger.Logger</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#training.lib.domain_work.worker.load_height_weight" title="Link a questa definizione">¶</a></dt>
+<dd><p># <strong>load_height_weight</strong></p>
+<p>Questa funzione permette di caricare in memoria il dataset HeightWeight</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pDataPath</strong> (<em>str</em>) – path del dataset</p></li>
+<li><p><strong>pSeed</strong> (<em>int</em>) – seme per gli algoritmi random</p></li>
+<li><p><strong>pSplit</strong> (<em>float</em>) – percentuale dati test-set</p></li>
+<li><p><strong>pLogger</strong> (<a class="reference internal" href="logger.html#training.lib.logger.Logger.Logger" title="training.lib.logger.Logger.Logger"><em>Logger</em></a>) – logger locale</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ object , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante il caricamento del dataset</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="training.lib.domain_work.worker.load_iris">
+<span class="sig-prename descclassname"><span class="pre">training.lib.domain_work.worker.</span></span><span class="sig-name descname"><span class="pre">load_iris</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pSeed</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pSplit</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pLogger</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="logger.html#training.lib.logger.Logger.Logger" title="training.lib.logger.Logger.Logger"><span class="pre">training.lib.logger.Logger.Logger</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#training.lib.domain_work.worker.load_iris" title="Link a questa definizione">¶</a></dt>
+<dd><p># <strong>load_iris</strong></p>
+<p>Questa funzione permette di caricare in memoria il dataset Iris</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pSeed</strong> (<em>int</em>) – seme per gli algoritmi random</p></li>
+<li><p><strong>pSplit</strong> (<em>float</em>) – percentuale dati test-set</p></li>
+<li><p><strong>pLogger</strong> (<a class="reference internal" href="logger.html#training.lib.logger.Logger.Logger" title="training.lib.logger.Logger.Logger"><em>Logger</em></a>) – logger locale</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ object , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante il caricamento del dataset</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="training.lib.domain_work.worker.train_SVM">
+<span class="sig-prename descclassname"><span class="pre">training.lib.domain_work.worker.</span></span><span class="sig-name descname"><span class="pre">train_SVM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDirectives</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pDataset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Dataset.Dataset" title="training.lib.abstract_ml_engine.Dataset.Dataset"><span class="pre">training.lib.abstract_ml_engine.Dataset.Dataset</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="concrete_ml_engine.html#training.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset" title="training.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset"><span class="pre">training.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#training.lib.domain_work.worker.train_SVM" title="Link a questa definizione">¶</a></dt>
+<dd><p># <strong>train_SVM</strong></p>
+<p>Questa funzione permette di addestrare il Modello SVM</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pDirectives</strong> (<em>dict</em>) – direttive di training</p></li>
+<li><p><strong>pDataset</strong> (<a class="reference internal" href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Dataset.Dataset" title="training.lib.abstract_ml_engine.Dataset.Dataset"><em>Dataset</em></a>) – dataset su cui addestrare il Modello</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>modello addestrato o eccezione</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p>Union [ <a class="reference internal" href="concrete_ml_engine.html#training.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset" title="training.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset">SVMPandasDataset</a> , Exception]</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – eccezione durante il training del Modello</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="training.lib.domain_work.worker.train_decision_tree">
+<span class="sig-prename descclassname"><span class="pre">training.lib.domain_work.worker.</span></span><span class="sig-name descname"><span class="pre">train_decision_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDirectives</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pDataset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Dataset.Dataset" title="training.lib.abstract_ml_engine.Dataset.Dataset"><span class="pre">training.lib.abstract_ml_engine.Dataset.Dataset</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="concrete_ml_engine.html#training.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset" title="training.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset"><span class="pre">training.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#training.lib.domain_work.worker.train_decision_tree" title="Link a questa definizione">¶</a></dt>
+<dd><p># <strong>train_decision_tree</strong></p>
+<p>Questa funzione permette di addestrare il Modello DecisionTree</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pDirectives</strong> (<em>dict</em>) – direttive di training</p></li>
+<li><p><strong>pDataset</strong> (<a class="reference internal" href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Dataset.Dataset" title="training.lib.abstract_ml_engine.Dataset.Dataset"><em>Dataset</em></a>) – dataset su cui addestrare il Modello</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>modello addestrato o eccezione</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p>Union [ <a class="reference internal" href="concrete_ml_engine.html#training.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset" title="training.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset">DecisionTreePandasDataset</a> , Exception]</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – eccezione durante il training del Modello</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="training.lib.domain_work.worker.train_logistic_regressor">
+<span class="sig-prename descclassname"><span class="pre">training.lib.domain_work.worker.</span></span><span class="sig-name descname"><span class="pre">train_logistic_regressor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDirectives</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pDataset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Dataset.Dataset" title="training.lib.abstract_ml_engine.Dataset.Dataset"><span class="pre">training.lib.abstract_ml_engine.Dataset.Dataset</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="concrete_ml_engine.html#training.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset" title="training.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset"><span class="pre">training.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#training.lib.domain_work.worker.train_logistic_regressor" title="Link a questa definizione">¶</a></dt>
+<dd><p># <strong>train_logistic_regressor</strong></p>
+<p>Questa funzione permette di addestrare il Modello LogisticRegressor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pDirectives</strong> (<em>dict</em>) – direttive di training</p></li>
+<li><p><strong>pDataset</strong> (<a class="reference internal" href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Dataset.Dataset" title="training.lib.abstract_ml_engine.Dataset.Dataset"><em>Dataset</em></a>) – dataset su cui addestrare il Modello</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>modello addestrato o eccezione</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p>Union [ <a class="reference internal" href="concrete_ml_engine.html#training.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset" title="training.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset">LogisticRegressorPandasDataset</a> , Exception]</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – eccezione durante il training del Modello</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="training.lib.domain_work.worker.train_ml_model">
+<em class="property"><span class="pre">async</span> </em><span class="sig-prename descclassname"><span class="pre">training.lib.domain_work.worker.</span></span><span class="sig-name descname"><span class="pre">train_ml_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pCfg</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="service_config.html#training.lib.service_config.ServiceConfig.ServiceConfig" title="training.lib.service_config.ServiceConfig.ServiceConfig"><span class="pre">training.lib.service_config.ServiceConfig.ServiceConfig</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">pLogger</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="logger.html#training.lib.logger.Logger.Logger" title="training.lib.logger.Logger.Logger"><span class="pre">training.lib.logger.Logger.Logger</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">pService</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pDestId</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pComType</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pPayload</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pNetworkLogger</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="concrete_event_sourcing.html#training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity" title="training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity"><span class="pre">training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">pTrainReq</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pTimeStamp</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#training.lib.domain_work.worker.train_ml_model" title="Link a questa definizione">¶</a></dt>
+<dd><p># <strong>train_ml_model</strong></p>
+<p>Questa funzione rappresenta un FastAPI Background Task.</p>
+<p>Tale funzione permette di scrivere il record comportamentale associato alla risposta del Server ad una richiesta del Cliente</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pCfg</strong> (<a class="reference internal" href="service_config.html#training.lib.service_config.ServiceConfig.ServiceConfig" title="training.lib.service_config.ServiceConfig.ServiceConfig"><em>ServiceConfig</em></a>) – configurazione dell’applicativo</p></li>
+<li><p><strong>pLogger</strong> (<a class="reference internal" href="logger.html#training.lib.logger.Logger.Logger" title="training.lib.logger.Logger.Logger"><em>Logger</em></a>) – logger locale dell’applicativo</p></li>
+<li><p><strong>pService</strong> (<em>str</em>) – ID server</p></li>
+<li><p><strong>pDestId</strong> (<em>str</em>) – ID client</p></li>
+<li><p><strong>pComType</strong> (<em>str</em>) – tipo di comunicazione («sync» o «async»)</p></li>
+<li><p><strong>pPayload</strong> (<em>str</em>) – payload della comunicazione</p></li>
+<li><p><strong>pNetworkLogger</strong> (<a class="reference internal" href="concrete_event_sourcing.html#training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity" title="training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity"><em>AutoLearnLogEntity</em></a>) – componente che fa logging sull’EventStore</p></li>
+<li><p><strong>pTrainReq</strong> (<em>dict</em>) – richiesta di training</p></li>
+<li><p><strong>pTimeStamp</strong> (<em>int</em>) – timestamp associato alla richiesta di training</p></li>
+</ul>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – eccezione derivata dalla scrittura sull’EventStore oppure dalla chiusura della connessione con quest’ultimo oppure da problemi durante l’addestramento di un Modello di ML</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="training.lib.domain_work.worker.train_naive_bayes">
+<span class="sig-prename descclassname"><span class="pre">training.lib.domain_work.worker.</span></span><span class="sig-name descname"><span class="pre">train_naive_bayes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDirectives</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pDataset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Dataset.Dataset" title="training.lib.abstract_ml_engine.Dataset.Dataset"><span class="pre">training.lib.abstract_ml_engine.Dataset.Dataset</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="concrete_ml_engine.html#training.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset" title="training.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset"><span class="pre">training.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#training.lib.domain_work.worker.train_naive_bayes" title="Link a questa definizione">¶</a></dt>
+<dd><p># <strong>train_naive_bayes</strong></p>
+<p>Questa funzione permette di addestrare il Modello NaiveBayes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pDirectives</strong> (<em>dict</em>) – direttive di training</p></li>
+<li><p><strong>pDataset</strong> (<a class="reference internal" href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Dataset.Dataset" title="training.lib.abstract_ml_engine.Dataset.Dataset"><em>Dataset</em></a>) – dataset su cui addestrare il Modello</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>modello addestrato o eccezione</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p>Union [ <a class="reference internal" href="concrete_ml_engine.html#training.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset" title="training.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset">NaiveBayesPandasDataset</a> , Exception]</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – eccezione durante il training del Modello</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="training.lib.domain_work.worker.train_random_forest">
+<span class="sig-prename descclassname"><span class="pre">training.lib.domain_work.worker.</span></span><span class="sig-name descname"><span class="pre">train_random_forest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pDirectives</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pDataset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Dataset.Dataset" title="training.lib.abstract_ml_engine.Dataset.Dataset"><span class="pre">training.lib.abstract_ml_engine.Dataset.Dataset</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="concrete_ml_engine.html#training.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset" title="training.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset"><span class="pre">training.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#training.lib.domain_work.worker.train_random_forest" title="Link a questa definizione">¶</a></dt>
+<dd><p># <strong>train_random_forest</strong></p>
+<p>Questa funzione permette di addestrare il Modello RandomForest</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pDirectives</strong> (<em>dict</em>) – direttive di training</p></li>
+<li><p><strong>pDataset</strong> (<a class="reference internal" href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Dataset.Dataset" title="training.lib.abstract_ml_engine.Dataset.Dataset"><em>Dataset</em></a>) – dataset su cui addestrare il Modello</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>modello addestrato o eccezione</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p>Union [ <a class="reference internal" href="concrete_ml_engine.html#training.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset" title="training.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset">RandomForestPandasDataset</a> , Exception]</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – eccezione durante il training del Modello</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="training.lib.domain_work.worker.validate_request">
+<em class="property"><span class="pre">async</span> </em><span class="sig-prename descclassname"><span class="pre">training.lib.domain_work.worker.</span></span><span class="sig-name descname"><span class="pre">validate_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pCatalogUrl</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pRequest</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pLogger</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="logger.html#training.lib.logger.Logger.Logger" title="training.lib.logger.Logger.Logger"><span class="pre">training.lib.logger.Logger.Logger</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">pNetLogger</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="concrete_event_sourcing.html#training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity" title="training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity"><span class="pre">training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#training.lib.domain_work.worker.validate_request" title="Link a questa definizione">¶</a></dt>
+<dd><p># <strong>validate_request</strong></p>
+<p>Questo metodo permette di validare una richiesta di training del client</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pCatalogUrl</strong> (<em>str</em>) – url da cui scaricare il catalogo</p></li>
+<li><p><strong>pRequest</strong> (<em>dict</em>) – richiesta di training inoltrata dal cliente</p></li>
+<li><p><strong>pLogger</strong> (<a class="reference internal" href="logger.html#training.lib.logger.Logger.Logger" title="training.lib.logger.Logger.Logger"><em>Logger</em></a>) – logger locale</p></li>
+<li><p><strong>pNetLogger</strong> (<a class="reference internal" href="concrete_event_sourcing.html#training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity" title="training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity"><em>AutoLearnLogEntity</em></a>) – logger per l’event-store</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>VERO se la validazione non ha riscontrato errori nella richiesta, messaggio d’errore in merito alla richiesta altrimenti</p>
+</dd>
+<dt class="field-odd">Tipo di ritorno</dt>
+<dd class="field-odd"><p>Union[ bool , str ]</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – eccezione nel download del catalogo oppure nella verifica della richiesta del cliente</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="event_sourcing_utility.html" class="btn btn-neutral float-right" title="event_sourcing_utility" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="data_validator.html" class="btn btn-neutral float-left" title="TrainRequestValidator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Rosario Scalia.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

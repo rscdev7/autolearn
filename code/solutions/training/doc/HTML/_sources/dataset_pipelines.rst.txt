@@ -1,0 +1,46 @@
+.. toctree::
+   :maxdepth: 4
+
+
+datasets_load_pipelines
+-------------------------
+
+.. automodule:: training.lib.dataset_pipelines.datasets_load_pipelines
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__
+
+
+PandasCSVDatasetLoader
+-------------------------
+
+.. automodule:: training.lib.dataset_pipelines.PandasCSVDatasetLoader
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__
+
+
+StatsModelsDatasetLoader
+-------------------------
+
+.. automodule:: training.lib.dataset_pipelines.StatsModelsDatasetLoader
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__
+
+
+PandasDatasetSplit
+-------------------------
+
+.. automodule:: training.lib.dataset_pipelines.PandasDatasetSplit
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__

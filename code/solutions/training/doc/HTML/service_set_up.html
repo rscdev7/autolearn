@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>system_set_up &mdash; training 1.0.0 documentazione</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Cerca" href="search.html" />
+    <link rel="next" title="Singleton" href="singleton.html" />
+    <link rel="prev" title="ServiceConfig" href="service_config.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> training
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Moduli</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html">DomainEntity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html#module-training.lib.abstract_event_sourcing.DomainEvent">DomainEvent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html#module-training.lib.abstract_event_sourcing.EventStore">EventStore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html">Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-training.lib.abstract_ml_engine.Model">Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-training.lib.abstract_ml_engine.Loss">Loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-training.lib.abstract_ml_engine.Optimizer">Optimizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_streaming_pipeline.html">StreamingPipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_streaming_pipeline.html#module-training.lib.abstract_streaming_pipeline.GeneralStreamingPipe">GeneralStreamingPipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="async_kafka_consumer.html">AsyncKafkaConsumer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_event_sourcing.html">AutoLearnLogEntity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_event_sourcing.html#module-training.lib.concrete_event_sourcing.KafkaEventStore">KafkaEventStore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html">DecisionTreePandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#logisticregressorpandasdataset">LogisticRegressorPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.NaiveBayesPandasDataset">NaiveBayesPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.RandomForestPandasDataset">RandomForestPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.SVMPandasDataset">SVMPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.IrisFisherDataset">IrisFisherDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.HeightWeightDataset">HeightWeightDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html">datasets_load_pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-training.lib.dataset_pipelines.PandasCSVDatasetLoader">PandasCSVDatasetLoader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-training.lib.dataset_pipelines.StatsModelsDatasetLoader">StatsModelsDatasetLoader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-training.lib.dataset_pipelines.PandasDatasetSplit">PandasDatasetSplit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_validator.html">TrainRequestValidator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="domain_work.html">worker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_sourcing_utility.html">event_sourcing_utility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception_manager.html">ExceptionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_engine.html">HTTPEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_engine.html#module-training.lib.http_engine.HTTPError">HTTPError</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kafka_logger.html">KafkaLogger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logger.html">Logger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_serializer.html">NetworkSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rabbit_producer.html">RabbitProducer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_config.html">ServiceConfig</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">system_set_up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singleton.html">Singleton</a></li>
+<li class="toctree-l1"><a class="reference internal" href="time_stamp_manager.html">TimeStampManager</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">training</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>system_set_up</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/service_set_up.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="module-training.lib.service_set_up.system_set_up">
+<span id="system-set-up"></span><h1>system_set_up<a class="headerlink" href="#module-training.lib.service_set_up.system_set_up" title="Link a questa intestazione">¶</a></h1>
+<p>&#64;author                     :  rscalia</p>
+<p>&#64;build-date             :  Sun 08/08/2021</p>
+<p>&#64;last-update            :  Sun 08/08/2021</p>
+<p>Questo componente permette di avviare il Microservizio training</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="training.lib.service_set_up.system_set_up.set_up_rest_end_point">
+<span class="sig-prename descclassname"><span class="pre">training.lib.service_set_up.system_set_up.</span></span><span class="sig-name descname"><span class="pre">set_up_rest_end_point</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">fastapi.routing.APIRouter</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="service_config.html#training.lib.service_config.ServiceConfig.ServiceConfig" title="training.lib.service_config.ServiceConfig.ServiceConfig"><span class="pre">training.lib.service_config.ServiceConfig.ServiceConfig</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="concrete_event_sourcing.html#training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity" title="training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity"><span class="pre">training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity</span></a><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="concrete_event_sourcing.html#training.lib.concrete_event_sourcing.KafkaEventStore.KafkaEventStore" title="training.lib.concrete_event_sourcing.KafkaEventStore.KafkaEventStore"><span class="pre">training.lib.concrete_event_sourcing.KafkaEventStore.KafkaEventStore</span></a><span class="p"><span class="pre">,</span> </span><span class="pre">dict</span><span class="p"><span class="pre">,</span> </span><a class="reference internal" href="logger.html#training.lib.logger.Logger.Logger" title="training.lib.logger.Logger.Logger"><span class="pre">training.lib.logger.Logger.Logger</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#training.lib.service_set_up.system_set_up.set_up_rest_end_point" title="Link a questa definizione">¶</a></dt>
+<dd><p># <strong>set_up_rest_end_point</strong></p>
+<p>Questa funzione permette di configurare il Microservizio training lato REST.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p><p>Restituisce una tupla contente:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>APIRouter</strong>, router FastAPI</p></li>
+<li><p><strong>StorageConfig</strong>, oggetto che mantiene la configurazione dell’applicativo</p></li>
+<li><p><strong>AutoLearnLogEntity</strong>, oggetto che permette di fare event sourcing</p></li>
+<li><p><strong>KafkaEventStore</strong>, oggetto che fornisce il layer di persistenza all’event sourcing del microservizio</p></li>
+<li><p><strong>dict</strong>, tupla contente i parametri di configurazione dell’Event-Store</p></li>
+<li><p><strong>Logger</strong>, oggetto che permette di loggare una serie di informazioni in merito alle computazioni locali del Microservizio</p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-even">Tipo di ritorno</dt>
+<dd class="field-even"><p>Tuple[ APIRouter ,<a class="reference internal" href="service_config.html#training.lib.service_config.ServiceConfig.ServiceConfig" title="training.lib.service_config.ServiceConfig.ServiceConfig">ServiceConfig</a> , <a class="reference internal" href="concrete_event_sourcing.html#training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity" title="training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity">AutoLearnLogEntity</a> , <a class="reference internal" href="concrete_event_sourcing.html#training.lib.concrete_event_sourcing.KafkaEventStore.KafkaEventStore" title="training.lib.concrete_event_sourcing.KafkaEventStore.KafkaEventStore">KafkaEventStore</a> , tuple , <a class="reference internal" href="logger.html#training.lib.logger.Logger.Logger" title="training.lib.logger.Logger.Logger">Logger</a> ]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="singleton.html" class="btn btn-neutral float-right" title="Singleton" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="service_config.html" class="btn btn-neutral float-left" title="ServiceConfig" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Rosario Scalia.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

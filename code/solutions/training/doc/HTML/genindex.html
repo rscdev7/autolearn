@@ -1,0 +1,1300 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Indice &mdash; training 1.0.0 documentazione</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indice" href="#" />
+    <link rel="search" title="Cerca" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> training
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Moduli</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html">DomainEntity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html#module-training.lib.abstract_event_sourcing.DomainEvent">DomainEvent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_event_sourcing.html#module-training.lib.abstract_event_sourcing.EventStore">EventStore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html">Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-training.lib.abstract_ml_engine.Model">Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-training.lib.abstract_ml_engine.Loss">Loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_ml_engine.html#module-training.lib.abstract_ml_engine.Optimizer">Optimizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_streaming_pipeline.html">StreamingPipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_streaming_pipeline.html#module-training.lib.abstract_streaming_pipeline.GeneralStreamingPipe">GeneralStreamingPipe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="async_kafka_consumer.html">AsyncKafkaConsumer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_event_sourcing.html">AutoLearnLogEntity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_event_sourcing.html#module-training.lib.concrete_event_sourcing.KafkaEventStore">KafkaEventStore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html">DecisionTreePandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#logisticregressorpandasdataset">LogisticRegressorPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.NaiveBayesPandasDataset">NaiveBayesPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.RandomForestPandasDataset">RandomForestPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.SVMPandasDataset">SVMPandasDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.IrisFisherDataset">IrisFisherDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.HeightWeightDataset">HeightWeightDataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html">datasets_load_pipelines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-training.lib.dataset_pipelines.PandasCSVDatasetLoader">PandasCSVDatasetLoader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-training.lib.dataset_pipelines.StatsModelsDatasetLoader">StatsModelsDatasetLoader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dataset_pipelines.html#module-training.lib.dataset_pipelines.PandasDatasetSplit">PandasDatasetSplit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_validator.html">TrainRequestValidator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="domain_work.html">worker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event_sourcing_utility.html">event_sourcing_utility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception_manager.html">ExceptionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_engine.html">HTTPEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_engine.html#module-training.lib.http_engine.HTTPError">HTTPError</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kafka_logger.html">KafkaLogger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logger.html">Logger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_serializer.html">NetworkSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rabbit_producer.html">RabbitProducer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_config.html">ServiceConfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="service_set_up.html">system_set_up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="singleton.html">Singleton</a></li>
+<li class="toctree-l1"><a class="reference internal" href="time_stamp_manager.html">TimeStampManager</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">training</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Indice</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+<h1 id="index">Indice</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#_"><strong>_</strong></a>
+ | <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#K"><strong>K</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#Q"><strong>Q</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ 
+</div>
+<h2 id="_">_</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_event_sourcing.html#training.lib.abstract_event_sourcing.DomainEntity.DomainEntity.__abstractmethods__">__abstractmethods__ (training.lib.abstract_event_sourcing.DomainEntity.DomainEntity attributo)</a>
+
+      <ul>
+        <li><a href="abstract_event_sourcing.html#training.lib.abstract_event_sourcing.EventStore.EventStore.__abstractmethods__">(training.lib.abstract_event_sourcing.EventStore.EventStore attributo)</a>
+</li>
+        <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Dataset.Dataset.__abstractmethods__">(training.lib.abstract_ml_engine.Dataset.Dataset attributo)</a>
+</li>
+        <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Loss.Loss.__abstractmethods__">(training.lib.abstract_ml_engine.Loss.Loss attributo)</a>
+</li>
+        <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Model.Model.__abstractmethods__">(training.lib.abstract_ml_engine.Model.Model attributo)</a>
+</li>
+        <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Optimizer.Optimizer.__abstractmethods__">(training.lib.abstract_ml_engine.Optimizer.Optimizer attributo)</a>
+</li>
+        <li><a href="abstract_streaming_pipeline.html#training.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__abstractmethods__">(training.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe attributo)</a>
+</li>
+        <li><a href="abstract_streaming_pipeline.html#training.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__abstractmethods__">(training.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe attributo)</a>
+</li>
+        <li><a href="concrete_event_sourcing.html#training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity.__abstractmethods__">(training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity attributo)</a>
+</li>
+        <li><a href="concrete_event_sourcing.html#training.lib.concrete_event_sourcing.KafkaEventStore.KafkaEventStore.__abstractmethods__">(training.lib.concrete_event_sourcing.KafkaEventStore.KafkaEventStore attributo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.__abstractmethods__">(training.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset attributo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.HeightWeightDataset.HeightWeightDataset.__abstractmethods__">(training.lib.concrete_ml_engine.HeightWeightDataset.HeightWeightDataset attributo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.IrisFisherDataset.IrisFisher.__abstractmethods__">(training.lib.concrete_ml_engine.IrisFisherDataset.IrisFisher attributo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.__abstractmethods__">(training.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset attributo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.__abstractmethods__">(training.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset attributo)</a>
+</li>
+        <li><a href="dataset_pipelines.html#training.lib.dataset_pipelines.PandasCSVDatasetLoader.PandasCSVDatasetLoader.__abstractmethods__">(training.lib.dataset_pipelines.PandasCSVDatasetLoader.PandasCSVDatasetLoader attributo)</a>
+</li>
+        <li><a href="dataset_pipelines.html#training.lib.dataset_pipelines.PandasDatasetSplit.PandasDatasetSplit.__abstractmethods__">(training.lib.dataset_pipelines.PandasDatasetSplit.PandasDatasetSplit attributo)</a>
+</li>
+        <li><a href="dataset_pipelines.html#training.lib.dataset_pipelines.StatsModelsDatasetLoader.StatsModelsDatasetLoader.__abstractmethods__">(training.lib.dataset_pipelines.StatsModelsDatasetLoader.StatsModelsDatasetLoader attributo)</a>
+</li>
+      </ul></li>
+      <li><a href="singleton.html#training.lib.singleton.Singleton.Singleton.__call__">__call__() (training.lib.singleton.Singleton.Singleton metodo)</a>
+</li>
+      <li><a href="abstract_event_sourcing.html#training.lib.abstract_event_sourcing.DomainEvent.DomainEvent.__init__">__init__() (training.lib.abstract_event_sourcing.DomainEvent.DomainEvent metodo)</a>
+
+      <ul>
+        <li><a href="abstract_streaming_pipeline.html#training.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__init__">(training.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe metodo)</a>
+</li>
+        <li><a href="abstract_streaming_pipeline.html#training.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__init__">(training.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe metodo)</a>
+</li>
+        <li><a href="async_kafka_consumer.html#training.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer.__init__">(training.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer metodo)</a>
+</li>
+        <li><a href="dataset_pipelines.html#training.lib.dataset_pipelines.PandasCSVDatasetLoader.PandasCSVDatasetLoader.__init__">(training.lib.dataset_pipelines.PandasCSVDatasetLoader.PandasCSVDatasetLoader metodo)</a>
+</li>
+        <li><a href="dataset_pipelines.html#training.lib.dataset_pipelines.PandasDatasetSplit.PandasDatasetSplit.__init__">(training.lib.dataset_pipelines.PandasDatasetSplit.PandasDatasetSplit metodo)</a>
+</li>
+        <li><a href="dataset_pipelines.html#training.lib.dataset_pipelines.StatsModelsDatasetLoader.StatsModelsDatasetLoader.__init__">(training.lib.dataset_pipelines.StatsModelsDatasetLoader.StatsModelsDatasetLoader metodo)</a>
+</li>
+        <li><a href="http_engine.html#training.lib.http_engine.HTTPEngine.HTTPEngine.__init__">(training.lib.http_engine.HTTPEngine.HTTPEngine metodo)</a>
+</li>
+        <li><a href="kafka_logger.html#training.lib.kafka_logger.KafkaLogger.KafkaLogger.__init__">(training.lib.kafka_logger.KafkaLogger.KafkaLogger metodo)</a>
+</li>
+        <li><a href="logger.html#training.lib.logger.Logger.Logger.__init__">(training.lib.logger.Logger.Logger metodo)</a>
+</li>
+        <li><a href="network_serializer.html#training.lib.network_serializer.NetworkSerializer.NetworkSerializer.__init__">(training.lib.network_serializer.NetworkSerializer.NetworkSerializer metodo)</a>
+</li>
+        <li><a href="rabbit_producer.html#training.lib.rabbit_producer.RabbitProducer.RabbitProducer.__init__">(training.lib.rabbit_producer.RabbitProducer.RabbitProducer metodo)</a>
+</li>
+        <li><a href="singleton.html#training.lib.singleton.Singleton.Singleton.__init__">(training.lib.singleton.Singleton.Singleton metodo)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_streaming_pipeline.html#training.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__iter__">__iter__() (training.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe metodo)</a>
+
+      <ul>
+        <li><a href="abstract_streaming_pipeline.html#training.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__iter__">(training.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe metodo)</a>
+</li>
+      </ul></li>
+      <li><a href="abstract_streaming_pipeline.html#training.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__next__">__next__() (training.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe metodo)</a>
+
+      <ul>
+        <li><a href="abstract_streaming_pipeline.html#training.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__next__">(training.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe metodo)</a>
+</li>
+      </ul></li>
+      <li><a href="abstract_streaming_pipeline.html#training.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.__or__">__or__() (training.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe metodo)</a>
+
+      <ul>
+        <li><a href="abstract_streaming_pipeline.html#training.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.__or__">(training.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe metodo)</a>
+</li>
+      </ul></li>
+      <li><a href="abstract_event_sourcing.html#training.lib.abstract_event_sourcing.DomainEntity.DomainEntity.__slots__">__slots__ (training.lib.abstract_event_sourcing.DomainEntity.DomainEntity attributo)</a>
+
+      <ul>
+        <li><a href="abstract_event_sourcing.html#training.lib.abstract_event_sourcing.EventStore.EventStore.__slots__">(training.lib.abstract_event_sourcing.EventStore.EventStore attributo)</a>
+</li>
+        <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Dataset.Dataset.__slots__">(training.lib.abstract_ml_engine.Dataset.Dataset attributo)</a>
+</li>
+        <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Loss.Loss.__slots__">(training.lib.abstract_ml_engine.Loss.Loss attributo)</a>
+</li>
+        <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Model.Model.__slots__">(training.lib.abstract_ml_engine.Model.Model attributo)</a>
+</li>
+        <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Optimizer.Optimizer.__slots__">(training.lib.abstract_ml_engine.Optimizer.Optimizer attributo)</a>
+</li>
+        <li><a href="concrete_event_sourcing.html#training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity.__slots__">(training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity attributo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.__slots__">(training.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset attributo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.__slots__">(training.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset attributo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.__slots__">(training.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset attributo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.__slots__">(training.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset attributo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.__slots__">(training.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset attributo)</a>
+</li>
+        <li><a href="service_config.html#training.lib.service_config.ServiceConfig.ServiceConfig.__slots__">(training.lib.service_config.ServiceConfig.ServiceConfig attributo)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_event_sourcing.html#training.lib.abstract_event_sourcing.DomainEntity.DomainEntity.apply">apply() (training.lib.abstract_event_sourcing.DomainEntity.DomainEntity metodo)</a>
+
+      <ul>
+        <li><a href="concrete_event_sourcing.html#training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity.apply">(training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity metodo)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="async_kafka_consumer.html#training.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer">AsyncKafkaConsumer (classe in training.lib.async_kafka_consumer.AsyncKafkaConsumer)</a>
+</li>
+      <li><a href="concrete_event_sourcing.html#training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity">AutoLearnLogEntity (classe in training.lib.concrete_event_sourcing.AutoLearnLogEntity)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="service_config.html#training.lib.service_config.ServiceConfig.ServiceConfig.BROKER_LOGIN_TOKEN">BROKER_LOGIN_TOKEN (training.lib.service_config.ServiceConfig.ServiceConfig attributo)</a>
+</li>
+      <li><a href="dataset_pipelines.html#training.lib.dataset_pipelines.datasets_load_pipelines.build_height_weight_dataset_load_pipeline">build_height_weight_dataset_load_pipeline() (nel modulo training.lib.dataset_pipelines.datasets_load_pipelines)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="dataset_pipelines.html#training.lib.dataset_pipelines.datasets_load_pipelines.build_iris_dataset_load_pipeline">build_iris_dataset_load_pipeline() (nel modulo training.lib.dataset_pipelines.datasets_load_pipelines)</a>
+</li>
+      <li><a href="network_serializer.html#training.lib.network_serializer.NetworkSerializer.NetworkSerializer.buildNewKey">buildNewKey() (training.lib.network_serializer.NetworkSerializer.NetworkSerializer metodo)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="service_config.html#training.lib.service_config.ServiceConfig.ServiceConfig.CATALOG_URL_DOWNLOAD">CATALOG_URL_DOWNLOAD (training.lib.service_config.ServiceConfig.ServiceConfig attributo)</a>
+</li>
+      <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Loss.Loss.changeComputeDevice">changeComputeDevice() (training.lib.abstract_ml_engine.Loss.Loss metodo)</a>
+
+      <ul>
+        <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Model.Model.changeComputeDevice">(training.lib.abstract_ml_engine.Model.Model metodo)</a>
+</li>
+        <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Optimizer.Optimizer.changeComputeDevice">(training.lib.abstract_ml_engine.Optimizer.Optimizer metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.changeComputeDevice">(training.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.changeComputeDevice">(training.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.changeComputeDevice">(training.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.changeComputeDevice">(training.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.changeComputeDevice">(training.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset metodo)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="data_validator.html#training.lib.data_validator.TrainRequestValidator.TrainRequestValidator.checkHyperparams">checkHyperparams() (training.lib.data_validator.TrainRequestValidator.TrainRequestValidator metodo statico)</a>
+</li>
+      <li><a href="data_validator.html#training.lib.data_validator.TrainRequestValidator.TrainRequestValidator.checkRequest">checkRequest() (training.lib.data_validator.TrainRequestValidator.TrainRequestValidator metodo statico)</a>
+</li>
+      <li><a href="http_engine.html#training.lib.http_engine.HTTPEngine.HTTPEngine.closeAsync">closeAsync() (training.lib.http_engine.HTTPEngine.HTTPEngine metodo)</a>
+</li>
+      <li><a href="async_kafka_consumer.html#training.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer.consume">consume() (training.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer metodo)</a>
+</li>
+      <li><a href="time_stamp_manager.html#training.lib.time_stamp_manager.TimeStampManager.TimeStampManager.currentTimeStampInMS">currentTimeStampInMS() (training.lib.time_stamp_manager.TimeStampManager.TimeStampManager metodo statico)</a>
+</li>
+      <li><a href="time_stamp_manager.html#training.lib.time_stamp_manager.TimeStampManager.TimeStampManager.currentTimeStampInSec">currentTimeStampInSec() (training.lib.time_stamp_manager.TimeStampManager.TimeStampManager metodo statico)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Dataset.Dataset">Dataset (classe in training.lib.abstract_ml_engine.Dataset)</a>
+</li>
+      <li><a href="time_stamp_manager.html#training.lib.time_stamp_manager.TimeStampManager.TimeStampManager.date2Timestamp">date2Timestamp() (training.lib.time_stamp_manager.TimeStampManager.TimeStampManager metodo statico)</a>
+</li>
+      <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset">DecisionTreePandasDataset (classe in training.lib.concrete_ml_engine.DecisionTreePandasDataset)</a>
+</li>
+      <li><a href="network_serializer.html#training.lib.network_serializer.NetworkSerializer.NetworkSerializer.decodeBinaryObj">decodeBinaryObj() (training.lib.network_serializer.NetworkSerializer.NetworkSerializer metodo)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="network_serializer.html#training.lib.network_serializer.NetworkSerializer.NetworkSerializer.decodeJson">decodeJson() (training.lib.network_serializer.NetworkSerializer.NetworkSerializer metodo)</a>
+</li>
+      <li><a href="network_serializer.html#training.lib.network_serializer.NetworkSerializer.NetworkSerializer.decryptField">decryptField() (training.lib.network_serializer.NetworkSerializer.NetworkSerializer metodo)</a>
+</li>
+      <li><a href="abstract_event_sourcing.html#training.lib.abstract_event_sourcing.DomainEntity.DomainEntity">DomainEntity (classe in training.lib.abstract_event_sourcing.DomainEntity)</a>
+</li>
+      <li><a href="abstract_event_sourcing.html#training.lib.abstract_event_sourcing.DomainEvent.DomainEvent">DomainEvent (classe in training.lib.abstract_event_sourcing.DomainEvent)</a>
+</li>
+      <li><a href="domain_work.html#training.lib.domain_work.worker.download_catalog">download_catalog() (nel modulo training.lib.domain_work.worker)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_event_sourcing.html#training.lib.abstract_event_sourcing.DomainEntity.DomainEntity.emit">emit() (training.lib.abstract_event_sourcing.DomainEntity.DomainEntity metodo)</a>
+
+      <ul>
+        <li><a href="concrete_event_sourcing.html#training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity.emit">(training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity metodo)</a>
+</li>
+      </ul></li>
+      <li><a href="network_serializer.html#training.lib.network_serializer.NetworkSerializer.NetworkSerializer.encodeBinaryObj">encodeBinaryObj() (training.lib.network_serializer.NetworkSerializer.NetworkSerializer metodo)</a>
+</li>
+      <li><a href="network_serializer.html#training.lib.network_serializer.NetworkSerializer.NetworkSerializer.encodeJson">encodeJson() (training.lib.network_serializer.NetworkSerializer.NetworkSerializer metodo)</a>
+</li>
+      <li><a href="network_serializer.html#training.lib.network_serializer.NetworkSerializer.NetworkSerializer.encryptField">encryptField() (training.lib.network_serializer.NetworkSerializer.NetworkSerializer metodo)</a>
+</li>
+      <li><a href="service_config.html#training.lib.service_config.ServiceConfig.ServiceConfig.ENTITY_ID">ENTITY_ID (training.lib.service_config.ServiceConfig.ServiceConfig attributo)</a>
+</li>
+      <li><a href="logger.html#training.lib.logger.Logger.Logger.error">error() (training.lib.logger.Logger.Logger metodo)</a>
+</li>
+      <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Loss.Loss.eval">eval() (training.lib.abstract_ml_engine.Loss.Loss metodo)</a>
+</li>
+      <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Model.Model.evaluate">evaluate() (training.lib.abstract_ml_engine.Model.Model metodo)</a>
+
+      <ul>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.evaluate">(training.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.evaluate">(training.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.evaluate">(training.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.evaluate">(training.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.evaluate">(training.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset metodo)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="service_config.html#training.lib.service_config.ServiceConfig.ServiceConfig.EVENT_STORE_NAME">EVENT_STORE_NAME (training.lib.service_config.ServiceConfig.ServiceConfig attributo)</a>
+</li>
+      <li><a href="service_config.html#training.lib.service_config.ServiceConfig.ServiceConfig.EVENT_STORE_PORT">EVENT_STORE_PORT (training.lib.service_config.ServiceConfig.ServiceConfig attributo)</a>
+</li>
+      <li><a href="abstract_event_sourcing.html#training.lib.abstract_event_sourcing.EventStore.EventStore">EventStore (classe in training.lib.abstract_event_sourcing.EventStore)</a>
+</li>
+      <li><a href="exception_manager.html#training.lib.exception_manager.ExceptionManager.ExceptionManager">ExceptionManager (classe in training.lib.exception_manager.ExceptionManager)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_streaming_pipeline.html#training.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.filter">filter() (training.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe metodo)</a>
+
+      <ul>
+        <li><a href="dataset_pipelines.html#training.lib.dataset_pipelines.PandasCSVDatasetLoader.PandasCSVDatasetLoader.filter">(training.lib.dataset_pipelines.PandasCSVDatasetLoader.PandasCSVDatasetLoader metodo)</a>
+</li>
+        <li><a href="dataset_pipelines.html#training.lib.dataset_pipelines.PandasDatasetSplit.PandasDatasetSplit.filter">(training.lib.dataset_pipelines.PandasDatasetSplit.PandasDatasetSplit metodo)</a>
+</li>
+        <li><a href="dataset_pipelines.html#training.lib.dataset_pipelines.StatsModelsDatasetLoader.StatsModelsDatasetLoader.filter">(training.lib.dataset_pipelines.StatsModelsDatasetLoader.StatsModelsDatasetLoader metodo)</a>
+</li>
+      </ul></li>
+      <li><a href="event_sourcing_utility.html#training.lib.event_sourcing_utility.event_sourcing_utility.final_communication_log">final_communication_log() (nel modulo training.lib.event_sourcing_utility.event_sourcing_utility)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Model.Model.fit">fit() (training.lib.abstract_ml_engine.Model.Model metodo)</a>
+
+      <ul>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.fit">(training.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.fit">(training.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.fit">(training.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.fit">(training.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.fit">(training.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset metodo)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_streaming_pipeline.html#training.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe">GeneralStreamingPipe (classe in training.lib.abstract_streaming_pipeline.GeneralStreamingPipe)</a>
+</li>
+      <li><a href="http_engine.html#training.lib.http_engine.HTTPEngine.HTTPEngine.get">get() (training.lib.http_engine.HTTPEngine.HTTPEngine metodo)</a>
+</li>
+      <li><a href="http_engine.html#training.lib.http_engine.HTTPEngine.HTTPEngine.getAsync">getAsync() (training.lib.http_engine.HTTPEngine.HTTPEngine metodo)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_streaming_pipeline.html#training.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.getFromStream">getFromStream() (training.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe metodo)</a>
+
+      <ul>
+        <li><a href="abstract_streaming_pipeline.html#training.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.getFromStream">(training.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe metodo)</a>
+</li>
+      </ul></li>
+      <li><a href="event_sourcing_utility.html#training.lib.event_sourcing_utility.event_sourcing_utility.getLocalLogger">getLocalLogger() (nel modulo training.lib.event_sourcing_utility.event_sourcing_utility)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_streaming_pipeline.html#training.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.hasNext">hasNext() (training.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe metodo)</a>
+
+      <ul>
+        <li><a href="abstract_streaming_pipeline.html#training.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.hasNext">(training.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe metodo)</a>
+</li>
+      </ul></li>
+      <li><a href="service_config.html#training.lib.service_config.ServiceConfig.ServiceConfig.HEIGHT_WEIGHT_DATA_PATH">HEIGHT_WEIGHT_DATA_PATH (training.lib.service_config.ServiceConfig.ServiceConfig attributo)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.HeightWeightDataset.HeightWeightDataset">HeightWeightDataset (classe in training.lib.concrete_ml_engine.HeightWeightDataset)</a>
+</li>
+      <li><a href="http_engine.html#training.lib.http_engine.HTTPEngine.HTTPEngine">HTTPEngine (classe in training.lib.http_engine.HTTPEngine)</a>
+</li>
+      <li><a href="http_engine.html#training.lib.http_engine.HTTPError.HTTPError">HTTPError</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Model.Model.inference">inference() (training.lib.abstract_ml_engine.Model.Model metodo)</a>
+
+      <ul>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.inference">(training.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.inference">(training.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.inference">(training.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.inference">(training.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.inference">(training.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset metodo)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_event_sourcing.html#training.lib.abstract_event_sourcing.DomainEntity.DomainEntity.init">init() (training.lib.abstract_event_sourcing.DomainEntity.DomainEntity metodo)</a>
+
+      <ul>
+        <li><a href="concrete_event_sourcing.html#training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity.init">(training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity metodo)</a>
+</li>
+      </ul></li>
+      <li><a href="service_config.html#training.lib.service_config.ServiceConfig.ServiceConfig.inspect">inspect() (training.lib.service_config.ServiceConfig.ServiceConfig metodo)</a>
+</li>
+      <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.IrisFisherDataset.IrisFisher">IrisFisher (classe in training.lib.concrete_ml_engine.IrisFisherDataset)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="K">K</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="concrete_event_sourcing.html#training.lib.concrete_event_sourcing.KafkaEventStore.KafkaEventStore">KafkaEventStore (classe in training.lib.concrete_event_sourcing.KafkaEventStore)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="kafka_logger.html#training.lib.kafka_logger.KafkaLogger.KafkaLogger">KafkaLogger (classe in training.lib.kafka_logger.KafkaLogger)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="domain_work.html#training.lib.domain_work.worker.launch_training">launch_training() (nel modulo training.lib.domain_work.worker)</a>
+</li>
+      <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Dataset.Dataset.load">load() (training.lib.abstract_ml_engine.Dataset.Dataset metodo)</a>
+
+      <ul>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.HeightWeightDataset.HeightWeightDataset.load">(training.lib.concrete_ml_engine.HeightWeightDataset.HeightWeightDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.IrisFisherDataset.IrisFisher.load">(training.lib.concrete_ml_engine.IrisFisherDataset.IrisFisher metodo)</a>
+</li>
+      </ul></li>
+      <li><a href="domain_work.html#training.lib.domain_work.worker.load_height_weight">load_height_weight() (nel modulo training.lib.domain_work.worker)</a>
+</li>
+      <li><a href="domain_work.html#training.lib.domain_work.worker.load_iris">load_iris() (nel modulo training.lib.domain_work.worker)</a>
+</li>
+      <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Model.Model.loadCheckPoint">loadCheckPoint() (training.lib.abstract_ml_engine.Model.Model metodo)</a>
+
+      <ul>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.loadCheckPoint">(training.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.loadCheckPoint">(training.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.loadCheckPoint">(training.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.loadCheckPoint">(training.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.loadCheckPoint">(training.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset metodo)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="kafka_logger.html#training.lib.kafka_logger.KafkaLogger.KafkaLogger.log">log() (training.lib.kafka_logger.KafkaLogger.KafkaLogger metodo)</a>
+
+      <ul>
+        <li><a href="logger.html#training.lib.logger.Logger.Logger.log">(training.lib.logger.Logger.Logger metodo)</a>
+</li>
+      </ul></li>
+      <li><a href="logger.html#training.lib.logger.Logger.Logger">Logger (classe in training.lib.logger.Logger)</a>
+</li>
+      <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset">LogisticRegressorPandasDataset (classe in training.lib.concrete_ml_engine.LogisticRegressorPandasDataset)</a>
+</li>
+      <li><a href="exception_manager.html#training.lib.exception_manager.ExceptionManager.ExceptionManager.lookForExceptions">lookForExceptions() (training.lib.exception_manager.ExceptionManager.ExceptionManager metodo statico)</a>
+</li>
+      <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Loss.Loss">Loss (classe in training.lib.abstract_ml_engine.Loss)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_streaming_pipeline.html#training.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe.make">make() (training.lib.abstract_streaming_pipeline.GeneralStreamingPipe.GeneralStreamingPipe metodo)</a>
+
+      <ul>
+        <li><a href="abstract_streaming_pipeline.html#training.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.make">(training.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe metodo)</a>
+</li>
+        <li><a href="dataset_pipelines.html#training.lib.dataset_pipelines.PandasCSVDatasetLoader.PandasCSVDatasetLoader.make">(training.lib.dataset_pipelines.PandasCSVDatasetLoader.PandasCSVDatasetLoader metodo)</a>
+</li>
+        <li><a href="dataset_pipelines.html#training.lib.dataset_pipelines.PandasDatasetSplit.PandasDatasetSplit.make">(training.lib.dataset_pipelines.PandasDatasetSplit.PandasDatasetSplit metodo)</a>
+</li>
+        <li><a href="dataset_pipelines.html#training.lib.dataset_pipelines.StatsModelsDatasetLoader.StatsModelsDatasetLoader.make">(training.lib.dataset_pipelines.StatsModelsDatasetLoader.StatsModelsDatasetLoader metodo)</a>
+</li>
+      </ul></li>
+      <li><a href="event_sourcing_utility.html#training.lib.event_sourcing_utility.event_sourcing_utility.make_behavioral_event">make_behavioral_event() (nel modulo training.lib.event_sourcing_utility.event_sourcing_utility)</a>
+</li>
+      <li><a href="abstract_streaming_pipeline.html#training.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe.map">map() (training.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe metodo)</a>
+
+      <ul>
+        <li><a href="dataset_pipelines.html#training.lib.dataset_pipelines.PandasCSVDatasetLoader.PandasCSVDatasetLoader.map">(training.lib.dataset_pipelines.PandasCSVDatasetLoader.PandasCSVDatasetLoader metodo)</a>
+</li>
+        <li><a href="dataset_pipelines.html#training.lib.dataset_pipelines.PandasDatasetSplit.PandasDatasetSplit.map">(training.lib.dataset_pipelines.PandasDatasetSplit.PandasDatasetSplit metodo)</a>
+</li>
+        <li><a href="dataset_pipelines.html#training.lib.dataset_pipelines.StatsModelsDatasetLoader.StatsModelsDatasetLoader.map">(training.lib.dataset_pipelines.StatsModelsDatasetLoader.StatsModelsDatasetLoader metodo)</a>
+</li>
+      </ul></li>
+      <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Model.Model">Model (classe in training.lib.abstract_ml_engine.Model)</a>
+</li>
+      <li>
+    modulo
+
+      <ul>
+        <li><a href="abstract_event_sourcing.html#module-training.lib.abstract_event_sourcing.DomainEntity">training.lib.abstract_event_sourcing.DomainEntity</a>
+</li>
+        <li><a href="abstract_event_sourcing.html#module-training.lib.abstract_event_sourcing.DomainEvent">training.lib.abstract_event_sourcing.DomainEvent</a>
+</li>
+        <li><a href="abstract_event_sourcing.html#module-training.lib.abstract_event_sourcing.EventStore">training.lib.abstract_event_sourcing.EventStore</a>
+</li>
+        <li><a href="abstract_ml_engine.html#module-training.lib.abstract_ml_engine.Dataset">training.lib.abstract_ml_engine.Dataset</a>
+</li>
+        <li><a href="abstract_ml_engine.html#module-training.lib.abstract_ml_engine.Loss">training.lib.abstract_ml_engine.Loss</a>
+</li>
+        <li><a href="abstract_ml_engine.html#module-training.lib.abstract_ml_engine.Model">training.lib.abstract_ml_engine.Model</a>
+</li>
+        <li><a href="abstract_ml_engine.html#module-training.lib.abstract_ml_engine.Optimizer">training.lib.abstract_ml_engine.Optimizer</a>
+</li>
+        <li><a href="abstract_streaming_pipeline.html#module-training.lib.abstract_streaming_pipeline.GeneralStreamingPipe">training.lib.abstract_streaming_pipeline.GeneralStreamingPipe</a>
+</li>
+        <li><a href="abstract_streaming_pipeline.html#module-training.lib.abstract_streaming_pipeline.StreamingPipe">training.lib.abstract_streaming_pipeline.StreamingPipe</a>
+</li>
+        <li><a href="async_kafka_consumer.html#module-training.lib.async_kafka_consumer.AsyncKafkaConsumer">training.lib.async_kafka_consumer.AsyncKafkaConsumer</a>
+</li>
+        <li><a href="concrete_event_sourcing.html#module-training.lib.concrete_event_sourcing.AutoLearnLogEntity">training.lib.concrete_event_sourcing.AutoLearnLogEntity</a>
+</li>
+        <li><a href="concrete_event_sourcing.html#module-training.lib.concrete_event_sourcing.KafkaEventStore">training.lib.concrete_event_sourcing.KafkaEventStore</a>
+</li>
+        <li><a href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.DecisionTreePandasDataset">training.lib.concrete_ml_engine.DecisionTreePandasDataset</a>
+</li>
+        <li><a href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.HeightWeightDataset">training.lib.concrete_ml_engine.HeightWeightDataset</a>
+</li>
+        <li><a href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.IrisFisherDataset">training.lib.concrete_ml_engine.IrisFisherDataset</a>
+</li>
+        <li><a href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.LogisticRegressorPandasDataset">training.lib.concrete_ml_engine.LogisticRegressorPandasDataset</a>
+</li>
+        <li><a href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.NaiveBayesPandasDataset">training.lib.concrete_ml_engine.NaiveBayesPandasDataset</a>
+</li>
+        <li><a href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.RandomForestPandasDataset">training.lib.concrete_ml_engine.RandomForestPandasDataset</a>
+</li>
+        <li><a href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.SVMPandasDataset">training.lib.concrete_ml_engine.SVMPandasDataset</a>
+</li>
+        <li><a href="data_validator.html#module-training.lib.data_validator.TrainRequestValidator">training.lib.data_validator.TrainRequestValidator</a>
+</li>
+        <li><a href="dataset_pipelines.html#module-training.lib.dataset_pipelines.datasets_load_pipelines">training.lib.dataset_pipelines.datasets_load_pipelines</a>
+</li>
+        <li><a href="dataset_pipelines.html#module-training.lib.dataset_pipelines.PandasCSVDatasetLoader">training.lib.dataset_pipelines.PandasCSVDatasetLoader</a>
+</li>
+        <li><a href="dataset_pipelines.html#module-training.lib.dataset_pipelines.PandasDatasetSplit">training.lib.dataset_pipelines.PandasDatasetSplit</a>
+</li>
+        <li><a href="dataset_pipelines.html#module-training.lib.dataset_pipelines.StatsModelsDatasetLoader">training.lib.dataset_pipelines.StatsModelsDatasetLoader</a>
+</li>
+        <li><a href="domain_work.html#module-training.lib.domain_work.worker">training.lib.domain_work.worker</a>
+</li>
+        <li><a href="event_sourcing_utility.html#module-training.lib.event_sourcing_utility.event_sourcing_utility">training.lib.event_sourcing_utility.event_sourcing_utility</a>
+</li>
+        <li><a href="exception_manager.html#module-training.lib.exception_manager.ExceptionManager">training.lib.exception_manager.ExceptionManager</a>
+</li>
+        <li><a href="http_engine.html#module-training.lib.http_engine.HTTPEngine">training.lib.http_engine.HTTPEngine</a>
+</li>
+        <li><a href="http_engine.html#module-training.lib.http_engine.HTTPError">training.lib.http_engine.HTTPError</a>
+</li>
+        <li><a href="kafka_logger.html#module-training.lib.kafka_logger.KafkaLogger">training.lib.kafka_logger.KafkaLogger</a>
+</li>
+        <li><a href="logger.html#module-training.lib.logger.Logger">training.lib.logger.Logger</a>
+</li>
+        <li><a href="network_serializer.html#module-training.lib.network_serializer.NetworkSerializer">training.lib.network_serializer.NetworkSerializer</a>
+</li>
+        <li><a href="rabbit_producer.html#module-training.lib.rabbit_producer.RabbitProducer">training.lib.rabbit_producer.RabbitProducer</a>
+</li>
+        <li><a href="service_config.html#module-training.lib.service_config.ServiceConfig">training.lib.service_config.ServiceConfig</a>
+</li>
+        <li><a href="service_set_up.html#module-training.lib.service_set_up.system_set_up">training.lib.service_set_up.system_set_up</a>
+</li>
+        <li><a href="singleton.html#module-training.lib.singleton.Singleton">training.lib.singleton.Singleton</a>
+</li>
+        <li><a href="time_stamp_manager.html#module-training.lib.time_stamp_manager.TimeStampManager">training.lib.time_stamp_manager.TimeStampManager</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset">NaiveBayesPandasDataset (classe in training.lib.concrete_ml_engine.NaiveBayesPandasDataset)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="network_serializer.html#training.lib.network_serializer.NetworkSerializer.NetworkSerializer">NetworkSerializer (classe in training.lib.network_serializer.NetworkSerializer)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Optimizer.Optimizer">Optimizer (classe in training.lib.abstract_ml_engine.Optimizer)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="dataset_pipelines.html#training.lib.dataset_pipelines.PandasCSVDatasetLoader.PandasCSVDatasetLoader">PandasCSVDatasetLoader (classe in training.lib.dataset_pipelines.PandasCSVDatasetLoader)</a>
+</li>
+      <li><a href="dataset_pipelines.html#training.lib.dataset_pipelines.PandasDatasetSplit.PandasDatasetSplit">PandasDatasetSplit (classe in training.lib.dataset_pipelines.PandasDatasetSplit)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="http_engine.html#training.lib.http_engine.HTTPEngine.HTTPEngine.post">post() (training.lib.http_engine.HTTPEngine.HTTPEngine metodo)</a>
+</li>
+      <li><a href="http_engine.html#training.lib.http_engine.HTTPEngine.HTTPEngine.postAsync">postAsync() (training.lib.http_engine.HTTPEngine.HTTPEngine metodo)</a>
+</li>
+      <li><a href="rabbit_producer.html#training.lib.rabbit_producer.RabbitProducer.RabbitProducer.pubblish">pubblish() (training.lib.rabbit_producer.RabbitProducer.RabbitProducer metodo)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Q">Q</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="service_config.html#training.lib.service_config.ServiceConfig.ServiceConfig.QUEUE">QUEUE (training.lib.service_config.ServiceConfig.ServiceConfig attributo)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="rabbit_producer.html#training.lib.rabbit_producer.RabbitProducer.RabbitProducer">RabbitProducer (classe in training.lib.rabbit_producer.RabbitProducer)</a>
+</li>
+      <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset">RandomForestPandasDataset (classe in training.lib.concrete_ml_engine.RandomForestPandasDataset)</a>
+</li>
+      <li><a href="abstract_event_sourcing.html#training.lib.abstract_event_sourcing.EventStore.EventStore.read">read() (training.lib.abstract_event_sourcing.EventStore.EventStore metodo)</a>
+
+      <ul>
+        <li><a href="concrete_event_sourcing.html#training.lib.concrete_event_sourcing.KafkaEventStore.KafkaEventStore.read">(training.lib.concrete_event_sourcing.KafkaEventStore.KafkaEventStore metodo)</a>
+</li>
+      </ul></li>
+      <li><a href="network_serializer.html#training.lib.network_serializer.NetworkSerializer.NetworkSerializer.readKeyFromFile">readKeyFromFile() (training.lib.network_serializer.NetworkSerializer.NetworkSerializer metodo)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_event_sourcing.html#training.lib.abstract_event_sourcing.DomainEntity.DomainEntity.reset">reset() (training.lib.abstract_event_sourcing.DomainEntity.DomainEntity metodo)</a>
+
+      <ul>
+        <li><a href="concrete_event_sourcing.html#training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity.reset">(training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity metodo)</a>
+</li>
+      </ul></li>
+      <li><a href="service_config.html#training.lib.service_config.ServiceConfig.ServiceConfig.REST_EP_PARTITION">REST_EP_PARTITION (training.lib.service_config.ServiceConfig.ServiceConfig attributo)</a>
+</li>
+      <li><a href="service_config.html#training.lib.service_config.ServiceConfig.ServiceConfig.REST_EP_TOPIC">REST_EP_TOPIC (training.lib.service_config.ServiceConfig.ServiceConfig attributo)</a>
+</li>
+      <li><a href="abstract_event_sourcing.html#training.lib.abstract_event_sourcing.DomainEntity.DomainEntity.rewind">rewind() (training.lib.abstract_event_sourcing.DomainEntity.DomainEntity metodo)</a>
+
+      <ul>
+        <li><a href="concrete_event_sourcing.html#training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity.rewind">(training.lib.concrete_event_sourcing.AutoLearnLogEntity.AutoLearnLogEntity metodo)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Model.Model.saveCheckPoint">saveCheckPoint() (training.lib.abstract_ml_engine.Model.Model metodo)</a>
+
+      <ul>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.saveCheckPoint">(training.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.saveCheckPoint">(training.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.saveCheckPoint">(training.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.saveCheckPoint">(training.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.saveCheckPoint">(training.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset metodo)</a>
+</li>
+      </ul></li>
+      <li><a href="service_config.html#training.lib.service_config.ServiceConfig.ServiceConfig">ServiceConfig (classe in training.lib.service_config.ServiceConfig)</a>
+</li>
+      <li><a href="service_set_up.html#training.lib.service_set_up.system_set_up.set_up_rest_end_point">set_up_rest_end_point() (nel modulo training.lib.service_set_up.system_set_up)</a>
+</li>
+      <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Dataset.Dataset.setUp">setUp() (training.lib.abstract_ml_engine.Dataset.Dataset metodo)</a>
+
+      <ul>
+        <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Loss.Loss.setUp">(training.lib.abstract_ml_engine.Loss.Loss metodo)</a>
+</li>
+        <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Model.Model.setUp">(training.lib.abstract_ml_engine.Model.Model metodo)</a>
+</li>
+        <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Optimizer.Optimizer.setUp">(training.lib.abstract_ml_engine.Optimizer.Optimizer metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset.setUp">(training.lib.concrete_ml_engine.DecisionTreePandasDataset.DecisionTreePandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.HeightWeightDataset.HeightWeightDataset.setUp">(training.lib.concrete_ml_engine.HeightWeightDataset.HeightWeightDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.IrisFisherDataset.IrisFisher.setUp">(training.lib.concrete_ml_engine.IrisFisherDataset.IrisFisher metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset.setUp">(training.lib.concrete_ml_engine.LogisticRegressorPandasDataset.LogisticRegressorPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset.setUp">(training.lib.concrete_ml_engine.NaiveBayesPandasDataset.NaiveBayesPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset.setUp">(training.lib.concrete_ml_engine.RandomForestPandasDataset.RandomForestPandasDataset metodo)</a>
+</li>
+        <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset.setUp">(training.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset metodo)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="event_sourcing_utility.html#training.lib.event_sourcing_utility.event_sourcing_utility.setUpEventSourcing">setUpEventSourcing() (nel modulo training.lib.event_sourcing_utility.event_sourcing_utility)</a>
+</li>
+      <li><a href="singleton.html#training.lib.singleton.Singleton.Singleton">Singleton (classe in training.lib.singleton.Singleton)</a>
+</li>
+      <li><a href="abstract_event_sourcing.html#training.lib.abstract_event_sourcing.EventStore.EventStore.start">start() (training.lib.abstract_event_sourcing.EventStore.EventStore metodo)</a>
+
+      <ul>
+        <li><a href="async_kafka_consumer.html#training.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer.start">(training.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer metodo)</a>
+</li>
+        <li><a href="concrete_event_sourcing.html#training.lib.concrete_event_sourcing.KafkaEventStore.KafkaEventStore.start">(training.lib.concrete_event_sourcing.KafkaEventStore.KafkaEventStore metodo)</a>
+</li>
+        <li><a href="kafka_logger.html#training.lib.kafka_logger.KafkaLogger.KafkaLogger.start">(training.lib.kafka_logger.KafkaLogger.KafkaLogger metodo)</a>
+</li>
+        <li><a href="logger.html#training.lib.logger.Logger.Logger.start">(training.lib.logger.Logger.Logger metodo)</a>
+</li>
+        <li><a href="rabbit_producer.html#training.lib.rabbit_producer.RabbitProducer.RabbitProducer.start">(training.lib.rabbit_producer.RabbitProducer.RabbitProducer metodo)</a>
+</li>
+      </ul></li>
+      <li><a href="http_engine.html#training.lib.http_engine.HTTPEngine.HTTPEngine.startAsync">startAsync() (training.lib.http_engine.HTTPEngine.HTTPEngine metodo)</a>
+</li>
+      <li><a href="dataset_pipelines.html#training.lib.dataset_pipelines.StatsModelsDatasetLoader.StatsModelsDatasetLoader">StatsModelsDatasetLoader (classe in training.lib.dataset_pipelines.StatsModelsDatasetLoader)</a>
+</li>
+      <li><a href="abstract_ml_engine.html#training.lib.abstract_ml_engine.Optimizer.Optimizer.step">step() (training.lib.abstract_ml_engine.Optimizer.Optimizer metodo)</a>
+</li>
+      <li><a href="abstract_event_sourcing.html#training.lib.abstract_event_sourcing.EventStore.EventStore.stop">stop() (training.lib.abstract_event_sourcing.EventStore.EventStore metodo)</a>
+
+      <ul>
+        <li><a href="async_kafka_consumer.html#training.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer.stop">(training.lib.async_kafka_consumer.AsyncKafkaConsumer.AsyncKafkaConsumer metodo)</a>
+</li>
+        <li><a href="concrete_event_sourcing.html#training.lib.concrete_event_sourcing.KafkaEventStore.KafkaEventStore.stop">(training.lib.concrete_event_sourcing.KafkaEventStore.KafkaEventStore metodo)</a>
+</li>
+        <li><a href="kafka_logger.html#training.lib.kafka_logger.KafkaLogger.KafkaLogger.stop">(training.lib.kafka_logger.KafkaLogger.KafkaLogger metodo)</a>
+</li>
+        <li><a href="rabbit_producer.html#training.lib.rabbit_producer.RabbitProducer.RabbitProducer.stop">(training.lib.rabbit_producer.RabbitProducer.RabbitProducer metodo)</a>
+</li>
+      </ul></li>
+      <li><a href="abstract_streaming_pipeline.html#training.lib.abstract_streaming_pipeline.StreamingPipe.StreamingPipe">StreamingPipe (classe in training.lib.abstract_streaming_pipeline.StreamingPipe)</a>
+</li>
+      <li><a href="concrete_ml_engine.html#training.lib.concrete_ml_engine.SVMPandasDataset.SVMPandasDataset">SVMPandasDataset (classe in training.lib.concrete_ml_engine.SVMPandasDataset)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="time_stamp_manager.html#training.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestamp2Date">timestamp2Date() (training.lib.time_stamp_manager.TimeStampManager.TimeStampManager metodo statico)</a>
+</li>
+      <li><a href="time_stamp_manager.html#training.lib.time_stamp_manager.TimeStampManager.TimeStampManager">TimeStampManager (classe in training.lib.time_stamp_manager.TimeStampManager)</a>
+</li>
+      <li><a href="time_stamp_manager.html#training.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestampMs2Sec">timestampMs2Sec() (training.lib.time_stamp_manager.TimeStampManager.TimeStampManager metodo statico)</a>
+</li>
+      <li><a href="time_stamp_manager.html#training.lib.time_stamp_manager.TimeStampManager.TimeStampManager.timestampSec2Ms">timestampSec2Ms() (training.lib.time_stamp_manager.TimeStampManager.TimeStampManager metodo statico)</a>
+</li>
+      <li><a href="domain_work.html#training.lib.domain_work.worker.train_decision_tree">train_decision_tree() (nel modulo training.lib.domain_work.worker)</a>
+</li>
+      <li><a href="domain_work.html#training.lib.domain_work.worker.train_logistic_regressor">train_logistic_regressor() (nel modulo training.lib.domain_work.worker)</a>
+</li>
+      <li><a href="domain_work.html#training.lib.domain_work.worker.train_ml_model">train_ml_model() (nel modulo training.lib.domain_work.worker)</a>
+</li>
+      <li><a href="domain_work.html#training.lib.domain_work.worker.train_naive_bayes">train_naive_bayes() (nel modulo training.lib.domain_work.worker)</a>
+</li>
+      <li><a href="domain_work.html#training.lib.domain_work.worker.train_random_forest">train_random_forest() (nel modulo training.lib.domain_work.worker)</a>
+</li>
+      <li><a href="domain_work.html#training.lib.domain_work.worker.train_SVM">train_SVM() (nel modulo training.lib.domain_work.worker)</a>
+</li>
+      <li>
+    training.lib.abstract_event_sourcing.DomainEntity
+
+      <ul>
+        <li><a href="abstract_event_sourcing.html#module-training.lib.abstract_event_sourcing.DomainEntity">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.abstract_event_sourcing.DomainEvent
+
+      <ul>
+        <li><a href="abstract_event_sourcing.html#module-training.lib.abstract_event_sourcing.DomainEvent">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.abstract_event_sourcing.EventStore
+
+      <ul>
+        <li><a href="abstract_event_sourcing.html#module-training.lib.abstract_event_sourcing.EventStore">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.abstract_ml_engine.Dataset
+
+      <ul>
+        <li><a href="abstract_ml_engine.html#module-training.lib.abstract_ml_engine.Dataset">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.abstract_ml_engine.Loss
+
+      <ul>
+        <li><a href="abstract_ml_engine.html#module-training.lib.abstract_ml_engine.Loss">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.abstract_ml_engine.Model
+
+      <ul>
+        <li><a href="abstract_ml_engine.html#module-training.lib.abstract_ml_engine.Model">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.abstract_ml_engine.Optimizer
+
+      <ul>
+        <li><a href="abstract_ml_engine.html#module-training.lib.abstract_ml_engine.Optimizer">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.abstract_streaming_pipeline.GeneralStreamingPipe
+
+      <ul>
+        <li><a href="abstract_streaming_pipeline.html#module-training.lib.abstract_streaming_pipeline.GeneralStreamingPipe">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.abstract_streaming_pipeline.StreamingPipe
+
+      <ul>
+        <li><a href="abstract_streaming_pipeline.html#module-training.lib.abstract_streaming_pipeline.StreamingPipe">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.async_kafka_consumer.AsyncKafkaConsumer
+
+      <ul>
+        <li><a href="async_kafka_consumer.html#module-training.lib.async_kafka_consumer.AsyncKafkaConsumer">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.concrete_event_sourcing.AutoLearnLogEntity
+
+      <ul>
+        <li><a href="concrete_event_sourcing.html#module-training.lib.concrete_event_sourcing.AutoLearnLogEntity">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.concrete_event_sourcing.KafkaEventStore
+
+      <ul>
+        <li><a href="concrete_event_sourcing.html#module-training.lib.concrete_event_sourcing.KafkaEventStore">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.concrete_ml_engine.DecisionTreePandasDataset
+
+      <ul>
+        <li><a href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.DecisionTreePandasDataset">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.concrete_ml_engine.HeightWeightDataset
+
+      <ul>
+        <li><a href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.HeightWeightDataset">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.concrete_ml_engine.IrisFisherDataset
+
+      <ul>
+        <li><a href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.IrisFisherDataset">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.concrete_ml_engine.LogisticRegressorPandasDataset
+
+      <ul>
+        <li><a href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.LogisticRegressorPandasDataset">modulo</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    training.lib.concrete_ml_engine.NaiveBayesPandasDataset
+
+      <ul>
+        <li><a href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.NaiveBayesPandasDataset">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.concrete_ml_engine.RandomForestPandasDataset
+
+      <ul>
+        <li><a href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.RandomForestPandasDataset">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.concrete_ml_engine.SVMPandasDataset
+
+      <ul>
+        <li><a href="concrete_ml_engine.html#module-training.lib.concrete_ml_engine.SVMPandasDataset">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.data_validator.TrainRequestValidator
+
+      <ul>
+        <li><a href="data_validator.html#module-training.lib.data_validator.TrainRequestValidator">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.dataset_pipelines.datasets_load_pipelines
+
+      <ul>
+        <li><a href="dataset_pipelines.html#module-training.lib.dataset_pipelines.datasets_load_pipelines">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.dataset_pipelines.PandasCSVDatasetLoader
+
+      <ul>
+        <li><a href="dataset_pipelines.html#module-training.lib.dataset_pipelines.PandasCSVDatasetLoader">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.dataset_pipelines.PandasDatasetSplit
+
+      <ul>
+        <li><a href="dataset_pipelines.html#module-training.lib.dataset_pipelines.PandasDatasetSplit">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.dataset_pipelines.StatsModelsDatasetLoader
+
+      <ul>
+        <li><a href="dataset_pipelines.html#module-training.lib.dataset_pipelines.StatsModelsDatasetLoader">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.domain_work.worker
+
+      <ul>
+        <li><a href="domain_work.html#module-training.lib.domain_work.worker">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.event_sourcing_utility.event_sourcing_utility
+
+      <ul>
+        <li><a href="event_sourcing_utility.html#module-training.lib.event_sourcing_utility.event_sourcing_utility">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.exception_manager.ExceptionManager
+
+      <ul>
+        <li><a href="exception_manager.html#module-training.lib.exception_manager.ExceptionManager">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.http_engine.HTTPEngine
+
+      <ul>
+        <li><a href="http_engine.html#module-training.lib.http_engine.HTTPEngine">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.http_engine.HTTPError
+
+      <ul>
+        <li><a href="http_engine.html#module-training.lib.http_engine.HTTPError">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.kafka_logger.KafkaLogger
+
+      <ul>
+        <li><a href="kafka_logger.html#module-training.lib.kafka_logger.KafkaLogger">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.logger.Logger
+
+      <ul>
+        <li><a href="logger.html#module-training.lib.logger.Logger">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.network_serializer.NetworkSerializer
+
+      <ul>
+        <li><a href="network_serializer.html#module-training.lib.network_serializer.NetworkSerializer">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.rabbit_producer.RabbitProducer
+
+      <ul>
+        <li><a href="rabbit_producer.html#module-training.lib.rabbit_producer.RabbitProducer">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.service_config.ServiceConfig
+
+      <ul>
+        <li><a href="service_config.html#module-training.lib.service_config.ServiceConfig">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.service_set_up.system_set_up
+
+      <ul>
+        <li><a href="service_set_up.html#module-training.lib.service_set_up.system_set_up">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.singleton.Singleton
+
+      <ul>
+        <li><a href="singleton.html#module-training.lib.singleton.Singleton">modulo</a>
+</li>
+      </ul></li>
+      <li>
+    training.lib.time_stamp_manager.TimeStampManager
+
+      <ul>
+        <li><a href="time_stamp_manager.html#module-training.lib.time_stamp_manager.TimeStampManager">modulo</a>
+</li>
+      </ul></li>
+      <li><a href="data_validator.html#training.lib.data_validator.TrainRequestValidator.TrainRequestValidator">TrainRequestValidator (classe in training.lib.data_validator.TrainRequestValidator)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="domain_work.html#training.lib.domain_work.worker.validate_request">validate_request() (nel modulo training.lib.domain_work.worker)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_event_sourcing.html#training.lib.abstract_event_sourcing.EventStore.EventStore.write">write() (training.lib.abstract_event_sourcing.EventStore.EventStore metodo)</a>
+
+      <ul>
+        <li><a href="concrete_event_sourcing.html#training.lib.concrete_event_sourcing.KafkaEventStore.KafkaEventStore.write">(training.lib.concrete_event_sourcing.KafkaEventStore.KafkaEventStore metodo)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Rosario Scalia.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

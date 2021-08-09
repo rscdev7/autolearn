@@ -1,0 +1,23 @@
+.. toctree::
+   :maxdepth: 4
+
+
+HTTPEngine
+-------------------------
+
+.. automodule:: training.lib.http_engine.HTTPEngine
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__
+
+HTTPError
+-------------------------
+
+.. automodule:: training.lib.http_engine.HTTPError
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__

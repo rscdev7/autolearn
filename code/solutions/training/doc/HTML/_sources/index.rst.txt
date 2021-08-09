@@ -1,0 +1,42 @@
+Benvenuto nella Documentazione di training
+======================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Moduli
+
+   abstract_event_sourcing
+   abstract_ml_engine
+   abstract_streaming_pipeline
+   async_kafka_consumer
+   concrete_event_sourcing
+   concrete_ml_engine
+   dataset_pipelines
+   data_validator
+   domain_work
+   event_sourcing_utility
+   exception_manager
+   http_engine
+   kafka_logger
+   logger
+   network_serializer
+   rabbit_producer
+   service_config
+   service_set_up
+   singleton
+   time_stamp_manager
+   
+   
+   
+   
+
+   
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
