@@ -151,7 +151,7 @@ async def download_catalog(pUrl:str) -> Union[ Dict[int,dict] , Exception, Tuple
     engine:HTTPEngine                                                   = HTTPEngine(60)
     engine.startAsync()
     res:Union[ Dict[int,dict] , Exception, Tuple [Exception , int] ]    = await engine.getAsync(pUrl)
-    await engine.stop()
+    await engine.closeAsync()
     
     return res
 

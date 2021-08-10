@@ -114,7 +114,7 @@ async def checkTrainingExist (pIdSession:int , pCfg:ServiceConfig , pNetLogger:A
 
     current_time:int                                                                 = TimeStampManager.currentTimeStampInMS()
     query_record_outcome:Union[Dict[int, dict], Exception, Tuple[Exception, int]]    = await engine.postAsync(pCfg.QUERY_RECORD_URL , request)
-    await engine.stop()
+    await engine.closeAsync()
 
     #[3] Logging su Event-Store richiesta effettuata a Sessione
     sess_exist_req:DomainEvent                                                       = make_behavioral_event( b"session" , current_time , "evaluation" , "session" , "send" , "async" , "query_record")
