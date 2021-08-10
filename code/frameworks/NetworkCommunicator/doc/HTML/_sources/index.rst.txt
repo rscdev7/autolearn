@@ -1,0 +1,22 @@
+Benvenuto nella Documentazione di NetworkCommunicator
+======================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Moduli
+
+
+   abstract_network_communicator
+   concrete_network_communicator
+   exception_manager
+   http_engine
+   network_serializer
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

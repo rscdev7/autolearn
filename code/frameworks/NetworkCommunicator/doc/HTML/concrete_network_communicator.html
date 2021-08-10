@@ -1,0 +1,384 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>AsyncHTTPCommunicator &mdash; NetworkCommunicator 1.0.0 documentazione</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Cerca" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> NetworkCommunicator
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">AsyncHTTPCommunicator</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">NetworkCommunicator</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>AsyncHTTPCommunicator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/concrete_network_communicator.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="module-NetworkCommunicator.lib.concrete_network_communicator.AsyncHTTPCommunicator">
+<span id="asynchttpcommunicator"></span><h1>AsyncHTTPCommunicator<a class="headerlink" href="#module-NetworkCommunicator.lib.concrete_network_communicator.AsyncHTTPCommunicator" title="Link a questa intestazione">¶</a></h1>
+<p>&#64;author                     :  rscalia</p>
+<p>&#64;build-date             :  Thu 10/08/2021</p>
+<p>&#64;last-update            :  Thu 10/08/2021</p>
+<p>Questo componente implementa l’interfaccia NetworkCommunicator</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="NetworkCommunicator.lib.concrete_network_communicator.AsyncHTTPCommunicator.AsyncHTTPCommunicator">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">NetworkCommunicator.lib.concrete_network_communicator.AsyncHTTPCommunicator.</span></span><span class="sig-name descname"><span class="pre">AsyncHTTPCommunicator</span></span><a class="headerlink" href="#NetworkCommunicator.lib.concrete_network_communicator.AsyncHTTPCommunicator.AsyncHTTPCommunicator" title="Link a questa definizione">¶</a></dt>
+<dd><blockquote>
+<div><p>Basi: <a class="reference internal" href="abstract_network_communicator.html#NetworkCommunicator.lib.abstract_network_communicator.NetworkCommunicator.NetworkCommunicator" title="NetworkCommunicator.lib.abstract_network_communicator.NetworkCommunicator.NetworkCommunicator"><code class="xref py py-class docutils literal notranslate"><span class="pre">NetworkCommunicator.lib.abstract_network_communicator.NetworkCommunicator.NetworkCommunicator</span></code></a></p>
+</div></blockquote>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="NetworkCommunicator.lib.concrete_network_communicator.AsyncHTTPCommunicator.AsyncHTTPCommunicator.__abstractmethods__">
+<span class="sig-name descname"><span class="pre">__abstractmethods__</span></span><em class="property"> <span class="pre">=</span> <span class="pre">frozenset({})</span></em><a class="headerlink" href="#NetworkCommunicator.lib.concrete_network_communicator.AsyncHTTPCommunicator.AsyncHTTPCommunicator.__abstractmethods__" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="NetworkCommunicator.lib.concrete_network_communicator.AsyncHTTPCommunicator.AsyncHTTPCommunicator.__slots__">
+<span class="sig-name descname"><span class="pre">__slots__</span></span><em class="property"> <span class="pre">=</span> <span class="pre">('_networkEngine',</span> <span class="pre">'_serializer',</span> <span class="pre">'_connData',</span> <span class="pre">'_recipients')</span></em><a class="headerlink" href="#NetworkCommunicator.lib.concrete_network_communicator.AsyncHTTPCommunicator.AsyncHTTPCommunicator.__slots__" title="Link a questa definizione">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="NetworkCommunicator.lib.concrete_network_communicator.AsyncHTTPCommunicator.AsyncHTTPCommunicator.isConnected">
+<span class="sig-name descname"><span class="pre">isConnected</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">bool</span><a class="headerlink" href="#NetworkCommunicator.lib.concrete_network_communicator.AsyncHTTPCommunicator.AsyncHTTPCommunicator.isConnected" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di verificare se è presente una connessione attiva con la rete.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>VERO se è presente una connessione avviata, FALSO altrimenti</p>
+</dd>
+<dt class="field-even">Tipo di ritorno</dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="NetworkCommunicator.lib.concrete_network_communicator.AsyncHTTPCommunicator.AsyncHTTPCommunicator.receive">
+<span class="sig-name descname"><span class="pre">receive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pEntity</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#NetworkCommunicator.lib.concrete_network_communicator.AsyncHTTPCommunicator.AsyncHTTPCommunicator.receive" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di ricevere dati da un destinatario.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pEntity</strong> (<em>str</em>) – destinatario</p></li>
+<li><p><strong>pParams</strong> (<em>dict | DEF = None</em>) – eventuali parametri di ricezione</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ object , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>NotImplementedError</strong> – questo metodo non è implementato per questa classe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="NetworkCommunicator.lib.concrete_network_communicator.AsyncHTTPCommunicator.AsyncHTTPCommunicator.request">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pRecipient</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pReqType</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pReqData</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">object</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#NetworkCommunicator.lib.concrete_network_communicator.AsyncHTTPCommunicator.AsyncHTTPCommunicator.request" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di inoltrare una richiesta (comando, query su dato ecc…) ad un destinatario appartenente alla lista di destinatari di setup.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pRecipient</strong> (<em>str</em>) – destinatario richiesta</p></li>
+<li><p><strong>pReqType</strong> (<em>str</em>) – tipo richiesta</p></li>
+<li><p><strong>pReqData</strong> (<em>dict | DEF = None</em>) – eventuali dati richiesta</p></li>
+<li><p><strong>pParams</strong> (<em>dict | DEF = None</em>) – eventuali parametri richiesta</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ object , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – errore nella richiesta al destinatario</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="NetworkCommunicator.lib.concrete_network_communicator.AsyncHTTPCommunicator.AsyncHTTPCommunicator.send">
+<span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pData</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pRecipient</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#NetworkCommunicator.lib.concrete_network_communicator.AsyncHTTPCommunicator.AsyncHTTPCommunicator.send" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di inoltrare dei dati ad un destinatario presente nella lista di setup.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pData</strong> (<em>object</em>) – dati da inviare</p></li>
+<li><p><strong>pRecipient</strong> (<em>str</em>) – destinatario</p></li>
+<li><p><strong>pParams</strong> (<em>dict | DEF = None</em>) – eventuali parametri di invio</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union[None , Exception]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>NotImplementedError</strong> – questo metodo non è implementato per questa classe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="NetworkCommunicator.lib.concrete_network_communicator.AsyncHTTPCommunicator.AsyncHTTPCommunicator.setUp">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pRecipients</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pConnData</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#NetworkCommunicator.lib.concrete_network_communicator.AsyncHTTPCommunicator.AsyncHTTPCommunicator.setUp" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di configurare la connessione che permettera” di comunicare successivamente con host remoti.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pRecipients</strong> (<em>List</em><em>[</em><em>dict</em><em>]</em>) – <p>destinatari connessione
+Formato Dizionari presenti nella lista:</p>
+<blockquote>
+<div><ul>
+<li><p><strong>recipient_name</strong>    : str</p></li>
+<li><p><strong>base_address</strong>      : str</p></li>
+<li><dl class="simple">
+<dt><strong>actions</strong><span class="classifier">List[ Tuple[ str ,str , str , bool ] ]</span></dt><dd><ul>
+<li><p><strong>( request_name , req_address , «GET/POST» , bool_need_params )</strong></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</p></li>
+<li><p><strong>pConnData</strong> (<em>dict | DEF = None</em>) – <p>parametri configurazione connessione.</p>
+<p>Formato Dizionario:</p>
+<blockquote>
+<div><ul>
+<li><p><strong>timeout</strong>       : int (timeout in secondi richiesta HTTP)</p></li>
+</ul>
+</div></blockquote>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ None , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – errori di configurazione connessione</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="NetworkCommunicator.lib.concrete_network_communicator.AsyncHTTPCommunicator.AsyncHTTPCommunicator.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#NetworkCommunicator.lib.concrete_network_communicator.AsyncHTTPCommunicator.AsyncHTTPCommunicator.start" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di avviare la connessione precedentemente configurata</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pParams</strong> (<em>dict | DEF = None</em>) – eventuali parametri di avvio della connessione</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union[None , Exception]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – errori nell’avvio della connessione</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="NetworkCommunicator.lib.concrete_network_communicator.AsyncHTTPCommunicator.AsyncHTTPCommunicator.stop">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#NetworkCommunicator.lib.concrete_network_communicator.AsyncHTTPCommunicator.AsyncHTTPCommunicator.stop" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di chiudere la connessione precedentemente avviata</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pParams</strong> (<em>dict | DEF = None</em>) – eventuali parametri di stop della connessione</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union[None , Exception]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – errori nella chiusura della connessione</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Rosario Scalia.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
