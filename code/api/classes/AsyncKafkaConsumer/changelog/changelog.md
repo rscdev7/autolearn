@@ -1,5 +1,8 @@
 # AsyncKafkaConsumer
 
+> **v1.0.4**
+>	* Bug Fix Consumazione dei Messaggi
+
 > **v1.0.3**
 >	* Imposto timeout alla consumazione dei messaggi
 

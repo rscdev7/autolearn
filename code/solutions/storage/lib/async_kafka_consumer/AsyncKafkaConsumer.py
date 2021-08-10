@@ -123,21 +123,21 @@ class AsyncKafkaConsumer (object):
 
 
             #Avvio Consumazione
-            records:tuple                       = await self._consumer.getmany(self._topicObj, timeout_ms=1500)
-            for _,data in records:
+            records_4_topics:tuple              = await self._consumer.getmany(self._topicObj, timeout_ms=1500)
+            for _, topic_records in records_4_topics.items():
+                for data in topic_records:
                 
-                
-                #Unwrap Dati Record i-esimo
-                record:dict             = {}
-                record["topic"]         = data.topic
-                record["partition"]     = data.partition
-                record["offset"]        = data.offset
-                record["key"]           = data.key
-                record["timestamp_ms"]  = data.timestamp
-                record["payload"]       = self._serializer.decodeJson(data.value)
+                    #Unwrap Dati Record i-esimo
+                    record:dict             = {}
+                    record["topic"]         = data.topic
+                    record["partition"]     = data.partition
+                    record["offset"]        = data.offset
+                    record["key"]           = data.key
+                    record["timestamp_ms"]  = data.timestamp
+                    record["payload"]       = self._serializer.decodeJson(data.value)
 
-                #Archiviazione Dati prelevati
-                self._retrievedRecords.append ( record )
+                    #Archiviazione Dati prelevati
+                    self._retrievedRecords.append ( record )
             
 
         except Exception as exp:
