@@ -187,13 +187,11 @@ Comandi Installazione Ambiente, Interprete e Librerie:
                 sudo chown -R 1001:1001 $CONFIG_SERVICE_DATA_LAKE
 
 
-3. Avviare il Backend:
+3. Avviare l'Event-Store:
 
         cd $REPO_DIR/docker/production_env
-    
-        ./build_img.sh
-    
-        docker-compose up -d
+
+        docker-compose up -d event_store
 
 
 4. Impostare i parametri dell'Event-Store all'interno del file:
@@ -212,7 +210,21 @@ Comandi Installazione Ambiente, Interprete e Librerie:
         ./$REPO_DIR/docker/production_env/init_event_store.sh
 
 
-7. Avviare il Frontend: 
+7. Stoppare esecuzione Event-Store:
+        
+        docker-compose down
+
+
+8. Avviare il Backend:
+
+        cd $REPO_DIR/docker/production_env
+    
+        ./build_img.sh
+    
+        docker-compose up -d
+
+
+9. Avviare il Frontend: 
 
         cd $CLIENT_APP_DIR
 
