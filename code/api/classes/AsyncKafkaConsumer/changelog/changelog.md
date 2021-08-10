@@ -1,5 +1,8 @@
 # AsyncKafkaConsumer
 
+> **v1.0.3**
+>	* Imposto timeout alla consumazione dei messaggi
+
 > **v1.0.2**
 >	* Rimosso di default il Consumer Group dato che dava problemi lato assegnazione partizione
 

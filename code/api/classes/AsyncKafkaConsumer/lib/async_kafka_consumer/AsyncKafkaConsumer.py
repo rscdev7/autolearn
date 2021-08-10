@@ -1,7 +1,7 @@
 """
 @author           	    :  rscalia                              \n
 @build-date             :  Sat 24/07/2021                       \n
-@last-update            :  Thu 03/08/2021                       \n
+@last-update            :  Mon 10/08/2021                       \n
 
 Questo componente implementa un consumatore Asincrono kafka
 
@@ -121,8 +121,10 @@ class AsyncKafkaConsumer (object):
             #Caso in cui non sono presenti record nel topic
             if self._nRecordInTopicPart == 0: return []
 
+
             #Avvio Consumazione
-            async for data in self._consumer:
+            records:tuple                       = await self._consumer.getmany(self._topicObj, timeout_ms=1500)
+            for _,data in records:
                 
                 
                 #Unwrap Dati Record i-esimo
@@ -137,10 +139,6 @@ class AsyncKafkaConsumer (object):
                 #Archiviazione Dati prelevati
                 self._retrievedRecords.append ( record )
             
-
-                #Se il record era l'ultimo messaggio della partizione, esci
-                if (data.offset+1 == self._nRecordInTopicPart):
-                    break
 
         except Exception as exp:
             return exp

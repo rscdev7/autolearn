@@ -15,7 +15,7 @@ import time
 
 HOST_NAME:str               = "kafka"
 PORT:str                    = "9092"
-TOPIC_NAME:str              = "test"
+TOPIC_NAME:str              = "session"
 PARTITION:int               = 0
 
 
