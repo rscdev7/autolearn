@@ -1,7 +1,7 @@
 """
 @author           	    :  rscalia                              \n
 @build-date             :  Sun 08/08/2021                       \n
-@last-update            :  Sun 08/08/2021                       \n
+@last-update            :  Thu 10/08/2021                       \n
 
 Questo modulo permette di svolgere il domain work del microservizio Training
 """
@@ -151,7 +151,8 @@ async def download_catalog(pUrl:str) -> Union[ Dict[int,dict] , Exception, Tuple
     engine:HTTPEngine                                                   = HTTPEngine(60)
     engine.startAsync()
     res:Union[ Dict[int,dict] , Exception, Tuple [Exception , int] ]    = await engine.getAsync(pUrl)
-
+    await engine.stop()
+    
     return res
 
 

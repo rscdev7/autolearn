@@ -1,7 +1,7 @@
 """
 @author           	    :  rscalia                              \n
 @build-date             :  Mon 09/08/2021                       \n
-@last-update            :  Mon 09/08/2021                       \n
+@last-update            :  Thu 10/08/2021                       \n
 
 Questo modulo permette di svolgere il domain work del microservizio Evaluation
 """
@@ -114,7 +114,7 @@ async def checkTrainingExist (pIdSession:int , pCfg:ServiceConfig , pNetLogger:A
 
     current_time:int                                                                 = TimeStampManager.currentTimeStampInMS()
     query_record_outcome:Union[Dict[int, dict], Exception, Tuple[Exception, int]]    = await engine.postAsync(pCfg.QUERY_RECORD_URL , request)
-
+    await engine.stop()
 
     #[3] Logging su Event-Store richiesta effettuata a Sessione
     sess_exist_req:DomainEvent                                                       = make_behavioral_event( b"session" , current_time , "evaluation" , "session" , "send" , "async" , "query_record")
