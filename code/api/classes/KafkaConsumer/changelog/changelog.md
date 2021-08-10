@@ -1,5 +1,8 @@
 # KafkaConsumer
 
+> **v1.0.3**
+>	* Migliorate prestazioni consumazione record
+
 > **v1.0.2**
 >	* Migliorata la stampa dei topic
 >   * Aggiunto support per stampa topic in un dato intervallo di tempo

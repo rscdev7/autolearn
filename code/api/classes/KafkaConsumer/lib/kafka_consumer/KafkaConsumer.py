@@ -1,7 +1,7 @@
 """
 @author           	:  rscalia                  \n
 @build-date         :  Thu 15/07/2021           \n
-@last-update        :  Sat 24/07/2021           \n
+@last-update        :  Mon 10/08/2021           \n
 
 Questo componente serve per consumare i record scritti su Kafka
 """
@@ -13,41 +13,43 @@ from ..time_stamp_manager.TimeStampManager  import TimeStampManager
 from ..network_serializer.NetworkSerializer import NetworkSerializer
 import signal
 import json
+from random                                 import randint
 
 class KafkaConsumer (object):
 
 
-    def start (self, pServer:str, pGroupId:str, pOffsetReset:str, pTopics:List[str], pExitTimes:int=2, pInfineFetch:bool=False) -> Union[ None , Exception ]:
+    def start (self, pServer:str, pOffsetReset:str, pTopics:List[str], pWaitSec:int=2, pInfineFetch:bool=False) -> Union[ None , Exception ]:
         """
         Questo metodo configura il Consumatore Kafka
 
         Args:\n
             pServer             (str)                   : host e porta nel formato "host:port"
-            pGroupId            (str)                   : nome del Consumer Group
             pOffsetReset        (str)                   : impostazione offset del Topic
             pTopics             (List[str])             : lista di topic da consumare 
-            pExitTimes          (int | DEF = 2)         : numero di tentativi prima di chiudere il polling in ricerca di nuovi messaggi
-            pInfineFetch        (bool | DEF = False)    : se impostato a True accadrà che il componente cerca messaggi infinitcamente, sovrascrive il parametro pExitTimes
+            pWaitSec            (int | DEF = 2)         : numero secondi di attesa prima di decretare la fine della consumazione dei messaggi dal topic
+
+            pInfineFetch        (bool | DEF = False)    : se impostato a True accadrà che il componente cerca messaggi inifinitamente, sovrascrive il parametro pWaitSec
 
         Returns: \n
-                                ( Union [ None , Exception ]  ) 
+            Union [ None , Exception ]  
 
         Raises: \n
-            Exception                       : Eccezione generica 
+            Exception                       : Eccezione connessione con Kafka 
         """
         if ( hasattr(self, "_consumer") == True):
             self.stop()
 
         self._server:str                    = pServer
-        self._groudId:str                   = pGroupId
         self._offsetSetup:str               = pOffsetReset
         self._topics:List[str]              = pTopics
-        self._exitTimes:int                 = pExitTimes
+        self._waitSec:int                   = pWaitSec
         self._infiniteFetch:bool            = pInfineFetch
         self._retrievedMsg:List[dict]       = []
+
         self._conf:dict                     = { 'bootstrap.servers':    self._server,
-                                                'group.id':             self._groudId,
+                                                'group.id':             str( randint(0,1000000) ),
                                                 'auto.offset.reset':    self._offsetSetup,
+                                                'enable.auto.commit':   False
                                               }
         self._serializer:NetworkSerializer  = NetworkSerializer()
 
@@ -70,13 +72,14 @@ class KafkaConsumer (object):
         """
         try:
             self._consumer.close()
+            del self._consumer
         except Exception as exp:
             return exp
     
 
     def _on_assign (self, pClient:Consumer, pPartitions:List[TopicPartition]) -> None:
         """
-        Imposta l'offset della Partizione a 0
+        Imposta l'offset della Partizione all'inizio
         
         Args:
             pClient         (Consumer)          : consunmatore
@@ -130,26 +133,43 @@ class KafkaConsumer (object):
         signal.signal(signal.SIGINT, self._signal_handler)
 
         #Variabili che gestiscono la Logica del Ciclo
-        fail_counter:int                = 0
+        fail_indicator:bool             = False
+        last_fail_time:int              = 0
         to_fetch:bool                   = True
         self._retrievedMsg:List[dict]   = []
 
         try:
-            while ( fail_counter < self._exitTimes or self._infiniteFetch == True ) and to_fetch == True:
+            while to_fetch == True:
 
                 #Consumo un messaggio ogni 1 secondo
-                msg:object         = self._consumer.poll(timeout=1.0)
+                msg:object                  = self._consumer.poll(timeout=1.0)
 
-                #Se non trovo nulla, incremento il contatore dei fallimenti
-                if msg is None:
-                    fail_counter +=1
+                #Se non trovo nulla, incomincio a contare i secondi prima di uscire dal ciclo
+                if msg is None and fail_indicator == False and self._infiniteFetch == False:
+                    last_fail_time:int      = TimeStampManager.currentTimeStampInSec()
+                    fail_indicator          = True
+                    continue
+                
+                if msg is None and fail_indicator == True and self._infiniteFetch == False:
+                    diff_time:int           = TimeStampManager.currentTimeStampInSec() - last_fail_time 
+                    to_fetch                = True if diff_time < self._waitSec else False
                     continue
 
+
+                #Casi in cui è presente Infinite Fetch
+                if msg is None and self._infiniteFetch == True:
+                    continue
+
+                #Caso Errore
                 if msg.error():
                     raise KafkaException(msg.error())
 
                 else:
+
+                    #Resetto indicatore fail
+                    fail_indicator         = False
                     
+                    #Caso Messaggio Prelevato correttamente
                     timestamp_in_sec:int   = TimeStampManager.timestampMs2Sec( msg.timestamp()[1] )
 
 
