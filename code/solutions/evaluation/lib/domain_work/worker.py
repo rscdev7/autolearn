@@ -333,14 +333,14 @@ def ev_model (pModelType:str , pModelImpl:object , pDatasetInfo:dict , pDataPath
             dataset:Union[ object , Exception]          = load_iris(seed , split_test , logger)
             if ExceptionManager.lookForExceptions(dataset):
                 logger.error("[ REST-API @ ev_model] Errore nel caricamento del dataset Iris \n-> Causa: {}".format( str( dataset ) ) )
-                return
+                return "data_load_error"
             
         elif choosen_dataset == "Height-Weight Dataset":
             dataset:HeightWeightDataset                 = load_height_weight(pDataPath['height_weight_dataset'] , seed , split_test , logger)
             
             if ExceptionManager.lookForExceptions(dataset):
                 logger.error("[ REST-API @ ev_model] Errore nel caricamento del dataset Height-Weight \n-> Causa: {}".format( str( dataset ) ) )
-                return
+                return "data_load_error"
 
         else:
             raise ValueError("[ REST-API @ ev_model] Il dataset scelto non è presente nel Catalogo")
