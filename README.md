@@ -174,17 +174,26 @@ Comandi Installazione Ambiente, Interprete e Librerie:
         
         
 ## ISTRUZIONI PER ESEGUIRE IL PROGETTO
+
+#### BACKEND - SISTEMI UNIX
+
 1. Installare *Docker* e *docker-compose* sul proprio Sistema
 2. Impostare le Variabili d'Ambiente modificando opportunamente il file 
         
         $REPO_DIR/docker/production_env/.env
 
+   In particolar modo, è necessario modificare i *path ai Volumi* dei Container.
+
+   Inoltre, può essere di utilità modificare le seguenti ulteriori variabili d'ambiente:
+        1) *Porte Servizi* (tutte le variabili che contengono il token "PORT")
+        2) *WEB_SERVER_WORKERS*, numero di worker per il Web Server 
+        -------------------------------------------------------------------------------------------------
 
    **[OSSERVAZIONE]** 
    Le carelle dell'Event-Store e del Config-Service devono essere assegnate ad un utente specifico; per fare ciò, eseguire i seguenti comandi:
 
-                sudo chown -R 1001:1001 $EVENT_STORE_DATA_LAKE
-                sudo chown -R 1001:1001 $CONFIG_SERVICE_DATA_LAKE
+                sudo chown -R 1001:1001 ($EVENT_STORE_DATA_PATH)
+                sudo chown -R 1001:1001 ($CONFIG_SERVICE_DATA_PATH)
 
 
 3. Avviare l'Event-Store:
@@ -224,13 +233,30 @@ Comandi Installazione Ambiente, Interprete e Librerie:
         docker-compose up -d
 
 
-9. Avviare il Frontend: 
+#### FRONTEND
+1. All'interno della cartella del client dell'applicativo, modificare le porte dei servizi in base a quelle scelte al punto **2** delle istruzioni per inizializzare il *Backend*.
+
+    Per fare ciò, sarà necessario modificare il file:
+
+        $CLIENT_APP_DIR/config/cfg.conf
+
+    in modo tale da inserire le suddette porte.
+
+    Per tanto, sarà necessario modificare tutte le variabili del tipo 
+        
+        (SERVICE__NAME)_BASE_ADDRESS = http://localhost:$PORT/(SERVICE_NAME)/api
+
+    con le porte scelte al punto **2**.
+<br /> 
+
+2. Avviare il Frontend: 
 
         cd $CLIENT_APP_DIR
 
         conda activate autolearn_client_env
 
         python3 autolearn_client.py
+
 
 ## ISTRUZIONI PER AVVIARE LA CONSOLE DI AMMINISTRAZIONE DEL SISTEMA
 1. A Sistema Avviato, aprire una shell da un Host *interno* alla Network dei Container
