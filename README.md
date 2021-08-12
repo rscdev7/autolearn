@@ -32,7 +32,7 @@ Machine Learning.
 - Tutti i dati degli Esperimenti Passati saranno archiviati in una base di dati opportuna
 - **Formato**
 
-     - *TIMESTAMP_COMMIT_SESSIONE*
+     - *TIMESTAMP_EXPERIMENT_BUILD*
      - *DATI_ESPERIMENTI*
           - *Train*
           - *Eval*
@@ -40,7 +40,7 @@ Machine Learning.
 - Tutti i dati di Sessione saranno archiviati in una base di dati opportuna
 - **Formato**
 
-    - *TIMESTAMP_SESSION_BUILD*
+    - *TIMESTAMP_EXPERIMENT_BUILD*
     - *DATI_ESPERIMENTI*
       - *Train*
       - *Eval*
