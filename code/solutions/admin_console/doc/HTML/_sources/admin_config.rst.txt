@@ -1,0 +1,13 @@
+.. toctree::
+   :maxdepth: 4
+
+
+AdminConfig
+-------------------------
+
+.. automodule:: admin_console.lib.admin_config.AdminConfig
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__

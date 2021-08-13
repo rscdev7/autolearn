@@ -1,0 +1,22 @@
+Benvenuto nella Documentazione di admin_console
+======================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Moduli
+
+
+   kafka_consumer
+   network_serializer
+   time_stamp_manager
+   admin_config
+   exception_manager
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
