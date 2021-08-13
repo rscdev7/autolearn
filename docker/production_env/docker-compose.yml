@@ -1,0 +1,240 @@
+version: '3'
+services:
+
+    config_service:
+        image: 'bitnami/zookeeper:latest'
+        hostname: zookeeper
+        container_name: zookeeper
+        restart: always
+        environment:
+            - ALLOW_ANONYMOUS_LOGIN=yes
+        volumes:
+            - ${CONFIG_SERVICE_DATA_LAKE}:/bitnami/zookeeper
+
+
+    event_store:
+        image: 'bitnami/kafka:latest'
+        hostname: kafka
+        container_name: kafka
+        restart: always
+        depends_on:
+            - config_service
+        environment:
+            - KAFKA_BROKER_ID=1
+            - KAFKA_INTER_BROKER_LISTENER_NAME=CLIENT
+            - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+            - ALLOW_PLAINTEXT_LISTENER=yes
+            - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CLIENT:PLAINTEXT
+            - KAFKA_CFG_LISTENERS=CLIENT://:9092
+            - KAFKA_CFG_ADVERTISED_LISTENERS=CLIENT://kafka:9092            
+        volumes:
+            - ${EVENT_STORE_DATA_LAKE}:/bitnami/kafka
+
+
+    broker:
+        image: rabbitmq:3-management
+        hostname: rabbitmq
+        container_name: rabbitmq
+        restart: always
+        ports:
+            - ${BROKER_PORT_DASHBOARD}:15672
+        volumes:
+            - ${BROKER_DATA}:/var/lib/rabbitmq
+            - ${BROKER_LOGS}:/var/log/rabbitmq/log
+
+
+    storage_db:
+        image: mongo
+        container_name: storage_db
+        hostname: storage_db
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: ${STORAGE_DB_USERNAME}
+            MONGO_INITDB_ROOT_PASSWORD: ${STORAGE_DB_PASSWORD}
+        volumes:
+            - ${STORAGE_DB_DATA}:/data/db
+            - ${STORAGE_DB_CONF}:/data/configdb
+
+    
+    session_db:
+        image: mongo
+        container_name: session_db
+        hostname: session_db
+        restart: always
+        command: mongod --port ${SESSION_DB_PORT}
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: ${SESSION_DB_USERNAME}
+            MONGO_INITDB_ROOT_PASSWORD: ${SESSION_DB_PASSWORD}
+        volumes:
+            - ${SESSION_DB_DATA}:/data/db
+            - ${SESSION_DB_CONF}:/data/configdb
+
+
+    storage_db_dashboard:
+        image: mongo-express
+        restart: always
+        container_name: storage_db_dashboard
+        hostname: storage_db_dashboard
+        environment:
+            ME_CONFIG_MONGODB_ADMINUSERNAME: root
+            ME_CONFIG_MONGODB_ADMINPASSWORD: example
+            ME_CONFIG_MONGODB_SERVER: storage_db
+        ports:
+            - "${STORAGE_DB_DASHBOARD_PORT}:8081"
+
+
+    session_db_dashboard:
+        image: mongo-express
+        restart: always
+        container_name: session_db_dashboard
+        hostname: session_db_dashboard
+        environment:
+            ME_CONFIG_MONGODB_ADMINUSERNAME: root
+            ME_CONFIG_MONGODB_ADMINPASSWORD: example
+            ME_CONFIG_MONGODB_SERVER: session_db
+            ME_CONFIG_MONGODB_PORT: ${SESSION_DB_PORT}
+        ports:
+            - "${SESSION_DB_DASHBOARD_PORT}:8081"
+
+            
+    training:
+        image: py:sw_eng
+        container_name: training
+        hostname: training
+        restart: always
+        depends_on:
+            - broker
+            - event_store
+        command: sh -c "sleep 20 && cd /workspace/code/training/ && ./exec.sh"
+        environment:
+            SERVER_PORT: ${TRAINING_SERVICE_PORT}
+            HOST_NAME: training
+            WEB_SERVER_WORKERS: ${WEB_SERVER_WORKERS}
+            BROKER_LOGIN_TOKEN: ${BROKER_LOGIN_TOKEN}
+            EVENT_STORE_HOST_NAME: ${EVENT_STORE_HOST_NAME}
+            EVENT_STORE_PORT: ${EVENT_STORE_PORT}
+        ports:
+            - ${TRAINING_SERVICE_PORT}:${TRAINING_SERVICE_PORT}
+        volumes:
+            - ${TRAINING_CODE_LAKE}:/workspace/code
+            - ${TRAINING_DATA_LAKE}:/workspace/data
+
+
+    evaluation:
+        image: py:sw_eng
+        container_name: evaluation
+        hostname: evaluation
+        restart: always
+        depends_on:
+            - broker
+            - event_store
+        command: sh -c "sleep 20 && cd /workspace/code/evaluation/ && ./exec.sh"
+        environment:
+            SERVER_PORT: ${EVALUATION_SERVICE_PORT}
+            HOST_NAME: evaluation
+            WEB_SERVER_WORKERS: ${WEB_SERVER_WORKERS}
+            BROKER_LOGIN_TOKEN: ${BROKER_LOGIN_TOKEN}
+            EVENT_STORE_HOST_NAME: ${EVENT_STORE_HOST_NAME}
+            EVENT_STORE_PORT: ${EVENT_STORE_PORT}
+        ports:
+            - ${EVALUATION_SERVICE_PORT}:${EVALUATION_SERVICE_PORT}
+        volumes:
+            - ${EVALUATION_CODE_LAKE}:/workspace/code
+            - ${EVALUATION_DATA_LAKE}:/workspace/data
+
+
+    session:
+        image: py:sw_eng
+        container_name: session
+        hostname: session
+        restart: always
+        depends_on:
+            - broker
+            - event_store
+            - session_db
+        command: sh -c "sleep 20 && cd /workspace/code/session/ && ./exec.sh"
+        environment:
+            SERVER_PORT: ${SESSION_SERVICE_PORT}
+            HOST_NAME: session
+            WEB_SERVER_WORKERS: ${WEB_SERVER_WORKERS}
+            SESSION_DB_HOST_NAME: ${SESSION_DB_HOST_NAME}
+            SESSION_DB_PORT: ${SESSION_DB_PORT}
+            SESSION_DB_USERNAME: ${SESSION_DB_USERNAME}
+            SESSION_DB_PASSWORD: ${SESSION_DB_PASSWORD}
+            BROKER_LOGIN_TOKEN: ${BROKER_LOGIN_TOKEN}
+            EVENT_STORE_HOST_NAME: ${EVENT_STORE_HOST_NAME}
+            EVENT_STORE_PORT: ${EVENT_STORE_PORT}
+        ports:
+            - ${SESSION_SERVICE_PORT}:${SESSION_SERVICE_PORT}
+        volumes:
+            - ${SESSION_CODE_LAKE}:/workspace/code
+            - ${SESSION_DATA_LAKE}:/workspace/data
+
+
+    storage:
+        image: py:sw_eng
+        container_name: storage
+        hostname: storage
+        restart: always
+        depends_on:
+            - broker
+            - event_store
+            - storage_db
+        command: sh -c "sleep 20 && cd /workspace/code/storage/ && ./exec.sh"
+        environment:
+            SERVER_PORT: ${STORAGE_SERVICE_PORT}
+            HOST_NAME: storage
+            WEB_SERVER_WORKERS: ${WEB_SERVER_WORKERS}
+            STORAGE_DB_HOST_NAME: ${STORAGE_DB_HOST_NAME}
+            STORAGE_DB_PORT: ${STORAGE_DB_PORT}
+            STORAGE_DB_USERNAME: ${STORAGE_DB_USERNAME}
+            STORAGE_DB_PASSWORD: ${STORAGE_DB_PASSWORD}
+            BROKER_LOGIN_TOKEN: ${BROKER_LOGIN_TOKEN}
+            EVENT_STORE_HOST_NAME: ${EVENT_STORE_HOST_NAME}
+            EVENT_STORE_PORT: ${EVENT_STORE_PORT}
+        ports:
+            - ${STORAGE_SERVICE_PORT}:${STORAGE_SERVICE_PORT}
+        volumes:
+            - ${STORAGE_CODE_LAKE}:/workspace/code
+            - ${STORAGE_DATA_LAKE}:/workspace/data
+
+
+    catalog:
+        image: py:sw_eng
+        container_name: catalog
+        hostname: catalog
+        restart: always
+        depends_on:
+            - event_store
+        command: sh -c "cd /workspace/code/catalog/ && ./exec.sh"
+        environment:
+            SERVER_PORT: ${CATALOG_SERVICE_PORT}
+            HOST_NAME: catalog
+            WEB_SERVER_WORKERS: ${WEB_SERVER_WORKERS}
+            EVENT_STORE_HOST_NAME: ${EVENT_STORE_HOST_NAME}
+            EVENT_STORE_PORT: ${EVENT_STORE_PORT}
+        ports:
+            - ${CATALOG_SERVICE_PORT}:${CATALOG_SERVICE_PORT}
+        volumes:
+            - ${CATALOG_CODE_LAKE}:/workspace/code
+            - ${CATALOG_DATA_LAKE}:/workspace/data
+
+      
+    admin:
+        image: py:sw_eng
+        container_name: admin
+        hostname: admin
+        restart: always
+        depends_on:
+            - event_store
+        command: sh -c "cd /workspace/code/admin_console/ && ./admin_console_start.sh"
+        tty: true
+        stdin_open: true
+        environment:
+            SERVER_PORT: ${ADMIN_SERVICE_PORT}
+            HOST_NAME: admin
+            EVENT_STORE_HOST_NAME: ${EVENT_STORE_HOST_NAME}
+            EVENT_STORE_PORT: ${EVENT_STORE_PORT}
+        volumes:
+            - ${ADMIN_CODE_LAKE}:/workspace/code
+            - ${ADMIN_DATA_LAKE}:/workspace/data
