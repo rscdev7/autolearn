@@ -266,7 +266,7 @@ Comandi Installazione Ambiente, Interprete e Librerie:
 
 
 ## DEMO
-![Alt -> Demo](./demo/img_1.jpg)
+![Alt -> Demo](./demo/demo.gif)
 
 ------------------------------------------------------------------------------------------
 ## STRATEGIA DI BRANCHING
