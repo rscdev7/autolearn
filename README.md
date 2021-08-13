@@ -267,8 +267,13 @@ Comandi Installazione Ambiente, Interprete e Librerie:
         docker attach admin
 
 
-## DEMO
+## DEMO 
+
+#### APPLICAZIONE
 ![Alt -> Demo](./demo/demo.gif)
+
+#### ADMIN CONSOLE
+![Alt -> Admin Console](./demo/admin_console_demo.gif)
 
 ------------------------------------------------------------------------------------------
 ## STRATEGIA DI BRANCHING
