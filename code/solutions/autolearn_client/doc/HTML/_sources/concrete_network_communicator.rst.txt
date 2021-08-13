@@ -1,0 +1,13 @@
+.. toctree::
+   :maxdepth: 4
+
+
+AsyncHTTPCommunicator
+-------------------------
+
+.. automodule:: autolearn_client.lib.concrete_network_communicator.AsyncHTTPCommunicator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__

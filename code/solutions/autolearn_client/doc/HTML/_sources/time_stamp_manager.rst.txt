@@ -1,0 +1,13 @@
+.. toctree::
+   :maxdepth: 4
+
+
+TimeStampManager
+-------------------------
+
+.. automodule:: autolearn_client.lib.time_stamp_manager.TimeStampManager
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__

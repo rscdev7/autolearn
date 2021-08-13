@@ -1,0 +1,13 @@
+.. toctree::
+   :maxdepth: 4
+
+
+NetworkCommunicator
+-------------------------
+
+.. automodule:: autolearn_client.lib.abstract_network_communicator.NetworkCommunicator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__

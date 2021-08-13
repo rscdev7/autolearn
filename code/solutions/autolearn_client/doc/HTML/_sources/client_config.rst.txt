@@ -1,0 +1,13 @@
+.. toctree::
+   :maxdepth: 4
+
+
+ClientConfigurator
+-------------------------
+
+.. automodule:: autolearn_client.lib.client_config.ClientConfigurator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__

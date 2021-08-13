@@ -1,0 +1,13 @@
+.. toctree::
+   :maxdepth: 4
+
+
+training_wizard
+-------------------------
+
+.. automodule:: autolearn_client.lib.train_request_wizard.training_wizard
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__

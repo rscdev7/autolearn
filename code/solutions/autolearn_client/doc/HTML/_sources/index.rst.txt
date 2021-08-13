@@ -1,0 +1,27 @@
+Benvenuto nella Documentazione di autolearn_client
+======================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Moduli
+
+
+   abstract_network_communicator
+   concrete_network_communicator
+   exception_manager
+   http_engine
+   network_serializer
+   async_input
+   client_config
+   local_ml_engine
+   time_stamp_manager
+   train_request_wizard
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

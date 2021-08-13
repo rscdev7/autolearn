@@ -1,0 +1,13 @@
+.. toctree::
+   :maxdepth: 4
+
+
+LocalMLEngine
+-------------------------
+
+.. automodule:: autolearn_client.lib.local_ml_engine.LocalMLEngine
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :special-members:
+   :exclude-members: __parameters__, __module__, __dict__, __weakref__

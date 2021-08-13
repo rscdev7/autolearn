@@ -1,0 +1,394 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="it" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>LocalMLEngine &mdash; autolearn_client 1.0.0 documentazione</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Cerca" href="search.html" />
+    <link rel="next" title="TimeStampManager" href="time_stamp_manager.html" />
+    <link rel="prev" title="ClientConfigurator" href="client_config.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> autolearn_client
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Moduli</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="abstract_network_communicator.html">NetworkCommunicator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete_network_communicator.html">AsyncHTTPCommunicator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception_manager.html">ExceptionManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_engine.html">HTTPEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http_engine.html#module-autolearn_client.lib.http_engine.HTTPError">HTTPError</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_serializer.html">NetworkSerializer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="async_input.html">async_input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client_config.html">ClientConfigurator</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">LocalMLEngine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="time_stamp_manager.html">TimeStampManager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="train_request_wizard.html">training_wizard</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">autolearn_client</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>LocalMLEngine</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/local_ml_engine.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="module-autolearn_client.lib.local_ml_engine.LocalMLEngine">
+<span id="localmlengine"></span><h1>LocalMLEngine<a class="headerlink" href="#module-autolearn_client.lib.local_ml_engine.LocalMLEngine" title="Link a questa intestazione">¶</a></h1>
+<p>&#64;author                     :  rscalia</p>
+<p>&#64;build-date             :  Thu 12/08/2021</p>
+<p>&#64;last-update            :  Fri 13/08/2021</p>
+<p>Questo componente rappresenta l’implementazione di un Remote Proxy (e di un Forwarder del DP Forwarder-Receiver) atto a fornire al client un’interfaccia «locale» per gestire gli esperimenti di ML.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="autolearn_client.lib.local_ml_engine.LocalMLEngine.LocalMLEngine">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">autolearn_client.lib.local_ml_engine.LocalMLEngine.</span></span><span class="sig-name descname"><span class="pre">LocalMLEngine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pCfg</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="client_config.html#autolearn_client.lib.client_config.ClientConfigurator.ClientConfigurator" title="autolearn_client.lib.client_config.ClientConfigurator.ClientConfigurator"><span class="pre">autolearn_client.lib.client_config.ClientConfigurator.ClientConfigurator</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#autolearn_client.lib.local_ml_engine.LocalMLEngine.LocalMLEngine" title="Link a questa definizione">¶</a></dt>
+<dd><blockquote>
+<div><p>Basi: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="autolearn_client.lib.local_ml_engine.LocalMLEngine.LocalMLEngine.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pCfg</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="client_config.html#autolearn_client.lib.client_config.ClientConfigurator.ClientConfigurator" title="autolearn_client.lib.client_config.ClientConfigurator.ClientConfigurator"><span class="pre">autolearn_client.lib.client_config.ClientConfigurator.ClientConfigurator</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">object</span><a class="headerlink" href="#autolearn_client.lib.local_ml_engine.LocalMLEngine.LocalMLEngine.__init__" title="Link a questa definizione">¶</a></dt>
+<dd><p>Costruttore</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pCfg</strong> (<a class="reference internal" href="client_config.html#autolearn_client.lib.client_config.ClientConfigurator.ClientConfigurator" title="autolearn_client.lib.client_config.ClientConfigurator.ClientConfigurator"><em>ClientConfigurator</em></a>) – configurazione applicativo</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autolearn_client.lib.local_ml_engine.LocalMLEngine.LocalMLEngine.decryptRecordIdSess">
+<span class="sig-name descname"><span class="pre">decryptRecordIdSess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pRecord</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#autolearn_client.lib.local_ml_engine.LocalMLEngine.LocalMLEngine.decryptRecordIdSess" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di decifrare un’id di sessione presente in un record del DB Session</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pRecord</strong> (<em>dict</em>) – record di sessione</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ dict , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante la decifratura</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autolearn_client.lib.local_ml_engine.LocalMLEngine.LocalMLEngine.evaluateMLModel">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">evaluateMLModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pSessID</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">,</span> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#autolearn_client.lib.local_ml_engine.LocalMLEngine.LocalMLEngine.evaluateMLModel" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di valutare un Modello di ML precedentemente addestrato.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pSessID</strong> (<em>int</em>) – ID di Sessione del Modello di ML.</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ str , Exception , dict ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante l’evaluation del Modello di ML</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autolearn_client.lib.local_ml_engine.LocalMLEngine.LocalMLEngine.getCatalog">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">getCatalog</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#autolearn_client.lib.local_ml_engine.LocalMLEngine.LocalMLEngine.getCatalog" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di prelevare il catalogo contenente la Lista dei Dataset e Modelli (comprensivi di settaggi) disponibili per l’applicativo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>Union [ dict , Exception ]</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – eccezione durante il prelievo del catalogo</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autolearn_client.lib.local_ml_engine.LocalMLEngine.LocalMLEngine.saveSession">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">saveSession</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pSessID</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">,</span> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#autolearn_client.lib.local_ml_engine.LocalMLEngine.LocalMLEngine.saveSession" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di salvare una sessione nello storage permanente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pSessID</strong> (<em>int</em>) – ID della Sessione che si vuole Salvare.</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ str , Exception , dict ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante il salvataggio della Sessione</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autolearn_client.lib.local_ml_engine.LocalMLEngine.LocalMLEngine.start">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#autolearn_client.lib.local_ml_engine.LocalMLEngine.LocalMLEngine.start" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di effettuare lo start del communicator del LocalMLEngine</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pParams</strong> (<em>dict | DEF = None</em>) – eventuali parametri di start</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ None , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – errore nello start del LocalMLEngine</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autolearn_client.lib.local_ml_engine.LocalMLEngine.LocalMLEngine.stop">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#autolearn_client.lib.local_ml_engine.LocalMLEngine.LocalMLEngine.stop" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di effettuare lo stop del communicator del LocalMLEngine</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pParams</strong> (<em>dict | DEF = None</em>) – eventuali parametri di stop</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ None , Exception ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – errore nello stop del LocalMLEngine</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autolearn_client.lib.local_ml_engine.LocalMLEngine.LocalMLEngine.trainMLModel">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">trainMLModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pTrainParams</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">,</span> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#autolearn_client.lib.local_ml_engine.LocalMLEngine.LocalMLEngine.trainMLModel" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di addestrare un Modello di Machine Learning</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parametri</dt>
+<dd class="field-odd"><p><strong>pTrainParams</strong> (<em>dict</em>) – <p>parametri di training.</p>
+<p>Per il formato del dizionario, vedere la documentazione del Baclend</p>
+</p>
+</dd>
+<dt class="field-even">Ritorna</dt>
+<dd class="field-even"><p>Union [ str , Exception , dict ]</p>
+</dd>
+<dt class="field-odd">Solleva</dt>
+<dd class="field-odd"><p><strong>Exception</strong> – eccezione durante il training del Modello di ML</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autolearn_client.lib.local_ml_engine.LocalMLEngine.LocalMLEngine.viewExperiments">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">viewExperiments</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#autolearn_client.lib.local_ml_engine.LocalMLEngine.LocalMLEngine.viewExperiments" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di visualizzare gli esperimenti effettuati in passato</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>Union [ dict , Exception ]</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – eccezione durante la query in merito ai dati degli esperimenti</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autolearn_client.lib.local_ml_engine.LocalMLEngine.LocalMLEngine.viewSessionData">
+<em class="property"><span class="pre">async</span> </em><span class="sig-name descname"><span class="pre">viewSessionData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">,</span> </span><span class="pre">Exception</span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#autolearn_client.lib.local_ml_engine.LocalMLEngine.LocalMLEngine.viewSessionData" title="Link a questa definizione">¶</a></dt>
+<dd><p>Questo metodo permette di visualizzare i dati di sessione dell’applicativo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Ritorna</dt>
+<dd class="field-odd"><p>Union [ dict , Exception ]</p>
+</dd>
+<dt class="field-even">Solleva</dt>
+<dd class="field-even"><p><strong>Exception</strong> – eccezione durante la query in merito ai dati di sessione</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="time_stamp_manager.html" class="btn btn-neutral float-right" title="TimeStampManager" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="client_config.html" class="btn btn-neutral float-left" title="ClientConfigurator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Rosario Scalia.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
