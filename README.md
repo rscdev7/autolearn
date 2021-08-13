@@ -186,9 +186,10 @@ Comandi Installazione Ambiente, Interprete e Librerie:
 
    Inoltre, può essere di utilità modificare le seguenti ulteriori variabili d'ambiente:
    
-   - *Porte Servizi* (tutte le variabili che contengono il token "PORT")
-   - *WEB_SERVER_WORKERS*, numero di worker per il Web Server 
-        -------------------------------------------------------------------------------------------------
+        - Porte Servizi (tutte le variabili che contengono il token "PORT")
+        - WEB_SERVER_WORKERS, numero di worker per il Web Server 
+
+-------------------------------------------------------------------------------------------------
 
    **[OSSERVAZIONE]** 
    Le carelle dell'Event-Store e del Config-Service devono essere assegnate ad un utente specifico; per fare ciò, eseguire i seguenti comandi:
