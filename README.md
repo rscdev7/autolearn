@@ -21,7 +21,7 @@ Machine Learning.
 
 ### *[DASHBOARD-PIPELINE]*
 >- Visualizza Log Esperimenti di Sessione 
->- Visualizzazione Log Esperimenti Passati 
+>- Visualizzazione Log Esperimenti Storage Permanente 
 
 ### *[ADMIN-PIPELINE]*
 >- Visualizza Log Comportamentale di un Singolo Microservizio in ordine cronologico
@@ -185,8 +185,9 @@ Comandi Installazione Ambiente, Interprete e Librerie:
    In particolar modo, è necessario modificare i *path ai Volumi* dei Container.
 
    Inoltre, può essere di utilità modificare le seguenti ulteriori variabili d'ambiente:
-        1) *Porte Servizi* (tutte le variabili che contengono il token "PORT")
-        2) *WEB_SERVER_WORKERS*, numero di worker per il Web Server 
+   
+   - *Porte Servizi* (tutte le variabili che contengono il token "PORT")
+   - *WEB_SERVER_WORKERS*, numero di worker per il Web Server 
         -------------------------------------------------------------------------------------------------
 
    **[OSSERVAZIONE]** 
